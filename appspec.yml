@@ -6,11 +6,11 @@ files:
 
 hooks:
   ApplicationStop:
-    - location: scripts/stop.sh
+    - location: script/stop.sh
       runas: root
   AfterInstall:
-    - location: scripts/initialize.sh
+    - location: script/initialize.sh
       runas: root
   ApplicationStart:
-    - location: scripts/start.sh
+    - location: script/start.sh
       runas: root
