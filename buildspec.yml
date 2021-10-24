@@ -3,7 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - cd client
+      - cd server
       - npm install
   build:
     commands:
@@ -11,5 +11,5 @@ phases:
 
 artifacts:
   files:
-    - '**/*'
-  base-directory: client/build
+    - appspec.yml
+  base-directory: server/build
