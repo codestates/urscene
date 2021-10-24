@@ -12,4 +12,4 @@ phases:
 artifacts:
   files:
     - "**/*"
-  base-directory: server/script
+  base-directory: server
