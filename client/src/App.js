@@ -12,11 +12,15 @@ import Makepost from "./pages/Makepost.js";
 import Post from "./pages/Post.js";
 import Gallery from "./pages/Gallery.js";
 import Mygallery from "./pages/Mygallery.js";
+import Landing from "./pages/Landing.js";
 
 function App() {
   return (
     <div className="App">
       <Switch>
+        <Route exact path="/">
+          <Landing />
+        </Route>
         <Route path="/main">
           <Main />
         </Route>
