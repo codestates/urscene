@@ -1,0 +1,847 @@
+.App {
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* 사파리에서 폰트가 못생겨보임 - 해결못함 */
+  font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo", apple sd gothic neo;
+  height: 100%;
+  margin: 0;
+}
+
+@media only screen and (min-width: 769px) {
+  /* PC */
+  .mainNav {
+    height: 104px;
+    background-color: #070e27;
+    width: 100vw;
+    margin-top: 0px;
+  }
+
+  .mainNav-group {
+    width: 300px;
+    height: 32px;
+    padding-top: 36px;
+    padding-left: 80px;
+  }
+
+  .mainNav-group-logo {
+    float: left;
+    width: 32px;
+    height: 32px;
+    background: url("");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .mainNav-group-title {
+    float: left;
+    width: 114px;
+    height: 32px;
+    margin-left: 12px;
+    font-family: Sora;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    /* identical to box height, or 140%  */
+    letter-spacing: -0.02em;
+    color: #ffffff;
+  }
+
+  /* mainFooter */
+  .mainFooter {
+    position: relative;
+    width: 414px;
+    height: 184px;
+    /* left: 0px;
+    top: 0px; */
+    /* Dark */
+    background: #0a142f;
+  }
+
+  .mF-UI {
+    position: absolute;
+    width: 207px;
+    height: 54px;
+    margin-left: 67px;
+    margin-top: 36px;
+  }
+
+  .mF-UI-content {
+    position: absolute;
+    height: 20px;
+    /* margin-left: 16.18%; */
+    /* margin-right: 63.04%; */
+    /* top: calc(50% - 20px / 2 - 46px); */
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* White */
+    color: #ffffff;
+  }
+
+  .mF-UI-group {
+    position: absolute;
+    /* left: 16.18%; */
+    /* right: 33.82%; */
+    /* top: 34.78%; */
+    margin-top: 41px;
+    margin-bottom: 51.09%;
+  }
+
+  .mF-UI-group-content {
+    position: absolute;
+    height: 18px;
+    left: 0%;
+    right: 46.82%;
+    margin-top: calc(50% - 18px / 2);
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 14px;
+    /* White */
+    color: #ffffff;
+    mix-blend-mode: normal;
+    opacity: 0.7;
+
+    width: 110.09px;
+  }
+
+  .mF-contact {
+    position: absolute;
+    left: 46.86%;
+    right: 0%;
+    top: 19.57%;
+    bottom: 26.09%;
+  }
+
+  .mF-contact-title {
+    position: absolute;
+    height: 30px;
+    left: 0%;
+    right: 4.55%;
+    top: calc(50% - 30px / 2 - 35px);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* White */
+    color: #ffffff;
+  }
+
+  .mF-contact-Front {
+    position: absolute;
+    left: 0%;
+    right: 12.27%;
+    top: 30%;
+    bottom: 52%;
+  }
+
+  .mF-contact-Front-title {
+    position: absolute;
+    height: 14px;
+    left: 0%;
+    right: 84.97%;
+    top: calc(50% - 14px / 2 - 2px);
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    /* White */
+    color: #ffffff;
+    mix-blend-mode: normal;
+    opacity: 0.7;
+  }
+
+  .mF-contact-Front-name1 {
+    position: absolute;
+    height: 14px;
+    left: 30.05%;
+    right: 52.33%;
+    top: calc(50% - 14px / 2 - 2px);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    /* White */
+    color: #ffffff;
+  }
+
+  .mF-contact-Front-name2 {
+    position: absolute;
+    height: 14px;
+    left: 55.96%;
+    right: 26.42%;
+    top: calc(50% - 14px / 2 - 2px);
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    /* White */
+    color: #ffffff;
+  }
+
+  .mF-contact-Backtitle {
+    position: absolute;
+    height: 14px;
+    left: 0%;
+    right: 87.73%;
+    top: calc(50% - 14px / 2 + 17px);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    /* White */
+    color: #ffffff;
+    mix-blend-mode: normal;
+    opacity: 0.7;
+  }
+
+  .mF-contact-Backname1 {
+    position: absolute;
+    height: 14px;
+    left: 26.36%;
+    right: 58.18%;
+    top: calc(50% - 14px / 2 + 17px);
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    /* White */
+    color: #ffffff;
+  }
+
+  .mF-contact-Backname2 {
+    position: absolute;
+    height: 14px;
+    left: 49.09%;
+    right: 35.45%;
+    top: calc(50% - 14px / 2 + 17px);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+    /* White */
+    color: #ffffff;
+  }
+
+  .mf-divider {
+    position: absolute;
+    height: 1px;
+    left: 13.77%;
+    right: 13.77%;
+    top: calc(50% - 1px / 2 + 34.5px);
+    /* White */
+    background: #ffffff;
+    mix-blend-mode: normal;
+    opacity: 0.15;
+    /* White */
+    border: 1px solid #ffffff;
+  }
+
+  /* .mF-footer1 {
+    position: absolute;
+    width: 95px;
+    height: 19px;
+    margin-left: 58px;
+    margin-top: 143px;
+  } */
+
+  .mF-footer-logo {
+    position: absolute;
+    left: 14.01%;
+    right: 80.92%;
+    top: 77.72%;
+    bottom: 11.96%;
+    /* Blue/Blue 600 */
+    background-color: #0059f7;
+    background: url("");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .mF-footer-title {
+    position: absolute;
+    height: 16px;
+    left: 20.53%;
+    right: 63.04%;
+    top: calc(50% - 16px / 2 + 61px);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    /* White */
+    color: #ffffff;
+  }
+
+  .mF-footer2 {
+    position: absolute;
+    height: 11px;
+    left: 46.62%;
+    right: 13.77%;
+    top: calc(50% - 11px / 2 + 61.5px);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 5px;
+    line-height: 11px;
+    /* identical to box height */
+    text-align: left;
+    /* White */
+    color: #ffffff;
+    mix-blend-mode: normal;
+    opacity: 0.75;
+    width: 200px;
+    letter-spacing: -0.3px;
+  }
+
+  /* Login Page */
+  .login {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    left: 0px;
+    /* top: 104px; */
+    top: 104px;
+    background: #070e27;
+    text-align: center;
+  }
+  .loginwrap {
+    margin: 43px auto;
+    width: 840px;
+    height: auto;
+    /* margin-top: 43px; */
+    text-align: center;
+  }
+
+  .lin-title {
+    display: inline-block;
+    width: 100px;
+    height: 42px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    /* line-height: 42px; */
+    padding: 3px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  /* Login 페이지 이메일 그룹 */
+  .lin-email {
+    margin-top: 68px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 114px;
+  }
+
+  .lin-email-title {
+    width: 400px;
+    height: 20px;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    /* identical to box height */
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .lin-email-input {
+    width: 400px;
+    height: 60px;
+    margin-top: 8px;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 26px;
+    /* identical to box height */
+    padding-left: 16px;
+    color: #000000;
+  }
+
+  .lin-email-warning {
+    width: 360px;
+    height: 18px;
+    margin-top: 8px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #ff7171;
+    text-align: left;
+  }
+
+  /* Login 페이지 비밀번호 그룹 */
+  .lin-password {
+    width: 400px;
+    height: 114px;
+    margin-top: 44px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lin-password-title {
+    width: 400px;
+    height: 20px;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    /* identical to box height */
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .lin-password-input {
+    width: 400px;
+    height: 60px;
+    margin-top: 8px;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 26px;
+    /* identical to box height */
+    padding-left: 16px;
+    color: #000000;
+  }
+
+  .lin-password-warning {
+    width: 360px;
+    height: 18px;
+    margin-top: 8px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #ff7171;
+    text-align: left;
+  }
+
+  /* Login page - 로그인 버튼 */
+  #lin-btnLogin {
+    width: 400px;
+    height: 56px;
+    margin-top: 87px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #0059f7;
+    border-radius: 8px;
+    padding: 0px;
+    border: 0px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height, or 133% */
+    color: #ffffff;
+
+    cursor: pointer;
+  }
+
+  .lin-signup {
+    width: 400px;
+    height: 60px;
+    margin-top: 87px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 22px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+
+    /* identical to box height, or 150% */
+    text-decoration-line: underline;
+    color: #ffffff;
+  }
+
+  .lin-signup-text {
+    width: 58px;
+    height: 24px;
+    cursor: pointer;
+    margin: 0px auto;
+  }
+
+  .lin-divider {
+    width: 400px;
+    height: 0px;
+    border: 1px solid #3a456f;
+    margin: 20px auto 0px auto;
+  }
+
+  /* Login page - 소셜 로그인 버튼 */
+  .lin-kakao {
+    width: 400px;
+    height: 61px;
+    background-color: #ffe64d;
+    border-radius: 6px;
+    margin: 41px auto 0px auto;
+    padding: 0px;
+    border-width: 0px;
+    cursor: pointer;
+  }
+
+  .lin-kakao-logo {
+    float: left;
+    width: 40px;
+    height: 40px;
+    background: url();
+    color: black;
+    margin: 10.5px 0px 10.5px 7px;
+  }
+
+  .lin-kakao-text {
+    float: left;
+    width: 120px;
+    height: 26px;
+    margin: 17.5px 140px 17.5px 93px;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    /* identical to box height */
+    text-align: center;
+    color: #000000;
+  }
+
+  .lin-google {
+    width: 400px;
+    height: 61px;
+    background: #eeeeee;
+    border-radius: 6px;
+    margin: 41px auto 0px auto;
+    padding: 0px;
+    border-width: 0px;
+    cursor: pointer;
+  }
+
+  .lin-google-logo {
+    float: left;
+    width: 40px;
+    height: 40px;
+    background: url();
+    color: black;
+    margin: 10.5px 0px 10.5px 7px;
+  }
+
+  .lin-google-text {
+    float: left;
+    width: 120px;
+    height: 26px;
+    margin: 17.5px 140px 17.5px 93px;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    /* identical to box height */
+    text-align: center;
+    color: #000000;
+  }
+
+  /* signup 페이지 */
+  .signup {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    left: 0px;
+    top: 104px;
+    background: #070e27;
+    text-align: center;
+  }
+
+  .signupwrap {
+    width: 840px;
+    height: auto;
+    margin: 43px auto;
+  }
+
+  .signup-title {
+    width: 133px;
+    height: 43px;
+    margin: 0px auto;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #ffffff;
+  }
+
+  /* signup 페이지 : 이메일 입력 그룹*/
+  .signup-email {
+    width: 400px;
+    height: 114px;
+    margin: 68px auto 0px auto;
+  }
+
+  .signup-email-title {
+    width: 360px;
+    height: 20px;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    /* identical to box height */
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .signup-email-input {
+    width: 400px;
+    height: 60px;
+
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 26px;
+    padding-left: 16px;
+  }
+
+  .signup-email-warning {
+    width: 250px;
+    height: 18px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #ff7171;
+    text-align: left;
+  }
+
+  .signup-email-ok {
+    width: 250px;
+    height: 18px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #0059f7;
+    text-align: left;
+  }
+
+  .signup-email-check {
+    width: 100px;
+    height: 34px;
+
+    background: #ffffff;
+    border: 1px solid #0880ae;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
+    border-radius: 3px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #5a7fa8;
+
+    position: relative;
+    left: 150px;
+    bottom: 44px;
+
+    cursor: pointer;
+  }
+
+  /* signup 페이지 : 비밀번호 입력 그룹*/
+  .signup-password {
+    width: 400px;
+    height: 114px;
+    margin: 62px auto 0px auto;
+  }
+
+  .signup-password-warning {
+    width: 360px;
+    height: 18px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #ff7171;
+    text-align: left;
+  }
+
+  /* signup 페이지 : 비밀번호 재입력 그룹*/
+  .signup-repassword {
+    width: 400px;
+    height: 114px;
+    margin: 26px auto 0px auto;
+  }
+
+  /* signup 페이지 : 닉네임 입력 그룹*/
+  .signup-nickname {
+    width: 400px;
+    height: 114px;
+    margin: 44px auto 0px auto;
+  }
+
+  /* signup 페이지 : 이미지 선택*/
+  .signup-image {
+    width: 400px;
+    height: 20px;
+    margin: 95px auto 0px auto;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    /* identical to box height */
+
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .signup-image-group {
+    width: 400px;
+    height: 98px;
+    margin: 26px auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    padding-top: 14px;
+  }
+
+  .signup-image-group-1 {
+    border: 1px solid white;
+    width: 70px;
+    height: 70px;
+    background: url("");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+  }
+  .signup-image-group-2 {
+    border: 1px solid white;
+    width: 70px;
+    height: 70px;
+    background: url("");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+  }
+  .signup-image-group-3 {
+    border: 1px solid white;
+    width: 70px;
+    height: 70px;
+    background: url("");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+  }
+  .signup-image-group-4 {
+    border: 1px solid white;
+    width: 70px;
+    height: 70px;
+    background: url("");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  .signup-btn {
+    width: 400px;
+    height: 56px;
+    margin: 70px auto 0px auto;
+    background: #0059f7;
+    border-radius: 8px;
+    border-width: 0px;
+    cursor: pointer;
+  }
+
+  .signup-btn-text {
+    position: relative;
+    width: 74px;
+    height: 24px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+    color: #ffffff;
+    margin: 0px 163px;
+    top: 16px;
+  }
+}
