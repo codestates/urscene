@@ -1,5 +1,5 @@
 const express = require("express")
-const likecontroller = require("../controllers/likes/like")
+const likecontroller = require("../controllers/like.controller")
 const router = express.Router()
 
 router.post("/:singlepostlikeid", likecontroller.post)
