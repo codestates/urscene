@@ -1,6 +1,6 @@
 import React from "react";
 
-function ResultScene() {
+function GenreScene() {
   return (
     <div>
       <div className="genre-img-wrap">
@@ -33,4 +33,4 @@ function ResultScene() {
   );
 }
 
-export default ResultScene;
+export default GenreScene;

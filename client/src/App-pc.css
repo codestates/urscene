@@ -21,7 +21,6 @@ body {
     background-color: #070e27;
     width: 100vw;
     margin-top: 0px;
-    border: 1px solid #fff;
     padding: 27px;
     display: flex;
   }
@@ -113,6 +112,10 @@ body {
   }
 
   /* ===== mainFooter =====*/
+  .mF-container {
+    background: #0a142f;
+    margin: auto;
+  }
   .mainFooter {
     height: 275px;
     background: #0a142f;
@@ -206,6 +209,353 @@ body {
     margin-top: 30px;
   }
 
+  /* ===== Makepost page ===== */
+  .MP-container {
+    background-color: #070e27;
+    width: 100vw;
+    height: 100vw;
+    color: #fff;
+  }
+
+  .MP-wrap {
+    width: 840px;
+    height: 100vw;
+    margin: auto;
+    text-align: left;
+    border: 1px solid red;
+  }
+
+  .MP-title {
+    margin-top: 34px;
+    font-size: 32px;
+    line-height: 37px;
+    margin-bottom: 81px;
+  }
+
+  .MP-sub-title {
+    color: #d4d4d4;
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .MP-movie {
+    width: 400px;
+    height: 52px;
+    border: 1px solid #dbe2ea;
+    border-radius: 6px;
+    padding: 10px;
+    color: #7c9cbf;
+    background-color: #fff;
+    display: inline-block;
+  }
+
+  .MP-movie > input {
+    width: 300px;
+    height: 28px;
+    outline-style: none;
+    border: none;
+    /* font-size: 16px; */
+    line-height: 21px;
+    display: inline-block;
+  }
+  .MP-movie > select {
+    outline-style: none;
+    border: none;
+    font-size: 16px;
+    line-height: 21px;
+    outline: 0 none;
+  }
+
+  .MP-movie > input::placeholder {
+    color: #7c9cbf;
+  }
+
+  .MP-movie-icon {
+    background: url("./img/Lens.png");
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: contain;
+    float: right;
+  }
+
+  .MP-input-wrap {
+    width: 400px;
+    height: 126px;
+    border: 1px solid red;
+    margin: auto;
+  }
+
+  .MP-photo-wrap {
+    width: 400px;
+    height: 265px;
+    border: 1px solid red;
+    margin: auto;
+  }
+
+  .MP-photo-show {
+    width: 400px;
+    height: 149px;
+    background: #202846;
+  }
+
+  .MP-box-wrap {
+    width: 400px;
+    height: 200px;
+    border: 1px solid red;
+    margin: auto;
+  }
+
+  #textarea {
+    width: 400px;
+    height: 146px;
+    border-radius: 6px;
+    padding: 16px;
+    color: #7c9cbf;
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  .MP-btn-wrap {
+    background: #0059f7;
+    border-radius: 8px;
+    width: 258px;
+    height: 56px;
+    margin: auto;
+    text-align: center;
+    margin-top: 38px;
+  }
+
+  .MP-btn-wrap > button {
+    border-radius: 8px;
+    cursor: pointer;
+    width: 258px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    background-color: #0059f7;
+  }
+
+  /* ===== Mygallery page ===== */
+
+  .my-g-wrap {
+    width: 840px;
+    height: 100vw;
+    margin: auto;
+    text-align: left;
+    border: 1px solid red;
+  }
+
+  .my-g-title {
+    margin-top: 34px;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+    display: inline-block;
+  }
+
+  .my-g-user-wrap {
+    margin-top: 34px;
+    width: 110px;
+    height: 40px;
+    float: right;
+  }
+
+  .my-g-hr {
+    border: 1px solid #3a456f;
+    width: 840px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .my-g-account-icon {
+    width: 18px;
+    height: 18px;
+    background: url("./img/account.png");
+    background-position: center;
+    background-size: contain;
+    margin-top: 9px;
+    display: inline-block;
+  }
+
+  .my-g-account-name {
+    font-size: 16px;
+    line-height: 19px;
+    align-items: center;
+    text-decoration-line: underline;
+    color: #ffffff;
+    float: right;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+
+  .my-g-scene-wrap {
+    width: 840px;
+    height: 255px;
+    border: 1px solid red;
+  }
+
+  .my-g-sub-title {
+    font-size: 26px;
+    line-height: 30px;
+    display: inline-block;
+    margin-bottom: 37px;
+  }
+
+  .my-g-add-wrap {
+    width: 110px;
+    height: 30px;
+    border: 1px solid red;
+    float: right;
+  }
+
+  .my-g-add-list-wrap {
+    width: 125px;
+    height: 30px;
+    border: 1px solid red;
+    float: right;
+  }
+
+  .my-g-add-text {
+    font-size: 18px;
+    line-height: 21px;
+    text-decoration-line: underline;
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .my-g-add-icon {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Add_fff.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    float: right;
+    margin-right: 12px;
+  }
+
+  .my-g-like-hr {
+    border: 1px solid #3a456f;
+    width: 840px;
+    margin: 15px 0 15px 0;
+  }
+
+  .my-g-like-add-icon {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Add_fff.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    margin-right: 12px;
+    display: inline-block;
+  }
+
+  .my-g-like-minus-icon {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Minus.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    margin-right: 12px;
+    display: inline-block;
+  }
+
+  .my-g-like-title {
+    font-size: 26px;
+    line-height: 30px;
+    float: left;
+    cursor: pointer;
+  }
+
+  /* ===== Makegallery page ===== */
+  .MG-wrap {
+    width: 614px;
+    height: 586px;
+    border: 1px solid red;
+    margin: auto;
+  }
+
+  .MG-name {
+    width: 614px;
+    height: 106px;
+    border: 1px solid red;
+    margin-bottom: 28px;
+  }
+
+  .MG-desc {
+    width: 614px;
+    height: 200px;
+    border: 1px solid red;
+    margin-bottom: 28px;
+  }
+
+  .MG-title {
+    font-size: 20px;
+    line-height: 26px;
+    color: #d5d5d5;
+  }
+
+  .MG-name > input {
+    width: 614px;
+    height: 52px;
+    outline-style: none;
+    border: none;
+    font-size: 16px;
+    line-height: 21px;
+    display: inline-block;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+    padding: 16px;
+  }
+
+  .MG-name > input::placeholder {
+    color: #7c9cbf;
+  }
+
+  .MG-desc > textarea {
+    width: 614px;
+    height: 146px;
+    border-radius: 6px;
+    padding: 16px;
+    font-size: 16px;
+    line-height: 21px;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+  }
+
+  .MG-desc > textarea::placeholder {
+    color: #7c9cbf;
+  }
+
+  .MG-btn {
+    width: 180px;
+    height: 56px;
+    background: #0059f7;
+    border-radius: 8px;
+    margin: 60px auto;
+  }
+
+  .MG-btn > button {
+    border-radius: 8px;
+    cursor: pointer;
+    width: 180px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    background-color: #0059f7;
+  }
+
   /* Login Page */
   .login {
     position: absolute;
@@ -217,6 +567,7 @@ body {
     background: #070e27;
     text-align: center;
   }
+
   .loginwrap {
     margin: 43px auto;
     width: 840px;
@@ -895,12 +1246,15 @@ body {
   /* ===== Main 메인페이지 ===== */
   .main-back {
     background-color: #070e27;
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100vw;
-    height: 100vw;
+    height: 100%;
     color: #fff;
+  }
+
+  .main-wrap {
+    width: 1060px;
+    height: 964px;
+    margin: auto;
   }
 
   .main-text {
@@ -912,12 +1266,17 @@ body {
   .main-gallery {
     width: 1060px;
     height: 360px;
+  }
+
+  .main-gallery-wrap {
+    width: 1060px;
+    height: 299px;
     border: 1px solid red;
   }
 
   .main-genre {
     width: 1060px;
-    border: 1px solid red;
+    margin-top: 80px;
   }
 
   .main-genre-category-wrap {
@@ -952,8 +1311,70 @@ body {
   }
 
   .main-genre-img-wrap {
-    border: 1px solid red;
     margin-top: 45px;
+  }
+
+  /* 인기 갤러리 BestGallery */
+  .BG-container {
+    width: 340px;
+    height: 262.51px;
+    border: 0.972265px solid #344583;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    padding: 11px;
+  }
+
+  .BG-title {
+    font-size: 18px;
+    line-height: 21px;
+    color: #787e95;
+    text-align: left;
+    margin-top: 6px;
+    margin-bottom: 10px;
+  }
+
+  .BG-img-wrap {
+    width: 315.49px;
+    height: 200.05px;
+    display: flex;
+    flex-flow: wrap;
+  }
+
+  .BG-img {
+    width: 157px;
+    height: 100px;
+    border: 1px solid #eaeaea;
+  }
+
+  .BG-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* main page genre img 장르별 장면 */
+  .genre-img-wrap {
+    width: 1060px;
+    height: 400px;
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  .genre-img {
+    width: 250px;
+    height: 157px;
+    border: 1px solid #eaeaea;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  .genre-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
   }
 
   /* ===== Search page ===== */

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MainNav from "../components/MainNav";
 import MainFooter from "../components/MainFooter";
 
 function Landing() {
