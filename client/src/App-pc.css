@@ -8,8 +8,7 @@
 
 body {
   /* 사파리에서 폰트가 못생겨보임 - 해결못함 */
-  font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo",
-    apple sd gothic neo;
+  font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo", apple sd gothic neo;
   height: 100%;
   margin: 0;
 }
@@ -567,8 +566,7 @@ body {
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
-      0px 2px 4px rgba(44, 39, 56, 0.08);
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
 
     font-family: IBM Plex Sans;
@@ -1008,6 +1006,7 @@ body {
     font-size: 18px;
     line-height: 22px;
     color: #c0c0c0;
+  }
 
   .singupModal-background {
     position: absolute;
@@ -1767,7 +1766,6 @@ body {
     bottom: 85px;
     left: 700px;
     cursor: pointer;
-
   }
 }
 
