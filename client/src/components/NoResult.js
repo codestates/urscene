@@ -15,5 +15,3 @@ function NoResult() {
 }
 
 export default NoResult;
-
-<div className="results-wrap">wkdausemf</div>;
