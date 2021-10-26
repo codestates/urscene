@@ -1,5 +1,5 @@
 const express = require("express")
-const commentcontroller = require("../controllers/comments/comment")
+const commentcontroller = require("../controllers/comment.controller")
 const router = express.Router()
 
 router.post("/", commentcontroller.post)

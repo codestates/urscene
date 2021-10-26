@@ -1,5 +1,5 @@
 const express = require("express")
-const gallerycontroller = require("../controllers/gallerys/gallery")
+const gallerycontroller = require("../controllers/gallery.controller")
 const router = express.Router()
 
 router.post("/", gallerycontroller.post)

@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 app.use("/comment", commentRouter)
 app.use("/gallery", galleryRouter)
 app.use("/like", likeRouter)
-app.use("/", mainRouter)
+app.use("/main", mainRouter)
 app.use("/search", searchRouter)
 app.use("/singlepost", singlepostRouter)
 app.use("/user", userRouter)

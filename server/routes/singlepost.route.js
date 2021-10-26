@@ -1,5 +1,5 @@
 const express = require("express")
-const singlepostcontroller = require("../controllers/singleposts/singlepost")
+const singlepostcontroller = require("../controllers/singlepost.controller")
 const router = express.Router()
 
 router.post("/", singlepostcontroller.post)
