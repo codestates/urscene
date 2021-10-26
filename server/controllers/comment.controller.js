@@ -46,7 +46,7 @@ module.exports = {
 	delete: async (req, res) => {
 		const userinfo = getverify(req.cookies.jwt)
 		const usercomment = await Comment.findOne({
-			where: { user_id: userinfo },
+			where: { user_id: userinfo.id },
 		}) //comment 테이블에서 user_id와 유저정보의 id가 일치하는 데이터만 뽑는다
 
 		const commentId = await Comment.findOne({

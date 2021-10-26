@@ -37,11 +37,11 @@ module.exports = {
 	},
 
 	get: async (req, res) => {
-		const token = req.cookies.jwt
-		const verify = jwt.verify(token, process.env.ACCESS_SECRET)
-		const userinfo = User.findOne({
-			where: { id: verify.id },
-		})
+		// const token = req.cookies.jwt
+		// const verify = jwt.verify(token, process.env.ACCESS_SECRET)
+		// const userinfo = User.findOne({
+		// 	where: { id: verify.id },
+		// })
 		const { singlepostid } = req.params
 		let post = await Singlepost.findOne({
 			include: [
@@ -49,17 +49,22 @@ module.exports = {
 					model: User,
 					attributes: ["nickname", "image"],
 				},
+				{
+					model: Description,
+					attributes: ["genre", "director", "released"],
+				},
 			],
 			where: { id: singlepostid },
 		})
-
 		if (!post) {
 			//singlepostid 없으면 404
 			res.status(404).json({ message: "data-not-found" })
 		} else {
 			delete post.dataValues.user_id
-			res.status(200).json({ data: post.dataValues }) //id,genre,content,userid,iamge(장면)
-		} //있으면 id포함 정보를 다 넘겨준다 {userid} 제외???
+			res.status(200).json({ data: post.dataValues })
+		} // post.dataValues => id,user_id,title,genre,content,image(장면),description_id
+		// 영화정보에는 title,genre,director,released 나의장면 상세페이지의 영화장르는 현재 앱에서 지원하는 장르와 다른컨셉.
+		// 왜 다른컨셉?? 사용자의 취향존중 ok
 	},
 
 	patch: async (req, res) => {
@@ -90,13 +95,22 @@ module.exports = {
 	},
 
 	delete: async (req, res) => {
-		//해당 id 찾아서 삭제
-		const data = await Singlepost.destroy({
-			where: { id: req.params.singlepostid },
+		const userinfo = getverify(req.cookies.jwt)
+		const usersingle = await Singlepost.findOne({
+			where: { user_id: userinfo.id },
 		})
-		if (!data) {
+
+		const singleId = await Singlepost.findOne({
+			where: { id: req.params.singlepostid },
+		}) //commentid로 찾은 comment의 userid와 비교하려고찾았지
+
+		if (usersingle.dataValues.id === singleId.dataValues.user_id) {
+			const data = await Singlepost.destroy({
+				where: { id: req.params.singlepostid },
+			})
+			res.status(200).json({ message: "delete-successfully" })
+		} else {
 			res.status(400).json({ message: "data-not-found" })
 		}
-		res.status(200).json({ message: "delete-successfully" })
 	},
 }
