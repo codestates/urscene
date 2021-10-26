@@ -26,10 +26,7 @@ function Login() {
           </div>
           <div className="lin-divider"></div>
           <div>
-            <button className="lin-kakao">
-              <div className="lin-kakao-logo"></div>
-              <div className="lin-kakao-text">카카오 로그인</div>
-            </button>
+            <button className="lin-kakao"></button>
           </div>
           <div>
             <button className="lin-google">
