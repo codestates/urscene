@@ -21,8 +21,9 @@ body {
     background-color: #070e27;
     width: 100vw;
     margin-top: 0px;
-    border: 1px solid red;
+    border: 1px solid #fff;
     padding: 27px;
+    display: flex;
   }
 
   .mainNav-group-logo {
@@ -36,16 +37,10 @@ body {
     margin-top: 9px;
   }
 
-  .mainNav-group-title {
-    float: left;
-    width: 114px;
-    height: 32px;
-    margin-left: 12px;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -0.02em;
-    color: #ffffff;
+  .form-wrap {
+    display: inline-block;
+    margin: auto;
+    width: 517px;
   }
 
   .mainNav-search-wrap {
@@ -53,7 +48,6 @@ body {
     height: 50px;
     border-radius: 15px;
     background: #f0f0f0;
-    margin-bottom: 27px;
     padding: 10px;
     display: table;
     table-layout: fixed;
@@ -85,12 +79,14 @@ body {
   }
 
   .mainNav-icon {
-    display: inline-block;
     width: 60px;
     height: 60px;
     background-color: #ededed;
     border-radius: 50px;
     padding: 18px;
+    margin-right: 16px;
+    float: right;
+    left: 10px;
   }
 
   .mainNav-create {
@@ -99,6 +95,7 @@ body {
     height: 24px;
     background-position: center;
     background-size: contain;
+    display: inline-block;
   }
 
   .mainNav-my {
@@ -107,6 +104,7 @@ body {
     height: 24px;
     background-position: center;
     background-size: contain;
+    display: inline-block;
   }
 
   #nav-form {
