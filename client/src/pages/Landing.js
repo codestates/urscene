@@ -6,7 +6,7 @@ import MainFooter from "../components/MainFooter";
 function Landing() {
   return (
     <div>
-      <MainNav />
+      <div className="mainNav-group-logo"></div>
       <center>
         <div className="landing-main-container">
           <div className="landing-main-img">

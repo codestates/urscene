@@ -21,23 +21,19 @@ body {
     background-color: #070e27;
     width: 100vw;
     margin-top: 0px;
-  }
-
-  .mainNav-group {
-    width: 300px;
-    height: 32px;
-    padding-top: 36px;
-    padding-left: 80px;
+    border: 1px solid red;
+    padding: 27px;
   }
 
   .mainNav-group-logo {
     float: left;
-    width: 32px;
+    width: 158px;
     height: 32px;
-    background: url("./img/main_nav_logo.png");
+    background: url("./img/NavLogo.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    margin-top: 9px;
   }
 
   .mainNav-group-title {
@@ -50,6 +46,72 @@ body {
     line-height: 32px;
     letter-spacing: -0.02em;
     color: #ffffff;
+  }
+
+  .mainNav-search-wrap {
+    width: 517px;
+    height: 50px;
+    border-radius: 15px;
+    background: #f0f0f0;
+    margin-bottom: 27px;
+    padding: 10px;
+    display: table;
+    table-layout: fixed;
+    position: relative;
+    text-align: left;
+  }
+
+  .Lens {
+    background: url("./img/Lens.png");
+    background-position: center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .mainNav-search {
+    width: 445px;
+    height: 30px;
+    outline: none;
+    font-size: 18px;
+    line-height: 21px;
+    background-color: #f0f0f0;
+    border: none;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .mainNav-icon {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-color: #ededed;
+    border-radius: 50px;
+    padding: 18px;
+  }
+
+  .mainNav-create {
+    background: url("./img/Add.png");
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .mainNav-my {
+    background: url("./img/User.png");
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-size: contain;
+  }
+
+  #nav-form {
+    width: 600px;
+    margin: 0px;
   }
 
   /* ===== mainFooter =====*/
@@ -853,7 +915,7 @@ body {
     background: url("./img/arrow-left-fill.png");
   }
 
-  /* ===== Main ===== */
+  /* ===== Main 메인페이지 ===== */
   .main-back {
     background-color: #070e27;
     position: fixed;
@@ -878,14 +940,12 @@ body {
 
   .main-genre {
     width: 1060px;
-    height: 486px;
     border: 1px solid red;
   }
 
   .main-genre-category-wrap {
     height: 44px;
     width: 100%;
-    border: 1px solid red;
     text-align: left;
   }
 
@@ -899,6 +959,76 @@ body {
     background: #ffffff;
     color: #070e27;
     font-size: 20px;
+    cursor: pointer;
+  }
+
+  .main-genre-name:hover {
+    background-color: #0059f7;
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  /* 선택된 것만 색 변경 */
+  .main-genre-name-selected {
+    background-color: #0059f7;
+    color: #fff;
+  }
+
+  .main-genre-img-wrap {
+    border: 1px solid red;
+    margin-top: 45px;
+  }
+
+  /* ===== Search page ===== */
+  .search-container {
+    background-color: #070e27;
+  }
+  .search-wrap {
+    margin-top: 43px;
+    border: 1px solid red;
+    width: 840px;
+    height: 100vw;
+    color: #fff;
+  }
+
+  .search-results {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+    text-align: left;
+    margin-bottom: 38px;
+  }
+
+  .results-text {
+    font-size: 26px;
+    line-height: 30px;
+    text-align: left;
+    margin-bottom: 23px;
+  }
+
+  /* 검색결과 없는 경우 컴포넌트 */
+  .no-results-wrap {
+    width: 840px;
+    height: 160px;
+    border: 1px solid #344583;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+
+  .no-results-icon {
+    background: url("./img/noresult.png");
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-size: contain;
+    margin: 20px;
+  }
+
+  .no-results-text {
+    font-size: 18px;
+    line-height: 22px;
+    color: #c0c0c0;
   }
 }
 
