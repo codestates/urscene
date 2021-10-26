@@ -17,27 +17,27 @@ body {
   /* 태블릿 */
   .mainNav {
     height: 104px;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-top: 0px;
     background-color: #070e27;
     width: 100vw;
   }
 
   .mainNav-group {
-    width: 300px;
+    position: absolute;
+    width: 200px;
     height: 40px;
-    padding-top: 32px;
-    padding-left: 27px;
+    top: 32px;
+    left: 27px;
   }
 
   .mainNav-group-logo {
     float: left;
     width: 40px;
     height: 40px;
-    background: url("");
+    background: url("../src/img/MainNav-Vector.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: 33.33px 30px;
   }
 
   .mainNav-group-title {
@@ -45,6 +45,7 @@ body {
     width: 129px;
     height: 28px;
     margin-left: 7px;
+    margin-top: 6px;
     font-family: Sora;
     font-style: normal;
     font-weight: 600;
@@ -328,7 +329,7 @@ body {
   .login {
     position: absolute;
     width: 100vw;
-    height: auto;
+    height: 900px;
     left: 0px;
     top: 104px;
     background: #070e27;
@@ -530,31 +531,11 @@ body {
     margin: 32px auto 0px auto;
     padding: 0px;
     border-width: 0px;
+    background: url("../src/img/kakao_login_large_wide.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     cursor: pointer;
-  }
-
-  .lin-kakao-logo {
-    float: left;
-    width: 45px;
-    height: 46px;
-    background: url();
-    color: black;
-    margin: 4px 0px 4px 4px;
-  }
-
-  .lin-kakao-text {
-    float: left;
-    width: 108px;
-    height: 23px;
-    margin: 14px 126px 17px 77px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 23px;
-    /* identical to box height */
-    text-align: center;
-    color: #000000;
   }
 
   .lin-google {
@@ -575,6 +556,10 @@ body {
     background: url();
     color: black;
     margin: 4px 0px 4px 4px;
+    background: url("../src/img/btn-google.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 
   .lin-google-text {
@@ -776,46 +761,42 @@ body {
   }
 
   .signup-image-group-1 {
-    border: 1px solid white;
     width: 60px;
     height: 61px;
-    background: url("");
+    background: url("../src/img/UserImage-Jake.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     cursor: pointer;
     margin-top: 13px;
   }
   .signup-image-group-2 {
-    border: 1px solid white;
     width: 60px;
     height: 61px;
-    background: url("");
+    background: url("../src/img/UserImage-Meg.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     cursor: pointer;
     margin-top: 13px;
   }
   .signup-image-group-3 {
-    border: 1px solid white;
     width: 60px;
     height: 61px;
-    background: url("");
+    background: url("../src/img/UserImage-Mili.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     cursor: pointer;
     margin-top: 13px;
   }
   .signup-image-group-4 {
-    border: 1px solid white;
     width: 60px;
     height: 61px;
-    background: url("");
+    background: url("../src/img/UserImage-Steven.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     cursor: pointer;
     margin-top: 13px;
   }
@@ -843,5 +824,769 @@ body {
     color: #ffffff;
     margin: 0px 146px;
     top: 16px;
+  }
+
+  .singupModal-background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+  }
+
+  .singupModal {
+    width: 300px;
+    height: 313px;
+    margin: 300px auto 0px auto;
+    background: #0059f7;
+    border-radius: 10px;
+  }
+
+  .suM-image {
+    position: relative;
+    top: 43px;
+    width: 80px;
+    height: 80px;
+    margin: 43px auto 0px auto;
+    background: url("../src/img/Signup-ok.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .suM-text {
+    width: 135px;
+    height: 48px;
+    margin: 56px auto 0px auto;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    /* or 120% */
+
+    text-align: center;
+
+    color: #ffffff;
+    word-break: keep-all;
+  }
+
+  .suM-btn {
+    width: 100px;
+    height: 34px;
+    margin: 21px auto 0px auto;
+
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    color: #000000;
+    cursor: pointer;
+  }
+
+  /* userinfo 페이지 */
+  .userinfo {
+    position: absolute;
+    background: #070e27;
+    width: 100vw;
+    height: auto;
+    padding-bottom: 50px;
+  }
+
+  .userinfowrap {
+    width: 361px;
+    height: auto;
+    margin: 120px auto 0 auto;
+  }
+
+  .ui-title {
+    position: absolute;
+    left: 27px;
+    top: 22px;
+    width: 252px;
+    height: 32px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 37px;
+
+    color: #ffffff;
+    text-align: left;
+  }
+
+  /* userinfo 페이지 : 프로필 사진 바꾸기 */
+  .ui-image {
+    width: 60px;
+    height: 60px;
+    margin: 0px auto 0 auto;
+
+    background: url("../src/img/UserImage-Meg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+  }
+
+  .ui-description {
+    width: 158px;
+    height: 23px;
+    margin: 23px auto 0 auto;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    /* identical to box height */
+
+    color: #0059f7;
+    cursor: pointer;
+  }
+
+  .ui-imagegroup {
+    width: 360px;
+    height: 125px;
+    margin: 43px auto 0 auto;
+  }
+
+  .ui-imagegroup-title {
+    width: 360px;
+    height: 20px;
+    text-align: left;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+
+    color: #d4d4d4;
+  }
+
+  .ui-imagegroup-wrap {
+    width: 360px;
+    height: 88px;
+    margin: 16px auto 0 auto;
+
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    padding-top: 14px;
+  }
+  .ui-imagegroup-wrap-1 {
+    width: 60px;
+    height: 60px;
+    background: url("../src/img/UserImage-Jake.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  .ui-imagegroup-wrap-2 {
+    width: 60px;
+    height: 60px;
+    background: url("../src/img/UserImage-Meg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  .ui-imagegroup-wrap-3 {
+    width: 60px;
+    height: 60px;
+    background: url("../src/img/UserImage-Mili.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  .ui-imagegroup-wrap-4 {
+    width: 60px;
+    height: 60px;
+    background: url("../src/img/UserImage-Steven.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  /* userinfo 페이지 : 닉네임 */
+  .ui-nickname {
+    width: 360px;
+    height: 142px;
+    margin: 24px auto 0 auto;
+  }
+
+  .ui-nickname-title {
+    width: 360px;
+    height: 20px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    /* identical to box height */
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .ui-nickname-input {
+    width: 360px;
+    height: 52px;
+    margin: 8px auto 8px auto;
+
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+    color: #000000;
+    padding-left: 16px;
+  }
+
+  .ui-nickname-warning {
+    width: 360px;
+    height: 18px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #ff7171;
+    text-align: left;
+  }
+
+  .ui-nickname-ok {
+    width: 360px;
+    height: 18px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #0059f7;
+    text-align: left;
+  }
+
+  .ui-nickname-check {
+    width: 100px;
+    height: 34px;
+
+    background: #ffffff;
+    border: 1px solid #0880ae;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
+    border-radius: 3px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #5a7fa8;
+
+    position: relative;
+    bottom: 44px;
+    left: 260px;
+
+    padding-top: 8px;
+  }
+
+  /* userinfo 페이지 : 패스워드 */
+  .ui-password {
+    width: 360px;
+    height: 106px;
+    margin: 34px auto 0 auto;
+  }
+
+  /* userinfo 페이지 : 패스워드 확인 */
+  .ui-repassword {
+    width: 360px;
+    height: 124px;
+    margin: 34px auto 0 auto;
+  }
+
+  .ui-btn {
+    width: 360px;
+    height: 56px;
+    margin: 41px auto 0 auto;
+
+    background: #0059f7;
+    border-radius: 8px;
+    border-width: 0px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .ui-logout {
+    width: 59px;
+    height: 24px;
+    margin: 52px auto 0 auto;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    text-decoration-line: underline;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .ui-signout {
+    width: 59px;
+    height: 24px;
+    margin: 24px auto 0 auto;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    text-decoration-line: underline;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  /* 회원 탈퇴 모달*/
+  .singoutModal-background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+  }
+
+  .singoutModal {
+    width: 300px;
+    height: 235px;
+    background: #0059f7;
+    border-radius: 10px;
+    margin: 390px auto 0 auto;
+  }
+
+  .soM-label {
+    position: relative;
+    top: 88px;
+    width: 300px;
+    height: 24px;
+    margin-top: 24px;
+  }
+
+  .soM-label {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+
+    text-align: center;
+
+    color: #ffffff;
+  }
+
+  .soM-btn {
+    position: relative;
+    top: 88px;
+    width: 300px;
+    height: 34px;
+    margin-top: 24px;
+  }
+
+  .soM-btn-singout {
+    float: left;
+    width: 59px;
+    height: 24px;
+    margin-left: 64px;
+    margin-top: 5px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    text-decoration-line: underline;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .soM-btn-cancel {
+    float: left;
+    width: 100px;
+    height: 34px;
+    margin-left: 34px;
+
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    color: #000000;
+    cursor: pointer;
+  }
+
+  /* Galley 페이지 */
+  .gallery {
+    border: 1px solid white;
+    width: 100vw;
+    height: auto;
+    background-color: #070e27;
+  }
+
+  .gallerywrap {
+    border: 1px solid white;
+    width: 720px;
+    height: auto;
+    margin: 0px auto 50px auto;
+  }
+
+  .gallery-title {
+    border: 1px solid white;
+    width: 252px;
+    height: 34px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 37px;
+
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .gallery-editgroup {
+    border: 1px solid white;
+    width: 720px;
+    height: 40px;
+    margin-top: -11px;
+  }
+
+  .gallery-edit-edit {
+    border: 1px solid white;
+    width: 40px;
+    height: 40px;
+    float: right;
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+  }
+
+  .gallery-edit-delete {
+    border: 1px solid white;
+    width: 40px;
+    height: 40px;
+    float: right;
+    background: url("../src/img/pencil.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+  }
+
+  .gallery-image {
+    border: 1px solid white;
+    width: 720px;
+    height: 380px;
+    margin-top: 12px;
+    border-radius: 10px;
+  }
+
+  .gallery-label {
+    border: 1px solid white;
+    width: 720px;
+    height: 40px;
+    margin-top: 18px;
+  }
+
+  .gallery-label-title {
+    border: 1px solid white;
+    width: 397px;
+    height: 33px;
+    margin-top: 7px;
+    float: left;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: flex-end;
+
+    color: #ffffff;
+  }
+
+  .gallery-label-like1 {
+    border: 1px solid white;
+    width: 40px;
+    height: 40px;
+    float: right;
+
+    background: url("../src/img/Heart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+  }
+
+  .gallery-label-like2 {
+    border: 1px solid white;
+    width: 40px;
+    height: 40px;
+    float: right;
+
+    background: url("../src/img/FullHeart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+  }
+
+  .gallery-desc {
+    border: 1px solid white;
+    width: 639px;
+    height: 56px;
+    margin-top: 23px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #ffffff;
+    text-align: left;
+    word-break: keep-all;
+    white-space: pre-line;
+  }
+
+  .gallery-devider {
+    width: 720px;
+    height: 0px;
+    border: 1px solid #3a456f;
+    margin-top: 49px;
+  }
+
+  .gallery-infogroup {
+    border: 1px solid white;
+    width: 500px;
+    height: 161px;
+    margin-top: 12px;
+  }
+
+  .gallery-infogroup-label {
+    border: 1px solid white;
+    width: 300px;
+    height: 34px;
+    margin-left: 12px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+
+    color: #ffffff;
+  }
+
+  .gallery-infogroup-title {
+    width: auto;
+    height: 22px;
+    margin-top: 13px;
+    margin-left: 24px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    /* or 145% */
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .gallery-infogroup-list {
+    list-style-type: disc;
+    margin-left: 24px;
+    width: auto;
+    border: 1px solid white;
+  }
+
+  .gallery-devider2 {
+    width: 720px;
+    height: 0px;
+    border: 1px solid #3a456f;
+    margin-top: 12px;
+  }
+
+  .gallery-writecomment {
+    width: 720px;
+    height: 70px;
+    margin-top: 26px;
+  }
+
+  .gallery-wc-image {
+    width: 52px;
+    height: 52px;
+    margin-left: 12px;
+    float: left;
+    border-radius: 50%;
+  }
+
+  .gallery-wc-input {
+    width: 620px;
+    height: 52px;
+    margin: 1px 0 1px 21px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    color: #7c9cbf;
+    padding-left: 16px;
+  }
+
+  .gallery-wc-submit {
+    border: 1px solid green;
+    width: 37px;
+    height: 26px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+
+    color: #0059f7;
+    position: relative;
+    bottom: 39px;
+    left: 660px;
+    cursor: pointer;
+  }
+
+  .gallery-comments {
+    width: 688px;
+    height: auto;
+    margin-left: 30px;
+    margin-top: 42px;
+  }
+
+  .gallery-mycomment {
+    border: 1px solid white;
+    width: 688px;
+    height: 55px;
+  }
+
+  .gallery-mycomment-group1 {
+    border: 1px solid white;
+    width: 40px;
+    height: 55px;
+    float: left;
+  }
+
+  .gallery-mycomment-group1-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .gallery-mycomment-group2 {
+    border: 1px solid white;
+    width: 634px;
+    height: 55px;
+    float: left;
+    margin-left: 12px;
+  }
+
+  .gallery-mycomment-group2-nickname {
+    width: 83px;
+    height: 23px;
+    margin-top: 0px;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    /* identical to box height */
+
+    color: #ffffff;
+  }
+
+  .gallery-mycomment-group2-comment {
+    width: 562px;
+    height: 27px;
+    margin-top: 5px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .gallery-mycomment-group2-delete {
+    width: 40px;
+    height: 40px;
+
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    position: relative;
+    bottom: 49px;
+    left: 594px;
+    cursor: pointer;
   }
 }

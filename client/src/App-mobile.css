@@ -17,34 +17,39 @@ body {
   /* 모바일 */
   .mainNav {
     position: absolute;
+    width: 414px;
     height: 60px;
     margin-left: 0px;
     margin-right: 0px;
     /* margin-top: 44px; */
     background-color: #070e27;
-    width: 414px;
   }
 
   .mainNav-group {
     position: absolute;
     width: 138px;
-    height: 27.95px;
+    height: 28px;
     left: 31px;
     top: 18px;
   }
 
   .mainNav-group-logo {
+    float: left;
     position: absolute;
     width: 27px;
-    height: 27px;
+    height: 28px;
+    background: url("../src/img/MainNav-Vector.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22.5px 20.25px;
+    cursor: pointer;
   }
 
   .mainNav-group-title {
-    position: absolute;
-    width: 99.57px;
-    height: 27.95px;
-    left: 38.43px;
-    top: 0px;
+    float: left;
+    width: 100px;
+    height: 28px;
+    margin-left: 38px;
     font-family: Sora;
     font-style: normal;
     font-weight: 600;
@@ -53,6 +58,7 @@ body {
     /* identical to box height, or 140% */
     letter-spacing: -0.02em;
     color: #ffffff;
+    text-align: left;
   }
 
   /* mainFooter */
@@ -533,31 +539,11 @@ body {
     margin: 32px auto 0px auto;
     padding: 0px;
     border-width: 0px;
+    background: url("../src/img/kakao_login_large_wide.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     cursor: pointer;
-  }
-
-  .lin-kakao-logo {
-    float: left;
-    width: 45px;
-    height: 46px;
-    background: url();
-    color: black;
-    margin: 4px 0px 4px 4px;
-  }
-
-  .lin-kakao-text {
-    float: left;
-    width: 108px;
-    height: 23px;
-    margin: 16px 126px 15px 77px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 23px;
-    /* identical to box height */
-    text-align: center;
-    color: #000000;
   }
 
   .lin-google {
@@ -578,6 +564,10 @@ body {
     background: url();
     color: black;
     margin: 4px 0px 4px 4px;
+    background: url("../src/img/btn-google.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 
   .lin-google-text {
@@ -780,46 +770,42 @@ body {
   }
 
   .signup-image-group-1 {
-    border: 1px solid white;
     width: 60px;
     height: 61px;
-    background: url("");
+    background: url("../src/img/UserImage-Jake.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     cursor: pointer;
     margin-top: 13px;
   }
   .signup-image-group-2 {
-    border: 1px solid white;
     width: 60px;
     height: 61px;
-    background: url("");
+    background: url("../src/img/UserImage-Meg.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     cursor: pointer;
     margin-top: 13px;
   }
   .signup-image-group-3 {
-    border: 1px solid white;
     width: 60px;
     height: 61px;
-    background: url("");
+    background: url("../src/img/UserImage-Mili.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     cursor: pointer;
     margin-top: 13px;
   }
   .signup-image-group-4 {
-    border: 1px solid white;
     width: 60px;
     height: 61px;
-    background: url("");
+    background: url("../src/img/UserImage-Steven.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     cursor: pointer;
     margin-top: 13px;
   }
@@ -838,7 +824,6 @@ body {
     position: relative;
     width: 67px;
     height: 24px;
-    border: 1px solid white;
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -848,5 +833,449 @@ body {
     color: #ffffff;
     margin: 0px 146px;
     top: 16px;
+    cursor: pointer;
+  }
+
+  .singupModal-background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+  }
+
+  .singupModal {
+    width: 272px;
+    height: 313px;
+    margin: 320px auto 0px auto;
+    background: #0059f7;
+    border-radius: 10px;
+  }
+
+  .suM-image {
+    position: relative;
+    top: 43px;
+    width: 80px;
+    height: 80px;
+    margin: 43px auto 0px auto;
+    background: url("../src/img/Signup-ok.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .suM-text {
+    width: 135px;
+    height: 48px;
+    margin: 56px auto 0px auto;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    /* or 120% */
+
+    text-align: center;
+
+    color: #ffffff;
+    word-break: keep-all;
+  }
+
+  .suM-btn {
+    width: 100px;
+    height: 34px;
+    margin: 21px auto 0px auto;
+
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    color: #000000;
+    cursor: pointer;
+  }
+  /* userinfo 페이지 */
+  .userinfo {
+    position: absolute;
+    background: #070e27;
+    width: 100vw;
+    height: 1050px;
+    top: 60px;
+    margin-bottom: 100px;
+  }
+
+  .userinfowrap {
+    width: 414px;
+    height: auto;
+    margin: 95px auto 0 auto;
+  }
+
+  .ui-title {
+    position: absolute;
+    left: 27px;
+    top: 26px;
+    width: 252px;
+    height: 34px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 37px;
+
+    color: #ffffff;
+    text-align: left;
+  }
+
+  /* userinfo 페이지 : 프로필 사진 바꾸기 */
+  .ui-image {
+    width: 60px;
+    height: 60px;
+    margin: 0px auto 0 auto;
+
+    background: url("../src/img/UserImage-Meg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+  }
+
+  .ui-description {
+    width: 126px;
+    height: 19px;
+    margin: 23px auto 0 auto;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    color: #0059f7;
+    cursor: pointer;
+  }
+
+  .ui-imagegroup {
+    width: 360px;
+    height: 125px;
+    margin: 20px auto 0 auto;
+  }
+
+  .ui-imagegroup-title {
+    width: 360px;
+    height: 20px;
+    text-align: left;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+
+    color: #d4d4d4;
+  }
+
+  .ui-imagegroup-wrap {
+    width: 360px;
+    height: 88px;
+    margin: 16px auto 0 auto;
+
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    padding-top: 14px;
+  }
+  .ui-imagegroup-wrap-1 {
+    width: 60px;
+    height: 60px;
+    background: url("../src/img/UserImage-Jake.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  .ui-imagegroup-wrap-2 {
+    width: 60px;
+    height: 60px;
+    background: url("../src/img/UserImage-Meg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  .ui-imagegroup-wrap-3 {
+    width: 60px;
+    height: 60px;
+    background: url("../src/img/UserImage-Mili.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  .ui-imagegroup-wrap-4 {
+    width: 60px;
+    height: 60px;
+    background: url("../src/img/UserImage-Steven.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  /* userinfo 페이지 : 닉네임 */
+  .ui-nickname {
+    width: 360px;
+    height: 142px;
+    margin: 24px auto 0 auto;
+  }
+
+  .ui-nickname-title {
+    width: 360px;
+    height: 20px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .ui-nickname-input {
+    width: 360px;
+    height: 52px;
+    margin: 8px auto 8px auto;
+
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+    color: #000000;
+    padding-left: 16px;
+  }
+
+  .ui-nickname-warning {
+    width: 360px;
+    height: 18px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #ff7171;
+    text-align: left;
+  }
+
+  .ui-nickname-ok {
+    width: 360px;
+    height: 18px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #0059f7;
+    text-align: left;
+  }
+
+  .ui-nickname-check {
+    width: 100px;
+    height: 34px;
+
+    background: #ffffff;
+    border: 1px solid #0880ae;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
+    border-radius: 3px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #5a7fa8;
+
+    position: relative;
+    bottom: 44px;
+    left: 260px;
+
+    padding-top: 8px;
+  }
+
+  /* userinfo 페이지 : 패스워드 */
+  .ui-password {
+    width: 360px;
+    height: 106px;
+    margin: 34px auto 0 auto;
+  }
+
+  /* userinfo 페이지 : 패스워드 확인 */
+  .ui-repassword {
+    width: 360px;
+    height: 124px;
+    margin: 34px auto 0 auto;
+  }
+
+  .ui-btn {
+    width: 360px;
+    height: 56px;
+    margin: 41px auto 0 auto;
+
+    background: #0059f7;
+    border-radius: 8px;
+    border-width: 0px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .ui-logout {
+    width: 59px;
+    height: 24px;
+    margin: 52px auto 0 auto;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    text-decoration-line: underline;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .ui-signout {
+    width: 59px;
+    height: 24px;
+    margin: 16px auto 0 auto;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    text-decoration-line: underline;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  /* 회원 탈퇴 모달*/
+  .singoutModal-background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+  }
+
+  .singoutModal {
+    width: 271px;
+    height: 193px;
+    background: #0059f7;
+    border-radius: 10px;
+    margin: 366px auto 0 auto;
+  }
+
+  .soM-label {
+    position: relative;
+    top: 51px;
+    left: 54px;
+    width: 163px;
+    height: 24px;
+    margin-top: 24px;
+  }
+
+  .soM-label {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+
+    text-align: center;
+
+    color: #ffffff;
+  }
+
+  .soM-btn {
+    position: relative;
+    top: 45px;
+    left: 29px;
+    width: 214px;
+    height: 34px;
+    margin-top: 45px;
+  }
+
+  .soM-btn-singout {
+    float: left;
+    width: 59px;
+    height: 24px;
+    margin-left: 21px;
+    margin-top: 5px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    text-decoration-line: underline;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .soM-btn-cancel {
+    float: left;
+    width: 100px;
+    height: 34px;
+    margin-left: 24px;
+
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    color: #000000;
+    cursor: pointer;
   }
 }
