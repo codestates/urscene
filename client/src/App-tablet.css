@@ -1268,23 +1268,21 @@ body {
     cursor: pointer;
   }
 
-  /* Galley 페이지 */
-  .gallery {
-    border: 1px solid white;
+  /* Post 페이지 */
+  .post {
     width: 100vw;
     height: auto;
     background-color: #070e27;
+    padding-bottom: 50px;
   }
 
-  .gallerywrap {
-    border: 1px solid white;
+  .postwrap {
     width: 720px;
     height: auto;
-    margin: 0px auto 50px auto;
+    margin: 0px auto 0px auto;
   }
 
-  .gallery-title {
-    border: 1px solid white;
+  .post-title {
     width: 252px;
     height: 34px;
 
@@ -1298,26 +1296,35 @@ body {
     text-align: left;
   }
 
-  .gallery-editgroup {
-    border: 1px solid white;
+  .post-editgroup {
     width: 720px;
     height: 40px;
     margin-top: -11px;
   }
 
-  .gallery-edit-edit {
-    border: 1px solid white;
-    width: 40px;
-    height: 40px;
+  .post-edit-btn {
+    width: 50px;
+    height: 32px;
     float: right;
-    background: url("../src/img/delete.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: none;
+    margin-top: 5px;
+
+    background: #ffffff;
+    border: 1px solid #0880ae;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
+    border-radius: 3px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #5a7fa8;
   }
 
-  .gallery-edit-delete {
-    border: 1px solid white;
+  .post-edit-edit {
     width: 40px;
     height: 40px;
     float: right;
@@ -1327,23 +1334,31 @@ body {
     background-size: none;
   }
 
-  .gallery-image {
-    border: 1px solid white;
+  .post-edit-delete {
+    width: 40px;
+    height: 40px;
+    float: right;
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+  }
+
+  .post-image {
     width: 720px;
     height: 380px;
     margin-top: 12px;
     border-radius: 10px;
+    background: #ffffff;
   }
 
-  .gallery-label {
-    border: 1px solid white;
+  .post-label {
     width: 720px;
     height: 40px;
     margin-top: 18px;
   }
 
-  .gallery-label-title {
-    border: 1px solid white;
+  .post-label-title {
     width: 397px;
     height: 33px;
     margin-top: 7px;
@@ -1360,8 +1375,7 @@ body {
     color: #ffffff;
   }
 
-  .gallery-label-like1 {
-    border: 1px solid white;
+  .post-label-like1 {
     width: 40px;
     height: 40px;
     float: right;
@@ -1372,8 +1386,7 @@ body {
     background-size: none;
   }
 
-  .gallery-label-like2 {
-    border: 1px solid white;
+  .post-label-like2 {
     width: 40px;
     height: 40px;
     float: right;
@@ -1384,8 +1397,7 @@ body {
     background-size: none;
   }
 
-  .gallery-desc {
-    border: 1px solid white;
+  .post-desc {
     width: 639px;
     height: 56px;
     margin-top: 23px;
@@ -1401,25 +1413,41 @@ body {
     white-space: pre-line;
   }
 
-  .gallery-devider {
+  .post-editdesc {
+    width: 720px;
+    height: 68px;
+    margin-top: 21px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: black;
+    text-align: left;
+    word-break: keep-all;
+    white-space: pre-line;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .post-devider {
     width: 720px;
     height: 0px;
     border: 1px solid #3a456f;
     margin-top: 49px;
   }
 
-  .gallery-infogroup {
-    border: 1px solid white;
+  .post-infogroup {
     width: 500px;
-    height: 161px;
+    height: max-content;
     margin-top: 12px;
   }
 
-  .gallery-infogroup-label {
-    border: 1px solid white;
-    width: 300px;
+  .post-infogroup-label {
+    width: 90px;
     height: 34px;
-    margin-left: 12px;
+    margin-left: 6px;
 
     font-family: Roboto;
     font-style: normal;
@@ -1430,12 +1458,31 @@ body {
     align-items: center;
 
     color: #ffffff;
+    float: left;
   }
 
-  .gallery-infogroup-title {
+  .post-infogroup-plus {
+    width: 50px;
+    height: 34px;
+    margin-left: 12px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .post-infogroup-list {
+    list-style-type: disc;
     width: auto;
     height: 22px;
-    margin-top: 13px;
+    margin-top: 10px;
     margin-left: 24px;
     font-family: Roboto;
     font-style: normal;
@@ -1447,27 +1494,20 @@ body {
     text-align: left;
   }
 
-  .gallery-infogroup-list {
-    list-style-type: disc;
-    margin-left: 24px;
-    width: auto;
-    border: 1px solid white;
-  }
-
-  .gallery-devider2 {
+  .post-devider2 {
     width: 720px;
     height: 0px;
     border: 1px solid #3a456f;
     margin-top: 12px;
   }
 
-  .gallery-writecomment {
+  .post-writecomment {
     width: 720px;
     height: 70px;
     margin-top: 26px;
   }
 
-  .gallery-wc-image {
+  .post-wc-image {
     width: 52px;
     height: 52px;
     margin-left: 12px;
@@ -1475,7 +1515,7 @@ body {
     border-radius: 50%;
   }
 
-  .gallery-wc-input {
+  .post-wc-input {
     width: 620px;
     height: 52px;
     margin: 1px 0 1px 21px;
@@ -1494,8 +1534,7 @@ body {
     padding-left: 16px;
   }
 
-  .gallery-wc-submit {
-    border: 1px solid green;
+  .post-wc-submit {
     width: 37px;
     height: 26px;
 
@@ -1508,46 +1547,44 @@ body {
 
     color: #0059f7;
     position: relative;
-    bottom: 39px;
+    bottom: 37px;
     left: 660px;
     cursor: pointer;
   }
 
-  .gallery-comments {
+  .post-comments {
     width: 688px;
     height: auto;
     margin-left: 30px;
-    margin-top: 42px;
+    margin-top: 26px;
   }
 
-  .gallery-mycomment {
-    border: 1px solid white;
+  .post-mycomment {
     width: 688px;
     height: 55px;
+    margin-top: 16px;
   }
 
-  .gallery-mycomment-group1 {
-    border: 1px solid white;
+  .post-mycomment-group1 {
     width: 40px;
     height: 55px;
     float: left;
   }
 
-  .gallery-mycomment-group1-logo {
+  .post-mycomment-group1-logo {
     width: 40px;
     height: 40px;
     border-radius: 50%;
   }
 
-  .gallery-mycomment-group2 {
-    border: 1px solid white;
+  .post-mycomment-group2 {
     width: 634px;
     height: 55px;
     float: left;
     margin-left: 12px;
   }
 
-  .gallery-mycomment-group2-nickname {
+  .post-mycomment-group2-nickname {
     width: 83px;
     height: 23px;
     margin-top: 0px;
@@ -1559,9 +1596,10 @@ body {
     /* identical to box height */
 
     color: #ffffff;
+    text-align: left;
   }
 
-  .gallery-mycomment-group2-comment {
+  .post-mycomment-group2-comment {
     width: 562px;
     height: 27px;
     margin-top: 5px;
@@ -1576,7 +1614,7 @@ body {
     text-align: left;
   }
 
-  .gallery-mycomment-group2-delete {
+  .post-mycomment-group2-delete {
     width: 40px;
     height: 40px;
 
@@ -1587,6 +1625,476 @@ body {
     position: relative;
     bottom: 49px;
     left: 594px;
+    cursor: pointer;
+  }
+
+  /* Gallery 페이지*/
+  .gallery {
+    width: 100vw;
+    height: auto;
+    background: #070e27;
+  }
+
+  .gallerywrap {
+    width: 720px;
+    height: 900px;
+    margin: 0px auto 0px auto;
+    padding-top: 21px;
+  }
+
+  .gallery-nickname {
+    width: 360px;
+    height: 17px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #ffffff;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left: 1vw;
+  }
+
+  /* .gallery-group1 {
+    width: 720px;
+    height: 40px;
+    text-align: left;
+  } */
+
+  .gallery-group1 {
+    width: 98vw;
+    height: 40px;
+    text-align: left;
+  }
+
+  .gallery-title {
+    width: 360px;
+    height: 34px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 37px;
+
+    color: #ffffff;
+    text-align: left;
+    float: left;
+  }
+
+  /* .gallery-btn {
+    width: 100px;
+    height: 34px;
+    float: left;
+
+    background: #0059f7;
+    border-radius: 8px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+
+    color: #ffffff;
+    padding-top: 8px;
+    cursor: pointer;
+    margin-left: 260px;
+    margin-top: 10px;
+  } */
+
+  .gallery-btn {
+    width: 100px;
+    /* width: 16vw; */
+    height: 34px;
+    float: left;
+
+    background: #0059f7;
+    border-radius: 8px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+
+    color: #ffffff;
+    padding-top: 8px;
+    cursor: pointer;
+    margin-left: 27vw;
+    margin-top: 10px;
+  }
+
+  /* .gallery-titleinput {
+    width: 360px;
+    height: 52px;
+
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+    float: left;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: #7c9cbf;
+    padding-left: 16px;
+    padding-top: 16px;
+    margin-bottom: 16px;
+  } */
+
+  .gallery-titleinput {
+    /* width: 360px; */
+    width: 50vw;
+    height: 52px;
+
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+    float: left;
+    margin-left: 1vw;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+
+    color: #7c9cbf;
+    padding-left: 16px;
+    padding-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .gallery-edit {
+    width: 40px;
+    height: 40px;
+    margin-left: 280px;
+    float: left;
+
+    background: url("../src/img/pencil.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-delete {
+    width: 40px;
+    height: 40px;
+    float: left;
+
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  /* .gallery-group2 {
+    width: 720px;
+    height: auto;
+    margin-top: 12px;
+  } */
+
+  .gallery-group2 {
+    width: 720px;
+    height: auto;
+    margin-top: 12px;
+    text-align: left;
+  }
+
+  /* .gallery-descinput {
+    width: 720px;
+    height: 80px;
+    margin-bottom: 30px;
+    padding-left: 16px;
+    padding-top: 16px;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: #7c9cbf;
+
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+  } */
+
+  .gallery-descinput {
+    width: 97vw;
+    height: 80px;
+    margin-bottom: 30px;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    padding-top: 16px;
+    padding-left: 16px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: #7c9cbf;
+
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+  }
+
+  .gallery-desc {
+    width: 675px;
+    height: 50px;
+    float: left;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: #d0d0d0;
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .gallery-like1 {
+    width: 40px;
+    height: 60px;
+    margin-left: 0px;
+    float: left;
+
+    background: url("../src/img/Heart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-like2 {
+    width: 40px;
+    height: 60px;
+    margin-left: 0px;
+    float: left;
+
+    background: url("../src/img/FullHeart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  /* .gallery-group3 {
+    border: 1px solid white;
+    width: 720px;
+    height: auto;
+    margin-top: 19px;
+    display: flex;
+    flex-wrap: wrap;
+  } */
+
+  .gallery-group3 {
+    border: 1px solid white;
+    width: 98vw;
+    height: auto;
+    margin-top: 19px;
+    margin-left: 1vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* .gallery-content {
+    width: 230px;
+    height: 140px;
+    margin: 5px;
+    background: #ffffff;
+    border-radius: 5px;
+  } */
+
+  .gallery-content {
+    width: 31vw;
+    height: 140px;
+    margin-top: 0.5vw;
+    margin-left: 1vw;
+    background: #ffffff;
+    border-radius: 5px;
+  }
+
+  /* .gallery-content-img {
+    width: 230px;
+    height: 140px;
+    background: #ffffff;
+    border-radius: 10px;
+  } */
+
+  .gallery-content-img {
+    width: 31vw;
+    height: 140px;
+    background: #ffffff;
+    border-radius: 10px;
+  }
+
+  /* .gallery-content-delete {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 190px;
+    bottom: 145px;
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  } */
+
+  .gallery-content-delete {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    /* left: 190px; */
+    left: 25vw;
+    bottom: 145px;
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-nocontent {
+    width: 200px;
+    height: 150px;
+    margin: 200px auto 0 auto;
+  }
+
+  .gallery-nocontent-img {
+    width: 100px;
+    height: 100px;
+    background: url("../src/img/noresult.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+    margin-left: 50px;
+  }
+
+  .gallery-nocontent-title {
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height, or 122% */
+
+    text-align: center;
+
+    color: #c0c0c0;
+    margin-top: 10px;
+  }
+
+  /* 갤러리 삭제 모달*/
+  .deleteModal-background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: #000000;
+  }
+
+  .deleteModal {
+    width: 300px;
+    height: 277px;
+    background: #0059f7;
+    border-radius: 10px;
+    margin: 265px auto 0 auto;
+  }
+
+  .delete-img {
+    position: relative;
+    top: 41px;
+    left: 120px;
+    width: 70px;
+    height: 70px;
+
+    background: url("../src/img/trash.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px;
+  }
+
+  .delete-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    /* identical to box height, or 100% */
+
+    color: #ffffff;
+    margin-top: 68px;
+  }
+
+  .delete-btn {
+    width: 300px;
+    height: 34px;
+    margin-top: 53px;
+  }
+
+  .delete-btn-ok {
+    float: left;
+    width: 59px;
+    height: 24px;
+    margin-left: 64px;
+    margin-top: 5px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    text-decoration-line: underline;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .delete-btn-cancel {
+    float: left;
+    width: 100px;
+    height: 34px;
+    margin-left: 34px;
+
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    color: #000000;
     cursor: pointer;
   }
 }
