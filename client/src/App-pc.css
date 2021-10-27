@@ -8,7 +8,8 @@
 
 body {
   /* 사파리에서 폰트가 못생겨보임 - 해결못함 */
-  font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo", apple sd gothic neo;
+  font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo",
+    apple sd gothic neo;
   height: 100%;
   margin: 0;
 }
@@ -20,7 +21,6 @@ body {
     background-color: #070e27;
     width: 100vw;
     margin-top: 0px;
-    border: 1px solid #fff;
     padding: 27px;
     display: flex;
   }
@@ -112,15 +112,22 @@ body {
   }
 
   /* ===== mainFooter =====*/
+  .mF-container {
+    background: #0a142f;
+    margin: auto;
+  }
   .mainFooter {
     height: 275px;
     background: #0a142f;
-    padding: 64px 183px 34px;
+    border-bottom: 1px solid red;
+    padding: 63px 183px 34px;
   }
 
-  .mF-UI {
-    height: 177px;
-    text-align: left;
+  .footer-wrap {
+    height: 91px;
+    width: 714px;
+    text-align-last: left;
+    margin: auto;
   }
 
   .mF-footer-logo {
@@ -205,23 +212,449 @@ body {
     margin-top: 30px;
   }
 
-  /* Login Page */
-  .login {
-    position: absolute;
+  /* ===== top button 탑 버튼===== */
+  .topbutton {
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    padding: 12px;
+  }
+
+  .topbutton > div {
+    width: 30px;
+    height: 30px;
+    background: url("./img/ArrowTop.png");
+    background-size: contain;
+  }
+
+  /* ===== Makepost page 갤러리 만들기===== */
+  .MP-container {
+    background-color: #070e27;
+    width: 100vw;
+    height: 1070px;
+    color: #fff;
+  }
+
+  .MP-wrap {
+    width: 840px;
+    height: 730px;
+    margin: auto;
+    text-align: left;
+    border: 1px solid #070e27;
+  }
+
+  .MP-title {
+    margin-top: 34px;
+    font-size: 32px;
+    line-height: 37px;
+    margin-bottom: 81px;
+  }
+
+  .MP-sub-title {
+    color: #d4d4d4;
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .MP-movie {
+    width: 400px;
+    height: 52px;
+    border: 1px solid #dbe2ea;
+    border-radius: 6px;
+    padding: 10px;
+    color: #7c9cbf;
+    background-color: #fff;
+    display: inline-block;
+  }
+
+  .MP-movie > input {
+    width: 300px;
+    height: 28px;
+    outline-style: none;
+    border: none;
+    /* font-size: 16px; */
+    line-height: 21px;
+    display: inline-block;
+  }
+  .MP-movie > select {
+    outline-style: none;
+    border: none;
+    font-size: 16px;
+    line-height: 21px;
+    outline: 0 none;
+  }
+
+  .MP-movie > input::placeholder {
+    color: #7c9cbf;
+  }
+
+  .MP-movie-icon {
+    background: url("./img/Lens.png");
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: contain;
+    float: right;
+  }
+
+  .MP-photo-btn {
+    margin-top: 18px;
+    margin-bottom: 29px;
+    width: 119px;
+    height: 43px;
+    background: #e4e4e4;
+    border-radius: 5px;
+    color: #000;
+    text-align: center;
+    padding: 14px;
+    cursor: pointer;
+  }
+
+  .MP-input-wrap {
+    width: 400px;
+    height: 126px;
+    margin: auto;
+  }
+
+  .MP-photo-wrap {
+    width: 400px;
+    height: 270px;
+    margin: auto;
+  }
+
+  .MP-photo-show {
+    width: 400px;
+    height: 149px;
+    background: #202846;
+  }
+
+  .MP-box-wrap {
+    width: 400px;
+    height: 200px;
+    margin: 30px auto;
+  }
+
+  #textarea {
+    width: 400px;
+    height: 146px;
+    border-radius: 6px;
+    padding: 16px;
+    color: #7c9cbf;
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  .MP-btn-wrap {
+    background: #0059f7;
+    border-radius: 8px;
+    width: 258px;
+    height: 56px;
+    margin: auto;
+    text-align: center;
+    margin-top: 38px;
+  }
+
+  .MP-btn-wrap > button {
+    border-radius: 8px;
+    cursor: pointer;
+    width: 258px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    background-color: #0059f7;
+  }
+
+  /* ===== Mygallery page 마이갤러리===== */
+
+  .my-g-container {
+    background-color: #070e27;
+    width: 100vw;
+    /* height: 100vw; */
+    color: #fff;
+  }
+
+  .my-g-wrap {
+    width: 840px;
+    height: 1400px;
+    margin: auto;
+    text-align: left;
+    /* border: 1px solid red; */
+  }
+
+  .my-g-title {
+    margin-top: 34px;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+    display: inline-block;
+  }
+
+  .my-g-user-wrap {
+    margin-top: 34px;
+    width: 110px;
+    height: 40px;
+    float: right;
+  }
+
+  .my-g-hr {
+    border: 1px solid #3a456f;
+    width: 840px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .my-g-account-icon {
+    width: 18px;
+    height: 18px;
+    background: url("./img/account.png");
+    background-position: center;
+    background-size: contain;
+    margin-top: 9px;
+    display: inline-block;
+  }
+
+  .my-g-account-name {
+    font-size: 16px;
+    line-height: 19px;
+    align-items: center;
+    text-decoration-line: underline;
+    color: #ffffff;
+    float: right;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+
+  .my-g-scene-wrap {
+    width: 840px;
+    margin-bottom: 40px;
+    /* height: 428px; */
+    /* border: 1px solid red; */
+  }
+
+  .my-g-sub-title {
+    font-size: 26px;
+    line-height: 30px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .my-g-add-wrap {
+    width: 110px;
+    height: 30px;
+    /* border: 1px solid red; */
+    float: right;
+  }
+
+  .my-g-add-list-wrap {
+    width: 125px;
+    height: 30px;
+    /* border: 1px solid red; */
+    float: right;
+  }
+
+  .my-g-add-text {
+    font-size: 18px;
+    line-height: 21px;
+    text-decoration-line: underline;
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .my-g-add-icon {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Add_fff.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    float: right;
+    margin-right: 12px;
+  }
+
+  .my-g-like-hr {
+    border: 1px solid #3a456f;
+    width: 840px;
+    margin: 15px 0 15px 0;
+  }
+
+  .my-g-like-add-icon {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Add_fff.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    margin-right: 12px;
+    display: inline-block;
+  }
+
+  .my-g-like-minus-icon {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Minus.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    margin-right: 12px;
+    display: inline-block;
+  }
+
+  .my-g-like-title {
+    font-size: 26px;
+    line-height: 30px;
+    float: left;
+    cursor: pointer;
+  }
+
+  /* ===== Makegallery page ===== */
+  .MG-container {
+    background-color: #070e27;
     width: 100vw;
     height: auto;
-    left: 0px;
-    /* top: 104px; */
-    top: 104px;
+    color: #fff;
+  }
+
+  .MG-wrap {
+    width: 614px;
+    height: 586px;
+    margin: auto;
+  }
+
+  .MG-name {
+    width: 614px;
+    height: 106px;
+    margin-bottom: 28px;
+  }
+
+  .MG-desc {
+    width: 614px;
+    height: 200px;
+    margin-bottom: 28px;
+  }
+
+  .MG-title {
+    font-size: 20px;
+    line-height: 26px;
+    color: #d5d5d5;
+  }
+
+  .MG-name > input {
+    width: 614px;
+    height: 52px;
+    outline-style: none;
+    border: none;
+    font-size: 16px;
+    line-height: 21px;
+    display: inline-block;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+    padding: 16px;
+  }
+
+  .MG-name > input::placeholder {
+    color: #7c9cbf;
+  }
+
+  .MG-desc > textarea {
+    width: 614px;
+    height: 146px;
+    border-radius: 6px;
+    padding: 16px;
+    font-size: 16px;
+    line-height: 21px;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+  }
+
+  .MG-desc > textarea::placeholder {
+    color: #7c9cbf;
+  }
+
+  .MG-btn {
+    width: 180px;
+    height: 56px;
+    background: #0059f7;
+    border-radius: 8px;
+    margin: 60px auto;
+  }
+
+  .MG-btn > button {
+    border-radius: 8px;
+    cursor: pointer;
+    width: 180px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    background-color: #0059f7;
+  }
+
+  /* 나의 장면들 */
+  .made-scene-wrap {
+    width: 838px;
+    height: 142px;
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+  }
+  .bookmarker {
+    background: url("./img/bookmark.png");
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: contain;
+    left: 154px;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  /* 좋아한 장면 */
+  .like-scene-wrap {
+    width: 838px;
+    height: 142px;
+    display: flex;
+    flex-flow: column wrap;
+    padding-top: 20px;
+  }
+
+  /* 좋아한 갤러리 */
+  .like-gallery-container {
+    width: 340px;
+    height: 262.51px;
+    border: 0.972265px solid #344583;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    padding: 11px;
+    margin-top: 20px;
+  }
+
+  /* Login Page */
+  .login {
+    width: 100vw;
+    height: auto;
     background: #070e27;
     text-align: center;
   }
+
   .loginwrap {
-    margin: 43px auto;
+    margin: auto;
     width: 840px;
     height: auto;
-    /* margin-top: 43px; */
     text-align: center;
+    padding-bottom: 100px;
   }
 
   .lin-title {
@@ -462,11 +895,8 @@ body {
 
   /* signup 페이지 */
   .signup {
-    position: absolute;
     width: 100vw;
     height: auto;
-    left: 0px;
-    top: 104px;
     background: #070e27;
     text-align: center;
   }
@@ -474,7 +904,9 @@ body {
   .signupwrap {
     width: 840px;
     height: auto;
-    margin: 43px auto;
+    margin: 0px auto;
+    padding-top: 43px;
+    padding-bottom: 100px;
   }
 
   .signup-title {
@@ -564,7 +996,8 @@ body {
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
+      0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
 
     font-family: IBM Plex Sans;
@@ -893,12 +1326,15 @@ body {
   /* ===== Main 메인페이지 ===== */
   .main-back {
     background-color: #070e27;
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100vw;
-    height: 100vw;
+    height: 100%;
     color: #fff;
+  }
+
+  .main-wrap {
+    width: 1060px;
+    height: 964px;
+    margin: auto;
   }
 
   .main-text {
@@ -910,12 +1346,17 @@ body {
   .main-gallery {
     width: 1060px;
     height: 360px;
-    border: 1px solid red;
+  }
+
+  .main-gallery-wrap {
+    width: 1060px;
+    height: 299px;
+    /* border: 1px solid red; */
   }
 
   .main-genre {
     width: 1060px;
-    border: 1px solid red;
+    margin-top: 80px;
   }
 
   .main-genre-category-wrap {
@@ -950,8 +1391,70 @@ body {
   }
 
   .main-genre-img-wrap {
-    border: 1px solid red;
     margin-top: 45px;
+  }
+
+  /* 인기 갤러리 BestGallery */
+  .BG-container {
+    width: 340px;
+    height: 262.51px;
+    border: 0.972265px solid #344583;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    padding: 11px;
+  }
+
+  .BG-title {
+    font-size: 18px;
+    line-height: 21px;
+    color: #787e95;
+    text-align: left;
+    margin-top: 6px;
+    margin-bottom: 10px;
+  }
+
+  .BG-img-wrap {
+    width: 315.49px;
+    height: 200.05px;
+    display: flex;
+    flex-flow: wrap;
+  }
+
+  .BG-img {
+    width: 157px;
+    height: 100px;
+    border: 1px solid #eaeaea;
+  }
+
+  .BG-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* main page genre img 장르별 장면 */
+  .genre-img-wrap {
+    width: 1060px;
+    height: 400px;
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  .genre-img {
+    width: 250px;
+    height: 157px;
+    border: 1px solid #eaeaea;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  .genre-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
   }
 
   /* ===== Search page ===== */
@@ -960,9 +1463,8 @@ body {
   }
   .search-wrap {
     margin-top: 43px;
-    border: 1px solid red;
     width: 840px;
-    height: 100vw;
+    height: auto;
     color: #fff;
   }
 
@@ -979,6 +1481,31 @@ body {
     line-height: 30px;
     text-align: left;
     margin-bottom: 23px;
+  }
+
+  /* ResultScene 검색결과 장면 */
+  .result-scene-wrap {
+    width: 838px;
+    height: 300px;
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  .result-scene-img {
+    width: 194px;
+    height: 122px;
+    border-radius: 10px;
+    border: 1px solid #eaeaea;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+
+  .result-scene-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
   }
 
   /* 검색결과 없는 경우 컴포넌트 */
@@ -1007,16 +1534,21 @@ body {
   }
 
   .singupModal-background {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: #000000;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    place-items: center;
   }
 
   .singupModal {
     width: 300px;
     height: 313px;
-    margin: 300px auto 0px auto;
+    margin: 0px auto 0px auto;
     background: #0059f7;
     border-radius: 10px;
   }
@@ -1024,12 +1556,10 @@ body {
   .suM-image {
     position: relative;
     top: 43px;
-    border: 1px solid white;
     width: 80px;
     height: 80px;
     margin: 43px auto 0px auto;
     background: url("../src/img/Signup-ok.png");
-    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
@@ -1073,17 +1603,16 @@ body {
 
   /* userinfo 페이지 */
   .userinfo {
-    position: absolute;
     background: #070e27;
-    width: 100vw;
-    height: auto;
-    padding-bottom: 50px;
   }
 
   .userinfowrap {
+    margin: auto;
     width: 840px;
     height: auto;
-    margin: 43px auto 0 auto;
+    text-align: center;
+    padding-top: 43px;
+    padding-bottom: 100px;
   }
 
   .ui-title {
@@ -1365,10 +1894,15 @@ body {
 
   /* 회원 탈퇴 모달*/
   .singoutModal-background {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: #000000;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000000;
+    display: grid;
+    place-items: center;
   }
 
   .singoutModal {
@@ -1376,7 +1910,6 @@ body {
     height: 235px;
     background: #0059f7;
     border-radius: 10px;
-    margin: 390px auto 0 auto;
   }
 
   .soM-label {
@@ -1384,28 +1917,22 @@ body {
     top: 88px;
     width: 300px;
     height: 24px;
-    margin-top: 24px;
-  }
 
-  .soM-label {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
     /* identical to box height, or 120% */
-
     text-align: center;
-
     color: #ffffff;
   }
 
   .soM-btn {
     position: relative;
-    top: 88px;
+    top: 130px;
     width: 300px;
     height: 34px;
-    margin-top: 24px;
   }
 
   .soM-btn-singout {
@@ -1448,23 +1975,21 @@ body {
     cursor: pointer;
   }
 
-  /* Galley 페이지 */
-  .gallery {
-    border: 1px solid white;
+  /* Post 페이지 */
+  .post {
     width: 100vw;
     height: auto;
     background-color: #070e27;
   }
 
-  .gallerywrap {
-    border: 1px solid white;
+  .postwrap {
     width: 840px;
     height: auto;
-    margin: 43px auto 50px auto;
+    margin: 0px auto 0px auto;
+    padding-bottom: 100px;
   }
 
-  .gallery-title {
-    border: 1px solid white;
+  .post-title {
     width: 840px;
     height: 51px;
 
@@ -1478,26 +2003,36 @@ body {
     text-align: left;
   }
 
-  .gallery-editgroup {
-    border: 1px solid white;
+  .post-editgroup {
     width: 840px;
     height: 40px;
     margin-top: -11px;
   }
 
-  .gallery-edit-edit {
-    border: 1px solid white;
-    width: 40px;
-    height: 40px;
+  .post-edit-btn {
+    width: 50px;
+    height: 32px;
     float: right;
-    background: url("../src/img/delete.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: none;
+    margin-top: 5px;
+
+    background: #ffffff;
+    border: 1px solid #0880ae;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
+      0px 2px 4px rgba(44, 39, 56, 0.08);
+    border-radius: 3px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #5a7fa8;
   }
 
-  .gallery-edit-delete {
-    border: 1px solid white;
+  .post-edit-edit {
     width: 40px;
     height: 40px;
     float: right;
@@ -1505,25 +2040,36 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
+    cursor: pointer;
   }
 
-  .gallery-image {
-    border: 1px solid white;
+  .post-edit-delete {
+    width: 40px;
+    height: 40px;
+    float: right;
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .post-image {
     width: 840px;
     height: 506px;
     margin-top: 11px;
     border-radius: 5px;
+    background: #c4c4c4;
+    border-radius: 10px;
   }
 
-  .gallery-label {
-    border: 1px solid white;
+  .post-label {
     width: 840px;
     height: 40px;
     margin-top: 22px;
   }
 
-  .gallery-label-title {
-    border: 1px solid white;
+  .post-label-title {
     width: 397px;
     height: 33px;
     margin-top: 7px;
@@ -1540,8 +2086,7 @@ body {
     color: #ffffff;
   }
 
-  .gallery-label-like1 {
-    border: 1px solid white;
+  .post-label-like1 {
     width: 40px;
     height: 40px;
     float: right;
@@ -1552,8 +2097,7 @@ body {
     background-size: none;
   }
 
-  .gallery-label-like2 {
-    border: 1px solid white;
+  .post-label-like2 {
     width: 40px;
     height: 40px;
     float: right;
@@ -1564,8 +2108,7 @@ body {
     background-size: none;
   }
 
-  .gallery-desc {
-    border: 1px solid white;
+  .post-desc {
     width: 840px;
     height: 68px;
     margin-top: 21px;
@@ -1581,25 +2124,43 @@ body {
     white-space: pre-line;
   }
 
-  .gallery-devider {
+  .post-editdesc {
+    width: 840px;
+    height: 68px;
+    margin-top: 21px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 33px;
+
+    color: black;
+    text-align: left;
+    word-break: keep-all;
+    white-space: pre-line;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .post-devider {
     width: 840px;
     height: 0px;
     border: 1px solid #3a456f;
     margin-top: 42px;
   }
 
-  .gallery-infogroup {
-    border: 1px solid white;
+  .post-infogroup {
     width: 500px;
-    height: 175px;
+    height: max-content;
     margin-top: 14px;
+    cursor: pointer;
   }
 
-  .gallery-infogroup-label {
-    border: 1px solid white;
-    width: 300px;
-    height: 34px;
+  .post-infogroup-label {
+    width: 95px;
+    height: 25px;
     margin-left: 12px;
+    margin-top: 4px;
 
     font-family: Roboto;
     font-style: normal;
@@ -1610,9 +2171,41 @@ body {
     align-items: center;
 
     color: #ffffff;
+    float: left;
   }
 
-  .gallery-infogroup-title {
+  .post-infogroup-plusminus {
+    width: 30px;
+    height: 30px;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .post-infogroup-plus {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Add_fff.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    display: inline-block;
+  }
+
+  .post-infogroup-minus {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Minus.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    display: inline-block;
+  }
+
+  .post-infogroup-list {
     width: auto;
     height: 22px;
     margin-top: 13px;
@@ -1625,29 +2218,23 @@ body {
     /* or 145% */
     color: #ffffff;
     text-align: left;
-  }
-
-  .gallery-infogroup-list {
     list-style-type: disc;
-    margin-left: 22px;
-    width: auto;
-    border: 1px solid white;
   }
 
-  .gallery-devider2 {
+  .post-devider2 {
     width: 840px;
     height: 0px;
     border: 1px solid #3a456f;
     margin-top: 17px;
   }
 
-  .gallery-writecomment {
+  .post-writecomment {
     width: 840px;
     height: 70px;
     margin-top: 37px;
   }
 
-  .gallery-wc-image {
+  .post-wc-image {
     width: 70px;
     height: 70px;
     margin-left: 22px;
@@ -1655,7 +2242,7 @@ body {
     border-radius: 50%;
   }
 
-  .gallery-wc-input {
+  .post-wc-input {
     width: 730px;
     height: 68px;
     margin: 1px 0 1px 18px;
@@ -1670,12 +2257,15 @@ body {
     background: #ffffff;
     border-radius: 8px;
     border-width: 0px;
-    color: #7c9cbf;
+    color: black;
     padding-left: 16px;
   }
 
-  .gallery-wc-submit {
-    border: 1px solid green;
+  .post-writecomment > input::placeholder {
+    color: #7c9cbf;
+  }
+
+  .post-wc-submit {
     width: 37px;
     height: 26px;
 
@@ -1693,38 +2283,38 @@ body {
     cursor: pointer;
   }
 
-  .gallery-comments {
+  .post-comments {
     width: 810px;
     height: auto;
     margin-left: 30px;
     margin-top: 42px;
   }
 
-  .gallery-mycomment {
+  .post-mycomment {
     width: 810px;
     height: 110px;
   }
 
-  .gallery-mycomment-group1 {
+  .post-mycomment-group1 {
     width: 60px;
     height: 110px;
     float: left;
   }
 
-  .gallery-mycomment-group1-logo {
+  .post-mycomment-group1-logo {
     width: 60px;
     height: 60px;
     border-radius: 50%;
   }
 
-  .gallery-mycomment-group2 {
+  .post-mycomment-group2 {
     width: 740px;
     height: 110px;
     float: left;
     margin-left: 10px;
   }
 
-  .gallery-mycomment-group2-nickname {
+  .post-mycomment-group2-nickname {
     width: 102px;
     height: 29px;
     margin-top: 8px;
@@ -1736,12 +2326,13 @@ body {
     /* identical to box height */
 
     color: #ffffff;
+    text-align: left;
   }
 
-  .gallery-mycomment-group2-comment {
+  .post-mycomment-group2-comment {
     width: 582px;
     height: 27px;
-    margin-top: 18px;
+    margin-top: 13px;
 
     font-family: Roboto;
     font-style: normal;
@@ -1753,7 +2344,7 @@ body {
     text-align: left;
   }
 
-  .gallery-mycomment-group2-delete {
+  .post-mycomment-group2-delete {
     width: 50px;
     height: 50px;
 
@@ -1764,6 +2355,354 @@ body {
     position: relative;
     bottom: 85px;
     left: 700px;
+    cursor: pointer;
+  }
+
+  /* Gallery 페이지*/
+  .gallery {
+    width: 100vw;
+    height: auto;
+    background: #070e27;
+  }
+
+  .gallerywrap {
+    width: 840px;
+    height: auto;
+    margin: 0px auto 0px auto;
+    padding-top: 43px;
+    padding-bottom: 43px;
+  }
+
+  .gallery-nickname {
+    width: 360px;
+    height: 26px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: #ffffff;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .gallery-group1 {
+    width: 840px;
+    height: 40px;
+    /* margin-top: 10px; */
+  }
+
+  .gallery-title {
+    width: 730px;
+    height: 34px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 37px;
+
+    color: #ffffff;
+    text-align: left;
+    float: left;
+  }
+
+  .gallery-btn {
+    width: 100px;
+    height: 48px;
+    float: left;
+
+    background: #0059f7;
+    border-radius: 8px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+
+    color: #ffffff;
+    padding-top: 13px;
+    cursor: pointer;
+    margin-left: 115px;
+    margin-top: 6px;
+  }
+
+  .gallery-titleinput {
+    width: 620px;
+    height: 69px;
+
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+    float: left;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 42px;
+    /* identical to box height */
+
+    color: #7c9cbf;
+    padding-left: 16px;
+    padding-top: 14.5px;
+    margin-bottom: 16px;
+  }
+
+  .gallery-edit {
+    width: 40px;
+    height: 40px;
+    margin-left: 28px;
+    float: left;
+
+    background: url("../src/img/pencil.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-delete {
+    width: 40px;
+    height: 40px;
+    float: left;
+
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-group2 {
+    width: 840px;
+    height: auto;
+    margin-top: 12px;
+  }
+
+  .gallery-descinput {
+    width: 840px;
+    height: 80px;
+    margin-bottom: 30px;
+    padding-left: 16px;
+    padding-top: 16px;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 29px;
+
+    color: #7c9cbf;
+
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+  }
+
+  .gallery-desc {
+    width: 771px;
+    height: 76px;
+    float: left;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 30px;
+
+    color: #d0d0d0;
+    text-align: left;
+  }
+
+  .gallery-like1 {
+    width: 40px;
+    height: 60px;
+    margin-left: 25px;
+    float: left;
+
+    background: url("../src/img/Heart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-like2 {
+    width: 40px;
+    height: 60px;
+    margin-left: 25px;
+    float: left;
+
+    background: url("../src/img/FullHeart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-group3 {
+    width: 840px;
+    height: auto;
+    margin-top: 19px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .gallery-content {
+    width: 267px;
+    height: 162px;
+    margin: 6px;
+    border-radius: 10px;
+  }
+
+  .gallery-content-img {
+    width: 267px;
+    height: 162px;
+    border-radius: 10px;
+    border: 1px solid #eaeaea;
+    box-sizing: border-box;
+  }
+
+  .gallery-content-delete {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 227px;
+    bottom: 165px;
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-nocontent {
+    width: 200px;
+    height: 150px;
+    margin: 200px auto 0 auto;
+  }
+
+  .gallery-nocontent-img {
+    width: 100px;
+    height: 100px;
+    background: url("../src/img/noresult.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+    margin-left: 50px;
+  }
+
+  .gallery-nocontent-title {
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height, or 122% */
+
+    text-align: center;
+
+    color: #c0c0c0;
+    margin-top: 10px;
+  }
+
+  /* 갤러리 삭제 모달*/
+  .deleteModal-background {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    place-items: center;
+  }
+
+  .deleteModal {
+    width: 300px;
+    height: 277px;
+    background: #0059f7;
+    border-radius: 10px;
+    margin: 0px auto 0 auto;
+  }
+
+  .delete-img {
+    position: relative;
+    top: 41px;
+    left: 120px;
+    width: 70px;
+    height: 70px;
+
+    background: url("../src/img/trash.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px;
+  }
+
+  .delete-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    /* identical to box height, or 100% */
+
+    color: #ffffff;
+    margin-top: 68px;
+  }
+
+  .delete-btn {
+    width: 300px;
+    height: 34px;
+    margin-top: 53px;
+  }
+
+  .delete-btn-ok {
+    float: left;
+    width: 59px;
+    height: 24px;
+    margin-left: 64px;
+    margin-top: 5px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    text-decoration-line: underline;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .delete-btn-cancel {
+    float: left;
+    width: 100px;
+    height: 34px;
+    margin-left: 34px;
+
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    color: #000000;
     cursor: pointer;
   }
 }

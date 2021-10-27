@@ -13,7 +13,11 @@ module.exports = (sequelize, DataTypes) => {
 		{}
 	)
 	Singlepost.associate = function (models) {
-		// associations can be defined here
+		models.Singlepost.hasMany(models.Like, { foreignKey: "singlepost_id" })
+		models.Singlepost.hasMany(models.Comment, { foreignKey: "singlepost_id" })
+		models.Singlepost.hasMany(models.singlepost_gallerypost, { foreignKey: "singlepost_id" })
+		models.Singlepost.belongsTo(models.User, { foreignKey: "user_id" })
+		models.Singlepost.belongsTo(models.Description, { foreignKey: "description_id" })
 	}
 	return Singlepost
 }

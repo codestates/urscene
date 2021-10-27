@@ -2,42 +2,18 @@ const Sequelize = require("sequelize")
 
 const User = require("./models/user")
 const Description = require("./models/description")
-
+const jwt = require("jsonwebtoken")
 require("dotenv").config()
-
-// if (!process.env.MONGO_URI) {
-// 	console.error("MongoDB connection string is missing!")
-// 	process.exit(1)
-// }
-
-// if (process.env.NODE_ENV !== "test") {
-// 	mongoose
-// 		.connect(process.env.MONGO_URI, {
-// 			useNewUrlParser: true,
-// 			useUnifiedTopology: true,
-// 		})
-// 		.then(console.log("MongoDB Connectted!!"))
-// 		.catch((err) => console.error(err))
-// }
-
-// seed user data (if nacessary)
-// User.find()
-// 	.then((users) => {
-// 		if (users.length) return
-
-// 		new User({
-// 			name: "손연주",
-// 			email: "sonyeonju7@gmail.com",
-// 			password: "Test123@",
-// 		}).save()
-// 	})
-// 	.catch((err) => console.error(err))
 
 module.exports = {
 	getUserById: async (id) =>
 		User.findOne({
 			where: { id: id },
 		}),
+	getverify: async (token) => {
+		userinfo = jwt.verify(token, process.env.ACCESS_SECRET)
+		return userinfo
+	},
 	getUserByEmail: async (email) => User.findOne({ email }),
 	getUserByName: async (name) => User.findOne({ name }),
 	addUser: async (data) => new User(data).save(),

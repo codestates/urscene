@@ -1,4 +1,4 @@
-function SignoutModal() {
+function SignoutModal({ handleModal }) {
   return (
     <div className="singoutModal-background">
       <div className="singoutModal">
@@ -7,7 +7,9 @@ function SignoutModal() {
         </div>
         <div className="soM-btn">
           <div className="soM-btn-singout">탈퇴하기</div>
-          <button className="soM-btn-cancel">취소</button>
+          <button className="soM-btn-cancel" onClick={handleModal}>
+            취소
+          </button>
         </div>
       </div>
     </div>

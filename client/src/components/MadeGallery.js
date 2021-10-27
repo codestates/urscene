@@ -1,9 +1,9 @@
 import React from "react";
 
-function ResultGallery() {
+function MadeGallery() {
   return (
     <div>
-      <div className="BG-container">
+      <div className="like-gallery-container">
         <div className="BG-title">강석호님의 로맨스만 모았다.</div>
         <div className="BG-img-wrap">
           <div className="BG-img">
@@ -24,4 +24,4 @@ function ResultGallery() {
   );
 }
 
-export default ResultGallery;
+export default MadeGallery;

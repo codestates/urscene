@@ -1,6 +1,6 @@
 import React from "react";
 
-function ResultGallery() {
+function BestGallery() {
   return (
     <div>
       <div className="BG-container">
@@ -24,4 +24,4 @@ function ResultGallery() {
   );
 }
 
-export default ResultGallery;
+export default BestGallery;

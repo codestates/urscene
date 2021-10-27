@@ -1278,4 +1278,378 @@ body {
     color: #000000;
     cursor: pointer;
   }
+
+  /* Post 페이지 */
+  .post {
+    width: 414px;
+    height: auto;
+    background-color: #070e27;
+    position: absolute;
+    top: 60px;
+  }
+
+  .postwrap {
+    width: 414px;
+    height: auto;
+    margin: 0px auto 50px auto;
+  }
+
+  .post-title {
+    width: 275px;
+    height: 55px;
+    margin-top: 39px;
+    margin-left: 27px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 37px;
+
+    color: #ffffff;
+    text-align: left;
+    padding-top: 10px;
+    float: left;
+  }
+
+  .post-editgroup {
+    width: 84px;
+    height: 40px;
+    margin-right: 23px;
+    margin-top: 47px;
+    float: right;
+  }
+
+  .post-edit-btn {
+    width: 50px;
+    height: 32px;
+    float: right;
+    margin-top: 5px;
+
+    background: #ffffff;
+    border: 1px solid #0880ae;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
+    border-radius: 3px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #5a7fa8;
+  }
+
+  .post-edit-edit {
+    width: 40px;
+    height: 40px;
+    float: right;
+    background: url("../src/img/pencil.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+  }
+
+  .post-edit-delete {
+    width: 40px;
+    height: 40px;
+    float: right;
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+  }
+
+  .post-image {
+    width: 360px;
+    height: 190px;
+    margin-top: 26px;
+    border-radius: 10px;
+    background: #ffffff;
+  }
+
+  .post-label {
+    width: 360px;
+    height: 50px;
+    margin-left: 27px;
+  }
+
+  .post-label-title {
+    width: 269px;
+    height: 33px;
+    margin-top: 16px;
+    float: left;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: flex-end;
+
+    color: #ffffff;
+  }
+
+  .post-label-like1 {
+    width: 27px;
+    height: 26px;
+    float: right;
+    margin-top: 22px;
+
+    background: url("../src/img/Heart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 32px;
+  }
+
+  .post-label-like2 {
+    width: 27px;
+    height: 26px;
+    float: right;
+    margin-top: 22px;
+
+    background: url("../src/img/FullHeart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 23px;
+  }
+
+  .post-desc {
+    width: 360px;
+    height: 88px;
+    margin-top: 18px;
+    margin-left: 27px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #ffffff;
+    text-align: left;
+    word-break: keep-all;
+    white-space: pre-line;
+  }
+
+  .post-editdesc {
+    width: 360px;
+    height: 68px;
+    margin-top: 21px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: black;
+    text-align: left;
+    word-break: keep-all;
+    white-space: pre-line;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .post-devider {
+    width: 360px;
+    height: 0px;
+    border: 1px solid #3a456f;
+    margin-top: 29px;
+    margin-left: 27px;
+  }
+
+  .post-infogroup {
+    width: 360px;
+    height: max-content;
+    margin-top: 12px;
+    margin-left: 27px;
+  }
+
+  .post-infogroup-label {
+    width: 80px;
+    height: 34px;
+    margin-left: 12px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+
+    color: #ffffff;
+    float: left;
+  }
+
+  .post-infogroup-plus {
+    width: 50px;
+    height: 34px;
+    margin-left: 12px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .post-infogroup-list {
+    list-style-type: disc;
+    height: 25px;
+    margin-left: 20px;
+    width: auto;
+    margin-top: 5px;
+    width: 340px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    /* or 145% */
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .post-devider2 {
+    width: 360px;
+    height: 0px;
+    border: 1px solid #3a456f;
+    margin-top: 12px;
+    margin-left: 27px;
+  }
+
+  .post-writecomment {
+    width: 360px;
+    height: 52px;
+    margin-top: 26px;
+    margin-left: 27px;
+    margin-bottom: 21px;
+  }
+
+  .post-wc-image {
+    width: 52px;
+    height: 52px;
+    float: left;
+    border-radius: 50%;
+  }
+
+  .post-wc-input {
+    width: 295px;
+    height: 52px;
+    margin-left: 8px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    color: #7c9cbf;
+    padding-left: 16px;
+  }
+
+  .post-wc-submit {
+    width: 30px;
+    height: 21px;
+
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+
+    color: #0059f7;
+    position: relative;
+    bottom: 35px;
+    left: 310px;
+    cursor: pointer;
+  }
+
+  .post-comments {
+    width: 360px;
+    height: auto;
+    margin-left: 27px;
+  }
+
+  .post-mycomment {
+    width: 360px;
+    height: 55px;
+  }
+
+  .post-mycomment-group1 {
+    width: 40px;
+    height: 40px;
+    float: left;
+  }
+
+  .post-mycomment-group1-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .post-mycomment-group2 {
+    width: 305px;
+    height: 55px;
+    float: left;
+    margin-left: 12px;
+  }
+
+  .post-mycomment-group2-nickname {
+    width: 83px;
+    height: 23px;
+    margin-top: 0px;
+    font-family: IBM Plex Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .post-mycomment-group2-comment {
+    width: 562px;
+    height: 27px;
+    margin-top: 5px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .post-mycomment-group2-delete {
+    width: 27px;
+    height: 27px;
+
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    position: relative;
+    bottom: 55px;
+    left: 278px;
+    cursor: pointer;
+  }
 }

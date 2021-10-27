@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
 		{}
 	)
 	Description.associate = function (models) {
-		// associations can be defined here
+		models.Description.hasMany(models.Singlepost, { foreignKey: "description_id" })
 	}
 	return Description
 }
