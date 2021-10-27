@@ -32,6 +32,7 @@ function Makepost() {
             </div>
             <div className="MP-photo-wrap">
               <div className="MP-sub-title">사진 선택</div>
+              <div className="MP-photo-btn">선택하기</div>
               <div className="MP-photo-show">사진 파일 미리보기</div>
             </div>
             <div className="MP-box-wrap">

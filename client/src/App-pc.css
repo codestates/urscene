@@ -300,6 +300,19 @@ body {
     float: right;
   }
 
+  .MP-photo-btn {
+    margin-top: 18px;
+    margin-bottom: 29px;
+    width: 119px;
+    height: 43px;
+    background: #e4e4e4;
+    border-radius: 5px;
+    color: #000;
+    text-align: center;
+    padding: 14px;
+    cursor: pointer;
+  }
+
   .MP-input-wrap {
     width: 400px;
     height: 126px;
@@ -308,8 +321,7 @@ body {
 
   .MP-photo-wrap {
     width: 400px;
-    height: 265px;
-    border: 1px solid red;
+    height: 270px;
     margin: auto;
   }
 
@@ -322,7 +334,7 @@ body {
   .MP-box-wrap {
     width: 400px;
     height: 200px;
-    margin: auto;
+    margin: 30px auto;
   }
 
   #textarea {
