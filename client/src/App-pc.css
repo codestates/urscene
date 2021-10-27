@@ -119,12 +119,15 @@ body {
   .mainFooter {
     height: 275px;
     background: #0a142f;
-    padding: 64px 183px 34px;
+    border-bottom: 1px solid red;
+    padding: 63px 183px 34px;
   }
 
-  .mF-UI {
-    height: 177px;
-    text-align: left;
+  .footer-wrap {
+    height: 91px;
+    width: 714px;
+    text-align-last: left;
+    margin: auto;
   }
 
   .mF-footer-logo {
