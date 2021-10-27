@@ -1,9 +1,9 @@
 import React from "react";
 import MainNav from "../components/MainNav";
 import MainFooter from "../components/MainFooter";
+import TopButton from "../components/TopButton";
 import BestGallery from "../components/BestGallery";
 import GenreScene from "../components/GenreScene";
-import TopButton from "../components/TopButton";
 
 function Main() {
   const genres = [

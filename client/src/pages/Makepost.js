@@ -1,5 +1,7 @@
 import React from "react";
 import MainNav from "../components/MainNav";
+import MainFooter from "../components/MainFooter";
+import TopButton from "../components/TopButton";
 
 function Makepost() {
   return (
@@ -42,6 +44,8 @@ function Makepost() {
           </div>
         </form>
       </div>
+      <MainFooter></MainFooter>
+      <TopButton></TopButton>
     </div>
   );
 }

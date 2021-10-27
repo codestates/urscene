@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import MainNav from "../components/MainNav";
+import MainFooter from "../components/MainFooter";
+import TopButton from "../components/TopButton";
 
 function Makegallery() {
   return (
     <div>
       <MainNav />
-      <div className="MP-container">
+      <div className="MG-container">
         <div className="MP-wrap">
           <div className="MP-title">갤러리 만들기</div>
           <div className="MG-wrap">
@@ -23,7 +25,7 @@ function Makegallery() {
                 <textarea
                   className=""
                   type="text"
-                  placeholder="새로운 갤러리 이름을 적어주세요."
+                  placeholder="갤러리에 대한 설명을 적어주세요."
                 />
               </div>
 
@@ -34,6 +36,8 @@ function Makegallery() {
           </div>
         </div>
       </div>
+      <MainFooter></MainFooter>
+      <TopButton></TopButton>
     </div>
   );
 }
