@@ -1,6 +1,8 @@
 import React from "react";
 import MainNav from "../components/MainNav";
 import { Link } from "react-router-dom";
+import MainFooter from "../components/MainFooter";
+import TopButton from "../components/TopButton";
 
 function Login() {
   return (
@@ -39,6 +41,8 @@ function Login() {
           </div>
         </div>
       </div>
+      <MainFooter></MainFooter>
+      <TopButton></TopButton>
     </div>
   );
 }

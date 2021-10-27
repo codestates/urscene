@@ -5,6 +5,8 @@ import LikeScene from "../components/LikeScene";
 import LikeGallery from "../components/LikeGallery";
 import MadeGallery from "../components/MadeGallery";
 import MadeScene from "../components/MadeScene";
+import MainFooter from "../components/MainFooter";
+import TopButton from "../components/TopButton";
 
 function Mygallery() {
   const [isLikeSceneClicked, setIsLikeSceneClicked] = useState(false);
@@ -100,6 +102,8 @@ function Mygallery() {
           <div className="my-g-like-hr"></div>
         </div>
       </div>
+      <MainFooter></MainFooter>
+      <TopButton></TopButton>
     </div>
   );
 }

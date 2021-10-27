@@ -8,7 +8,8 @@
 
 body {
   /* 사파리에서 폰트가 못생겨보임 - 해결못함 */
-  font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo", apple sd gothic neo;
+  font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo",
+    apple sd gothic neo;
   height: 100%;
   margin: 0;
 }
@@ -323,6 +324,190 @@ body {
     opacity: 0.75;
     width: 200px;
     letter-spacing: -0.3px;
+  }
+
+  /* ===== 랜딩페이지 =====*/
+  .landing-main-container {
+    height: 935px;
+    background-color: #000;
+  }
+
+  .landing-main-img {
+    background: url("./img/Frame129.png");
+    width: 625px;
+    height: 524px;
+  }
+
+  .landing-main-text {
+    position: absolute;
+    color: #fff;
+    font-size: 64px;
+    font-weight: bold;
+    margin-top: 315px;
+    margin-left: 42px;
+    line-height: 80px;
+  }
+
+  .landing-main-subt-1 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: lighter;
+    line-height: 43px;
+    margin-top: 56px;
+  }
+
+  .landing-main-subt-1 > hr {
+    width: 180px;
+    margin: 7px 0 0;
+    border: 3px solid #0059f7;
+  }
+
+  .landing-main-subt-2 {
+    color: #fff;
+    margin-top: 104px;
+    font-size: 36px;
+    line-height: 52px;
+    margin-bottom: 99px;
+  }
+
+  .landing-2-container {
+    height: 562px;
+    background-color: #070e27;
+    text-align: center;
+  }
+
+  .link {
+    text-decoration: none;
+  }
+
+  .go-to-main-wrap {
+    text-align: center;
+    background-color: #070e27;
+    padding-top: 40px;
+  }
+
+  .go-to-main {
+    color: #fff;
+    font-weight: lighter;
+    font-size: 24px;
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+
+  .landing-2-text-box {
+    width: 400px;
+    height: 300px;
+    margin-right: 20px;
+    margin-top: 131px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .landing-2-icon-1 {
+    width: 90px;
+    height: 90px;
+    background: url("./img/icon1.png");
+    background-position: center;
+    background-size: contain;
+  }
+  .landing-2-icon-2 {
+    width: 90px;
+    height: 90px;
+    background: url("./img/icon2.png");
+    background-position: center;
+    background-size: contain;
+  }
+  .landing-2-icon-3 {
+    width: 90px;
+    height: 90px;
+    background: url("./img/icon3.png");
+    background-position: center;
+    background-size: contain;
+  }
+
+  .landing-2-text-title {
+    margin-top: 29px;
+    text-align: left;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 46px;
+    color: white;
+  }
+
+  .landing-2-img {
+    width: 400px;
+    height: 300px;
+    border: 1px solid red;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 131px;
+    margin-left: 20px;
+    background: url("");
+  }
+
+  .landing-2-text-sub {
+    color: #787e95;
+    text-align-last: left;
+    font-size: 22px;
+    line-height: 32px;
+    margin-top: 23px;
+  }
+
+  .landing-start-wrap {
+    height: 430px;
+    background-color: #070e27;
+  }
+
+  .start-box {
+    width: 840px;
+    height: 328px;
+    background-color: #0059f7;
+    border-radius: 24px;
+  }
+
+  .start-sub {
+    padding-top: 72px;
+    font-size: 20px;
+    line-height: 32px;
+    color: #ffffff;
+    opacity: 0.5;
+  }
+
+  .start-title {
+    padding-top: 16px;
+    font-size: 36px;
+    line-height: 40px;
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  .start-btn {
+    margin-top: 32px;
+    width: 170px;
+    height: 64px;
+    padding: 20px 24px;
+    background: #689eff;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .start-btn-text {
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 24px;
+    height: 24px;
+    text-align: center;
+  }
+
+  .start-btn-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    width: 24px;
+    height: 24px;
+    background: url("./img/arrow-left-fill.png");
   }
 
   /* Login Page */
@@ -681,7 +866,8 @@ body {
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
+      0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
 
     font-family: IBM Plex Sans;
@@ -1094,7 +1280,8 @@ body {
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
+      0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
 
     font-family: IBM Plex Sans;
@@ -1311,7 +1498,8 @@ body {
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
+      0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
 
     font-family: IBM Plex Sans;
