@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
 		{}
 	)
 	Like.associate = function (models) {
-		models.Like.belongsTo(models.Like, { foreignKey: "user_id" })
+		models.Like.belongsTo(models.User, { foreignKey: "user_id" })
 		models.Like.belongsTo(models.Singlepost, { foreignKey: "singlepost_id" })
 		models.Like.belongsTo(models.Gallerypost, { foreignKey: "gallerypost_id" })
 	}

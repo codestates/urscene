@@ -51,7 +51,7 @@ module.exports = {
 				},
 				{
 					model: Description,
-					attributes: ["genre", "director", "released"],
+					attributes: ["title", "title_eng", "genre", "director", "released"],
 				},
 			],
 			where: { id: singlepostid },
