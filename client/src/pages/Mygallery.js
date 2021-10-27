@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import MainNav from "../components/MainNav";
+import LikeScene from "../components/LikeScene";
+import LikeGallery from "../components/LikeGallery";
+import MadeGallery from "../components/MadeGallery";
+import MadeScene from "../components/MadeScene";
 
 function Mygallery() {
   const [isLikeSceneClicked, setIsLikeSceneClicked] = useState(false);
   const [isLikeGalleryClicked, setIsLikeGalleryClicked] = useState(false);
-
+  const [haveScenes, setHaveScenes] = useState(true);
+  const [haveGallery, setHaveGallery] = useState(true);
+  const [haveLikeScene, setHaveLikeScene] = useState(true);
+  const [haveLikeGallery, setHaveLikeGallery] = useState(true);
   // 좋아한 장면 펼치기
   const ClickLikeScene = () => {
     setIsLikeSceneClicked(!isLikeSceneClicked);
@@ -19,7 +26,7 @@ function Mygallery() {
   return (
     <div>
       <MainNav />
-      <div className="MP-container">
+      <div className="my-g-container">
         <div className="my-g-wrap">
           <div className="my-g-title">마이갤러리</div>
           <div className="my-g-user-wrap">
@@ -38,13 +45,16 @@ function Mygallery() {
               </Link>
               <div className="my-g-add-icon"></div>
             </div>
-            {/* 장면들이 없는 경우 */}
-            <div className="no-results-wrap">
-              <center>
-                <div className="no-results-icon"></div>
-                <div className="no-results-text">장면을 추가해 주세요.</div>
-              </center>
-            </div>
+            {haveScenes ? (
+              <MadeScene />
+            ) : (
+              <div className="no-results-wrap">
+                <center>
+                  <div className="no-results-icon"></div>
+                  <div className="no-results-text">장면을 추가해 주세요.</div>
+                </center>
+              </div>
+            )}
           </div>
           <div className="my-g-scene-wrap">
             <div className="my-g-sub-title">갤러리 리스트</div>
@@ -54,13 +64,16 @@ function Mygallery() {
               </Link>
               <div className="my-g-add-icon"></div>
             </div>
-            {/* 갤러리 리스트가 없는 경우 */}
-            <div className="no-results-wrap">
-              <center>
-                <div className="no-results-icon"></div>
-                <div className="no-results-text">리스트를 추가해 주세요.</div>
-              </center>
-            </div>
+            {haveGallery ? (
+              <MadeGallery />
+            ) : (
+              <div className="no-results-wrap">
+                <center>
+                  <div className="no-results-icon"></div>
+                  <div className="no-results-text">리스트를 추가해 주세요.</div>
+                </center>
+              </div>
+            )}
           </div>
           <div className="my-g-like-hr"></div>
           <div
@@ -71,6 +84,7 @@ function Mygallery() {
           <div onClick={ClickLikeScene} className="my-g-like-title">
             좋아한 장면
           </div>
+          {haveLikeScene ? <LikeScene /> : <div>장면이 없습니다.</div>}
           <div className="my-g-like-hr"></div>
           <div
             className={
@@ -82,6 +96,7 @@ function Mygallery() {
           <div onClick={ClickLikeGallery} className="my-g-like-title">
             좋아한 갤러리
           </div>
+          {haveLikeGallery ? <LikeGallery /> : <div>갤러리가 없습니다.</div>}
           <div className="my-g-like-hr"></div>
         </div>
       </div>

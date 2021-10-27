@@ -209,7 +209,28 @@ body {
     margin-top: 30px;
   }
 
-  /* ===== Makepost page ===== */
+  /* ===== top button 탑 버튼===== */
+  .topbutton {
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    padding: 12px;
+  }
+
+  .topbutton > div {
+    width: 30px;
+    height: 30px;
+    background: url("./img/ArrowTop.png");
+    background-size: contain;
+  }
+
+  /* ===== Makepost page 갤러리 만들기===== */
   .MP-container {
     background-color: #070e27;
     width: 100vw;
@@ -219,10 +240,10 @@ body {
 
   .MP-wrap {
     width: 840px;
-    height: 100vw;
+    height: 800px;
     margin: auto;
     text-align: left;
-    border: 1px solid red;
+    border: 1px solid #070e27;
   }
 
   .MP-title {
@@ -339,14 +360,21 @@ body {
     background-color: #0059f7;
   }
 
-  /* ===== Mygallery page ===== */
+  /* ===== Mygallery page 마이갤러리===== */
+
+  .my-g-container {
+    background-color: #070e27;
+    width: 100vw;
+    /* height: 100vw; */
+    color: #fff;
+  }
 
   .my-g-wrap {
     width: 840px;
-    height: 100vw;
+    height: 1400px;
     margin: auto;
     text-align: left;
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
 
   .my-g-title {
@@ -394,28 +422,29 @@ body {
 
   .my-g-scene-wrap {
     width: 840px;
-    height: 255px;
-    border: 1px solid red;
+    margin-bottom: 40px;
+    /* height: 428px; */
+    /* border: 1px solid red; */
   }
 
   .my-g-sub-title {
     font-size: 26px;
     line-height: 30px;
     display: inline-block;
-    margin-bottom: 37px;
+    margin-bottom: 20px;
   }
 
   .my-g-add-wrap {
     width: 110px;
     height: 30px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     float: right;
   }
 
   .my-g-add-list-wrap {
     width: 125px;
     height: 30px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     float: right;
   }
 
@@ -479,21 +508,18 @@ body {
   .MG-wrap {
     width: 614px;
     height: 586px;
-    border: 1px solid red;
     margin: auto;
   }
 
   .MG-name {
     width: 614px;
     height: 106px;
-    border: 1px solid red;
     margin-bottom: 28px;
   }
 
   .MG-desc {
     width: 614px;
     height: 200px;
-    border: 1px solid red;
     margin-bottom: 28px;
   }
 
@@ -554,6 +580,45 @@ body {
     border: 0;
     outline: 0;
     background-color: #0059f7;
+  }
+
+  /* 나의 장면들 */
+  .made-scene-wrap {
+    width: 838px;
+    height: 142px;
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+  }
+  .bookmarker {
+    background: url("./img/bookmark.png");
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: contain;
+    left: 154px;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  /* 좋아한 장면 */
+  .like-scene-wrap {
+    width: 838px;
+    height: 142px;
+    display: flex;
+    flex-flow: column wrap;
+    padding-top: 20px;
+  }
+
+  /* 좋아한 갤러리 */
+  .like-gallery-container {
+    width: 340px;
+    height: 262.51px;
+    border: 0.972265px solid #344583;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    padding: 11px;
+    margin-top: 20px;
   }
 
   /* Login Page */
@@ -1271,7 +1336,7 @@ body {
   .main-gallery-wrap {
     width: 1060px;
     height: 299px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
 
   .main-genre {
@@ -1402,6 +1467,31 @@ body {
     line-height: 30px;
     text-align: left;
     margin-bottom: 23px;
+  }
+
+  /* ResultScene 검색결과 장면 */
+  .result-scene-wrap {
+    width: 838px;
+    height: 300px;
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  .result-scene-img {
+    width: 194px;
+    height: 122px;
+    border-radius: 10px;
+    border: 1px solid #eaeaea;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
+
+  .result-scene-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
   }
 
   /* 검색결과 없는 경우 컴포넌트 */

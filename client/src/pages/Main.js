@@ -3,6 +3,7 @@ import MainNav from "../components/MainNav";
 import MainFooter from "../components/MainFooter";
 import BestGallery from "../components/BestGallery";
 import GenreScene from "../components/GenreScene";
+import TopButton from "../components/TopButton";
 
 function Main() {
   const genres = [
@@ -44,6 +45,7 @@ function Main() {
           </div>
         </div>
       </div>
+      <TopButton />
       <MainFooter />
     </div>
   );
