@@ -651,7 +651,6 @@ body {
     width: 840px;
     height: auto;
     text-align: center;
-    padding-top: 43px;
     padding-bottom: 100px;
   }
 
@@ -1532,16 +1531,21 @@ body {
   }
 
   .singupModal-background {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: #000000;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    place-items: center;
   }
 
   .singupModal {
     width: 300px;
     height: 313px;
-    margin: 300px auto 0px auto;
+    margin: 0px auto 0px auto;
     background: #0059f7;
     border-radius: 10px;
   }
@@ -1549,7 +1553,6 @@ body {
   .suM-image {
     position: relative;
     top: 43px;
-    border: 1px solid white;
     width: 80px;
     height: 80px;
     margin: 43px auto 0px auto;
@@ -1888,10 +1891,15 @@ body {
 
   /* 회원 탈퇴 모달*/
   .singoutModal-background {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: #000000;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000000;
+    display: grid;
+    place-items: center;
   }
 
   .singoutModal {
@@ -1899,7 +1907,6 @@ body {
     height: 235px;
     background: #0059f7;
     border-radius: 10px;
-    margin: 390px auto 0 auto;
   }
 
   .soM-label {
@@ -1907,28 +1914,22 @@ body {
     top: 88px;
     width: 300px;
     height: 24px;
-    margin-top: 24px;
-  }
 
-  .soM-label {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
     /* identical to box height, or 120% */
-
     text-align: center;
-
     color: #ffffff;
   }
 
   .soM-btn {
     position: relative;
-    top: 88px;
+    top: 130px;
     width: 300px;
     height: 34px;
-    margin-top: 24px;
   }
 
   .soM-btn-singout {
@@ -1982,6 +1983,7 @@ body {
     width: 840px;
     height: auto;
     margin: 0px auto 0px auto;
+    padding-bottom: 100px;
   }
 
   .post-title {
@@ -2148,12 +2150,14 @@ body {
     width: 500px;
     height: max-content;
     margin-top: 14px;
+    cursor: pointer;
   }
 
   .post-infogroup-label {
-    width: 100px;
-    height: 34px;
+    width: 95px;
+    height: 25px;
     margin-left: 12px;
+    margin-top: 4px;
 
     font-family: Roboto;
     font-style: normal;
@@ -2167,21 +2171,35 @@ body {
     float: left;
   }
 
-  .post-infogroup-plus {
-    width: 50px;
-    height: 34px;
+  .post-infogroup-plusminus {
+    width: 30px;
+    height: 30px;
     margin-left: 12px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 50px;
-    line-height: 28px;
     display: flex;
     align-items: center;
 
     color: #ffffff;
     cursor: pointer;
+  }
+
+  .post-infogroup-plus {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Add_fff.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    display: inline-block;
+  }
+
+  .post-infogroup-minus {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Minus.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    display: inline-block;
   }
 
   .post-infogroup-list {
@@ -2236,8 +2254,12 @@ body {
     background: #ffffff;
     border-radius: 8px;
     border-width: 0px;
-    color: #7c9cbf;
+    color: black;
     padding-left: 16px;
+  }
+
+  .post-writecomment > input::placeholder {
+    color: #7c9cbf;
   }
 
   .post-wc-submit {
@@ -2399,7 +2421,7 @@ body {
     /* identical to box height, or 120% */
 
     color: #ffffff;
-    padding-top: 10px;
+    padding-top: 13px;
     cursor: pointer;
     margin-left: 115px;
     margin-top: 6px;
@@ -2534,15 +2556,15 @@ body {
     width: 267px;
     height: 162px;
     margin: 6px;
-    background: #ffffff;
     border-radius: 10px;
   }
 
   .gallery-content-img {
     width: 267px;
     height: 162px;
-    background: #ffffff;
     border-radius: 10px;
+    border: 1px solid #eaeaea;
+    box-sizing: border-box;
   }
 
   .gallery-content-delete {
@@ -2550,7 +2572,7 @@ body {
     height: 40px;
     position: relative;
     left: 227px;
-    bottom: 167px;
+    bottom: 165px;
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2591,10 +2613,15 @@ body {
 
   /* 갤러리 삭제 모달*/
   .deleteModal-background {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: #000000;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    place-items: center;
   }
 
   .deleteModal {
@@ -2602,7 +2629,7 @@ body {
     height: 277px;
     background: #0059f7;
     border-radius: 10px;
-    margin: 390px auto 0 auto;
+    margin: 0px auto 0 auto;
   }
 
   .delete-img {

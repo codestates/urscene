@@ -4,14 +4,20 @@ import MyComment from "../components/MyComment";
 import WriteComment from "../components/WriteComment";
 import Comment from "../components/Comment";
 import MovieInfo from "../components/MovieInfo";
+import SceneDeleteModal from "../components/SceneDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
+
 
 function Post() {
   const [movieModal, setMoiveModal] = useState(false); // 영화정보 열기닫기
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
   const [likeModal, setlikeModal] = useState(false); // 좋아요 버튼 false가 안누른상태
+  const [deleteModal, setDeleteModal] = useState(false); // 좋아요 버튼 false가 안누른상태
 
+  const handleDeleteModal = () => {
+    setDeleteModal(!deleteModal);
+  };
   return (
     <div>
       <MainNav />
@@ -28,15 +34,12 @@ function Post() {
               </button>
             ) : (
               <div>
-                <div className="post-edit-delete"></div>
-                <div
-                  className="post-edit-edit"
-                  onClick={() => setEditModal(true)}
-                ></div>
+                <div className="post-edit-delete" onClick={() => setDeleteModal(true)}></div>
+                <div className="post-edit-edit" onClick={() => setEditModal(true)}></div>
               </div>
             )}
           </div>
-          <img className="post-image" src="" />
+          <img className="post-image" src="./img/UserImage-Mili.png" alt="" />
           <div className="post-label">
             <div className="post-label-title">닉네임 자리</div>
             {likeModal ? (
@@ -63,14 +66,9 @@ function Post() {
             </div>
           )}
           <div className="post-devider" />
-          <div className="post-infogroup">
+          <div className="post-infogroup" onClick={() => setMoiveModal(!movieModal)}>
             <div className="post-infogroup-label">영화정보</div>
-            <div
-              className="post-infogroup-plus"
-              onClick={() => setMoiveModal(!movieModal)}
-            >
-              {movieModal === false ? <div>+</div> : <div>-</div>}
-            </div>
+            <div className="post-infogroup-plusminus">{movieModal === false ? <div className="post-infogroup-plus"></div> : <div className="post-infogroup-minus"></div>}</div>
             {movieModal === false ? null : <MovieInfo />}
           </div>
           <div className="post-devider2" />
@@ -83,6 +81,7 @@ function Post() {
       </div>
       <MainFooter></MainFooter>
       <TopButton></TopButton>
+      {deleteModal ? <SceneDeleteModal handleDeleteModal={handleDeleteModal} /> : null}
     </div>
   );
 }
