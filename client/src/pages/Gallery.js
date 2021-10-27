@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import MainNav from "../components/MainNav";
 import GalleryContent from "../components/GalleryContent";
 import GalleryDeleteModal from "../components/GalleryDeleteModal";
+import DeleteModal from "../components/DeleteModal";
+import { Link } from "react-router-dom";
+import MainFooter from "../components/MainFooter";
+import TopButton from "../components/TopButton";
+
 
 function Gallery() {
   const [likeModal, setlikeModal] = useState(false); // 좋아요 버튼 false가 안누른상태
@@ -25,6 +30,7 @@ function Gallery() {
                   <textarea className="gallery-titleinput">로맨스만 모았다.</textarea>
                   <div className="gallery-btn" onClick={() => setEditModal(!editModal)}>
                     완료
+
                   </div>
                 </div>
               ) : (
@@ -35,7 +41,6 @@ function Gallery() {
                 </div>
               )}
             </div>
-
             <div className="gallery-group2">
               {editModal ? (
                 <textarea className="gallery-descinput">로맨스만 모았다.</textarea>
@@ -48,6 +53,7 @@ function Gallery() {
             </div>
             <div className="gallery-group3">
               {/* <div className="gallery-nocontent">
+
                   <div className="gallery-nocontent-img"></div>
                   <div className="gallery-nocontent-title">장면을 추가해 주세요.</div>
                 </div> */}
@@ -57,6 +63,8 @@ function Gallery() {
               <GalleryContent editModal={editModal} />
             </div>
           </div>
+          <MainFooter></MainFooter>
+          <TopButton></TopButton>
         </div>
       </div>
       {deleteModal ? <GalleryDeleteModal handleDeleteModal={handleDeleteModal} /> : null}

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import MainNav from "../components/MainNav";
 import SignupModal from "../components/SignupModal";
+import MainFooter from "../components/MainFooter";
+import TopButton from "../components/TopButton";
 
 function Signup() {
   const [modal, setModal] = useState(false);
@@ -53,6 +55,8 @@ function Signup() {
               <div className="signup-btn-text">가입하기</div>
             </div>
           </div>
+          <MainFooter></MainFooter>
+          <TopButton></TopButton>
         </div>
       </div>
       {modal ? <SignupModal handleSignup={handleSignup} /> : null}

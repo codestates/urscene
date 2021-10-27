@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import MainNav from "../components/MainNav";
 import SignoutModal from "../components/SignoutModal";
+import MainFooter from "../components/MainFooter";
+import TopButton from "../components/TopButton";
 
 function Userinfo() {
   const [modal, setModal] = useState(false);
@@ -50,6 +52,8 @@ function Userinfo() {
               회원탈퇴
             </div>
           </div>
+          <MainFooter></MainFooter>
+          <TopButton></TopButton>
         </div>
       </div>
       {modal ? <SignoutModal handleModal={handleModal} /> : null}
