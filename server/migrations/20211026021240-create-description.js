@@ -11,6 +11,9 @@ module.exports = {
 			title: {
 				type: Sequelize.STRING,
 			},
+			title_eng: {
+				type: Sequelize.STRING,
+			},
 			genre: {
 				type: Sequelize.STRING,
 			},
