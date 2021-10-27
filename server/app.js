@@ -3,7 +3,7 @@ const fs = require("fs")
 const https = require("https")
 const express = require("express")
 const app = express()
-const port = 8080
+const port = 80
 const cors = require("cors")
 const cookieParser = require("cookie-parser")
 const commentRouter = require("./routes/comment.route")
@@ -14,6 +14,7 @@ const searchRouter = require("./routes/search.route")
 const singlepostRouter = require("./routes/singlepost.route")
 const userRouter = require("./routes/user.route")
 const oauthRouter = require("./routes/oauth.route")
+const descriptionRouter = require("./routes/description.route")
 
 app.use(cookieParser())
 app.use(express.json())
@@ -37,6 +38,7 @@ app.use("/search", searchRouter)
 app.use("/singlepost", singlepostRouter)
 app.use("/user", userRouter)
 app.use("/oauth", oauthRouter)
+app.use("/description", descriptionRouter)
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`)
