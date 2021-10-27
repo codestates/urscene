@@ -10,7 +10,7 @@ function Userinfo() {
   return (
     <div>
       {modal ? (
-        <SignoutModal />
+        <SignoutModal handleModal={handleModal} />
       ) : (
         <div>
           <MainNav />

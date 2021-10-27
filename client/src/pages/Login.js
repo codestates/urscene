@@ -1,5 +1,6 @@
 import React from "react";
 import MainNav from "../components/MainNav";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -21,9 +22,11 @@ function Login() {
           <button type="submit" id="lin-btnLogin">
             로그인
           </button>
-          <div className="lin-signup">
-            <div className="lin-signup-text">회원가입</div>
-          </div>
+          <Link to="signup">
+            <div className="lin-signup">
+              <div className="lin-signup-text">회원가입</div>
+            </div>
+          </Link>
           <div className="lin-divider"></div>
           <div>
             <button className="lin-kakao"></button>
