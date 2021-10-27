@@ -1,34 +1,52 @@
 import React from "react";
 import MainNav from "../components/MainNav";
+import MainFooter from "../components/MainFooter";
+import BestGallery from "../components/BestGallery";
+import GenreScene from "../components/GenreScene";
+import TopButton from "../components/TopButton";
 
 function Main() {
+  const genres = [
+    "로맨스",
+    "코미디",
+    "SF/판타지",
+    "액션",
+    "미스터리/스릴러",
+    "전쟁",
+  ];
+
   return (
-    <div className="main-back">
-      <MainNav />
-      <center>
+    <div>
+      <div className="main-back">
+        <MainNav />
         <div className="main-wrap">
           <div className="main-gallery">
             <div className="main-text">인기 갤러리</div>
             <div className="main-gallery-wrap">
-              갤러리 컴포넌트가 불러와진다.
+              {/* 갤러리 컴포넌트가 불러와진다. */}
+              <BestGallery />
             </div>
           </div>
           <div className="main-genre">
             <div className="main-text">장르별 장면</div>
-            <ul className="main-genre-category-wrap">
-              <li className="main-genre-name">로맨스</li>
-              <li className="main-genre-name">코미디</li>
-              <li className="main-genre-name">SF/판타지</li>
-              <li className="main-genre-name">액션</li>
-              <li className="main-genre-name">미스터리/스릴러</li>
-              <li className="main-genre-name">전쟁</li>
+            <div className="main-genre-category-wrap">
+              {genres.map((el) => {
+                return (
+                  <div className="main-genre-name" key={el}>
+                    {el}
+                  </div>
+                );
+              })}
               <div className="main-genre-img-wrap">
-                장면 컴포넌트가 불러와진다.
+                {/*장르별 장면 컴포넌트가 불러와진다. */}
+                <GenreScene />
               </div>
-            </ul>
+            </div>
           </div>
         </div>
-      </center>
+      </div>
+      <TopButton />
+      <MainFooter />
     </div>
   );
 }

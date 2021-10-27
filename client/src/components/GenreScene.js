@@ -1,31 +1,31 @@
 import React from "react";
 
-function ResultScene() {
+function GenreScene() {
   return (
     <div>
-      <div className="result-scene-wrap">
-        <div className="result-scene-img">
+      <div className="genre-img-wrap">
+        <div className="genre-img">
           <img src="./img/UserImage-Jake.png" alt="" />
         </div>
-        <div className="result-scene-img">
+        <div className="genre-img">
           <img src="./img/UserImage-Jake.png" alt="" />
         </div>
-        <div className="result-scene-img">
+        <div className="genre-img">
           <img src="./img/UserImage-Jake.png" alt="" />
         </div>
-        <div className="result-scene-img">
+        <div className="genre-img">
           <img src="./img/UserImage-Jake.png" alt="" />
         </div>
-        <div className="result-scene-img">
+        <div className="genre-img">
           <img src="./img/UserImage-Jake.png" alt="" />
         </div>
-        <div className="result-scene-img">
+        <div className="genre-img">
           <img src="./img/UserImage-Jake.png" alt="" />
         </div>
-        <div className="result-scene-img">
+        <div className="genre-img">
           <img src="./img/UserImage-Jake.png" alt="" />
         </div>
-        <div className="result-scene-img">
+        <div className="genre-img">
           <img src="./img/UserImage-Jake.png" alt="" />
         </div>
       </div>
@@ -33,4 +33,4 @@ function ResultScene() {
   );
 }
 
-export default ResultScene;
+export default GenreScene;

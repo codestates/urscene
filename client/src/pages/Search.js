@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import MainNav from "../components/MainNav";
 import NoResult from "../components/NoResult";
+import ResultScene from "../components/ResultScene";
+import ResultGallery from "../components/ResultGallery";
 
 function Search() {
   const [sceneResult, setSceneResult] = useState([]);
@@ -14,10 +16,14 @@ function Search() {
           <div className="search-results">검색결과</div>
           <div className="results-text">장면 </div>
           {/* 검색 결과가 없는 경우 */}
-          {sceneResult.length !== 0 ? "결과" : <NoResult />}
+          {/* {sceneResult.length !== 0 ? <ResultScene /> : <NoResult />} */}
+          <ResultScene />
+          <NoResult />
           <div className="results-text">갤러리</div>
           {/* 검색 결과가 없는 경우 */}
-          {galleryResult.length !== 0 ? "결과 " : <NoResult />}
+          {/* {galleryResult.length !== 0 ? <ResultGallery /> : <NoResult />} */}
+          <ResultGallery />
+          <NoResult />
         </div>
       </center>
     </div>
