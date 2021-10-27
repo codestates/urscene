@@ -2,7 +2,7 @@ const express = require("express")
 const maincontroller = require("../controllers/main.controller")
 const router = express.Router()
 
-router.get("/:genre", maincontroller.genre)
-router.get("/:gallery", maincontroller.gallery)
+router.get("/single/:genre", maincontroller.genre)
+router.get("/", maincontroller.rank)
 
 module.exports = router

@@ -3,16 +3,16 @@ const jwt = require("jsonwebtoken")
 
 module.exports = {
 	post: async (req, res) => {
-		const token = req.cookies.jwt
-		const verify = jwt.verify(token, process.env.ACCESS_SECRET)
-		const userinfo = User.findOne({
-			where: { id: verify.id },
-		})
+		// const token = req.cookies.jwt
+		// const verify = jwt.verify(token, process.env.ACCESS_SECRET)
+		// const userinfo = User.findOne({
+		// 	where: { id: verify.id },
+		// })
 		if (!req.body.title || !req.body.image || !req.body.content || !req.body.genre) {
 			res.status(400).json({ message: "bad request" }) //하나라도 없으면 400
 		} else {
 			const singlepost = await Singlepost.create({
-				user_id: userinfo.dataValues.id,
+				user_id: 1,
 				title: req.body.title,
 				image: req.body.image,
 				content: req.body.content,
