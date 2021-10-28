@@ -3,12 +3,19 @@ const { Op } = require("sequelize")
 
 module.exports = {
 	get: async (req, res) => {
-		const { content } = req.query
-		// console.log(content)
+		const { content, page } = req.query
+		// console.log(page)
+		let offset = 0
+
+		if (page > 1) {
+			offset = 1 * (page - 1)
+		}
 		const data = await Singlepost.findAll({
 			where: {
 				[Op.or]: [{ title: { [Op.substring]: content } }, { content: { [Op.substring]: content } }],
 			},
+			offset: offset,
+			limit: 2,
 		})
 		const dataValues = data.map((el) => el.dataValues)
 		let array = []
