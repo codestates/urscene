@@ -8,8 +8,7 @@
 
 body {
   /* 사파리에서 폰트가 못생겨보임 - 해결못함 */
-  font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo",
-    apple sd gothic neo;
+  font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo", apple sd gothic neo;
   height: 100%;
   margin: 0;
 }
@@ -237,13 +236,14 @@ body {
   .MP-container {
     background-color: #070e27;
     width: 100vw;
-    height: 1070px;
+    height: auto;
     color: #fff;
+    padding-bottom: 100px;
   }
 
   .MP-wrap {
     width: 840px;
-    height: 730px;
+    height: auto;
     margin: auto;
     text-align: left;
     border: 1px solid #070e27;
@@ -303,17 +303,45 @@ body {
     float: right;
   }
 
-  .MP-photo-btn {
+  .MP-photo-label {
     margin-top: 18px;
     margin-bottom: 29px;
     width: 119px;
     height: 43px;
-    background: #e4e4e4;
-    border-radius: 5px;
-    color: #000;
     text-align: center;
+    display: inline-block;
+    padding: 0.5em 0.75em;
+    color: #000;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #e4e4e4;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: 5px;
     padding: 14px;
     cursor: pointer;
+    display: inline-block;
+  }
+
+  .MP-photo-upload {
+    width: 200px;
+    display: inline-block;
+    margin-left: 15px;
+    color: white;
+    font-size: inherit;
+  }
+
+  .MP-photo-btn {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
   }
 
   .MP-input-wrap {
@@ -324,20 +352,24 @@ body {
 
   .MP-photo-wrap {
     width: 400px;
-    height: 270px;
+    height: 500px;
     margin: auto;
   }
 
   .MP-photo-show {
     width: 400px;
-    height: 149px;
+    height: 350px;
     background: #202846;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    object-fit: contain;
   }
 
   .MP-box-wrap {
     width: 400px;
     height: 200px;
-    margin: 30px auto;
+    margin: 50px auto;
   }
 
   #textarea {
@@ -996,8 +1028,7 @@ body {
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
-      0px 2px 4px rgba(44, 39, 56, 0.08);
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
 
     font-family: IBM Plex Sans;
@@ -1801,8 +1832,7 @@ body {
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
-      0px 2px 4px rgba(44, 39, 56, 0.08);
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
 
     font-family: IBM Plex Sans;
@@ -2018,8 +2048,7 @@ body {
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
-      0px 2px 4px rgba(44, 39, 56, 0.08);
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
 
     font-family: IBM Plex Sans;
