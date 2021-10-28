@@ -224,6 +224,7 @@ body {
     right: 30px;
     bottom: 30px;
     padding: 12px;
+    cursor: pointer;
   }
 
   .topbutton > div {
