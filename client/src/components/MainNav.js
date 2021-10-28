@@ -19,7 +19,7 @@ function MainNav() {
         <div className="mainNav-group-logo"></div>
       </Link>
       <div className="form-wrap">
-        <form id="nav-form" type="submit" onSubmit={handleSearch}>
+        <form id="nav-form" onSubmit={(e) => e.preventDefault()}>
           <div className="mainNav-search-wrap">
             <div className="Lens"></div>
             <input

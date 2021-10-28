@@ -8,7 +8,7 @@ function Makepost() {
     <div>
       <MainNav />
       <div className="MP-container">
-        <form>
+        <form onSubmit={(e) => e.preventDefault()}>
           <div className="MP-wrap">
             <div className="MP-title">나의장면 게시하기</div>
             <div className="MP-input-wrap">
