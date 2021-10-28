@@ -13,6 +13,7 @@ import Post from "./pages/Post.js";
 import Gallery from "./pages/Gallery.js";
 import Mygallery from "./pages/Mygallery.js";
 import Landing from "./pages/Landing.js";
+require("dotenv").config();
 
 function App() {
   return (
