@@ -115,18 +115,18 @@ body {
   .mF-container {
     background: #0a142f;
     margin: auto;
+    bottom: 0;
   }
   .mainFooter {
     height: 275px;
     background: #0a142f;
-    border-bottom: 1px solid red;
     padding: 63px 183px 34px;
   }
 
   .footer-wrap {
     height: 91px;
     width: 714px;
-    text-align-last: left;
+    text-align: left;
     margin: auto;
   }
 
@@ -378,15 +378,16 @@ body {
   .my-g-container {
     background-color: #070e27;
     width: 100vw;
-    /* height: 100vw; */
+    height: auto;
     color: #fff;
   }
 
   .my-g-wrap {
     width: 840px;
-    height: 1400px;
+    height: auto;
     margin: auto;
     text-align: left;
+    padding-bottom: 20px;
     /* border: 1px solid red; */
   }
 
@@ -623,22 +624,25 @@ body {
 
   /* 좋아한 장면 */
   .like-scene-wrap {
-    width: 838px;
-    height: 142px;
+    width: 860px;
+    height: auto;
     display: flex;
-    flex-flow: column wrap;
+    flex-wrap: wrap;
+    justify-content: start;
     padding-top: 20px;
+    /* border: 1px solid red; */
   }
 
   /* 좋아한 갤러리 */
   .like-gallery-container {
     width: 340px;
-    height: 262.51px;
+    height: auto;
     border: 0.972265px solid #344583;
     box-sizing: border-box;
     border-radius: 4.86133px;
     padding: 11px;
     margin-top: 20px;
+    margin-right: 20px;
   }
 
   /* Login Page */
@@ -1255,7 +1259,7 @@ body {
     vertical-align: middle;
     margin-top: 131px;
     margin-left: 20px;
-    background: url("");
+    /* background: url(""); */
   }
 
   .landing-2-text-sub {
@@ -1386,12 +1390,28 @@ body {
 
   /* 선택된 것만 색 변경 */
   .main-genre-name-selected {
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    margin-right: 12px;
+    padding: 0px 20px;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #070e27;
+    font-size: 20px;
+    cursor: pointer;
     background-color: #0059f7;
     color: #fff;
   }
 
   .main-genre-img-wrap {
     margin-top: 45px;
+    /* border: 1px solid red; */
+    width: 1080px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 
   /* 인기 갤러리 BestGallery */
@@ -1432,21 +1452,13 @@ body {
     object-fit: cover;
   }
 
-  /* main page genre img 장르별 장면 */
-  .genre-img-wrap {
-    width: 1060px;
-    height: 400px;
-    display: flex;
-    flex-flow: column wrap;
-  }
-
   .genre-img {
     width: 250px;
     height: 157px;
     border: 1px solid #eaeaea;
     box-sizing: border-box;
     border-radius: 8px;
-    margin-right: 20px;
+    margin-right: 18px;
     margin-bottom: 20px;
   }
 

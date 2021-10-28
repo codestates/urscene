@@ -284,7 +284,7 @@ body {
     bottom: 11.96%;
     /* Blue/Blue 600 */
     background-color: #0059f7;
-    background: url("");
+    /* background: url(""); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -442,7 +442,7 @@ body {
     vertical-align: middle;
     margin-top: 131px;
     margin-left: 20px;
-    background: url("");
+    /* background: url(""); */
   }
 
   .landing-2-text-sub {
@@ -738,7 +738,6 @@ body {
     float: left;
     width: 45px;
     height: 46px;
-    background: url();
     color: black;
     margin: 4px 0px 4px 4px;
     background: url("../src/img/btn-google.png");
