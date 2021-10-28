@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import MainNav from "../components/MainNav";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import BestGallery from "../components/BestGallery";
 import GenreScene from "../components/GenreScene";
+import mainGenre from "../components/dummy/mainGenre";
 
 function Main() {
   const genres = [
@@ -14,6 +15,11 @@ function Main() {
     "미스터리/스릴러",
     "전쟁",
   ];
+  const [curGenre, setCurGenre] = useState(genres[0]);
+
+  const changeCurGenre = (e) => {
+    setCurGenre(e.target.innerText);
+  };
 
   return (
     <div>
@@ -32,14 +38,26 @@ function Main() {
             <div className="main-genre-category-wrap">
               {genres.map((el) => {
                 return (
-                  <div className="main-genre-name" key={el}>
+                  <div
+                    onClick={changeCurGenre}
+                    className={
+                      curGenre === el
+                        ? "main-genre-name-selected"
+                        : "main-genre-name"
+                    }
+                    key={el}
+                  >
                     {el}
                   </div>
                 );
               })}
               <div className="main-genre-img-wrap">
                 {/*장르별 장면 컴포넌트가 불러와진다. */}
-                <GenreScene />
+                {mainGenre.single.map((el) => {
+                  if (el.genre === curGenre) {
+                    return <GenreScene key={el.id} value={el} />;
+                  }
+                })}
               </div>
             </div>
           </div>

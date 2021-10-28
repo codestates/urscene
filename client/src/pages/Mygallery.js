@@ -33,6 +33,7 @@ function Mygallery() {
           <div className="my-g-title">마이갤러리</div>
           <div className="my-g-user-wrap">
             <div className="my-g-account-icon"></div>
+            {/* 회원정보 수정하기로 이동 */}
             <Link to="/userinfo">
               <div className="my-g-account-name">dddtttt000</div>
             </Link>
@@ -77,6 +78,7 @@ function Mygallery() {
               </div>
             )}
           </div>
+          {/* 좋아한 장면, 좋아한 갤러리 부분 */}
           <div className="my-g-like-hr"></div>
           <div
             className={
@@ -86,7 +88,13 @@ function Mygallery() {
           <div onClick={ClickLikeScene} className="my-g-like-title">
             좋아한 장면
           </div>
-          {haveLikeScene ? <LikeScene /> : <div>장면이 없습니다.</div>}
+          {isLikeSceneClicked ? (
+            haveLikeScene ? (
+              <LikeScene />
+            ) : (
+              <div>장면이 없습니다.</div>
+            )
+          ) : null}
           <div className="my-g-like-hr"></div>
           <div
             className={
@@ -98,7 +106,13 @@ function Mygallery() {
           <div onClick={ClickLikeGallery} className="my-g-like-title">
             좋아한 갤러리
           </div>
-          {haveLikeGallery ? <LikeGallery /> : <div>갤러리가 없습니다.</div>}
+          {isLikeGalleryClicked ? (
+            haveLikeGallery ? (
+              <LikeGallery />
+            ) : (
+              <div>갤러리가 없습니다.</div>
+            )
+          ) : null}
           <div className="my-g-like-hr"></div>
         </div>
       </div>

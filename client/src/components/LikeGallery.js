@@ -2,7 +2,7 @@ import React from "react";
 
 function LikeGallery() {
   return (
-    <div>
+    <div className="like-scene-wrap">
       <div className="like-gallery-container">
         <div className="BG-title">강석호님의 로맨스만 모았다.</div>
         <div className="BG-img-wrap">

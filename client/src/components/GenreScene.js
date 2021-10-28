@@ -1,33 +1,12 @@
 import React from "react";
 
-function GenreScene() {
+function GenreScene({ value }) {
+  //console.log("value genre ==>", value.genre);
+
   return (
     <div>
-      <div className="genre-img-wrap">
-        <div className="genre-img">
-          <img src="./img/UserImage-Jake.png" alt="" />
-        </div>
-        <div className="genre-img">
-          <img src="./img/UserImage-Jake.png" alt="" />
-        </div>
-        <div className="genre-img">
-          <img src="./img/UserImage-Jake.png" alt="" />
-        </div>
-        <div className="genre-img">
-          <img src="./img/UserImage-Jake.png" alt="" />
-        </div>
-        <div className="genre-img">
-          <img src="./img/UserImage-Jake.png" alt="" />
-        </div>
-        <div className="genre-img">
-          <img src="./img/UserImage-Jake.png" alt="" />
-        </div>
-        <div className="genre-img">
-          <img src="./img/UserImage-Jake.png" alt="" />
-        </div>
-        <div className="genre-img">
-          <img src="./img/UserImage-Jake.png" alt="" />
-        </div>
+      <div className="genre-img">
+        <img src={value.image} alt={value.title} />
       </div>
     </div>
   );

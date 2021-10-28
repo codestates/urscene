@@ -11,7 +11,7 @@ function Makegallery() {
         <div className="MP-wrap">
           <div className="MP-title">갤러리 만들기</div>
           <div className="MG-wrap">
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
               <div className="MG-name">
                 <div className="MG-title">갤러리 이름</div>
                 <input
