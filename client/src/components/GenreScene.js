@@ -6,7 +6,7 @@ function GenreScene({ value }) {
   return (
     <div>
       <div className="genre-img">
-        <img src={`${value.image}`} alt={value.title} />
+        <img src={value.image} alt={value.title} />
       </div>
     </div>
   );
