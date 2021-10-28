@@ -13,7 +13,7 @@ const mainGenre = {
     },
     {
       id: 2,
-      title: "오징어게임",
+      title: "오징",
       genre: "로맨스",
       content: "456억은 내꺼",
       image:
