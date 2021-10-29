@@ -693,7 +693,7 @@ body {
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: flex-start;
     padding-top: 20px;
     /* border: 1px solid red; */
   }
@@ -1455,10 +1455,24 @@ body {
     flex-wrap: wrap;
     justify-content: flex-start;
   }
+  .main-genre-img-addText {
+    width: 43px;
+    height: 19px;
+    margin: 0 auto 0 auto;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
 
-  .main-genre-img-add {
+    color: #f4f4f4;
+    cursor: pointer;
+  }
+
+  .main-genre-img-addImage {
     width: 50px;
-    height: 50px;
+    height: 30px;
     margin: 0 auto 0 auto;
     background: url("./img/Chevron\ Bottom.png");
     background-position: center;

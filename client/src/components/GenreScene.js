@@ -1,8 +1,6 @@
 import React from "react";
 
 function GenreScene({ value }) {
-  //console.log("value genre ==>", value.genre);
-
   return (
     <div>
       <div className="genre-img">

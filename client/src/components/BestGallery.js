@@ -6,9 +6,9 @@ function BestGallery({ gallery }) {
       <div className="BG-container">
         <div className="BG-title">{gallery.title}</div>
         <div className="BG-img-wrap">
-          {gallery.image.map((ele) => {
+          {gallery.image.map((ele, idx) => {
             return (
-              <div className="BG-img">
+              <div className="BG-img" key={idx}>
                 <img src={ele.image} alt="" />
               </div>
             );
