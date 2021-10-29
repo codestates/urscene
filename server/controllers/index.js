@@ -3,6 +3,7 @@ const comment = require("./comment/index")
 const main = require("./main/index")
 // const oauth = require("./oauth/index")
 const singlepost = require("./singlepost/index")
+const sign = require("./sign/index")
 const search = require("./search/index")
 
 const router = express.Router()
@@ -29,4 +30,11 @@ router.get("/singlepost/:singlepostid", singlepost.get)
 router.patch("/singlepost/:singlepostid", singlepost.patch)
 router.delete("/singlepost/:singlepostid", singlepost.delete)
 
+//sign
+router.post("/signup", sign.signUp)
+router.post("/signup/takenemail", sign.isTakenEmail)
+router.post("/signup/takenname", sign.isTakenName)
+router.post("/signin", sign.signIn)
+
+//user
 module.exports = router
