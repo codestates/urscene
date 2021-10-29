@@ -13,11 +13,35 @@ function MainFooter() {
           <div className="mF-contact">
             <div className="mF-UI-title">TEAM MEMBERS</div>
             <div className="mF-UI-text">Front</div>
-            <div className="mF-contact-name">이상헌</div>
-            <div className="mF-contact-name">임송하</div>
-            <div className="mF-UI-text contact-back">Back</div>
-            <div className="mF-contact-name">강석호</div>
-            <div className="mF-contact-name">손연주</div>
+            <a
+              href="https://github.com/LeeSangHeon86/urscene"
+              target="_blank"
+              className="mF-contact-name"
+            >
+              이상헌
+            </a>
+            <a
+              href="https://github.com/dddtttt000/urscene"
+              target="_blank"
+              className="mF-contact-name"
+            >
+              임송하
+            </a>
+            <a className="mF-UI-text contact-back">Back</a>
+            <a
+              href="https://github.com/kangseokho/urscene"
+              target="_blank"
+              className="mF-contact-name"
+            >
+              강석호
+            </a>
+            <a
+              href="https://github.com/usreon/urscene"
+              target="_blank"
+              className="mF-contact-name"
+            >
+              손연주
+            </a>
           </div>
           <div className="mf-divider"></div>
           <div className="mF-footer2">

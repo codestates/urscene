@@ -183,6 +183,7 @@ body {
     line-height: 14px;
     color: #ffffff;
     margin-right: 11px;
+    text-decoration: none;
   }
 
   .contact-back {
@@ -303,6 +304,36 @@ body {
     background-position: center;
     background-size: contain;
     float: right;
+  }
+
+  .MP-movie-icondelete {
+    background: url("./img/deleteForSearchText.png");
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: contain;
+    float: right;
+  }
+
+  .MP-movie-DropDownContainer {
+    background-color: white;
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: -11px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    margin-top: 8px;
+    padding: 0.5rem 15px;
+    border: 1px solid rgb(223, 225, 229);
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
+    z-index: 3;
+
+    position: relative;
+    font-size: 16px;
+    line-height: 21px;
+    width: 400px;
   }
 
   .MP-photo-label {
@@ -1285,13 +1316,13 @@ body {
   .main-back {
     background-color: #070e27;
     width: 100vw;
-    height: 100%;
+    height: auto;
     color: #fff;
   }
 
   .main-wrap {
     width: 1060px;
-    height: 964px;
+    height: auto;
     margin: auto;
   }
 
@@ -1309,7 +1340,64 @@ body {
   .main-gallery-wrap {
     width: 1060px;
     height: 299px;
-    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .main-gallery-Arrowleft {
+    width: 20px;
+    height: 299px;
+
+    background: url("./img/ArrowLeft.png");
+    width: 25px;
+    height: 80px;
+    background-position: center;
+    background-size: cover;
+    margin: auto 0px;
+  }
+
+  .main-gallery-Arrowright {
+    width: 25px;
+    height: 80px;
+
+    background: url("./img/ArrowRight.png");
+    width: 25px;
+    height: 80px;
+    background-position: center;
+    background-size: cover;
+    margin: auto 0px;
+  }
+
+  .main-gallery-page {
+    width: 1060px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .main-gallery-numSelect {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: url("./img/SeletedPage.png");
+    background-position: center;
+    background-size: none;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    margin: auto 0px;
+  }
+
+  .main-gallery-numNoSelect {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: url("./img/NoSeletedPage.png");
+    background-position: center;
+    background-size: none;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    margin: auto 0px;
   }
 
   .main-genre {
@@ -1318,7 +1406,7 @@ body {
   }
 
   .main-genre-category-wrap {
-    height: 44px;
+    height: 100%;
     width: 100%;
     text-align: left;
   }
@@ -1368,9 +1456,27 @@ body {
     justify-content: flex-start;
   }
 
+  .main-genre-img-add {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 0 auto;
+    background: url("./img/Chevron\ Bottom.png");
+    background-position: center;
+    background-size: none;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  .main-genre-img-noadd {
+    width: 200px;
+    height: 50px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+  }
+
   /* 인기 갤러리 BestGallery */
   .BG-container {
-    width: 340px;
+    width: 330px;
     height: 262.51px;
     border: 0.972265px solid #344583;
     box-sizing: border-box;
