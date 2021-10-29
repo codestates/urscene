@@ -8,7 +8,8 @@
 
 body {
   /* 사파리에서 폰트가 못생겨보임 - 해결못함 */
-  font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo", apple sd gothic neo;
+  font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo",
+    apple sd gothic neo;
   height: 100%;
   margin: 0;
 }
@@ -720,7 +721,6 @@ body {
   .lin-email-title {
     width: 400px;
     height: 20px;
-    font-family: IBM Plex Sans;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -739,10 +739,6 @@ body {
     border: 1px solid #dbe2ea;
     box-sizing: border-box;
     box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 20px;
     line-height: 26px;
     /* identical to box height */
@@ -754,13 +750,8 @@ body {
     width: 360px;
     height: 18px;
     margin-top: 8px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 18px;
-
     color: #ff7171;
     text-align: left;
   }
@@ -777,9 +768,6 @@ body {
   .lin-password-title {
     width: 400px;
     height: 20px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: 500;
     font-size: 20px;
     line-height: 26px;
     /* identical to box height */
@@ -796,10 +784,6 @@ body {
     border: 1px solid #dbe2ea;
     box-sizing: border-box;
     box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 20px;
     line-height: 26px;
     /* identical to box height */
@@ -811,13 +795,8 @@ body {
     width: 360px;
     height: 18px;
     margin-top: 8px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 18px;
-
     color: #ff7171;
     text-align: left;
   }
@@ -833,15 +812,11 @@ body {
     border-radius: 8px;
     padding: 0px;
     border: 0px;
-
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
     /* identical to box height, or 133% */
     color: #ffffff;
-
     cursor: pointer;
   }
 
@@ -852,12 +827,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 22px;
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
-
-    /* identical to box height, or 150% */
     text-decoration-line: underline;
     color: #ffffff;
   }
@@ -920,8 +891,6 @@ body {
     width: 120px;
     height: 26px;
     margin: 17.5px 140px 17.5px 93px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 26px;
@@ -950,9 +919,6 @@ body {
     width: 133px;
     height: 43px;
     margin: 0px auto;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 36px;
     line-height: 42px;
 
@@ -969,12 +935,9 @@ body {
   .signup-email-title {
     width: 360px;
     height: 20px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 26px;
-    /* identical to box height */
     color: #d4d4d4;
     text-align: left;
   }
@@ -982,19 +945,13 @@ body {
   .signup-email-input {
     width: 400px;
     height: 60px;
-
     margin-top: 8px;
     margin-bottom: 8px;
-
     background: #ffffff;
     border: 1px solid #dbe2ea;
     box-sizing: border-box;
     box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
     border-radius: 6px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 20px;
     line-height: 26px;
     padding-left: 16px;
@@ -1003,9 +960,6 @@ body {
   .signup-email-warning {
     width: 250px;
     height: 18px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 18px;
@@ -1016,10 +970,6 @@ body {
   .signup-email-ok {
     width: 250px;
     height: 18px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 18px;
     color: #0059f7;
@@ -1029,26 +979,19 @@ body {
   .signup-email-check {
     width: 100px;
     height: 34px;
-
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
+      0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: 500;
     font-size: 14px;
     line-height: 18px;
     text-align: center;
-
     color: #5a7fa8;
-
     position: relative;
     left: 150px;
     bottom: 44px;
-
     cursor: pointer;
   }
 
@@ -1063,8 +1006,6 @@ body {
     width: 360px;
     height: 18px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 18px;
@@ -1091,14 +1032,9 @@ body {
     width: 400px;
     height: 20px;
     margin: 95px auto 0px auto;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: 500;
     font-size: 20px;
     line-height: 26px;
     /* identical to box height */
-
     color: #d4d4d4;
     text-align: left;
   }
@@ -1116,38 +1052,25 @@ body {
   .signup-image-group-1 {
     width: 70px;
     height: 70px;
-    background: url("../src/img/UserImage-Jake.png");
-    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     cursor: pointer;
   }
-  .signup-image-group-2 {
+  .signup-image-group-1:hover {
     width: 70px;
     height: 70px;
-    background: url("../src/img/UserImage-Meg.png");
-    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     cursor: pointer;
+    border: 2px solid #0000c5;
   }
-  .signup-image-group-3 {
+  .signup-image-group-1-selected {
     width: 70px;
     height: 70px;
-    background: url("../src/img/UserImage-Mili.png");
-    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     cursor: pointer;
-  }
-  .signup-image-group-4 {
-    width: 70px;
-    height: 70px;
-    background: url("../src/img/UserImage-Steven.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    cursor: pointer;
+    border: 3px solid #0000c5;
   }
 
   .signup-btn {
@@ -1165,7 +1088,6 @@ body {
     width: 74px;
     height: 24px;
     font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -1613,7 +1535,6 @@ body {
     height: 48px;
     margin: 56px auto 0px auto;
     font-family: Roboto;
-    font-style: normal;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
@@ -1635,7 +1556,6 @@ body {
     border-width: 0px;
 
     font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -1663,7 +1583,6 @@ body {
     width: 208px;
     height: 42px;
     font-family: Roboto;
-    font-style: normal;
     font-weight: normal;
     font-size: 36px;
     line-height: 42px;
@@ -1689,7 +1608,6 @@ body {
     margin: 18px auto 0 auto;
 
     font-family: Roboto;
-    font-style: normal;
     font-weight: bold;
     font-size: 22px;
     line-height: 26px;
@@ -1709,9 +1627,6 @@ body {
     width: 278px;
     height: 26px;
     text-align: left;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 26px;
@@ -1724,7 +1639,6 @@ body {
     width: 400px;
     height: 98px;
     margin: 20px auto 0 auto;
-
     display: flex;
     justify-content: space-around;
     align-content: space-around;
@@ -1778,9 +1692,6 @@ body {
   .ui-nickname-title {
     width: 360px;
     height: 20px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 26px;
@@ -1799,9 +1710,6 @@ body {
     box-sizing: border-box;
     box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
     border-radius: 6px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 26px;
@@ -1813,9 +1721,6 @@ body {
   .ui-nickname-warning {
     width: 360px;
     height: 18px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 18px;
@@ -1827,9 +1732,6 @@ body {
   .ui-nickname-ok {
     width: 360px;
     height: 18px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 18px;
@@ -1845,11 +1747,9 @@ body {
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
+      0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
@@ -1889,7 +1789,6 @@ body {
     border-width: 0px;
 
     font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -1905,7 +1804,6 @@ body {
     margin: 68px auto 0 auto;
 
     font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -1923,7 +1821,6 @@ body {
     margin: 16px auto 0 auto;
 
     font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -1962,7 +1859,6 @@ body {
     height: 24px;
 
     font-family: Roboto;
-    font-style: normal;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
@@ -1986,7 +1882,6 @@ body {
     margin-top: 5px;
 
     font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -2008,7 +1903,6 @@ body {
     border-radius: 8px;
     border-width: 0px;
     font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -2037,7 +1931,6 @@ body {
     height: 51px;
 
     font-family: Roboto;
-    font-style: normal;
     font-weight: normal;
     font-size: 32px;
     line-height: 37px;
@@ -2061,11 +1954,9 @@ body {
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001), 0px 2px 4px rgba(44, 39, 56, 0.08);
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
+      0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
@@ -2118,7 +2009,6 @@ body {
     float: left;
 
     font-family: Roboto;
-    font-style: normal;
     font-weight: bold;
     font-size: 26px;
     line-height: 30px;
@@ -2155,7 +2045,6 @@ body {
     height: 68px;
     margin-top: 21px;
     font-family: Roboto;
-    font-style: normal;
     font-weight: normal;
     font-size: 28px;
     line-height: 33px;
@@ -2171,7 +2060,6 @@ body {
     height: 68px;
     margin-top: 21px;
     font-family: Roboto;
-    font-style: normal;
     font-weight: normal;
     font-size: 28px;
     line-height: 33px;
@@ -2205,7 +2093,6 @@ body {
     margin-top: 4px;
 
     font-family: Roboto;
-    font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
@@ -2253,7 +2140,6 @@ body {
     margin-top: 13px;
     margin-left: 22px;
     font-family: Roboto;
-    font-style: normal;
     font-weight: normal;
     font-size: 22px;
     line-height: 32px;
@@ -2288,9 +2174,6 @@ body {
     width: 730px;
     height: 68px;
     margin: 1px 0 1px 18px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 26px;
@@ -2310,9 +2193,6 @@ body {
   .post-wc-submit {
     width: 37px;
     height: 26px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 26px;
@@ -2360,8 +2240,6 @@ body {
     width: 102px;
     height: 29px;
     margin-top: 8px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 22px;
     line-height: 29px;
@@ -2482,10 +2360,6 @@ body {
     box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
     border-radius: 6px;
     float: left;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 32px;
     line-height: 42px;
     /* identical to box height */
@@ -2533,14 +2407,9 @@ body {
     margin-bottom: 30px;
     padding-left: 16px;
     padding-top: 16px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 22px;
     line-height: 29px;
-
     color: #7c9cbf;
-
     background: #ffffff;
     border: 1px solid #dbe2ea;
     box-sizing: border-box;
@@ -2552,13 +2421,9 @@ body {
     width: 771px;
     height: 76px;
     float: left;
-
-    font-family: Roboto;
-    font-style: normal;
     font-weight: normal;
     font-size: 26px;
     line-height: 30px;
-
     color: #d0d0d0;
     text-align: left;
   }
@@ -2568,7 +2433,6 @@ body {
     height: 60px;
     margin-left: 25px;
     float: left;
-
     background: url("../src/img/Heart.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2581,7 +2445,6 @@ body {
     height: 60px;
     margin-left: 25px;
     float: left;
-
     background: url("../src/img/FullHeart.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2643,15 +2506,10 @@ body {
   }
 
   .gallery-nocontent-title {
-    font-family: Noto Sans KR;
-    font-style: normal;
-    font-weight: normal;
     font-size: 18px;
     line-height: 22px;
     /* identical to box height, or 122% */
-
     text-align: center;
-
     color: #c0c0c0;
     margin-top: 10px;
   }
@@ -2683,7 +2541,6 @@ body {
     left: 120px;
     width: 70px;
     height: 70px;
-
     background: url("../src/img/trash.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2691,13 +2548,9 @@ body {
   }
 
   .delete-text {
-    font-family: Roboto;
-    font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 24px;
-    /* identical to box height, or 100% */
-
     color: #ffffff;
     margin-top: 68px;
   }
@@ -2714,16 +2567,10 @@ body {
     height: 24px;
     margin-left: 64px;
     margin-top: 5px;
-
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    /* identical to box height, or 150% */
-
     text-decoration-line: underline;
-
     color: #ffffff;
     cursor: pointer;
   }
@@ -2733,17 +2580,11 @@ body {
     width: 100px;
     height: 34px;
     margin-left: 34px;
-
     background: #ffffff;
     border-radius: 8px;
     border-width: 0px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    /* identical to box height, or 150% */
-
     color: #000000;
     cursor: pointer;
   }

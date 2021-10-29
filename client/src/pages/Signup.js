@@ -3,27 +3,91 @@ import MainNav from "../components/MainNav";
 import SignupModal from "../components/SignupModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
+import Jake from "../img/UserImage-Jake.png";
+import Meg from "../img/UserImage-Meg.png";
+import Mili from "../img/UserImage-Mili.png";
+import Steven from "../img/UserImage-Steven.png";
+import axios from "axios";
+
+axios.defaults.withCredentials = true;
 
 function Signup() {
   const [modal, setModal] = useState(false);
+  const [curImg, setCurImg] = useState("");
   const [errMsg, setErrMsg] = useState(""); // 공통 에러 메세지
   const [emailErrMsg, setEmailErrMsg] = useState(""); // 이메일 에러 메세지
+  const [emailCheckMsg, setEmailCheckMsg] = useState(""); // 이메일 사용가능 메세지
   const [pwErrMsg, setpwErrMsg] = useState(""); // 비밀번호 에러 메세지
   const [pwCheckErrMsg, setpwCheckErrMsg] = useState(""); // 비밀번호 확인 에러 메세지
   const [nickErrMsg, setNickErrMsg] = useState(""); // 닉네임 에러 메세지
+  const [nickCheckMsg, setNickCheckMsg] = useState(""); // 닉네임 사용가능 메세지
   const [userinfo, setuserinfo] = useState({
     nickname: "",
     email: "",
     password: "",
+    passwordCheck: "",
   });
-  //console.log("userinfo =>", userinfo);
+  console.log("userinfo =>", userinfo);
+  console.log("curImg =>", curImg);
+
+  const userImg = [Jake, Meg, Mili, Steven];
 
   const handleInputValue = (key) => (e) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
   };
 
+  // 이메일 유효성 검사
+  const emailValidation = (e) => {
+    const regExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!regExp.test(e.target.value)) {
+      setEmailErrMsg("이메일 형식이 맞지 않습니다.");
+    } else {
+      setEmailErrMsg("");
+    }
+    console.log("이메일 유효성 ??? ", regExp.test(e.target.value));
+  };
+
+  // 비밀번호 유효성 검사
+  // 최소 8자~최대 16자, 대문자 1개 이상, 소문자 1개, 숫자 1개, 특수 문자 1개
+  const passwordValidation = (e) => {
+    const regExp =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
+    if (!regExp.test(e.target.value)) {
+      setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
+    } else {
+      setpwErrMsg("");
+    }
+    console.log("비밀번호 유효성", regExp.test(e.target.value));
+  };
+
+  // 비밀번호 재확인 검사
+  const passwordCheckValidation = (e) => {
+    if (e.target.value !== userinfo.password) {
+      setpwCheckErrMsg("비밀번호가 일치하지 않습니다.");
+    } else {
+      setpwCheckErrMsg("");
+    }
+  };
+
+  // 닉네임 유효성 검사
+  const nicknameValidation = (e) => {
+    // 서버에 닉네임이 있는지 요청하고 응답을 받는다.
+    console.log("nickname valid??", e.target.value);
+  };
+
+  const clickUserImage = (e) => {
+    setCurImg(e.target.src);
+  };
+
   const handleSignup = () => {
-    setModal(!modal);
+    const { email, password, passwordCheck, nickname } = userinfo;
+    if (!email || !password || !passwordCheck || !nickname) {
+      setErrMsg("필수 정보입니다.");
+      setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
+    } else {
+      setErrMsg("");
+    }
+    //setModal(!modal);
   };
   return (
     <div>
@@ -36,16 +100,17 @@ function Signup() {
               <div className="signup-email">
                 <div className="signup-email-title">이메일</div>
                 <input
+                  type="email"
                   onChange={handleInputValue("email")}
+                  onBlur={emailValidation}
                   className="signup-email-input"
                 ></input>
-                {/* 정보 메세지 */}
-                <div className="signup-email-warning">필수 정보입니다.</div>
-                <div className="signup-email-warning">
-                  사용하실 수 없는 이메일입니다.
-                </div>
-                <div className="signup-email-ok">사용 가능한 이메일입니다.</div>
-                {/* 이메일 중복확인 기능 */}
+                {userinfo.email === "" ? (
+                  <div className="signup-email-warning">{errMsg}</div>
+                ) : (
+                  <div className="signup-email-warning">{emailErrMsg}</div>
+                )}
+                <div className="signup-email-ok">{emailCheckMsg}</div>
                 <button className="signup-email-check">중복확인</button>
               </div>
               <div className="signup-password">
@@ -54,39 +119,55 @@ function Signup() {
                   onChange={handleInputValue("password")}
                   className="signup-email-input"
                   type="password"
+                  onBlur={passwordValidation}
                 ></input>
-                <div className="signup-password-warning">
-                  8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.
-                </div>
+                <div className="signup-password-warning">{pwErrMsg}</div>
               </div>
               <div className="signup-repassword">
                 <div className="signup-email-title">비밀번호 확인</div>
-                <input className="signup-email-input" type="password"></input>
-                <div className="signup-password-warning">필수정보입니다.</div>
-                <div className="signup-password-warning">
-                  비밀번호가 일치하지 않습니다.
-                </div>
+                <input
+                  onBlur={passwordCheckValidation}
+                  onChange={handleInputValue("passwordCheck")}
+                  className="signup-email-input"
+                  type="password"
+                ></input>
+                {userinfo.passwordCheck === "" ? (
+                  <div className="signup-password-warning">{errMsg}</div>
+                ) : (
+                  <div className="signup-password-warning">{pwCheckErrMsg}</div>
+                )}
               </div>
               <div className="signup-nickname">
                 <div className="signup-email-title">닉네임</div>
                 <input
+                  onBlur={nicknameValidation}
                   onChange={handleInputValue("nickname")}
                   className="signup-email-input"
                 ></input>
-                {/* 정보 메세지 */}
-                <div className="signup-password-warning">필수정보입니다.</div>
-                <div className="signup-password-warning">
-                  비밀번호가 일치하지 않습니다.
-                </div>
-                <div className="signup-email-ok">사용 가능한 닉네임입니다.</div>
+                {userinfo.nickname === "" ? (
+                  <div className="signup-password-warning">{errMsg}</div>
+                ) : (
+                  <div className="signup-password-warning">{nickErrMsg}</div>
+                )}
+                <div className="signup-email-ok">{nickCheckMsg}</div>
                 <button className="signup-email-check">중복확인</button>
               </div>
               <div className="signup-image"> 프로필 이미지 선택</div>
               <div className="signup-image-group">
-                <div className="signup-image-group-1"></div>
-                <div className="signup-image-group-2"></div>
-                <div className="signup-image-group-3"></div>
-                <div className="signup-image-group-4"></div>
+                {userImg.map((src, idx) => {
+                  return (
+                    <img
+                      onClick={clickUserImage}
+                      src={src}
+                      alt={idx}
+                      className={
+                        curImg === src
+                          ? "signup-image-group-1-selected"
+                          : "signup-image-group-1"
+                      }
+                    />
+                  );
+                })}
               </div>
               <div className="signup-btn" onClick={handleSignup}>
                 <div className="signup-btn-text">가입하기</div>
@@ -95,7 +176,7 @@ function Signup() {
           </div>
         </form>
       </div>
-      {modal ? <SignupModal handleSignup={handleSignup} /> : null}
+      {modal ? <SignupModal /> : null}
       <MainFooter></MainFooter>
       <TopButton></TopButton>
     </div>
