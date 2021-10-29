@@ -1,4 +1,4 @@
-const { Gallerypost } = require("../models")
+const { Gallerypost } = require("../../models")
 const { Op } = require("sequelize")
 
 module.exports = async (req, res) => {
