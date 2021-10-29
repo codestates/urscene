@@ -3,7 +3,7 @@ const { Op } = require("sequelize")
 
 module.exports = {
 	get: async (req, res) => {
-		const { content, page } = req.query
+		const { content, page, limit } = req.query
 		// console.log(page)
 		let offset = 0
 
@@ -15,7 +15,7 @@ module.exports = {
 				[Op.or]: [{ title: { [Op.substring]: content } }, { content: { [Op.substring]: content } }],
 			},
 			offset: offset,
-			limit: 2,
+			limit: Number(limit),
 		})
 		const dataValues = data.map((el) => el.dataValues)
 		let array = []
