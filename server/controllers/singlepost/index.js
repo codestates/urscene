@@ -1,10 +1,9 @@
 module.exports = {
-	delete: require("./delete"),
-	get: require("./get"),
-	movietitle: require("./movietitle"),
-	patch: require("./patch"),
-	post: require("./post"),
-	singlepost: require("./singlepost"),
-	singlelike: require("./singlelike"),
-	serched: require("./searchedsingle"),
+	delete: require("./deleteSinglepost"),
+	get: require("./getSinglepost"),
+	movietitle: require("./movietitleSinglepost"),
+	patch: require("./patchSinglepost"),
+	post: require("./postSinglepost"),
+	singlepost: require("./postLike"),
+	singlelike: require("./deleteLike"),
 }
