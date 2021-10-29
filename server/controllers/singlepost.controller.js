@@ -19,7 +19,7 @@ module.exports = {
 				genre: req.body.genre,
 			})
 			const { id, title, image, content, genre } = singlepost.dataValues
-			res.status(201).json({ data: { id, title, image, content, genre } })
+			res.status(201).json({ data: { id, title, image, content, genre }, message: "ok" })
 		}
 	},
 

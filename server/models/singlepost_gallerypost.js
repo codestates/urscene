@@ -1,7 +1,7 @@
 "use strict"
 module.exports = (sequelize, DataTypes) => {
 	const singlepost_gallerypost = sequelize.define(
-		"singlepost_gallerypost",
+		"Singlepost_gallerypost",
 		{
 			singlepost_id: DataTypes.INTEGER,
 			gallerypost_id: DataTypes.INTEGER,
@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
 		{}
 	)
 	singlepost_gallerypost.associate = function (models) {
-		models.singlepost_gallerypost.belongsTo(models.Singlepost, { foreignKey: "singlepost_id" })
-		models.singlepost_gallerypost.belongsTo(models.Gallerypost, { foreignKey: "gallerypost_id" })
+		models.Singlepost_gallerypost.belongsTo(models.Singlepost, { foreignKey: "singlepost_id" })
+		models.Singlepost_gallerypost.belongsTo(models.Gallerypost, { foreignKey: "gallerypost_id" })
 	}
 	return singlepost_gallerypost
 }
