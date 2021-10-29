@@ -1,13 +1,14 @@
 const express = require("express")
-const usercontroller = require("../controllers/user.controller")
+const { signUp, signIn, signOut, deleteUser, patchUser } = require("../controllers/user.controller")
 const router = express.Router()
 
-router.post("/signin", usercontroller.signin)
-router.post("/signout", usercontroller.signout)
-router.post("/", usercontroller.signup)
-router.get("/", usercontroller.info)
-router.delete("/", usercontroller.delete)
-router.get("/gallery", usercontroller.gallery)
-router.patch("/", usercontroller.patch)
+router.post("/", signUp)
+// router.post("/signin", signIn)
+// router.post("/signout", signOut)
+
+// router.get("/", signUp) // 회원 정보
+// router.delete("/", deleteUser)
+// router.get("/gallery", signUp) //마이 갤러리
+// router.patch("/", patchUser)
 
 module.exports = router
