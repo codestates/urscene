@@ -3,22 +3,23 @@ const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-
 
 const emailRegex = (email) => emailValidation.test(email) // 통과하면 true return
 const passwordRegex = (password) => passwordValidation.test(password)
-const validatorForEmail = (email) => {
-	if (!emailRegex(email)) {
+const validator = (email, password, nickname) => {
+	if (!email || !emailRegex(email)) {
 		return { code: 400, message: "invalid-email" }
 	}
-	return true
-}
-const validatorForPassword = (password) => {
-	if (!passwordRegex(password)) {
+
+	if (!password || !passwordRegex(password)) {
 		return { code: 400, message: "invalid-password" }
 	}
-	return true
+
+	if (!nickname) {
+		return { code: 400, message: "invalid-nickname" }
+	}
+	return false
 }
 
 module.exports = {
 	emailRegex,
 	passwordRegex,
-	validatorForEmail,
-	validatorForPassword,
+	validator,
 }
