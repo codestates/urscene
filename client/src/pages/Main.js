@@ -67,40 +67,36 @@ let dummyData = {
 
 function Main() {
   // 인기 갤러리 코드 : 시작
-  const [rankingGallerys, setRankingGallerys] = useState(
-    dummyData.Ranking_gallery,
-  );
+  const [rankingGallerys, setRankingGallerys] = useState([]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [galleryPerPage] = useState(3);
   const [galleryIcon] = useState([1, 2, 3]);
 
-  // const handleLandingPage = () => {
-  //   axios.post(process.env.REACT_APP_EC2_URL + "main").then((res) => {
-  //     setRankingGallerys(res.Ranking_gallery);
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   handleLandingPage();
-  // }, []);
+  const handleLandingPage = () => {
+    axios.get(process.env.REACT_APP_EC2_URL + "main").then((res) => {
+      // console.log("인기갤러리 자료를 받아옵니다. ");
+      // console.log(res.data.Ranking_gallery);
+      setRankingGallerys(res.data.Ranking_gallery);
+      setCurrentRankingGallery(res.data.Ranking_gallery.slice(0, 3));
+    });
+  };
 
   const [currentRankingGallery, setCurrentRankingGallery] = useState([]);
 
   function handleCurrentRankingGallery() {
+    // console.log("인기 갤러리 페이지네이션 함수 시작");
     const indexOfLast = currentPage * galleryPerPage;
     const indexOfFirst = indexOfLast - galleryPerPage;
     setCurrentRankingGallery(rankingGallerys.slice(indexOfFirst, indexOfLast));
   }
 
   const handleArrowLeft = () => {
-    console.log(currentPage);
     if (currentPage === 1) {
       setCurrentPage(3);
     } else {
       setCurrentPage(currentPage - 1);
     }
-    console.log(currentPage);
   };
 
   const handleArrowRight = () => {
@@ -110,6 +106,10 @@ function Main() {
       setCurrentPage(currentPage + 1);
     }
   };
+
+  useEffect(() => {
+    handleLandingPage();
+  }, []);
 
   useEffect(() => {
     handleCurrentRankingGallery();
@@ -127,27 +127,28 @@ function Main() {
     "전쟁",
   ];
   const [curGenre, setCurGenre] = useState(genres[0]);
+  const [previousGenre, setPreviousGenre] = useState("");
   const [curScenes, setCurSenes] = useState([]);
 
-  const [curScenePage, setCurScenePage] = useState(1);
+  const [curScenePage, setCurScenePage] = useState(4);
   const [scenePerPage] = useState(4);
 
   const [addSceneIcon, setAddSceneIcon] = useState(false);
 
   const changeCurGenre = (e) => {
+    setCurScenePage(4);
+    setAddSceneIcon(false);
+    setPreviousGenre(curGenre);
     setCurGenre(e.target.innerText);
   };
 
   const handleCurrentScene = () => {
     axios
       .get(
-        `${process.env.REACT_APP_EC2_URL}main/single/?genre=${curGenre}&page=${curScenePage}&limit=${scenePerPage}`,
+        `${process.env.REACT_APP_EC2_URL}main/single/?genre=${curGenre}&page=1&limit=${scenePerPage}`,
       )
       .then((res) => {
-        if (res.single.lenth !== 4) {
-          setAddSceneIcon(true);
-        }
-        setCurSenes([...curScenes, ...res.single]);
+        setCurSenes(res.data.single);
       })
       .catch((err) => {
         console.log(err);
@@ -156,7 +157,25 @@ function Main() {
 
   useEffect(() => {
     handleCurrentScene();
-  }, [curGenre, curScenePage]);
+  }, [curGenre]);
+
+  const handleAddCurrentScene = () => {
+    setCurScenePage(curScenePage + scenePerPage);
+    axios
+      .get(
+        `${process.env.REACT_APP_EC2_URL}main/single/?genre=${curGenre}&page=${curScenePage}&limit=${scenePerPage}`,
+      )
+      .then((res) => {
+        if (res.data.single.length === 0) {
+          setAddSceneIcon(true);
+        } else {
+          setCurSenes([...curScenes, ...res.data.single]);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
@@ -214,26 +233,17 @@ function Main() {
                 );
               })}
               <div className="main-genre-img-wrap">
-                {/*장르별 장면 컴포넌트가 불러와진다. */}
-                {/* {curScenes.map((el) => {
-                  if (el.genre === curGenre) {
-                    return <GenreScene key={el.id} value={el} />;
-                  }
-                })} */}
-                {/* 추후 서버 연동 완료 후 위의 코드를 아래로 교체 */}
-                {curScenes.map((curScene) => {
-                  return <GenreScene key={curScene.id} value={curScene} />;
+                {curScenes.map((curScene, idx) => {
+                  return <GenreScene key={idx} value={curScene} />;
                 })}
               </div>
               {addSceneIcon ? (
                 <div className="main-genre-img-noadd">영화가 없습니다.</div>
               ) : (
-                <div
-                  className="main-genre-img-add"
-                  onClick={() => {
-                    setCurScenePage(curScenePage + 4);
-                  }}
-                ></div>
+                <div onClick={handleAddCurrentScene}>
+                  <div className="main-genre-img-addText">더 보기</div>
+                  <div className="main-genre-img-addImage"></div>
+                </div>
               )}
             </div>
           </div>
