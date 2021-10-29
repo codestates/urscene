@@ -1,6 +1,7 @@
 import "./App-mobile.css";
 import "./App-tablet.css";
 import "./App-pc.css";
+import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import Login from "./pages/Login.js";
 import Signup from "./pages/Signup.js";
@@ -16,6 +17,18 @@ import Landing from "./pages/Landing.js";
 require("dotenv").config();
 
 function App() {
+  // useContext 를 사용해서 유저정보와 로그인 상태를 전역으로 관리
+  const [userInfo, setUserInfo] = useState(null);
+  const [isLogin, setIsLogin] = useState(false);
+
+  // 로그인 성공 시 인증정보 요청 함수실행
+  const handleResponseSuccess = () => {
+    isAuthenticated();
+  };
+
+  // 유저 정보 호출, 로그인 상태 변경
+  const isAuthenticated = () => {};
+
   return (
     <div className="App">
       <Switch>
