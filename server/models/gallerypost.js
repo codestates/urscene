@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 	Gallerypost.associate = function (models) {
 		models.Gallerypost.hasMany(models.Like, { foreignKey: "gallerypost_id" })
 		models.Gallerypost.hasMany(models.Comment, { foreignKey: "gallerypost_id" })
-		models.Gallerypost.hasMany(models.singlepost_gallerypost, { foreignKey: "gallerypost_id" })
+		models.Gallerypost.hasMany(models.Singlepost_gallerypost, { foreignKey: "gallerypost_id" })
 		models.Gallerypost.belongsTo(models.User, { foreignKey: "user_id" })
 	}
 	return Gallerypost

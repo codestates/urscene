@@ -2,11 +2,80 @@ import React from "react";
 import MainNav from "../components/MainNav";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
+import Dropdown from "../components/Dropdown";
 import AWS from "aws-sdk";
 import { useState, useRef, useEffect } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 require("dotenv").config();
 
+let dummyData = [
+  {
+    year: "2020",
+    movieTitle: "조제",
+    movieTitleEng: "Josée",
+    directors: "김종관",
+    genre: "멜로/로맨스,드라마",
+  },
+  {
+    year: "2020",
+    movieTitle: "조제, 호랑이 그리고 물고기들",
+    movieTitleEng: "Josee, The Tiger And The Fish",
+    directors: "타무라 코타로",
+    genre: "애니메이션",
+  },
+  {
+    year: "2003",
+    movieTitle: "조제, 호랑이 그리고 물고기들",
+    movieTitleEng: "Josee, The Tiger And The Fish",
+    directors: "이누도 잇신 ",
+    genre: "드라마",
+  },
+];
+
 function Makepost() {
+  const [seletedGenre, setSeletedGenre] = useState(""); // 선택한 장르가 담기는 곳
+  const [postDescription, setPostDescription] = useState(""); // 장면 설명이 담기는 곳
+
+  const history = useHistory();
+  // 검색어 입력 시 드랍다운 : 시작
+  const [hasText, setHasText] = useState(false); // 문자가 입력이 됬는지 안됬는지 체크
+  const [inputValue, setInputVaule] = useState(""); // 입력한 문자가 담기는 곳
+  const [options, setOptions] = useState([]); // 드랍다운으로 보여지는 전체 목록
+
+  useEffect(() => {
+    if (inputValue === "") {
+      setHasText(false);
+    }
+  }, [inputValue]);
+
+  const handleInputChange = (e) => {
+    const { value } = e.target;
+    if (value.includes("\\")) return;
+    // axios 요청해서 더미데이터 받아와야 할듯
+    value ? setHasText(true) : setHasText(false);
+    setInputVaule(value);
+    const filterRegex = new RegExp(value, "i");
+    const resultOptions = dummyData.map((option) => {
+      if (option.movieTitle.match(filterRegex)) {
+        return option.movieTitle;
+      }
+    });
+    setOptions(resultOptions);
+  };
+
+  const handleDeleteButtonClick = () => {
+    setInputVaule("");
+  };
+
+  const handleDropDownClick = (data) => {
+    setInputVaule(data);
+    const resultOptions = dummyData.filter((option) => option === data);
+    setOptions(resultOptions);
+    setHasText(false);
+  };
+  // 검색어 입력 시 드랍다운 : 끝
+
   // drag & drop 코드 : 시작
   const uploadBoxRef = useRef();
   const inputRef = useRef();
@@ -42,40 +111,6 @@ function Makepost() {
       input.removeEventListener("change", changeHandler);
     };
   }, []);
-
-  // 나 혼자 해보는거
-  // const handleDragFileInput = (e) => {
-  //   console.log("이상헌");
-  //   const uploadBox = uploadBoxRef.current;
-  //   const input = inputRef.current;
-
-  //   const changeHandler = (event) => {
-  //     const files = event.target.files[0];
-  //     uploadFile(files);
-  //   };
-
-  //   const dropHandler = (event) => {
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //     const files = event.dataTransfer.files[0];
-  //     uploadFile(files);
-  //   };
-
-  //   const dragOverHandler = (event) => {
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //   };
-
-  //   uploadBox.addEventListener("drop", dropHandler);
-  //   uploadBox.addEventListener("dragover", dragOverHandler);
-  //   input.addEventListener("change", changeHandler);
-
-  //   return () => {
-  //     uploadBox.removeEventListener("drop", dropHandler);
-  //     uploadBox.removeEventListener("dragover", dragOverHandler);
-  //     input.removeEventListener("change", changeHandler);
-  //   };
-  // };
   // drag & drop 코드 : 끝
 
   // 네이티브 SDK 를 통해 파일 업로드 : 시작
@@ -114,6 +149,30 @@ function Makepost() {
   };
   // 네이티브 SDK 를 통해 파일 업로드 : 끝
 
+  const handlePostSubmit = () => {
+    axios
+      .post(
+        "http://localhost:80/singlepost",
+        {
+          // user_id: "1", //(Token)
+          title: inputValue,
+          image: uploadImageName,
+          content: postDescription,
+          genre: seletedGenre,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+        console.log("post success");
+        history.push("/mygallery");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
       <MainNav />
@@ -124,25 +183,28 @@ function Makepost() {
             <div className="MP-input-wrap">
               <div className="MP-sub-title">영화 이름</div>
               <div className="MP-movie">
-                <input type="text" placeholder="영화 제목을 검색해 주세요." />
+                <input type="text" placeholder="영화 제목을 검색해 주세요." value={inputValue} onChange={(e) => handleInputChange(e)} />
+                <div className="MP-movie-icondelete" onClick={handleDeleteButtonClick}></div>
                 <div className="MP-movie-icon"></div>
+                {/* 컴포넌트 추출 포인트 : 시작 */}
+                {hasText ? <Dropdown options={options} handleDropDownClick={handleDropDownClick} /> : null}
+                {/* 컴포넌트 추출 포인트 : 끝 */}
               </div>
             </div>
             <div className="MP-input-wrap">
               <div className="MP-sub-title">장르 선택</div>
-              <select name="장르" id="" className="MP-movie">
-                <option value="">장르를 선택해주세요.</option>
-                <option value="">로맨스</option>
-                <option value="">코미디</option>
-                <option value="">SF/판타지</option>
-                <option value="">액션</option>
-                <option value="">미스터리/스릴러</option>
-                <option value="">전쟁</option>
+              <select name="장르" id="" className="MP-movie" onChange={(e) => setSeletedGenre(e.target.value)}>
+                <option value="장르">장르를 선택해주세요.</option>
+                <option value="로맨스">로맨스</option>
+                <option value="코미디">코미디</option>
+                <option value="SF/판타지">SF/판타지</option>
+                <option value="액션">액션</option>
+                <option value="미스터리/스릴러">미스터리/스릴러</option>
+                <option value="전쟁">전쟁</option>
               </select>
             </div>
             <div className="MP-photo-wrap">
               <div className="MP-sub-title">사진 선택</div>
-              <div>{uploadImageName}</div>
               <label className="MP-photo-label" for="ex-file">
                 선택하기
               </label>
@@ -160,10 +222,12 @@ function Makepost() {
             </div>
             <div className="MP-box-wrap">
               <div className="MP-sub-title">장면 설명</div>
-              <textarea name="" id="textarea"></textarea>
+              <textarea name="" id="textarea" onChange={(e) => setPostDescription(e.target.value)}></textarea>
             </div>
             <div className="MP-btn-wrap">
-              <button className="MP-btn">게시하기</button>
+              <button className="MP-btn" onClick={handlePostSubmit}>
+                게시하기
+              </button>
             </div>
           </div>
         </form>
