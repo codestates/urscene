@@ -13,7 +13,6 @@ axios.defaults.withCredentials = true;
 
 function Signup() {
   const [modal, setModal] = useState(false);
-  const [curImg, setCurImg] = useState("");
   const [errMsg, setErrMsg] = useState(""); // 공통 에러 메세지
   const [emailErrMsg, setEmailErrMsg] = useState(""); // 이메일 에러 메세지
   const [emailCheckMsg, setEmailCheckMsg] = useState(""); // 이메일 사용가능 메세지
@@ -28,9 +27,10 @@ function Signup() {
     passwordCheck: "",
   });
   console.log("userinfo =>", userinfo);
-  console.log("curImg =>", curImg);
 
   const userImg = [Jake, Meg, Mili, Steven];
+  const [curImg, setCurImg] = useState(userImg[0]);
+  console.log("curImg =>", curImg);
 
   const handleInputValue = (key) => (e) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
@@ -43,8 +43,10 @@ function Signup() {
       setEmailErrMsg("이메일 형식이 맞지 않습니다.");
     } else {
       setEmailErrMsg("");
+      // TODO: 서버에 이메일이 존재하는지 요청을 보낸다.
+      // setEmailErrMsg("이미 사용중인 이메일입니다.")
+      // setEmailCheckMsg("사용중 가능한 이메일입니다.")
     }
-    console.log("이메일 유효성 ??? ", regExp.test(e.target.value));
   };
 
   // 비밀번호 유효성 검사
@@ -57,7 +59,6 @@ function Signup() {
     } else {
       setpwErrMsg("");
     }
-    console.log("비밀번호 유효성", regExp.test(e.target.value));
   };
 
   // 비밀번호 재확인 검사
@@ -71,7 +72,9 @@ function Signup() {
 
   // 닉네임 유효성 검사
   const nicknameValidation = (e) => {
-    // 서버에 닉네임이 있는지 요청하고 응답을 받는다.
+    // TODO: 서버에 닉네임이 있는지 요청하고 응답을 받는다.
+    // setNickErrMsg("이미 사용중인 닉네임입니다.")
+    // setNickCheckMsg("사용 가능한 닉네임입니다.")
     console.log("nickname valid??", e.target.value);
   };
 
@@ -79,6 +82,7 @@ function Signup() {
     setCurImg(e.target.src);
   };
 
+  // 회원가입
   const handleSignup = () => {
     const { email, password, passwordCheck, nickname } = userinfo;
     if (!email || !password || !passwordCheck || !nickname) {
@@ -86,8 +90,22 @@ function Signup() {
       setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
     } else {
       setErrMsg("");
+      console.log("signup click");
+      axios
+        .post("https://urscene.link/user", {
+          nickname: nickname,
+          email: email,
+          password: password,
+          image: curImg,
+        })
+        .then((res) => {
+          console.log("signup success");
+          setModal(!modal);
+        })
+        .catch((err) => {
+          console.log("err message =>", err);
+        });
     }
-    //setModal(!modal);
   };
   return (
     <div>
@@ -111,7 +129,7 @@ function Signup() {
                   <div className="signup-email-warning">{emailErrMsg}</div>
                 )}
                 <div className="signup-email-ok">{emailCheckMsg}</div>
-                <button className="signup-email-check">중복확인</button>
+                {/* <button className="signup-email-check">중복확인</button> */}
               </div>
               <div className="signup-password">
                 <div className="signup-email-title">비밀번호</div>
@@ -150,7 +168,7 @@ function Signup() {
                   <div className="signup-password-warning">{nickErrMsg}</div>
                 )}
                 <div className="signup-email-ok">{nickCheckMsg}</div>
-                <button className="signup-email-check">중복확인</button>
+                {/* <button className="signup-email-check">중복확인</button> */}
               </div>
               <div className="signup-image"> 프로필 이미지 선택</div>
               <div className="signup-image-group">
@@ -159,7 +177,8 @@ function Signup() {
                     <img
                       onClick={clickUserImage}
                       src={src}
-                      alt={idx}
+                      alt=""
+                      key={idx}
                       className={
                         curImg === src
                           ? "signup-image-group-1-selected"

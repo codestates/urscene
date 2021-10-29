@@ -999,7 +999,7 @@ body {
   .signup-password {
     width: 400px;
     height: 114px;
-    margin: 62px auto 0px auto;
+    margin: 40px auto 0px auto;
   }
 
   .signup-password-warning {
@@ -1017,21 +1017,21 @@ body {
   .signup-repassword {
     width: 400px;
     height: 114px;
-    margin: 26px auto 0px auto;
+    margin: 40px auto 0px auto;
   }
 
   /* signup 페이지 : 닉네임 입력 그룹*/
   .signup-nickname {
     width: 400px;
     height: 114px;
-    margin: 44px auto 0px auto;
+    margin: 40px auto 0px auto;
   }
 
   /* signup 페이지 : 이미지 선택*/
   .signup-image {
     width: 400px;
     height: 20px;
-    margin: 95px auto 0px auto;
+    margin: 40px auto 0px auto;
     font-size: 20px;
     line-height: 26px;
     /* identical to box height */
