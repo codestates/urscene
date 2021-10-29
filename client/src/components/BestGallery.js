@@ -1,23 +1,18 @@
 import React from "react";
 
-function BestGallery() {
+function BestGallery({ gallery }) {
   return (
     <div>
       <div className="BG-container">
-        <div className="BG-title">강석호님의 로맨스만 모았다.</div>
+        <div className="BG-title">{gallery.title}</div>
         <div className="BG-img-wrap">
-          <div className="BG-img">
-            <img src="/img/UserImage-Jake.png" alt="" />
-          </div>
-          <div className="BG-img">
-            <img src="/img/UserImage-Meg.png" alt="" />
-          </div>
-          <div className="BG-img">
-            <img src="/img/UserImage-Mili.png" alt="" />
-          </div>
-          <div className="BG-img">
-            <img src="/img/UserImage-Steven.png" alt="" />
-          </div>
+          {gallery.image.map((ele) => {
+            return (
+              <div className="BG-img">
+                <img src={ele.image} alt="" />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
