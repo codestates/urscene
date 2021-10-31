@@ -92,7 +92,7 @@ function Signup() {
       setErrMsg("");
       console.log("signup click");
       axios
-        .post("https://urscene.link/user", {
+        .post("http://localhost:80/user", {
           nickname: nickname,
           email: email,
           password: password,
