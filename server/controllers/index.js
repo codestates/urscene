@@ -5,6 +5,7 @@ const main = require("./main/index")
 const singlepost = require("./singlepost/index")
 const sign = require("./sign/index")
 const search = require("./search/index")
+const description = require("./description/getDescription")
 
 const router = express.Router()
 
@@ -35,6 +36,9 @@ router.post("/signup", sign.signUp)
 router.post("/signup/takenemail", sign.isTakenEmail)
 router.post("/signup/takenname", sign.isTakenName)
 router.post("/signin", sign.signIn)
+
+//description
+router.get("/description/:title", description)
 
 //user
 module.exports = router
