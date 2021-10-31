@@ -19,8 +19,6 @@ import Store from "./contexts/Store";
 require("dotenv").config();
 
 function App() {
-  // console.log("userInfo ???", userInfo);
-
   return (
     <Store>
       <div className="App">
