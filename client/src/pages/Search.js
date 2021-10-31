@@ -5,10 +5,12 @@ import ResultScene from "../components/ResultScene";
 import ResultGallery from "../components/ResultGallery";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
+import { useParams } from "react-router";
 
 function Search() {
   const [sceneResult, setSceneResult] = useState([]);
   const [galleryResult, setGalleryResult] = useState([]);
+  const { searchWord } = useParams();
 
   return (
     <div className="search-container">
