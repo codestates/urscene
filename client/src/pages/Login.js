@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import MainNav from "../components/MainNav";
 import { Link } from "react-router-dom";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import axios from "axios";
+import { MyContext } from "../contexts/Store";
 
 axios.defaults.withCredentials = true;
 
-function Login({ handleResponseSuccess }) {
+function Login() {
+  const { actions } = useContext(MyContext);
   const [userinfo, setuserinfo] = useState({
     email: "",
     password: "",
@@ -35,14 +37,14 @@ function Login({ handleResponseSuccess }) {
     } else {
       setErrMsg("");
       axios
-        .post("https://urscene.link/user/signin", {
+        .post("http://localhost:80/user/signin", {
           email: email,
           password: password,
         })
         .then((res) => {
           console.log("login success");
           // 로그인이 성공했으니 유저 정보를 불러오고, 로그인 상태를 변경해야한다.
-          handleResponseSuccess();
+          actions.handleResponseSuccess();
         })
         .catch((err) => {
           console.log("err message=>", err);
