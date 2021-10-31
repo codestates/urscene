@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken")
-const { validatorForPassword } = require("../../lib/regex")
-const bcrypt = require("bcrypt")
+// const { validatorForPassword } = require("../../lib/regex")
+// const bcrypt = require("bcrypt")
 const db = require("../../db")
 require("dotenv").config()
 
@@ -21,15 +21,15 @@ module.exports = async (req, res) => {
 		}
 		// 일치하는 유저가 있을 경우:
 		// 사용자의 id와 nickname 추출
-		const { id, nickname, image } = user
-		console.log(id, nickname, image, email, password)
-		const accessToken = jwt.sign({ userId, userName }, process.env.JWT_SECRET, { expiresIn: "1h", issuer: "cotak" })
+		// const { id, nickname, image } = user
+		// console.log(id, nickname, image, email, password)
+		// const accessToken = jwt.sign({ userId, userName }, process.env.JWT_SECRET, { expiresIn: "1h", issuer: "cotak" })
 
-		// IP 주소 및 UUID가 포함 된 Payload를 구성하고 토큰 발행 방법에 따라 IUWT 토큰을 브라우저를 통해 클라이언트에 전송 한다. 로그인이 성공한 시점의 IP 주소를 AES 알고리즘으로 암호화하여 토큰 내부에 저장하기 때문에 토큰 이 탈취되더라도 IP 주소를 판독하지 못한다.
+		// // IP 주소 및 UUID가 포함 된 Payload를 구성하고 토큰 발행 방법에 따라 IUWT 토큰을 브라우저를 통해 클라이언트에 전송 한다. 로그인이 성공한 시점의 IP 주소를 AES 알고리즘으로 암호화하여 토큰 내부에 저장하기 때문에 토큰 이 탈취되더라도 IP 주소를 판독하지 못한다.
 
-		// 웹 브라우저(클라이언트)에 토큰 세팅
-		res.cookie("accessToken", accessToken)
-		res.cookie("refreshToken", refreshToken)
+		// // 웹 브라우저(클라이언트)에 토큰 세팅
+		// res.cookie("accessToken", accessToken)
+		// res.cookie("refreshToken", refreshToken)
 
 		return res.status(200).json({ message: "log-in-successfully" })
 	} catch (err) {
