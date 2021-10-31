@@ -31,7 +31,7 @@ module.exports = {
 				},
 			},
 		}),
-	addDescription: async (title) =>
+	getDescriptionByEngTitle: async (title) =>
 		await Description.findAll({
 			raw: true,
 			attributes: ["id", "title", "title_eng", "genre", "director", "released"],
@@ -41,9 +41,14 @@ module.exports = {
 				},
 			},
 		}),
-	insertDescriptionToDB: async (data) => {
-		data.forEach(async (el) => {
-			await Description.create(el)
+	addDescription: (data) => {
+		return new Promise((res, rej) => {
+			let count = 0
+			data.forEach(async (el) => {
+				await Description.create(el)
+				count++
+				if (count === data.length) res("ok")
+			})
 		})
 	},
 }
