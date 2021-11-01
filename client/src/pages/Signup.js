@@ -50,7 +50,7 @@ function Signup() {
           email: userinfo.email,
         })
         .then((res) => {
-          setEmailCheckMsg("사용중 가능한 이메일입니다.");
+          setEmailCheckMsg("사용 가능한 이메일입니다.");
         })
         .catch((err) => {
           console.log("err message =>", err);

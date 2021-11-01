@@ -127,7 +127,11 @@ function Makepost() {
   });
 
   const uploadFile = (file) => {
-    let name = Math.floor(Math.random() * 1000).toString() + Date.now() + "." + file.name.split(".").pop();
+    let name =
+      Math.floor(Math.random() * 1000).toString() +
+      Date.now() +
+      "." +
+      file.name.split(".").pop();
 
     const params = {
       ACL: "public-read",
@@ -162,7 +166,7 @@ function Makepost() {
         },
         {
           withCredentials: true,
-        }
+        },
       )
       .then((res) => {
         console.log("post success");
@@ -183,17 +187,35 @@ function Makepost() {
             <div className="MP-input-wrap">
               <div className="MP-sub-title">영화 이름</div>
               <div className="MP-movie">
-                <input type="text" placeholder="영화 제목을 검색해 주세요." value={inputValue} onChange={(e) => handleInputChange(e)} />
-                <div className="MP-movie-icondelete" onClick={handleDeleteButtonClick}></div>
+                <input
+                  type="text"
+                  placeholder="영화 제목을 검색해 주세요."
+                  value={inputValue}
+                  onChange={(e) => handleInputChange(e)}
+                />
+                <div
+                  className="MP-movie-icondelete"
+                  onClick={handleDeleteButtonClick}
+                ></div>
                 <div className="MP-movie-icon"></div>
                 {/* 컴포넌트 추출 포인트 : 시작 */}
-                {hasText ? <Dropdown options={options} handleDropDownClick={handleDropDownClick} /> : null}
+                {hasText ? (
+                  <Dropdown
+                    options={options}
+                    handleDropDownClick={handleDropDownClick}
+                  />
+                ) : null}
                 {/* 컴포넌트 추출 포인트 : 끝 */}
               </div>
             </div>
             <div className="MP-input-wrap">
               <div className="MP-sub-title">장르 선택</div>
-              <select name="장르" id="" className="MP-movie" onChange={(e) => setSeletedGenre(e.target.value)}>
+              <select
+                name="장르"
+                id=""
+                className="MP-movie"
+                onChange={(e) => setSeletedGenre(e.target.value)}
+              >
                 <option value="장르">장르를 선택해주세요.</option>
                 <option value="로맨스">로맨스</option>
                 <option value="코미디">코미디</option>
@@ -208,21 +230,43 @@ function Makepost() {
               <label className="MP-photo-label" for="ex-file">
                 선택하기
               </label>
-              <input className="MP-photo-btn" id="ex-file" type="file" accept="image/jpg,image/png,image/jpeg,image/gif" onChange={(e) => handleFileInput(e)} />
+              <input
+                className="MP-photo-btn"
+                id="ex-file"
+                type="file"
+                accept="image/jpg,image/png,image/jpeg,image/gif"
+                onChange={(e) => handleFileInput(e)}
+              />
               {uploadImageName === null ? (
                 <div>
                   <div className="MP-photo-show" ref={uploadBoxRef}>
                     사진을 드래그 혹은 선택하기를 눌러 업로드해주세요.
                   </div>
-                  <input className="MP-photo-btn" id="ex-file" type="file" accept="image/jpg,image/png,image/jpeg,image/gif" ref={inputRef} />
+                  <input
+                    className="MP-photo-btn"
+                    id="ex-file"
+                    type="file"
+                    accept="image/jpg,image/png,image/jpeg,image/gif"
+                    ref={inputRef}
+                  />
                 </div>
               ) : (
-                <img className="MP-photo-show" src={process.env.REACT_APP_S3_URL_ImageUpload + uploadImageName} alt="" />
+                <img
+                  className="MP-photo-show"
+                  src={
+                    process.env.REACT_APP_S3_URL_ImageUpload + uploadImageName
+                  }
+                  alt=""
+                />
               )}
             </div>
             <div className="MP-box-wrap">
               <div className="MP-sub-title">장면 설명</div>
-              <textarea name="" id="textarea" onChange={(e) => setPostDescription(e.target.value)}></textarea>
+              <textarea
+                name=""
+                id="textarea"
+                onChange={(e) => setPostDescription(e.target.value)}
+              ></textarea>
             </div>
             <div className="MP-btn-wrap">
               <button className="MP-btn" onClick={handlePostSubmit}>
