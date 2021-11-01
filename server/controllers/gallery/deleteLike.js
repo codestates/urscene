@@ -1,5 +1,5 @@
-const { getverify } = require("../db")
-const { Like } = require("../models")
+const { getverify } = require("../../db")
+const { Like } = require("../../models")
 
 module.exports = async (req, res) => {
 	const userinfo = getverify(req.cookies.jwt)
