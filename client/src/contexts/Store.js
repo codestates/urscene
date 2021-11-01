@@ -34,7 +34,7 @@ const Store = (props) => {
   };
 
   useEffect(() => {
-    isAuthenticated();
+    //  isAuthenticated();
   }, []);
 
   return (

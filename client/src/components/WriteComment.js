@@ -1,9 +1,17 @@
-function WriteComment() {
+function WriteComment({ handleInputValue, postComment }) {
   return (
     <div className="post-writecomment">
-      <img className="post-wc-image" src="img/UserImage-Jake.png" />
-      <input className="post-wc-input" placeholder="댓글 달기..."></input>
-      <div className="post-wc-submit">게시</div>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <img className="post-wc-image" src="img/UserImage-Jake.png" />
+        <input
+          onChange={(e) => handleInputValue(e)}
+          className="post-wc-input"
+          placeholder="댓글 달기..."
+        ></input>
+        <div onClick={() => postComment()} className="post-wc-submit">
+          게시
+        </div>
+      </form>
     </div>
   );
 }

@@ -3,21 +3,20 @@ import { Link, useHistory } from "react-router-dom";
 
 function MainNav() {
   const history = useHistory();
-
   const [searchText, setSearchText] = useState("");
 
   const handleChange = (e) => {
     setSearchText(e.target.value);
-    // console.log(searchText);
   };
 
   const handleSearch = () => {
-    // console.log("???", searchText);
+    if (searchText !== "") {
+      history.push(`/search/${searchText}`);
+    }
   };
 
   const handleMoveSearchPage = (e) => {
-    // console.log(e.key);
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && searchText !== "") {
       history.push(`/search/${searchText}`);
     }
   };
@@ -39,6 +38,9 @@ function MainNav() {
               value={searchText}
               onKeyPress={(e) => handleMoveSearchPage(e)}
             ></input>
+            <div className="mainNav-btn" onClick={handleSearch}>
+              검색
+            </div>
           </div>
         </form>
       </div>{" "}

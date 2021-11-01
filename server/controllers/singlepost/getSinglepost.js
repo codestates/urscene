@@ -1,7 +1,8 @@
-const { Singlepost, Description, User } = require("../../models")
+const {Singlepost, Description, User} = require("../../models");
 
 module.exports = async (req, res) => {
 	const { singlepostid } = req.params
+  
 	let post = await Singlepost.findOne({
 		include: [
 			{

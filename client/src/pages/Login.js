@@ -14,6 +14,7 @@ function Login() {
     email: "",
     password: "",
   });
+  console.log(userinfo);
   const [emailErrMsg, setEmailErrMsg] = useState("");
   const [errMsg, setErrMsg] = useState("");
 
@@ -42,7 +43,7 @@ function Login() {
           password: password,
         })
         .then((res) => {
-          console.log("login success");
+          console.log("login success ??", res);
           // 로그인이 성공했으니 유저 정보를 불러오고, 로그인 상태를 변경해야한다.
           handleResponseSuccess();
         })
