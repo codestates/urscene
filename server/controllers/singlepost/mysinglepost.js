@@ -1,7 +1,7 @@
 const { Singlepost, User } = require("../../models")
 
 module.exports = async (req, res) => {
-	const userinfo = getverify(req.cookies.jwt)
+	const userinfo = getverify(req.cookies.token)
 	const my = await Singlepost.findAll({
 		where: { user_id: userinfo.id },
 	})

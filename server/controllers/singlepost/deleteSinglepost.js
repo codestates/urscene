@@ -1,7 +1,7 @@
 const { Singlepost } = require("../../models")
 
 module.exports = async (req, res) => {
-	const userinfo = getverify(req.cookies.jwt)
+	const userinfo = getverify(req.cookies.token)
 
 	const singleId = await Singlepost.findOne({
 		where: { id: req.params.singlepostid, user_id: userinfo.id },
