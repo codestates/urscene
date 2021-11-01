@@ -36,7 +36,7 @@ function App() {
         <Route path="/userinfo">
           <Userinfo />
         </Route>
-        <Route path="/search">
+        <Route path="/search/:searchWord">
           <Search />
         </Route>
         <Route path="/makegallery">
