@@ -2328,7 +2328,6 @@ body {
     font-weight: normal;
     font-size: 20px;
     line-height: 26px;
-    /* identical to box height */
 
     background: #ffffff;
     border-radius: 8px;
@@ -2347,8 +2346,6 @@ body {
     font-weight: normal;
     font-size: 20px;
     line-height: 26px;
-    /* identical to box height */
-
     color: #0059f7;
     position: relative;
     bottom: 48px;
@@ -2361,6 +2358,10 @@ body {
     height: auto;
     margin-left: 30px;
     margin-top: 42px;
+  }
+
+  .post-comment-no {
+    color: #7c9cbf;
   }
 
   .post-mycomment {

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { MyContext } from "../contexts/Store";
 import MainNav from "../components/MainNav";
 import MyComment from "../components/MyComment";
 import WriteComment from "../components/WriteComment";
@@ -7,16 +8,64 @@ import MovieInfo from "../components/MovieInfo";
 import SceneDeleteModal from "../components/SceneDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
+import axios from "axios";
+axios.defaults.withCredentials = true;
 
 function Post() {
+  const { userInfo } = useContext(MyContext); // 유저 정보를 확인
   const [movieModal, setMoiveModal] = useState(false); // 영화정보 열기닫기
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
   const [likeModal, setlikeModal] = useState(false); // 좋아요 버튼 false가 안누른상태
   const [deleteModal, setDeleteModal] = useState(false); // 좋아요 버튼 false가 안누른상태
+  const [comments, setComments] = useState([]); //
+  const [writeComment, setWriteComment] = useState("");
+  console.log(writeComment);
 
   const handleDeleteModal = () => {
     setDeleteModal(!deleteModal);
   };
+
+  // 싱글포스트 생성 시 얻은 id, 잠시 임의의 값 넣어둠
+  const singlepostid = 11;
+
+  // 댓글 가져오기
+  const getComments = () => {
+    axios
+      .get(`http://localhost:80/comment/${singlepostid}`)
+      .then((res) => {
+        console.log("comment res ???", res);
+        setComments(res.data.data.comment); // 응답 데이터 확인 필요
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleInputValue = (e) => {
+    setWriteComment(e.target.value);
+  };
+
+  // 댓글 달기
+  const postComment = () => {
+    axios
+      .post(
+        "http://localhost:80/comment",
+        {
+          singlepostid: singlepostid, // id 확인 필요
+          comment: writeComment,
+        },
+        { accept: "application/json" },
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getComments();
+  }, [comments]);
+
   return (
     <div>
       <MainNav />
@@ -92,10 +141,17 @@ function Post() {
             {movieModal === false ? null : <MovieInfo />}
           </div>
           <div className="post-devider2" />
-          <WriteComment />
+          <WriteComment
+            handleInputValue={handleInputValue}
+            postComment={postComment}
+          />
           <div className="post-comments">
             <MyComment />
-            <Comment />
+            {!comments ? (
+              <div className="post-comment-no">첫 댓글을 남겨보세요!</div>
+            ) : (
+              <Comment />
+            )}
           </div>
         </div>
       </div>
