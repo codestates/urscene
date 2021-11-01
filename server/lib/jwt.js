@@ -21,7 +21,7 @@ module.exports = {
 		})
 	},
 	isAuthorized: (req) => {
-		const authorization = req.headers.token
+		const authorization = req.cookies.token
 		if (!authorization) {
 			return null
 		}
