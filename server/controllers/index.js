@@ -6,7 +6,8 @@ const singlepost = require("./singlepost/index")
 const sign = require("./sign/index")
 const search = require("./search/index")
 const description = require("./description/getDescription")
-
+const gallery = require("./gallery/index")
+const user = require("./user/index")
 const router = express.Router()
 
 //comment
@@ -36,6 +37,13 @@ router.post("/signup", sign.signUp)
 router.post("/signup/takenemail", sign.isTakenEmail)
 router.post("/signup/takenname", sign.isTakenName)
 router.post("/signin", sign.signIn)
+
+//user
+router.get("/user", user.getUserInfo)
+
+//gallery
+router.post("/gallery", gallery.postGallery)
+router.post("/gallery/:galleryid", gallery.addSinglepostToGallery)
 
 //description
 router.get("/description/:title", description)
