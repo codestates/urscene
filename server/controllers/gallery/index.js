@@ -1,4 +1,6 @@
 module.exports = {
+	postGallery: require("./postGallery"),
+	addSinglepostToGallery: require("./addSinglepostToGallery"),
 	getGallery: require("./getGallery"),
 	deleteGallery: require("./deleteGallery"),
 	patchGallery: require("./patchGallery"),
