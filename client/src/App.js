@@ -1,6 +1,7 @@
 import "./App-mobile.css";
 import "./App-tablet.css";
 import "./App-pc.css";
+import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import Login from "./pages/Login.js";
 import Signup from "./pages/Signup.js";
@@ -13,6 +14,7 @@ import Post from "./pages/Post.js";
 import Gallery from "./pages/Gallery.js";
 import Mygallery from "./pages/Mygallery.js";
 import Landing from "./pages/Landing.js";
+
 require("dotenv").config();
 
 function App() {
@@ -34,7 +36,7 @@ function App() {
         <Route path="/userinfo">
           <Userinfo />
         </Route>
-        <Route path="/search">
+        <Route path="/search/:searchWord">
           <Search />
         </Route>
         <Route path="/makegallery">

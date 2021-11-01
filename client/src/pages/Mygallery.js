@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MainNav from "../components/MainNav";
 import LikeScene from "../components/LikeScene";
@@ -7,8 +7,13 @@ import MadeGallery from "../components/MadeGallery";
 import MadeScene from "../components/MadeScene";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
+import { MyContext } from "../contexts/Store";
+import axios from "axios";
+axios.defaults.withCredentials = true;
 
 function Mygallery() {
+  const { userInfo } = useContext(MyContext); // 유저 정보를 확인
+  console.log("MyContext 에서 받아온 userInfo ??? ", userInfo);
   const [isLikeSceneClicked, setIsLikeSceneClicked] = useState(false);
   const [isLikeGalleryClicked, setIsLikeGalleryClicked] = useState(false);
   const [haveScenes, setHaveScenes] = useState(true);
@@ -24,6 +29,35 @@ function Mygallery() {
   const ClickLikeGallery = () => {
     setIsLikeGalleryClicked(!isLikeGalleryClicked);
   };
+
+  // TODO: 내가 만든 장면들, 싱글포스트 가져오기
+  const getMadeScene = () => {
+    axios
+      .get("http://localhost:80/singlepost")
+      .then((res) => {
+        console.log("post res ???", res);
+      })
+      .catch((err) => {
+        console.error("err message =>", err);
+      });
+  };
+
+  // TODO: 내가 만든 갤러리 리스트 가져오기
+  const getMadeGallery = () => {
+    axios
+      .get("http://localhost:80/????")
+      .then((res) => {
+        console.log("gallery res???", res);
+      })
+      .catch((err) => {
+        console.error("err message =>", err);
+      });
+  };
+
+  useEffect(() => {
+    getMadeScene();
+    getMadeGallery();
+  }, []);
 
   return (
     <div>

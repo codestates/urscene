@@ -1,16 +1,24 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function MainNav() {
+  const history = useHistory();
   const [searchText, setSearchText] = useState("");
 
   const handleChange = (e) => {
     setSearchText(e.target.value);
-    console.log(searchText);
   };
 
   const handleSearch = () => {
-    console.log("???", searchText);
+    if (searchText !== "") {
+      history.push(`/search/${searchText}`);
+    }
+  };
+
+  const handleMoveSearchPage = (e) => {
+    if (e.key === "Enter" && searchText !== "") {
+      history.push(`/search/${searchText}`);
+    }
   };
 
   return (
@@ -28,7 +36,11 @@ function MainNav() {
               placeholder="눈, 비, 팽이, 인셉션"
               onChange={handleChange}
               value={searchText}
+              onKeyPress={(e) => handleMoveSearchPage(e)}
             ></input>
+            <div className="mainNav-btn" onClick={handleSearch}>
+              검색
+            </div>
           </div>
         </form>
       </div>{" "}
