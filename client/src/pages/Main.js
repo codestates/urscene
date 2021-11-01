@@ -74,9 +74,7 @@ function Main() {
   const [galleryIcon] = useState([1, 2, 3]);
 
   const handleLandingPage = () => {
-    axios.get(process.env.REACT_APP_EC2_URL + "main").then((res) => {
-      // console.log("인기갤러리 자료를 받아옵니다. ");
-      // console.log(res.data.Ranking_gallery);
+    axios.get(process.env.REACT_APP_EC2_URL + "/main").then((res) => {
       setRankingGallerys(res.data.Ranking_gallery);
       setCurrentRankingGallery(res.data.Ranking_gallery.slice(0, 3));
     });
@@ -85,7 +83,6 @@ function Main() {
   const [currentRankingGallery, setCurrentRankingGallery] = useState([]);
 
   function handleCurrentRankingGallery() {
-    // console.log("인기 갤러리 페이지네이션 함수 시작");
     const indexOfLast = currentPage * galleryPerPage;
     const indexOfFirst = indexOfLast - galleryPerPage;
     setCurrentRankingGallery(rankingGallerys.slice(indexOfFirst, indexOfLast));
@@ -145,7 +142,7 @@ function Main() {
   const handleCurrentScene = () => {
     axios
       .get(
-        `${process.env.REACT_APP_EC2_URL}main/single/?genre=${curGenre}&page=1&limit=${scenePerPage}`,
+        `${process.env.REACT_APP_EC2_URL}/main/single/?genre=${curGenre}&page=1&limit=${scenePerPage}`,
       )
       .then((res) => {
         setCurSenes(res.data.single);
@@ -163,7 +160,7 @@ function Main() {
     setCurScenePage(curScenePage + scenePerPage);
     axios
       .get(
-        `${process.env.REACT_APP_EC2_URL}main/single/?genre=${curGenre}&page=${curScenePage}&limit=${scenePerPage}`,
+        `${process.env.REACT_APP_EC2_URL}/main/single/?genre=${curGenre}&page=${curScenePage}&limit=${scenePerPage}`,
       )
       .then((res) => {
         if (res.data.single.length === 0) {
