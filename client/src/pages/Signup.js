@@ -96,7 +96,7 @@ function Signup() {
         setNickErrMsg("이미 사용중인 닉네임입니다.");
         console.error(err);
       });
-    console.log("nickname valid??", e.target.value);
+    // console.log("nickname valid??", e.target.value);
   };
 
   const clickUserImage = (e) => {
