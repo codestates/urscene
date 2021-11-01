@@ -17,7 +17,8 @@ module.exports = async (req, res) => {
 		if (!authenticatedUser) {
 			return res.status(400).send({ email, message: "not-authorized" })
 		}
-		const { id } = authenticatedUser.dataValues
+
+		const { id } = authenticatedUser[0].dataValues
 		// encrypt
 		const sortedUUID = uuid()
 		const encryptedUUID = await encrypt(sortedUUID, process.env.ENCRYPTION_KEY)
@@ -27,7 +28,6 @@ module.exports = async (req, res) => {
 			expiresIn: "1d",
 			issuer: "urscene",
 		})
-
 		// IUWT 토큰을 브라우저를 통해 클라이언트에 전송 한다.
 		// 웹 브라우저(클라이언트)에 토큰 세팅
 		sendToken(res, token)
