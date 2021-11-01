@@ -17,13 +17,13 @@ module.exports = async (req, res) => {
 		if (!authenticatedUser) {
 			return res.status(400).send({ email, message: "not-authorized" })
 		}
-
+		const { id } = authenticatedUser.dataValues
 		// encrypt
 		const sortedUUID = uuid()
 		const encryptedUUID = await encrypt(sortedUUID, process.env.ENCRYPTION_KEY)
 
 		// PayLoad의 Private Claims에 UUID를 AES-256 암호화해 삽입하여 생성한 JWT를 Cookie로 내려준다.
-		const token = jwt.sign({ uuid: encryptedUUID, email: email }, process.env.JWT_SECRET, {
+		const token = jwt.sign({ id: id, uuid: encryptedUUID, email: email }, process.env.JWT_SECRET, {
 			expiresIn: "1d",
 			issuer: "urscene",
 		})
