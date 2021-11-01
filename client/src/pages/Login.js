@@ -9,7 +9,7 @@ import { MyContext } from "../contexts/Store";
 axios.defaults.withCredentials = true;
 
 function Login() {
-  const { actions } = useContext(MyContext);
+  const { handleResponseSuccess } = useContext(MyContext);
   const [userinfo, setuserinfo] = useState({
     email: "",
     password: "",
@@ -37,14 +37,14 @@ function Login() {
     } else {
       setErrMsg("");
       axios
-        .post("http://localhost:80/user/signin", {
+        .post("http://localhost:80/signin", {
           email: email,
           password: password,
         })
         .then((res) => {
           console.log("login success");
           // 로그인이 성공했으니 유저 정보를 불러오고, 로그인 상태를 변경해야한다.
-          actions.handleResponseSuccess();
+          handleResponseSuccess();
         })
         .catch((err) => {
           console.log("err message=>", err);

@@ -7,6 +7,7 @@ import Jake from "../img/UserImage-Jake.png";
 import Meg from "../img/UserImage-Meg.png";
 import Mili from "../img/UserImage-Mili.png";
 import Steven from "../img/UserImage-Steven.png";
+import LoadingIndicator from "../components/LoadingIndicator";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
@@ -44,8 +45,21 @@ function Signup() {
     } else {
       setEmailErrMsg("");
       // TODO: 서버에 이메일이 존재하는지 요청을 보낸다.
-      // setEmailErrMsg("이미 사용중인 이메일입니다.")
-      // setEmailCheckMsg("사용중 가능한 이메일입니다.")
+      axios
+        .post("http://localhost:80/signup/takenemail", {
+          email: userinfo.email,
+        })
+        .then((res) => {
+          if (res.status === 409) {
+            setEmailErrMsg("이미 사용중인 이메일입니다.");
+          } else if (res.status === 200) {
+            setEmailCheckMsg("사용중 가능한 이메일입니다.");
+          }
+        })
+        .catch((err) => {
+          console.log("err message =>", err);
+          //setEmailErrMsg("이미 사용중인 이메일입니다.");
+        });
     }
   };
 
@@ -73,8 +87,21 @@ function Signup() {
   // 닉네임 유효성 검사
   const nicknameValidation = (e) => {
     // TODO: 서버에 닉네임이 있는지 요청하고 응답을 받는다.
-    // setNickErrMsg("이미 사용중인 닉네임입니다.")
-    // setNickCheckMsg("사용 가능한 닉네임입니다.")
+    axios
+      .post("http://localhost:80/signup/takenname", {
+        nickname: userinfo.nickname,
+      })
+      .then((res) => {
+        if (res.status === 409) {
+          setNickErrMsg("이미 사용중인 닉네임입니다.");
+        } else if (res.status === 200) {
+          setNickCheckMsg("사용 가능한 닉네임입니다.");
+        }
+      })
+      .catch((err) => {
+        //setNickErrMsg("이미 사용중인 닉네임입니다.");
+        console.error(err);
+      });
     console.log("nickname valid??", e.target.value);
   };
 
@@ -92,7 +119,7 @@ function Signup() {
       setErrMsg("");
       console.log("signup click");
       axios
-        .post("http://localhost:80/user", {
+        .post("http://localhost:80/signup", {
           nickname: nickname,
           email: email,
           password: password,
