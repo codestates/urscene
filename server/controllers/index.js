@@ -26,10 +26,11 @@ router.get("/search/gallery", search.gallery)
 router.post("/singlepost/like/:singlepostid", singlepost.singlepost)
 router.delete("/singlepost/like/:singlelikeid", singlepost.singlelike)
 router.post("/singlepost", singlepost.post)
-router.get("/singlepost", singlepost.movietitle)
+// router.get("/singlepost", singlepost.movietitle)
 router.get("/singlepost/:singlepostid", singlepost.get)
 router.patch("/singlepost/:singlepostid", singlepost.patch)
 router.delete("/singlepost/:singlepostid", singlepost.delete)
+router.get("/singlepost", singlepost.mysinglepost)
 
 //sign
 router.post("/signup", sign.signUp)
