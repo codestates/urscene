@@ -1,7 +1,7 @@
 const { Gallerypost } = require("../../models")
 
 module.exports = async (req, res) => {
-	// const userinfo = getverify(req.cookies.jwt)
+	const userinfo = getverify(req.cookies.token)
 	const my = await Gallerypost.findAll({
 		where: { user_id: userinfo },
 	})

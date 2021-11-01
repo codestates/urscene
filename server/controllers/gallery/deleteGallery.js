@@ -3,7 +3,7 @@ const { gerverify } = require("../../db")
 const e = require("express")
 
 module.exports = async (req, res) => {
-	const userinfo = getverify(req.cookies.jwt)
+	const userinfo = getverify(req.cookies.token)
 	const { galleryid } = req.params
 
 	const gallery = await Gallerypost.destroy({

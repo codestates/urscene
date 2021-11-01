@@ -2,7 +2,7 @@ const { getverify } = require("../../db")
 const { Like } = require("../../models")
 
 module.exports = async (req, res) => {
-	const userinfo = getverify(req.cookies.jwt)
+	const userinfo = getverify(req.cookies.token)
 	const { galleryid } = req.params
 	console.log(galleryid)
 	if (galleryid) {
