@@ -21,13 +21,12 @@ module.exports = {
 		})
 	},
 	isAuthorized: (req) => {
-		const authorization = req.headers["authorization"]
+		const authorization = req.headers.token
 		if (!authorization) {
 			return null
 		}
-		const token = authorization.split(" ")[1]
 		try {
-			return verify(token, process.env.JWT_SECRET)
+			return jwt.verify(authorization, process.env.JWT_SECRET)
 		} catch (err) {
 			// return null if invalid token
 			return null
