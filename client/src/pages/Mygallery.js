@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import MainNav from "../components/MainNav";
 import LikeScene from "../components/LikeScene";
@@ -7,8 +7,11 @@ import MadeGallery from "../components/MadeGallery";
 import MadeScene from "../components/MadeScene";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
+import { MyContext } from "../contexts/Store";
 
 function Mygallery() {
+  const { userInfo } = useContext(MyContext); // 유저 정보를 확인
+  console.log("MyContext 에서 받아온 userInfo ??? ", userInfo);
   const [isLikeSceneClicked, setIsLikeSceneClicked] = useState(false);
   const [isLikeGalleryClicked, setIsLikeGalleryClicked] = useState(false);
   const [haveScenes, setHaveScenes] = useState(true);
