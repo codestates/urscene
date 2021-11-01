@@ -50,15 +50,11 @@ function Signup() {
           email: userinfo.email,
         })
         .then((res) => {
-          if (res.status === 409) {
-            setEmailErrMsg("이미 사용중인 이메일입니다.");
-          } else if (res.status === 200) {
-            setEmailCheckMsg("사용중 가능한 이메일입니다.");
-          }
+          setEmailCheckMsg("사용중 가능한 이메일입니다.");
         })
         .catch((err) => {
           console.log("err message =>", err);
-          //setEmailErrMsg("이미 사용중인 이메일입니다.");
+          setEmailErrMsg("이미 사용중인 이메일입니다.");
         });
     }
   };
@@ -92,14 +88,12 @@ function Signup() {
         nickname: userinfo.nickname,
       })
       .then((res) => {
-        if (res.status === 409) {
-          setNickErrMsg("이미 사용중인 닉네임입니다.");
-        } else if (res.status === 200) {
-          setNickCheckMsg("사용 가능한 닉네임입니다.");
-        }
+        setNickErrMsg("");
+        console.log("nicname res ???", res);
+        setNickCheckMsg("사용 가능한 닉네임입니다.");
       })
       .catch((err) => {
-        //setNickErrMsg("이미 사용중인 닉네임입니다.");
+        setNickErrMsg("이미 사용중인 닉네임입니다.");
         console.error(err);
       });
     console.log("nickname valid??", e.target.value);
@@ -152,11 +146,11 @@ function Signup() {
                 ></input>
                 {userinfo.email === "" ? (
                   <div className="signup-email-warning">{errMsg}</div>
-                ) : (
+                ) : emailErrMsg ? (
                   <div className="signup-email-warning">{emailErrMsg}</div>
+                ) : (
+                  <div className="signup-email-ok">{emailCheckMsg}</div>
                 )}
-                <div className="signup-email-ok">{emailCheckMsg}</div>
-                {/* <button className="signup-email-check">중복확인</button> */}
               </div>
               <div className="signup-password">
                 <div className="signup-email-title">비밀번호</div>
@@ -191,11 +185,11 @@ function Signup() {
                 ></input>
                 {userinfo.nickname === "" ? (
                   <div className="signup-password-warning">{errMsg}</div>
-                ) : (
+                ) : nickErrMsg ? (
                   <div className="signup-password-warning">{nickErrMsg}</div>
+                ) : (
+                  <div className="signup-email-ok">{nickCheckMsg}</div>
                 )}
-                <div className="signup-email-ok">{nickCheckMsg}</div>
-                {/* <button className="signup-email-check">중복확인</button> */}
               </div>
               <div className="signup-image"> 프로필 이미지 선택</div>
               <div className="signup-image-group">
