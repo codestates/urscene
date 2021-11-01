@@ -1594,7 +1594,7 @@ body {
     height: auto;
     display: flex;
     flex-flow: wrap;
-    justify-content: space-between;
+    justify-content: start;
   }
 
   .result-scene-img {
