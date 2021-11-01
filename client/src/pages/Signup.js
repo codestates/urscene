@@ -7,6 +7,7 @@ import Jake from "../img/UserImage-Jake.png";
 import Meg from "../img/UserImage-Meg.png";
 import Mili from "../img/UserImage-Mili.png";
 import Steven from "../img/UserImage-Steven.png";
+import LoadingIndicator from "../components/LoadingIndicator";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
@@ -44,8 +45,17 @@ function Signup() {
     } else {
       setEmailErrMsg("");
       // TODO: 서버에 이메일이 존재하는지 요청을 보낸다.
-      // setEmailErrMsg("이미 사용중인 이메일입니다.")
-      // setEmailCheckMsg("사용중 가능한 이메일입니다.")
+      axios
+        .post("http://localhost:80/signup/takenemail", {
+          email: userinfo.email,
+        })
+        .then((res) => {
+          setEmailCheckMsg("사용중 가능한 이메일입니다.");
+        })
+        .catch((err) => {
+          console.log("err message =>", err);
+          setEmailErrMsg("이미 사용중인 이메일입니다.");
+        });
     }
   };
 
@@ -73,9 +83,20 @@ function Signup() {
   // 닉네임 유효성 검사
   const nicknameValidation = (e) => {
     // TODO: 서버에 닉네임이 있는지 요청하고 응답을 받는다.
-    // setNickErrMsg("이미 사용중인 닉네임입니다.")
-    // setNickCheckMsg("사용 가능한 닉네임입니다.")
-    console.log("nickname valid??", e.target.value);
+    axios
+      .post("http://localhost:80/signup/takenname", {
+        nickname: userinfo.nickname,
+      })
+      .then((res) => {
+        setNickErrMsg("");
+        console.log("nicname res ???", res);
+        setNickCheckMsg("사용 가능한 닉네임입니다.");
+      })
+      .catch((err) => {
+        setNickErrMsg("이미 사용중인 닉네임입니다.");
+        console.error(err);
+      });
+    // console.log("nickname valid??", e.target.value);
   };
 
   const clickUserImage = (e) => {
@@ -92,7 +113,7 @@ function Signup() {
       setErrMsg("");
       console.log("signup click");
       axios
-        .post("https://urscene.link/user", {
+        .post("http://localhost:80/signup", {
           nickname: nickname,
           email: email,
           password: password,
@@ -125,11 +146,11 @@ function Signup() {
                 ></input>
                 {userinfo.email === "" ? (
                   <div className="signup-email-warning">{errMsg}</div>
-                ) : (
+                ) : emailErrMsg ? (
                   <div className="signup-email-warning">{emailErrMsg}</div>
+                ) : (
+                  <div className="signup-email-ok">{emailCheckMsg}</div>
                 )}
-                <div className="signup-email-ok">{emailCheckMsg}</div>
-                {/* <button className="signup-email-check">중복확인</button> */}
               </div>
               <div className="signup-password">
                 <div className="signup-email-title">비밀번호</div>
@@ -164,11 +185,11 @@ function Signup() {
                 ></input>
                 {userinfo.nickname === "" ? (
                   <div className="signup-password-warning">{errMsg}</div>
-                ) : (
+                ) : nickErrMsg ? (
                   <div className="signup-password-warning">{nickErrMsg}</div>
+                ) : (
+                  <div className="signup-email-ok">{nickCheckMsg}</div>
                 )}
-                <div className="signup-email-ok">{nickCheckMsg}</div>
-                {/* <button className="signup-email-check">중복확인</button> */}
               </div>
               <div className="signup-image"> 프로필 이미지 선택</div>
               <div className="signup-image-group">

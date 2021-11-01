@@ -1,10 +1,24 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
+require("dotenv").config();
 
-function ResultGallery() {
+function ResultGallery({ gallery }) {
+  // const handleLandingGalleryImage = () => {
+  //   axios
+  //     .get(`${process.env.REACT_APP_EC2_URL}/gallery/:${gallery.id}`)
+  //     .then((res) => {
+  //       console.log(res);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   handleLandingGalleryImage();
+  // }, []);
+
   return (
     <div>
       <div className="BG-container">
-        <div className="BG-title">강석호님의 로맨스만 모았다.</div>
+        <div className="BG-title">{gallery.title}</div>
         <div className="BG-img-wrap">
           <div className="BG-img">
             <img src="/img/UserImage-Jake.png" alt="" />
