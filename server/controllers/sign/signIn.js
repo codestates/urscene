@@ -18,26 +18,20 @@ module.exports = async (req, res) => {
 			return res.status(400).send({ email, message: "not-authorized" })
 		}
 
+		const { id } = authenticatedUser[0].dataValues
 		// encrypt
 		const sortedUUID = uuid()
 		const encryptedUUID = await encrypt(sortedUUID, process.env.ENCRYPTION_KEY)
 
 		// PayLoad의 Private Claims에 UUID를 AES-256 암호화해 삽입하여 생성한 JWT를 Cookie로 내려준다.
-		const token = jwt.sign({ uuid: encryptedUUID, email: email }, process.env.JWT_SECRET, {
-			expiresIn: "30d",
+		const token = jwt.sign({ id: id, uuid: encryptedUUID, email: email }, process.env.JWT_SECRET, {
+			expiresIn: "1d",
 			issuer: "urscene",
 		})
-		const verifyiedToken = jwt.verify(token, process.env.JWT_SECRET)
-		console.log(token, verifyiedToken, "hhh")
 		// IUWT 토큰을 브라우저를 통해 클라이언트에 전송 한다.
 		// 웹 브라우저(클라이언트)에 토큰 세팅
 		sendToken(res, token)
 		sendUUID(res, sortedUUID)
-		// sendUUID(res, sortedUUID)
-		console.log("mm")
-		//sendUUID(res, sortedUUID)
-
-		console.log(req.cookies, req.headers)
 		return res.status(200).json({ message: "log-in-successfully" })
 	} catch (err) {
 		res.status(500).json({ message: "server-error" })

@@ -7,35 +7,28 @@ module.exports = {
 	sendToken: (res, token) => {
 		res.cookie("token", token, {
 			httpOnly: true,
-			sameSite: "none",
+			sameSite: "None",
 			secure: true,
+			maxAge: 60 * 60 * 24,
 		})
 	},
 	sendUUID: (res, uuid) => {
 		res.cookie("uuid", uuid, {
 			httpOnly: true,
-			// sameSite: "None",
-			// secure: true,
+			sameSite: "None",
+			secure: true,
+			maxAge: 60 * 60 * 24,
 		})
 	},
 	isAuthorized: (req) => {
-		const authorization = req.headers["authorization"]
+		const authorization = req.headers.token
 		if (!authorization) {
 			return null
 		}
-		const token = authorization.split(" ")[1]
 		try {
-			return verify(token, process.env.JWT_SECRET)
+			return jwt.verify(authorization, process.env.JWT_SECRET)
 		} catch (err) {
 			// return null if invalid token
-			return null
-		}
-	},
-	checkToken: (token) => {
-		try {
-			return verify(token, process.env.JWT_SECRET)
-		} catch (err) {
-			// return null if refresh token is not valid
 			return null
 		}
 	},
