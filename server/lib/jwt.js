@@ -33,14 +33,6 @@ module.exports = {
 			return null
 		}
 	},
-	checkRefeshToken: (token) => {
-		try {
-			return verify(token, process.env.JWT_SECRET)
-		} catch (err) {
-			// return null if refresh token is not valid
-			return null
-		}
-	},
 	//iv 값이 필요한지는 더 찾아보자
 	encrypt: async (data, aesKey) => {
 		return await CryptoJS.AES.encrypt(JSON.stringify(data), aesKey).toString()
