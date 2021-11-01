@@ -1,8 +1,8 @@
-const { getverify } = require("../../db")
+const { isAuthorized } = require("../../lib/jwt")
 const { Like } = require("../../models")
 
 module.exports = async (req, res) => {
-	const userinfo = getverify(req.cookies.token)
+	const userinfo = isAuthorized(req)
 	const { gallerylikeid } = req.params
 	const data = await Like.findOne({
 		where: {

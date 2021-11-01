@@ -1,13 +1,13 @@
 const { Gallerypost } = require("../../models")
-const { getverify } = require("../../db")
+const { isAuthorized } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
 	const { galleryid } = req.params
 	const { title, content } = req.body
-	// const userinfo = getverify(req.cookies.jwt)
+	const userinfo = isAuthorized(req)
 
 	const gallery = await Gallerypost.findOne({
-		where: { id: galleryid, user_id: 3 }, //userinfo.id
+		where: { id: galleryid, user_id: userinfo.id }, //userinfo.id
 	})
 	console.log(gallery.dataValues)
 	if (!gallery) {

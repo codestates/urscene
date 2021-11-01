@@ -1,8 +1,9 @@
 const { Singlepost, Description } = require("../../models")
 const { Op } = require("sequelize")
+const { isAuthorized } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
-	const userinfo = getverify(req.cookies.token)
+	const userinfo = isAuthorized(req)
 	if (!req.body.title || !req.body.image || !req.body.content || !req.body.genre) {
 		res.status(400).json({ message: "bad request" }) //하나라도 없으면 400
 	} else {

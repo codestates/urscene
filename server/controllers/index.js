@@ -53,7 +53,7 @@ router.get("/user", user.getUserInfo)
 
 //gallery
 router.post("/gallery", gallery.postGallery)
-router.post("/gallery/:galleryid", gallery.addSinglepostToGallery)
+// router.post("/gallery/:galleryid", gallery.addSinglepostToGallery)
 
 //description
 router.get("/description/:title", description)

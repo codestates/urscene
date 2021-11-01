@@ -1,9 +1,8 @@
 const { Gallerypost } = require("../../models")
-const { gerverify } = require("../../db")
-const e = require("express")
+const { isAuthorized } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
-	const userinfo = getverify(req.cookies.token)
+	const userinfo = isAuthorized(req)
 	const { galleryid } = req.params
 
 	const gallery = await Gallerypost.destroy({

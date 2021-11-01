@@ -1,9 +1,10 @@
 const { Gallerypost } = require("../../models")
+const { isAuthorized } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
-	const userinfo = getverify(req.cookies.token)
+	const userinfo = isAuthorized(req)
 	const my = await Gallerypost.findAll({
-		where: { user_id: userinfo },
+		where: { user_id: userinfo.id },
 	})
 	if (!my) {
 		res.status(404).json({ message: "data-not-found" })
