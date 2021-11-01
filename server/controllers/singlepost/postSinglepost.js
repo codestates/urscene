@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
 			},
 		})
 		const singlepost = await Singlepost.create({
-			user_id: 1,
+			user_id: userinfo.id,
 			title: req.body.title,
 			image: req.body.image,
 			content: req.body.content,
