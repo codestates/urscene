@@ -1,9 +1,11 @@
 const { Singlepost, User } = require("../../models")
+const { isAuthorized } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
-	const userinfo = getverify(req.cookies.jwt)
+	const userinfo = isAuthorized(req)
+	console.log(userinfo)
 	const my = await Singlepost.findAll({
-		user_id: userinfo.id,
+		where: { user_id: userinfo.id },
 	})
 	if (!my) {
 		res.status(404).json({ message: "data-not-found" })

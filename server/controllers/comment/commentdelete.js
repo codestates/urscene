@@ -1,8 +1,8 @@
-const { getverify } = require("../../db")
+const { isAuthorized } = require("../../lib/jwt")
 const { Comment } = require("../../models")
 
 module.exports = async (req, res) => {
-	const userinfo = getverify(req.cookies.jwt)
+	const userinfo = isAuthorized(req)
 	const usercomment = await Comment.findOne({
 		where: { user_id: userinfo.id },
 	}) //comment 테이블에서 user_id와 유저정보의 id가 일치하는 데이터만 뽑는다

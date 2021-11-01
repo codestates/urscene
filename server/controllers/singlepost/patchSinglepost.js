@@ -1,8 +1,9 @@
 const { Singlepost } = require("../../models")
 
 module.exports = async (req, res) => {
+	const { singlepostid } = req.params
 	const post = await Singlepost.findOne({
-		where: { id: req.body.id },
+		where: { id: singlepostid },
 	})
 	// getUserById(req.body.id)
 	// getUserById: async (id) =>
