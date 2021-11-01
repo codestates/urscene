@@ -9,7 +9,8 @@ require("dotenv").config()
 // db에서 한국 제목
 // 영어 제목 찾은 후 response
 
-//
+// + 클라이언트로 리스폰스 보내줄 때 배열 길이 5개로 맞춰서 보내줘야 한다
+// + db에서 검색한 값 랜덤으로 보내주는 알고리즘도 짜야 한다
 
 module.exports = async (req, res) => {
 	try {
