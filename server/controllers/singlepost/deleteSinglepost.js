@@ -1,7 +1,8 @@
 const { Singlepost } = require("../../models")
+const { isAuthorized } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
-	const userinfo = getverify(req.cookies.token)
+	const userinfo = isAuthorized(req)
 
 	const singleId = await Singlepost.findOne({
 		where: { id: req.params.singlepostid, user_id: userinfo.id },
