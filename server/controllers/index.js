@@ -6,6 +6,7 @@ const singlepost = require("./singlepost/index")
 const sign = require("./sign/index")
 const search = require("./search/index")
 const description = require("./description/getDescription")
+const gallery = require("./gallery/index")
 
 const router = express.Router()
 
@@ -21,6 +22,15 @@ router.get("/main", main.rank)
 //search
 router.get("/search/single", search.singlepost)
 router.get("/search/gallery", search.gallery)
+
+//gallery
+router.get("/gallery/:galleryid", gallery.getGallery)
+router.delete("/gallery/:galleryid", gallery.deleteGallery)
+router.delete("/gallery/photo/:galleryid/:singlepostid", gallery.deletePhoto)
+router.patch("/gallery/:galleryid", gallery.patchGallery)
+router.get("/gallery", gallery.myGallery)
+router.post("/gallery/like/:galleryid", gallery.postLike)
+router.delete("/gallery/like/:galleryid", gallery.deleteLike)
 
 //singlepost
 router.post("/singlepost/like/:singlepostid", singlepost.singlepost)
