@@ -54,6 +54,9 @@ function Search() {
         `${process.env.REACT_APP_EC2_URL}/search/gallery?content=${searchWord}&page=1&limit=2`,
       )
       .then((res) => {
+        if (res.data.search_gallery.length !== 2) {
+          setAddGalleryIcon(true);
+        }
         console.log(res.data.search_gallery);
         setGalleryResult(res.data.search_gallery);
       });
