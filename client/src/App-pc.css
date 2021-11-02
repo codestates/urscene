@@ -470,7 +470,11 @@ body {
     margin: auto;
     text-align: left;
     padding-bottom: 20px;
-    /* border: 1px solid red; */
+  }
+
+  .my-g-title-wrap {
+    display: flex;
+    justify-content: space-between;
   }
 
   .my-g-title {
@@ -478,21 +482,14 @@ body {
     font-weight: bold;
     font-size: 32px;
     line-height: 37px;
-    display: inline-block;
   }
 
   .my-g-user-wrap {
     margin-top: 34px;
     width: 110px;
     height: 40px;
-    float: right;
-  }
-
-  .my-g-hr {
-    border: 1px solid #3a456f;
-    width: 840px;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    display: flex;
+    justify-content: right;
   }
 
   .my-g-account-icon {
@@ -502,7 +499,7 @@ body {
     background-position: center;
     background-size: contain;
     margin-top: 9px;
-    display: inline-block;
+    margin-right: 10px;
   }
 
   .my-g-account-name {
@@ -514,6 +511,13 @@ body {
     float: right;
     margin-top: 8px;
     cursor: pointer;
+  }
+
+  .my-g-hr {
+    border: 1px solid #3a456f;
+    width: 840px;
+    margin-top: 20px;
+    margin-bottom: 40px;
   }
 
   .my-g-scene-wrap {
