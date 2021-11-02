@@ -1,4 +1,3 @@
-const jwt = require("jsonwebtoken")
 const db = require("../../db")
 const { decrypt, isAuthorized } = require("../../lib/jwt")
 const { passwordRegex } = require("../../lib/regex")
@@ -25,9 +24,9 @@ module.exports = async (req, res) => {
 			if (!validPassword) {
 				return res.status(400).json({ newPassword, message: "invalid-new-password" })
 			}
-			if (newPassword === password) {
-				return res.status(409).json({ newPassword, message: "new-password-must-be-different-from-the-old-one" })
-			}
+			// if (newPassword === password) {
+			// 	return res.status(409).json({ newPassword, message: "new-password-must-be-different-from-the-old-one" })
+			// }
 			if (newName === nickname) {
 				return res.status(409).json({ newName, message: "new-name-must-be-different-from-the-old-one" })
 			}
@@ -36,7 +35,7 @@ module.exports = async (req, res) => {
 				return res.status(409).send({ newName, message: "name-aready-exists" })
 			}
 
-			await db.updateUser({ id, newName, newPassword, newImage })
+			await db.updateUser(id, newName, newPassword, newImage)
 			return res.status(200).json({ newName, newImage, message: "update-successfully" })
 		}
 		return res.status(400).json({ message: "invalid-token" })
