@@ -10,7 +10,7 @@ module.exports = {
 			sameSite: "None",
 			secure: true,
 			path: "/",
-			maxAge: 60 * 60 * 24,
+			maxAge: 24 * 6 * 60 * 10000,
 		})
 	},
 	sendUUID: (res, uuid) => {
@@ -19,7 +19,7 @@ module.exports = {
 			sameSite: "None",
 			secure: true,
 			path: "/",
-			maxAge: 60 * 60 * 24,
+			maxAge: 24 * 6 * 60 * 10000,
 		})
 	},
 	isAuthorized: (req) => {
