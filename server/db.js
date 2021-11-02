@@ -3,9 +3,8 @@ const Op = Sequelize.Op
 const axios = require("axios")
 
 const { User } = require("./models")
-// const User = require("./models/user") 이건 안 된다 왤까..
 const { Description } = require("./models")
-const { Gallery } = require("./models")
+const { Gallerypost } = require("./models")
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
 
@@ -15,23 +14,30 @@ module.exports = {
 	getUserByName: async (nickname) => await User.findOne({ where: { nickname } }),
 	addUser: async (data) => await User.create(data),
 	authenticateUser: async (email, password) => await User.findAll({ where: { [Op.and]: [{ email }, { password }] } }),
-	deleteUser: async (_id) => await User.deleteOne({ where: { _id } }),
-	updatePassword: async (_id, password) => await User.updateOne({ _id }, { $set: { password } }),
+	updateUser: async (id, nickname, password, image) => User.update({ nickname, password, image }, { where: { id } }),
+	deleteUser: async (id) => await User.destroy({ where: { id } }),
 	getverify: async (token) => {
 		userinfo = jwt.verify(token, process.env.ACCESS_SECRET)
 		return userinfo
 	},
-	addGallery: async (data) => await Gallery.create(data),
-	// 타이틀에 있는 단어가 포함되는 건 다 찾아주기
+	addGallery: async (data) => await Gallerypost.create(data),
 	getDescriptionByKorTitle: async (title) =>
 		await Description.findAll({
 			raw: true,
 			attributes: ["id", "title", "title_eng", "genre", "director", "released"],
+			order: [["title", "ASC"]],
 			where: {
 				title: {
 					[Op.like]: "%" + title + "%",
 				},
+				genre: {
+					[Op.notLike]: "%" + "성인물" + "%",
+				},
+				director: {
+					[Op.notLike]: "director-not-found",
+				},
 			},
+			limit: 5,
 		}),
 	getDescriptionByEngTitle: async (title) =>
 		await Description.findAll({
@@ -42,6 +48,7 @@ module.exports = {
 					[Op.like]: "%" + title + "%",
 				},
 			},
+			limit: 5,
 		}),
 	addDescription: (data) => {
 		return new Promise((res, rej) => {
