@@ -21,10 +21,16 @@ function Makegallery() {
 
   const handlePostGallery = () => {
     axios
-      .post(`${process.env.REACT_APP_EC2_URL}/gallery`, {
-        title: galleryTitle,
-        content: galleryDesc,
-      })
+      .post(
+        `${process.env.REACT_APP_EC2_URL}/gallery`,
+        {
+          title: galleryTitle,
+          content: galleryDesc,
+        },
+        {
+          withCredentials: true,
+        },
+      )
       .then((res) => {
         history.push("/mygallery");
       })

@@ -9,9 +9,11 @@ import SceneDeleteModal from "../components/SceneDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import axios from "axios";
+import { useParams } from "react-router";
 axios.defaults.withCredentials = true;
 
 function Post() {
+  const { postId } = useParams();
   const { userInfo } = useContext(MyContext); // 유저 정보를 확인
   const [movieModal, setMoiveModal] = useState(false); // 영화정보 열기닫기
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
@@ -71,7 +73,7 @@ function Post() {
       <MainNav />
       <div className="post">
         <div className="postwrap">
-          <div className="post-title">나의 장면</div>
+          <div className="post-title">나의 장면, postId = {postId}</div>
           <div className="post-editgroup">
             {editModal ? (
               <button

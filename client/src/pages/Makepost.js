@@ -254,7 +254,9 @@ function Makepost() {
                 <img
                   className="MP-photo-show"
                   src={
-                    process.env.REACT_APP_S3_URL_ImageUpload + uploadImageName
+                    process.env.REACT_APP_S3_URL_ImageUpload +
+                    "/" +
+                    uploadImageName
                   }
                   alt=""
                 />

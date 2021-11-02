@@ -45,10 +45,10 @@ function App() {
         <Route path="/makepost">
           <Makepost />
         </Route>
-        <Route path="/post">
+        <Route path="/post/:postId">
           <Post />
         </Route>
-        <Route path="/gallery">
+        <Route path="/gallery/:galleryId">
           <Gallery />
         </Route>
         <Route path="/mygallery">

@@ -2109,14 +2109,6 @@ body {
     justify-content: space-between;
   }
 
-  /* .gallery-content {
-    width: 230px;
-    height: 140px;
-    margin: 5px;
-    background: #ffffff;
-    border-radius: 5px;
-  } */
-
   .gallery-content {
     width: 31vw;
     height: 140px;
@@ -2124,42 +2116,24 @@ body {
     margin-left: 1vw;
     background: #ffffff;
     border-radius: 5px;
+    position: relative;
   }
-
-  /* .gallery-content-img {
-    width: 230px;
-    height: 140px;
-    background: #ffffff;
-    border-radius: 10px;
-  } */
 
   .gallery-content-img {
     width: 31vw;
     height: 140px;
     background: #ffffff;
     border-radius: 10px;
+    position: absolute;
   }
-
-  /* .gallery-content-delete {
-    width: 40px;
-    height: 40px;
-    position: relative;
-    left: 190px;
-    bottom: 145px;
-    background: url("../src/img/delete.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: none;
-    cursor: pointer;
-  } */
 
   .gallery-content-delete {
     width: 40px;
     height: 40px;
-    position: relative;
+    position: absolute;
     /* left: 190px; */
-    left: 25vw;
-    bottom: 145px;
+    /* left: 25vw;
+    bottom: 145px; */
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;

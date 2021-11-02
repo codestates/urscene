@@ -6,6 +6,7 @@ import BestGallery from "../components/BestGallery";
 import GenreScene from "../components/GenreScene";
 import mainGenre from "../components/dummy/mainGenre";
 import axios from "axios";
+import { useHistory } from "react-router";
 require("dotenv").config();
 
 let dummyData = {
@@ -66,6 +67,8 @@ let dummyData = {
 };
 
 function Main() {
+  const history = useHistory();
+
   // 인기 갤러리 코드 : 시작
   const [rankingGallerys, setRankingGallerys] = useState([]);
 
@@ -75,7 +78,6 @@ function Main() {
 
   const handleLandingPage = () => {
     axios.get(process.env.REACT_APP_EC2_URL + "/main").then((res) => {
-      console.log("res.data", res.data);
       setRankingGallerys(res.data.Ranking_gallery);
       setCurrentRankingGallery(res.data.Ranking_gallery.slice(0, 3));
     });
@@ -181,7 +183,14 @@ function Main() {
         <MainNav />
         <div className="main-wrap">
           <div className="main-gallery">
-            <div className="main-text">인기 갤러리</div>
+            <div
+              className="main-text"
+              onClick={() => {
+                history.push("/gallery/1");
+              }}
+            >
+              인기 갤러리
+            </div>
             <div className="main-gallery-wrap">
               <div
                 className="main-gallery-Arrowleft"
