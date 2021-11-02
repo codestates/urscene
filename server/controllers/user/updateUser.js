@@ -4,23 +4,23 @@ const { passwordRegex } = require("../../lib/regex")
 require("dotenv").config()
 
 module.exports = async (req, res) => {
-	try {
-		const { newName, newPassword, newImage } = req.body
+  try {
+    const {newName, newPassword, newImage} = req.body;
 
-		const userToken = isAuthorized(req)
-		if (!userToken) {
-			return res.status(400).json({ message: "not-authorized" })
-		}
+    const userToken = isAuthorized(req);
+    if (!userToken) {
+      return res.status(400).json({message: "not-authorized"});
+    }
 
-		const { id, uuid } = userToken
-		const decryptedUUID = await decrypt(uuid, process.env.ENCRYPTION_KEY)
-		const cookieUUID = req.cookies.uuid
+    const {id, uuid} = userToken;
+    const decryptedUUID = await decrypt(uuid, process.env.ENCRYPTION_KEY);
+    const cookieUUID = req.cookies ? req.cookies.uuid : req.headers.uuid;
 
-		if (decryptedUUID === cookieUUID) {
-			const user = await db.getUserById(id)
-			const { nickname, password } = user.dataValues
-
+    if (decryptedUUID === cookieUUID) {
+      const user = await db.getUserById(id);
+      const {nickname, password} = user.dataValues;
 			const validPassword = passwordRegex(newPassword)
+      
 			if (!validPassword) {
 				return res.status(400).json({ newPassword, message: "invalid-new-password" })
 			}
@@ -43,3 +43,4 @@ module.exports = async (req, res) => {
 		res.status(500).json({ message: "server-error" })
 	}
 }
+
