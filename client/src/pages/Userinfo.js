@@ -93,9 +93,9 @@ function Userinfo() {
         .patch(
           "http://localhost:80/user",
           {
-            changePassword: password,
-            changeNickname: nickname,
-            changeImage: selectImg,
+            newPassword: password,
+            newname: nickname,
+            newImage: selectImg,
           },
           { accept: "application/json" },
         )

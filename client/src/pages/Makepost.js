@@ -43,25 +43,38 @@ function Makepost() {
   const [inputValue, setInputVaule] = useState(""); // 입력한 문자가 담기는 곳
   const [options, setOptions] = useState([]); // 드랍다운으로 보여지는 전체 목록
 
-  useEffect(() => {
-    if (inputValue === "") {
-      setHasText(false);
-    }
-  }, [inputValue]);
+  // useEffect(() => {
+  //   if (inputValue === "") {
+  //     setHasText(false);
+  //   }
+  // }, [inputValue]);
 
   const handleInputChange = (e) => {
     const { value } = e.target;
     if (value.includes("\\")) return;
-    // axios 요청해서 더미데이터 받아와야 할듯
     value ? setHasText(true) : setHasText(false);
     setInputVaule(value);
-    const filterRegex = new RegExp(value, "i");
-    const resultOptions = dummyData.map((option) => {
-      if (option.movieTitle.match(filterRegex)) {
-        return option.movieTitle;
-      }
-    });
-    setOptions(resultOptions);
+    // const filterRegex = new RegExp(value, "i");
+    // const resultOptions = options.map((option) => {
+    //   if (option.movieTitle.match(filterRegex)) {
+    //     return option.movieTitle;
+    //   }
+    // });
+    // setOptions(resultOptions);
+  };
+
+  const handleSearchMovieTitle = () => {
+    if (inputValue.includes("\\")) return;
+    // axios 요청해서 더미데이터 받아와야 할듯
+    axios
+      .get(`${process.env.REACT_APP_EC2_URL}/description/${inputValue}`)
+      .then((res) => {
+        // console.log(res.data);
+        setOptions(res.data.korMovie);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleDeleteButtonClick = () => {
@@ -70,13 +83,13 @@ function Makepost() {
 
   const handleDropDownClick = (data) => {
     setInputVaule(data);
-    const resultOptions = dummyData.filter((option) => option === data);
+    const resultOptions = options.filter((option) => option === data);
     setOptions(resultOptions);
     setHasText(false);
   };
   // 검색어 입력 시 드랍다운 : 끝
 
-  // drag & drop 코드 : 시작
+  // 이미지 drag & drop 코드 : 시작
   const uploadBoxRef = useRef();
   const inputRef = useRef();
 
@@ -197,7 +210,10 @@ function Makepost() {
                   className="MP-movie-icondelete"
                   onClick={handleDeleteButtonClick}
                 ></div>
-                <div className="MP-movie-icon"></div>
+                <div
+                  className="MP-movie-icon"
+                  onClick={handleSearchMovieTitle}
+                ></div>
                 {/* 컴포넌트 추출 포인트 : 시작 */}
                 {hasText ? (
                   <Dropdown
