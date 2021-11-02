@@ -13,7 +13,7 @@ axios.defaults.withCredentials = true;
 
 function Mygallery() {
   const { userInfo, isLogin } = useContext(MyContext); // 유저 정보를 확인
-  console.log("mygallery, MyContext 에서 받아온 userInfo ??? ", userInfo);
+  console.log("mygallery, 받아온 userInfo ??? ", userInfo);
   const [isLikeSceneClicked, setIsLikeSceneClicked] = useState(false);
   const [isLikeGalleryClicked, setIsLikeGalleryClicked] = useState(false);
   const [haveScenes, setHaveScenes] = useState(true);
@@ -32,33 +32,28 @@ function Mygallery() {
     setIsLikeGalleryClicked(!isLikeGalleryClicked);
   };
 
-  // TODO: 내가 만든 장면들, 싱글포스트 가져오기
-  const getMadeScene = () => {
+  // 갤러리, 싱글포스트, 좋아한 갤러리, 좋아한 장면 불러오기
+  const getAllGallery = () => {
     axios
-      .get("http://localhost:80/singlepost")
+      .get("http://localhost:80/user/gallery")
       .then((res) => {
         console.log("post res ???", res);
+        setHaveScenes(res.data.singlepost);
+        setHaveGallery(res.data.gallery);
+        setHaveLikeScene(res.data.liked_singlepost);
+        setHaveLikeGallery(res.data.liked_gallery);
       })
       .catch((err) => {
-        console.error("err message =>", err);
-      });
-  };
-
-  // TODO: 내가 만든 갤러리 리스트 가져오기
-  const getMadeGallery = () => {
-    axios
-      .get("http://localhost:80/gallery")
-      .then((res) => {
-        console.log("gallery res???", res);
-      })
-      .catch((err) => {
-        console.error("err message =>", err);
+        console.error("singlepost err message =>", err);
+        setHaveScenes(false);
+        setHaveGallery(false);
+        setHaveLikeScene(false);
+        setHaveLikeGallery(false);
       });
   };
 
   useEffect(() => {
-    getMadeScene();
-    getMadeGallery();
+    getAllGallery();
   }, []);
 
   return (
@@ -130,7 +125,7 @@ function Mygallery() {
             haveLikeScene ? (
               <LikeScene />
             ) : (
-              <div>장면이 없습니다.</div>
+              <div className="my-g-like-no">장면이 없습니다.</div>
             )
           ) : null}
           <div className="my-g-like-hr"></div>
@@ -148,7 +143,7 @@ function Mygallery() {
             haveLikeGallery ? (
               <LikeGallery />
             ) : (
-              <div>갤러리가 없습니다.</div>
+              <div className="my-g-like-no">갤러리가 없습니다.</div>
             )
           ) : null}
           <div className="my-g-like-hr"></div>

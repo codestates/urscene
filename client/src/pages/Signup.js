@@ -31,6 +31,7 @@ function Signup() {
 
   const userImg = [Jake, Meg, Mili, Steven];
   const [curImg, setCurImg] = useState(userImg[0]);
+  const [selectImg, setSelectImg] = useState("");
   console.log("curImg =>", curImg);
 
   const handleInputValue = (key) => (e) => {
@@ -87,7 +88,6 @@ function Signup() {
       })
       .then((res) => {
         setNickErrMsg("");
-        console.log("nicname res ???", res);
         setNickCheckMsg("사용 가능한 닉네임입니다.");
       })
       .catch((err) => {
@@ -99,6 +99,8 @@ function Signup() {
 
   const clickUserImage = (e) => {
     setCurImg(e.target.src);
+    setSelectImg(e.target.alt);
+    console.log("click img =>", e.target.alt);
   };
 
   // 회원가입
@@ -115,7 +117,7 @@ function Signup() {
           nickname: nickname,
           email: email,
           password: password,
-          image: curImg,
+          image: selectImg,
         })
         .then((res) => {
           console.log("signup success");
@@ -196,7 +198,7 @@ function Signup() {
                     <img
                       onClick={clickUserImage}
                       src={src}
-                      alt=""
+                      alt={idx}
                       key={idx}
                       className={
                         curImg === src

@@ -18,7 +18,8 @@ function Userinfo() {
   const { userInfo, isLogin } = useContext(MyContext); // 유저 정보를 확인
   console.log(userInfo, "=> userinfo page");
   const userImg = [Jake, Meg, Mili, Steven];
-  const [curImg, setCurImg] = useState(userImg[0]);
+  const [curImg, setCurImg] = useState(userImg[userInfo.image]);
+  const [selectImg, setSelectImg] = useState("");
   const [modal, setModal] = useState(false);
   const [editImg, setEditImg] = useState(false);
   const [errMsg, setErrMsg] = useState(""); // 공통 에러 메세지
@@ -94,7 +95,7 @@ function Userinfo() {
           {
             changePassword: password,
             changeNickname: nickname,
-            changeImage: curImg,
+            changeImage: selectImg,
           },
           { accept: "application/json" },
         )
@@ -133,6 +134,7 @@ function Userinfo() {
 
   const handleImgClick = (e) => {
     setCurImg(e.target.src);
+    setSelectImg(e.target.alt);
   };
 
   return (
@@ -142,7 +144,7 @@ function Userinfo() {
         <div className="userinfo">
           <div className="userinfowrap">
             <div className="ui-title">개인정보 수정</div>
-            <img src={userInfo.image} alt="" className="ui-image"></img>
+            <img src={curImg} alt="" className="ui-image"></img>
             <div onClick={handleImgEdit} className="ui-description">
               프로필 사진 바꾸기
             </div>

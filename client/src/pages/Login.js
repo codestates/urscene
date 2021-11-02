@@ -43,7 +43,7 @@ function Login() {
           password: password,
         })
         .then((res) => {
-          console.log("login success ??", res);
+          console.log("login success ??", res.statusText);
           // 로그인이 성공했으니 유저 정보를 불러오고, 로그인 상태를 변경해야한다.
           handleResponseSuccess();
         })

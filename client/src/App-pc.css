@@ -570,7 +570,7 @@ body {
   }
 
   .my-g-like-hr {
-    border: 1px solid #3a456f;
+    border: 1px solid #c3c5cc;
     width: 840px;
     margin: 15px 0 15px 0;
   }
@@ -602,6 +602,11 @@ body {
     line-height: 30px;
     float: left;
     cursor: pointer;
+  }
+
+  .my-g-like-no {
+    color: #7c9cbf;
+    margin: 5px;
   }
 
   /* ===== Makegallery page ===== */
@@ -1762,7 +1767,6 @@ body {
     background-position: center;
     background-size: contain;
     border-radius: 50%;
-    border: 1px solid red;
   }
 
   .ui-description {
