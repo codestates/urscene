@@ -47,7 +47,7 @@ function Mygallery() {
   // TODO: 내가 만든 갤러리 리스트 가져오기
   const getMadeGallery = () => {
     axios
-      .get("http://localhost:80/????")
+      .get("http://localhost:80/gallery")
       .then((res) => {
         console.log("gallery res???", res);
       })

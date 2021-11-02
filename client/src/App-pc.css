@@ -1758,12 +1758,11 @@ body {
     width: 70px;
     height: 70px;
     margin: 27px auto 0 auto;
-
-    background: url("../src/img/UserImage-Meg.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     border-radius: 50%;
+    border: 1px solid red;
   }
 
   .ui-description {
@@ -1849,7 +1848,7 @@ body {
   /* userinfo 페이지 : 닉네임 */
   .ui-nickname {
     width: 400px;
-    height: 158px;
+    height: auto;
     margin: 36px auto 0 auto;
   }
 

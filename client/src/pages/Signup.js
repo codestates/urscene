@@ -44,7 +44,6 @@ function Signup() {
       setEmailErrMsg("이메일 형식이 맞지 않습니다.");
     } else {
       setEmailErrMsg("");
-      // TODO: 서버에 이메일이 존재하는지 요청을 보낸다.
       axios
         .post("http://localhost:80/signup/takenemail", {
           email: userinfo.email,
@@ -82,7 +81,6 @@ function Signup() {
 
   // 닉네임 유효성 검사
   const nicknameValidation = (e) => {
-    // TODO: 서버에 닉네임이 있는지 요청하고 응답을 받는다.
     axios
       .post("http://localhost:80/signup/takenname", {
         nickname: userinfo.nickname,
@@ -156,9 +154,9 @@ function Signup() {
                 <div className="signup-email-title">비밀번호</div>
                 <input
                   onChange={handleInputValue("password")}
+                  onBlur={passwordValidation}
                   className="signup-email-input"
                   type="password"
-                  onBlur={passwordValidation}
                 ></input>
                 <div className="signup-password-warning">{pwErrMsg}</div>
               </div>
