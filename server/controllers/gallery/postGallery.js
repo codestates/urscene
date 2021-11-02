@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
 		const decryptedUUID = await decrypt(uuid, process.env.ENCRYPTION_KEY)
 
 		if (cookieUUID === decryptedUUID) {
-			const { id, title, content } = req.body
+			const { title, content } = req.body
 			const user_id = id
 			if (!title || !content) {
 				return res.status(401).json({ message: "bad-request" })
