@@ -1,5 +1,5 @@
-const db = require("../../db");
-const {isAuthorized} = require("../../lib/jwt");
+const db = require("../../db")
+const { isAuthorized, decrypt } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
   try {
@@ -13,20 +13,22 @@ module.exports = async (req, res) => {
     const cookieUUID = req.cookies.uuid;
     const result = await db.deleteUser(id);
 
-    if (decryptedUUID === cookieUUID) {
-      if (result) {
-        res
-          .clearCookie("userToken", {
-            httpOnly: true,
-            sameSite: "none",
-            secure: true,
-          })
-          .status(205)
-          .json({message: "user-deleted-successfully"});
-      }
-    }
-    res.status(401).json({message: "invalid-token"});
-  } catch (err) {
-    res.status(500).json({message: "server-error"});
-  }
-};
+
+		if (decryptedUUID === cookieUUID) {
+			await db.deleteUser(id)
+			res
+				.clearCookie("token", {
+					httpOnly: true,
+					sameSite: "none",
+					secure: true,
+					path: "/",
+				})
+				.status(205)
+				.json({ message: "user-deleted-successfully" })
+		}
+		res.status(401).json({ message: "invalid-token" })
+	} catch (err) {
+		res.status(500).json({ message: "server-error" })
+	}
+}
+
