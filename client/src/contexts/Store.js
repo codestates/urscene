@@ -34,11 +34,14 @@ const Store = (props) => {
       .then((res) => {
         setUserInfo(res.data);
         setIsLogin(true);
-        console.log("userInfo res???", res.data);
-        console.log("isLogin ???", isLogin);
+        //console.log("userInfo res???", res.data);
+        //console.log("isLogin ???", isLogin);
         history.push("/main");
       })
-      .catch((err) => console.log("store err message =>", err));
+      .catch((err) => {
+        console.log("store err message =>", err);
+        setIsLogin(false);
+      });
   };
 
   useEffect(() => {
@@ -50,6 +53,10 @@ const Store = (props) => {
   useEffect(() => {
     window.sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
   }, [userInfo]);
+
+  useEffect(() => {
+    window.sessionStorage.setItem("isLogin", JSON.stringify(userInfo));
+  }, [isLogin]);
 
   return (
     <MyContext.Provider value={{ handleResponseSuccess, userInfo, isLogin }}>

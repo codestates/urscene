@@ -1,7 +1,5 @@
 const jwt = require("jsonwebtoken")
-// const bcrypt = require("bcrypt")
 const db = require("../../db")
-const cookieParser = require("cookie-parser")
 const { encrypt, uuid, sendToken, sendUUID } = require("../../lib/jwt")
 
 require("dotenv").config()
