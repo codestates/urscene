@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
 		})
 		console.log(data)
 		const singlepost = await Singlepost.create({
-			user_id: userinfo,
+			user_id: userinfo.id,
 			title: req.body.title,
 			image: req.body.image,
 			content: req.body.content,
