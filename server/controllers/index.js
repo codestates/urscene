@@ -1,14 +1,12 @@
 const express = require("express")
 const comment = require("./comment/index")
 const main = require("./main/index")
-// const oauth = require("./oauth/index")
 const singlepost = require("./singlepost/index")
 const sign = require("./sign/index")
 const search = require("./search/index")
 const description = require("./description/getDescription")
 const gallery = require("./gallery/index")
 const user = require("./user/index")
-const { isLoggedIn, isLoggedOut } = require("../lib/middleware.js/auth")
 const router = express.Router()
 
 //comment
@@ -45,10 +43,10 @@ router.get("/singlepost", singlepost.mysinglepost)
 
 //sign
 router.post("/signup", sign.signUp)
-router.post("/signup/takenemail", sign.isTakenEmail)
-router.post("/signup/takenname", sign.isTakenName)
 router.post("/signin", sign.signIn)
 router.post("/signout", sign.signOut)
+router.post("/signup/takenname", sign.isTakenName)
+router.post("/signup/takenemail", sign.isTakenEmail)
 
 //user
 router.get("/user", user.getUserInfo)
