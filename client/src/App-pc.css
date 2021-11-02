@@ -1526,6 +1526,7 @@ body {
     text-align: left;
     margin-top: 6px;
     margin-bottom: 10px;
+    cursor: pointer;
   }
 
   .BG-img-wrap {
@@ -2630,6 +2631,8 @@ body {
     height: 162px;
     margin: 6px;
     border-radius: 10px;
+    display: flex;
+    position: relative;
   }
 
   .gallery-content-img {
@@ -2637,20 +2640,22 @@ body {
     height: 162px;
     border-radius: 10px;
     border: 1px solid #eaeaea;
-    box-sizing: border-box;
+    object-fit: contain;
+    color: white;
+    position: absolute;
   }
 
   .gallery-content-delete {
     width: 40px;
     height: 40px;
     position: relative;
-    left: 227px;
-    bottom: 165px;
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
     cursor: pointer;
+    position: absolute;
+    left: 227px;
   }
 
   .gallery-nocontent {

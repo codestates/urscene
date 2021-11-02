@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 export const MyContext = createContext({
-  userInfo: null,
+  userInfo: { nickname: "" },
   isLogin: false,
   setUserInfo: () => {},
   setIsLogin: () => {},

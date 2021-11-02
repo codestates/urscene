@@ -1,27 +1,29 @@
 import React from "react";
+import { useHistory } from "react-router";
 
 function BestGallery({ gallery }) {
-  // const rendering = [];
-  // for (let i = 0; i < 4; i++) {
-  //   rendering.push(gallery.image[i]);
-  // }
-  const rendering = [];
-  for (let i = 0; i < 4; i++) {
-    if (gallery.image[i] === undefined) {
-      rendering.push(
-        "https://urscene-s3-image.s3.us-east-2.amazonaws.com/noresult.png",
-      );
-    } else {
-      rendering.push(gallery.image[i]);
-    }
+  const history = useHistory();
+  const imageGroup = [];
+  console.log(gallery);
+  for (let i = 0; i < gallery.image.length; i++) {
+    imageGroup[i] = gallery.image[i];
   }
+
+  const rendering = imageGroup.slice(0, 4);
 
   return (
     <div>
       <div className="BG-container">
-        <div className="BG-title">{gallery.title}</div>
+        <div
+          className="BG-title"
+          onClick={() => {
+            history.push(`/gallery/${gallery.id}`);
+          }}
+        >
+          {gallery.title}
+        </div>
         <div className="BG-img-wrap">
-          {gallery.image.map((ele, idx) => {
+          {rendering.map((ele, idx) => {
             return (
               <div className="BG-img" key={idx}>
                 <img src={ele} alt={ele} />
