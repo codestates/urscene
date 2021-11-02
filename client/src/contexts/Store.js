@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
-
+import { useHistory } from "react-router-dom";
 export const MyContext = createContext({
   userInfo: null,
   isLogin: false,
@@ -11,6 +11,7 @@ export const MyContext = createContext({
 });
 
 const Store = (props) => {
+  const history = useHistory();
   // useContext 를 사용해서 유저정보와 로그인 상태를 전역으로 관리
   const [userInfo, setUserInfo] = useState(null);
   const [isLogin, setIsLogin] = useState(false);
@@ -25,16 +26,17 @@ const Store = (props) => {
     axios
       .get("http://localhost:80/user", { withCredentials: true })
       .then((res) => {
-        setUserInfo(res.data.data.userInfo);
+        setUserInfo(res.data);
         setIsLogin(true);
-        console.log("userInfo ???", res.data.data.userInfo);
-        console.log("login ???", isLogin);
+        console.log("userInfo res???", res.data);
+        console.log("isLogin ???", isLogin);
+        history.push("/main");
       })
-      .catch((err) => console.log("err message =>", err));
+      .catch((err) => console.log("store err message =>", err));
   };
 
   useEffect(() => {
-    //  isAuthenticated();
+    isAuthenticated();
   }, []);
 
   return (

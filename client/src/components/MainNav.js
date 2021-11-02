@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { MyContext } from "../contexts/Store";
 import { Link, useHistory } from "react-router-dom";
 
 function MainNav() {
+  const { userInfo, isLogin } = useContext(MyContext); // 유저 정보를 확인
+  console.log("mainvav islogin ???", isLogin);
+  console.log("mainvav, MyContext 에서 받아온 userInfo ??? ", userInfo);
+
   const history = useHistory();
   const [searchText, setSearchText] = useState("");
 
@@ -43,13 +48,13 @@ function MainNav() {
             </div>
           </div>
         </form>
-      </div>{" "}
-      <Link to="/makepost">
+      </div>
+      <Link to={isLogin ? "/makepost" : "/login"}>
         <div className="mainNav-icon">
           <div className="mainNav-create"></div>
         </div>
       </Link>
-      <Link to="/mygallery">
+      <Link to={isLogin ? "/mygallery" : "/login"}>
         <div className="mainNav-icon">
           <div className="mainNav-my"></div>
         </div>

@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { MyContext } from "../contexts/Store";
 import { Link } from "react-router-dom";
 import MainNav from "../components/MainNav";
 import LikeScene from "../components/LikeScene";
@@ -7,19 +8,20 @@ import MadeGallery from "../components/MadeGallery";
 import MadeScene from "../components/MadeScene";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
-import { MyContext } from "../contexts/Store";
 import axios from "axios";
 axios.defaults.withCredentials = true;
 
 function Mygallery() {
-  const { userInfo } = useContext(MyContext); // 유저 정보를 확인
-  console.log("MyContext 에서 받아온 userInfo ??? ", userInfo);
+  const { userInfo, isLogin } = useContext(MyContext); // 유저 정보를 확인
+  console.log("mygallery, MyContext 에서 받아온 userInfo ??? ", userInfo);
   const [isLikeSceneClicked, setIsLikeSceneClicked] = useState(false);
   const [isLikeGalleryClicked, setIsLikeGalleryClicked] = useState(false);
   const [haveScenes, setHaveScenes] = useState(true);
   const [haveGallery, setHaveGallery] = useState(true);
   const [haveLikeScene, setHaveLikeScene] = useState(true);
   const [haveLikeGallery, setHaveLikeGallery] = useState(true);
+  console.log("mygallery islogin ???", isLogin);
+
   // 좋아한 장면 펼치기
   const ClickLikeScene = () => {
     setIsLikeSceneClicked(!isLikeSceneClicked);
@@ -64,13 +66,15 @@ function Mygallery() {
       <MainNav />
       <div className="my-g-container">
         <div className="my-g-wrap">
-          <div className="my-g-title">마이갤러리</div>
-          <div className="my-g-user-wrap">
-            <div className="my-g-account-icon"></div>
-            {/* 회원정보 수정하기로 이동 */}
-            <Link to="/userinfo">
-              <div className="my-g-account-name">dddtttt000</div>
-            </Link>
+          <div className="my-g-title-wrap">
+            <div className="my-g-title">마이갤러리</div>
+            <div className="my-g-user-wrap">
+              <div className="my-g-account-icon"></div>
+              {/* 회원정보 수정하기로 이동 */}
+              <Link to="/userinfo">
+                <div className="my-g-account-name">{userInfo.nickname}</div>
+              </Link>
+            </div>
           </div>
           <div className="my-g-hr"></div>
           <div className="my-g-scene-wrap">
