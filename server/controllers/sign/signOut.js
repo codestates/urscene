@@ -18,6 +18,8 @@ module.exports = async (req, res) => {
 					httpOnly: true,
 					sameSite: "none",
 					secure: true,
+					path: "/",
+					domain: "urscene.link",
 				})
 				.status(205)
 				.json({ message: "signed-out-successfully" })
