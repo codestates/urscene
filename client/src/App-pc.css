@@ -570,7 +570,7 @@ body {
   }
 
   .my-g-like-hr {
-    border: 1px solid #3a456f;
+    border: 1px solid #c3c5cc;
     width: 840px;
     margin: 15px 0 15px 0;
   }
@@ -602,6 +602,11 @@ body {
     line-height: 30px;
     float: left;
     cursor: pointer;
+  }
+
+  .my-g-like-no {
+    color: #7c9cbf;
+    margin: 5px;
   }
 
   /* ===== Makegallery page ===== */
@@ -1758,8 +1763,6 @@ body {
     width: 70px;
     height: 70px;
     margin: 27px auto 0 auto;
-
-    background: url("../src/img/UserImage-Meg.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -1849,7 +1852,7 @@ body {
   /* userinfo 페이지 : 닉네임 */
   .ui-nickname {
     width: 400px;
-    height: 158px;
+    height: auto;
     margin: 36px auto 0 auto;
   }
 
