@@ -9,6 +9,8 @@ module.exports = {
 			httpOnly: true,
 			sameSite: "None",
 			secure: true,
+			path: "/",
+			domain: "urscene.link",
 			maxAge: 60 * 60 * 24,
 		})
 	},
@@ -17,6 +19,8 @@ module.exports = {
 			httpOnly: true,
 			sameSite: "None",
 			secure: true,
+			path: "/",
+			domain: "urscene.link",
 			maxAge: 60 * 60 * 24,
 		})
 	},
