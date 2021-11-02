@@ -1,5 +1,5 @@
-const { db } = require("../../db")
-const { isAuthorized } = require("../../lib/jwt")
+const db = require("../../db")
+const { isAuthorized, decrypt } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
 	try {
@@ -19,6 +19,7 @@ module.exports = async (req, res) => {
 					httpOnly: true,
 					sameSite: "none",
 					secure: true,
+					path: "/",
 				})
 				.status(205)
 				.json({ message: "user-deleted-successfully" })
