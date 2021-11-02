@@ -10,7 +10,6 @@ module.exports = {
 			sameSite: "None",
 			secure: true,
 			path: "/",
-			domain: "urscene.link",
 			maxAge: 60 * 60 * 24,
 		})
 	},
@@ -20,7 +19,6 @@ module.exports = {
 			sameSite: "None",
 			secure: true,
 			path: "/",
-			domain: "urscene.link",
 			maxAge: 60 * 60 * 24,
 		})
 	},
