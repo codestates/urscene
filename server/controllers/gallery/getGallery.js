@@ -11,7 +11,9 @@ module.exports = async (req, res) => {
 		],
 		where: { id: galleryid },
 	})
-	const userinfo = gallerydata.dataValues.User
+	console.log(gallerydata.dataValues)
+	const { image, nickname } = gallerydata.dataValues.User
+	const { id, title, content } = gallerydata.dataValues
 
 	const list = await Singlepost_gallerypost.findAll({
 		include: [
@@ -24,13 +26,13 @@ module.exports = async (req, res) => {
 	if (!list) {
 		res.status(404).json({ message: "data-not-found" })
 	} else {
-		const data = list.map((el) => el.dataValues)
-		let result = []
+		const data = list.map((el) => el.dataValues.Singlepost.dataValues)
+		let singlepost = []
 		for (const el of data) {
-			delete el.Singlepost.dataValues.user_id
-			result.push(el)
+			delete el.user_id
+			singlepost.push(el)
 		}
-		res.json({ user: userinfo, result })
+		res.json({ gallery: id, title, content, user_image: image, nickname, singlepost })
 	}
 }
 
