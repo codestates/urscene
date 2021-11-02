@@ -22,8 +22,8 @@ const Store = (props) => {
   };
 
   const handleLogin = () => {
-    if (localStorage.userInfo !== null) {
-      setIsLogin(true);
+    if (sessionStorage.userInfo === "null") {
+      setIsLogin(false);
     }
   };
 
@@ -44,11 +44,11 @@ const Store = (props) => {
   useEffect(() => {
     isAuthenticated();
     handleLogin();
-    setUserInfo(JSON.parse(window.localStorage.getItem("userInfo")));
+    setUserInfo(JSON.parse(window.sessionStorage.getItem("userInfo")));
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    window.sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
   }, [userInfo]);
 
   return (

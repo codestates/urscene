@@ -110,6 +110,11 @@ function Userinfo() {
   };
 
   // 로그아웃 요청
+  const handleLogout = () => {
+    console.log("click logout");
+    window.sessionStorage.removeItem("userInfo");
+    window.sessionStorage.removeItem("isLogin");
+  };
 
   // 회원탈퇴 요청
   const handleSignOut = () => {
@@ -215,7 +220,9 @@ function Userinfo() {
               <button onClick={handleChangeUserInfo} className="ui-btn">
                 저장
               </button>
-              <div className="ui-logout">로그아웃</div>
+              <div className="ui-logout" onClick={handleLogout}>
+                로그아웃
+              </div>
               <div className="ui-signout" onClick={handleModal}>
                 회원탈퇴
               </div>
