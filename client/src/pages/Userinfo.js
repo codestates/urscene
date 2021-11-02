@@ -17,9 +17,10 @@ function Userinfo() {
   const history = useHistory();
   const { userInfo, isLogin } = useContext(MyContext); // 유저 정보를 확인
   console.log(userInfo, "=> userinfo page");
+
   const userImg = [Jake, Meg, Mili, Steven];
   const [curImg, setCurImg] = useState(userImg[userInfo.image]);
-  const [selectImg, setSelectImg] = useState("");
+  const [selectImg, setSelectImg] = useState(userInfo.image);
   const [modal, setModal] = useState(false);
   const [editImg, setEditImg] = useState(false);
   const [errMsg, setErrMsg] = useState(""); // 공통 에러 메세지
@@ -32,6 +33,7 @@ function Userinfo() {
     password: "",
     passwordCheck: "",
   });
+  console.log("change userinfo ???", userinfo);
 
   const handleInputValue = (key) => (e) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
@@ -90,18 +92,15 @@ function Userinfo() {
       setErrMsg("");
       console.log("save click");
       axios
-        .patch(
-          "http://localhost:80/user",
-          {
-            changePassword: password,
-            changeNickname: nickname,
-            changeImage: selectImg,
-          },
-          { accept: "application/json" },
-        )
+        .patch("http://localhost:80/user", {
+          newName: nickname,
+          newPassword: password,
+          newImage: selectImg,
+        })
         .then((res) => {
           console.log("save success");
-          history.push("/mygallery");
+          console.log(res);
+          window.location.replace("/mygallery");
         })
         .catch((err) => {
           console.log("userinfo err message =>", err);
@@ -114,6 +113,7 @@ function Userinfo() {
     console.log("click logout");
     window.sessionStorage.removeItem("userInfo");
     window.sessionStorage.removeItem("isLogin");
+    window.location.replace("/main");
   };
 
   // 회원탈퇴 요청
@@ -122,6 +122,7 @@ function Userinfo() {
       .delete("http://localhost:80/user", { accept: "application/json" })
       .then((res) => {
         console.log("delete success");
+        window.location.replace("/");
       })
       .catch((err) => {
         console.log("delete error =>", err);

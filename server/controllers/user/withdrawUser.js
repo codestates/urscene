@@ -2,15 +2,17 @@ const db = require("../../db")
 const { isAuthorized, decrypt } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
-	try {
-		const userToken = isAuthorized(req)
-		if (!userToken) {
-			return res.status(400).json({ message: "not-authorized" })
-		}
+  try {
+    const userToken = isAuthorized(req);
+    if (!userToken) {
+      return res.status(400).json({message: "not-authorized"});
+    }
 
-		const { id, uuid } = userToken
-		const decryptedUUID = await decrypt(uuid, process.env.ENCRYPTION_KEY)
-		const cookieUUID = req.cookies.uuid
+    const {id, uuid} = userToken;
+    const decryptedUUID = await decrypt(uuid, process.env.ENCRYPTION_KEY);
+    const cookieUUID = req.cookies.uuid;
+    const result = await db.deleteUser(id);
+
 
 		if (decryptedUUID === cookieUUID) {
 			await db.deleteUser(id)
@@ -29,3 +31,4 @@ module.exports = async (req, res) => {
 		res.status(500).json({ message: "server-error" })
 	}
 }
+
