@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import useLocalStorage from "./useLocalStorage";
 export const MyContext = createContext({
   userInfo: null,
   isLogin: false,
@@ -12,13 +13,18 @@ export const MyContext = createContext({
 
 const Store = (props) => {
   const history = useHistory();
-  // useContext 를 사용해서 유저정보와 로그인 상태를 전역으로 관리
-  const [userInfo, setUserInfo] = useState(null);
-  const [isLogin, setIsLogin] = useState(false);
+  const [userInfo, setUserInfo] = useLocalStorage("userInfo", null);
+  const [isLogin, setIsLogin] = useLocalStorage("isLogin", false);
 
   // 로그인 성공 시 인증정보 요청 함수실행
   const handleResponseSuccess = () => {
     isAuthenticated();
+  };
+
+  const handleLogin = () => {
+    if (localStorage.userInfo !== null) {
+      setIsLogin(true);
+    }
   };
 
   // 유저 정보 호출, 로그인 상태 변경
@@ -37,7 +43,13 @@ const Store = (props) => {
 
   useEffect(() => {
     isAuthenticated();
+    handleLogin();
+    setUserInfo(JSON.parse(window.localStorage.getItem("userInfo")));
   }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("userInfo", JSON.stringify(userInfo));
+  }, [userInfo]);
 
   return (
     <MyContext.Provider value={{ handleResponseSuccess, userInfo, isLogin }}>
