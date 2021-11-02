@@ -3,7 +3,6 @@ import { useHistory } from "react-router";
 
 function GenreScene({ value }) {
   const history = useHistory();
-  console.log(value);
   return (
     <div>
       <div

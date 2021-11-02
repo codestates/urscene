@@ -4,7 +4,6 @@ import { useHistory } from "react-router";
 function BestGallery({ gallery }) {
   const history = useHistory();
   const imageGroup = [];
-  console.log(gallery);
   for (let i = 0; i < gallery.image.length; i++) {
     imageGroup[i] = gallery.image[i];
   }

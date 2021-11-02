@@ -1,12 +1,13 @@
 import React from "react";
 
 function Dropdown({ options, handleDropDownClick }) {
+  console.log("options===", options);
   return (
     <ul className="MP-movie-DropDownContainer">
-      {options.map((option, idx) => {
+      {options.map((movie) => {
         return (
-          <li key={idx} onClick={() => handleDropDownClick(option)}>
-            {option}
+          <li key={movie.id} onClick={() => handleDropDownClick(movie.title)}>
+            {movie.title}
           </li>
         );
       })}
