@@ -75,6 +75,7 @@ function Main() {
 
   const handleLandingPage = () => {
     axios.get(process.env.REACT_APP_EC2_URL + "/main").then((res) => {
+      console.log("res.data", res.data);
       setRankingGallerys(res.data.Ranking_gallery);
       setCurrentRankingGallery(res.data.Ranking_gallery.slice(0, 3));
     });
@@ -234,9 +235,7 @@ function Main() {
                   return <GenreScene key={idx} value={curScene} />;
                 })}
               </div>
-              {addSceneIcon ? (
-                <div className="main-genre-img-noadd">영화가 없습니다.</div>
-              ) : (
+              {addSceneIcon ? null : (
                 <div onClick={handleAddCurrentScene}>
                   <div className="main-genre-img-addText">더 보기</div>
                   <div className="main-genre-img-addImage"></div>
