@@ -1,4 +1,4 @@
-const { db } = require("../../db")
+const db = require("../../db")
 const { isAuthorized } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
@@ -19,6 +19,8 @@ module.exports = async (req, res) => {
 					httpOnly: true,
 					sameSite: "none",
 					secure: true,
+					path: "/",
+					domain: "urscene.link",
 				})
 				.status(205)
 				.json({ message: "user-deleted-successfully" })
