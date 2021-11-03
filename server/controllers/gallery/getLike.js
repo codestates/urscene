@@ -1,4 +1,5 @@
 const { Like } = require("../../models")
+const { isAuthorized } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
 	const { galleryid } = req.params
