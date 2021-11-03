@@ -7,7 +7,7 @@ function Dropdown({ options, handleDropDownClick }) {
       {options.map((movie) => {
         return (
           <li key={movie.id} onClick={() => handleDropDownClick(movie.title)}>
-            {movie.title}
+            {movie.title} ({movie.genre})
           </li>
         );
       })}

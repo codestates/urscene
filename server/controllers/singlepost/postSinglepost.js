@@ -1,27 +1,23 @@
-const { Singlepost, Description } = require("../../models")
-const { Op } = require("sequelize")
 const { isAuthorized } = require("../../lib/jwt")
+const db = require("../../db")
 
 module.exports = async (req, res) => {
 	const userinfo = isAuthorized(req)
+	if (!userinfo) {
+		return res.status(400).json({ message: "not-authorized" })
+	}
 	if (!req.body.title || !req.body.image || !req.body.content || !req.body.genre) {
 		res.status(400).json({ message: "bad request" }) //하나라도 없으면 400
 	} else {
-		const data = await Description.findOne({
-			where: {
-				[Op.or]: [{ title: req.body.title }, { title_eng: req.body.title }],
-			},
-		})
-		console.log(data)
-		const singlepost = await Singlepost.create({
-			user_id: userinfo.id,
-			title: req.body.title,
-			image: req.body.image,
-			content: req.body.content,
-			genre: req.body.genre,
-			description_id: data.dataValues.id,
-		})
-		const { id, title, image, content, genre } = singlepost.dataValues
-		res.status(201).json({ data: { id, title, image, content, genre }, message: "ok" })
+		const { title, image, content, genre } = req.body
+		const data = await db.getDescriptionsByTitle(title)
+		// console.log(data)
+		const { id } = userinfo
+		const descriptionsId = data.dataValues.id
+
+		const singlepost = await db.addsinglepost({ id, title, image, content, genre, descriptionsId })
+		delete singlepost.dataValues.user_id
+		console.log(singlepost.dataValues)
+		res.status(201).json({ data: singlepost.dataValues, message: "ok" })
 	}
 }

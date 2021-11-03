@@ -1,17 +1,24 @@
 import axios from "axios";
 import React from "react";
-import { useHistory } from "react-router";
+import { Link, useHistory } from "react-router-dom";
 require("dotenv").config();
 
-function GalleryDeleteModal({ galleryId, handleDeleteModal }) {
+function SceneInGalleryDeleteModal({
+  handleSceneDeleteModal,
+  galleryId,
+  sceneId,
+  handleLandingDetailGallery,
+}) {
   const history = useHistory();
 
   const handleDeleteGallery = () => {
     axios
-      .delete(`${process.env.REACT_APP_EC2_URL}/gallery/${galleryId}`)
+      .delete(
+        `${process.env.REACT_APP_EC2_URL}/gallery/photo/${galleryId}/${sceneId}`,
+      )
       .then((res) => {
-        console.log(res);
-        history.push("/main");
+        console.log("삭제에 성공하였습니다.");
+        handleLandingDetailGallery();
       })
       .catch((err) => {
         console.log(err);
@@ -22,12 +29,15 @@ function GalleryDeleteModal({ galleryId, handleDeleteModal }) {
     <div className="deleteModal-background">
       <div className="deleteModal">
         <div className="delete-img"></div>
-        <div className="delete-text">갤러리를 삭제하시겠습니까?</div>
+        <div className="delete-text">장면을 삭제하시겠습니까?</div>
         <div className="delete-btn">
           <div className="delete-btn-ok" onClick={handleDeleteGallery}>
             삭제하기
           </div>
-          <button className="delete-btn-cancel" onClick={handleDeleteModal}>
+          <button
+            className="delete-btn-cancel"
+            onClick={handleSceneDeleteModal}
+          >
             취소
           </button>
         </div>
@@ -36,4 +46,4 @@ function GalleryDeleteModal({ galleryId, handleDeleteModal }) {
   );
 }
 
-export default GalleryDeleteModal;
+export default SceneInGalleryDeleteModal;

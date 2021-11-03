@@ -2568,7 +2568,7 @@ body {
   }
 
   .gallery-desc {
-    width: 771px;
+    width: 765px;
     height: 76px;
     float: left;
     font-weight: normal;
@@ -2578,10 +2578,17 @@ body {
     text-align: left;
   }
 
-  .gallery-like1 {
+  .gallery-likeGroup {
+    height: 76px;
+    width: 65px;
+    float: left;
+  }
+
+  .gallery-unlike {
     width: 40px;
-    height: 60px;
-    margin-left: 25px;
+    height: 40px;
+    margin-left: 12.5px;
+    margin-right: 12.5px;
     float: left;
     background: url("../src/img/Heart.png");
     background-repeat: no-repeat;
@@ -2590,7 +2597,7 @@ body {
     cursor: pointer;
   }
 
-  .gallery-like2 {
+  .gallery-like {
     width: 40px;
     height: 60px;
     margin-left: 25px;
@@ -2600,6 +2607,12 @@ body {
     background-position: center;
     background-size: none;
     cursor: pointer;
+  }
+
+  .gallery-like-comment {
+    color: white;
+    font-size: 13px;
+    word-break: keep-all;
   }
 
   .gallery-group3 {
@@ -2706,13 +2719,15 @@ body {
     font-size: 24px;
     line-height: 24px;
     color: #ffffff;
-    margin-top: 68px;
+    margin: 68px auto 0 auto;
+    word-break: keep-all;
+    width: 200px;
   }
 
   .delete-btn {
     width: 300px;
     height: 34px;
-    margin-top: 53px;
+    margin-top: 33px;
   }
 
   .delete-btn-ok {
