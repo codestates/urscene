@@ -4,8 +4,8 @@ import { Link, useHistory } from "react-router-dom";
 
 function MainNav() {
   const { userInfo, isLogin } = useContext(MyContext); // 유저 정보를 확인
-  console.log("mainvav islogin ???", isLogin);
-  console.log("mainvav, MyContext 에서 받아온 userInfo ??? ", userInfo);
+  //console.log("mainvav islogin ???", isLogin);
+  console.log("mainvav, userInfo ??? ", userInfo);
 
   const history = useHistory();
   const [searchText, setSearchText] = useState("");

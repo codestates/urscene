@@ -14,29 +14,56 @@ axios.defaults.withCredentials = true;
 
 function Post() {
   const { postId } = useParams();
-  const { userInfo } = useContext(MyContext); // 유저 정보를 확인
+  const { userInfo, userImg } = useContext(MyContext); // 로그인 유저 정보
+  const [curImg, setCurImg] = useState(userImg[userInfo.image]);
   const [movieModal, setMoiveModal] = useState(false); // 영화정보 열기닫기
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
   const [likeModal, setlikeModal] = useState(false); // 좋아요 버튼 false가 안누른상태
   const [deleteModal, setDeleteModal] = useState(false); // 좋아요 버튼 false가 안누른상태
   const [comments, setComments] = useState([]); //
   const [writeComment, setWriteComment] = useState("");
+  const [user, setuser] = useState(null); // 작성자 닉네임
+  const [content, setcontent] = useState(null); // 작성 내용
+  const [image, setimage] = useState(null); // 게시한 이미지
+  const [description, setdescription] = useState(null); // 영화정보
+  const [singlePost, setSinglePost] = useState(null);
+  //console.log(singlePost, "<=singlepost");
+  console.log("comments => ", comments);
+  console.log("user => ", user);
+
   console.log(writeComment);
+  useEffect(() => {
+    getSinglePost();
+  }, []);
 
   const handleDeleteModal = () => {
     setDeleteModal(!deleteModal);
   };
 
-  // 싱글포스트 생성 시 얻은 id, 잠시 임의의 값 넣어둠
-  const singlepostid = 11;
+  // 싱글포스트 가져오기
+  const getSinglePost = () => {
+    axios
+      .get(`http://localhost:80/singlepost/${postId}`)
+      .then((res) => {
+        setSinglePost(res.data.data);
+        setuser(res.data.data.User.nickname);
+        setcontent(res.data.data.content);
+        setimage(res.data.data.image);
+        setdescription(res.data.data.Description);
+      })
+      .catch((err) => {
+        console.log("getsinglepost err =>", err);
+      });
+  };
 
   // 댓글 가져오기
   const getComments = () => {
     axios
-      .get(`http://localhost:80/comment/${singlepostid}`)
+      .get(`http://localhost:80/comment/${postId}`)
       .then((res) => {
-        console.log("comment res ???", res);
-        setComments(res.data.data.comment); // 응답 데이터 확인 필요
+        //console.log("comment res ???", res.data.data);
+        setComments(res.data.data); // 응답 데이터 확인 필요
+        //comments.concat(res.data.data);
       })
       .catch((err) => console.error(err));
   };
@@ -51,13 +78,15 @@ function Post() {
       .post(
         "http://localhost:80/comment",
         {
-          singlepostid: singlepostid, // id 확인 필요
+          singlepostid: postId,
           comment: writeComment,
         },
         { accept: "application/json" },
       )
       .then((res) => {
-        console.log(res);
+        console.log(res.status);
+        setWriteComment("");
+        // window.location.replace(`/post/${postId}`);
       })
       .catch((err) => {
         console.log(err);
@@ -66,44 +95,57 @@ function Post() {
 
   useEffect(() => {
     getComments();
-  }, [comments]);
+  }, []);
+
+  // 댓글 삭제하기
+  const deleteComment = (e) => {
+    axios
+      .delete(`http://localhost:80/comment/${e.target.id}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log("deleteComment err", err);
+        console.log("comments.id");
+      });
+  };
 
   return (
     <div>
       <MainNav />
       <div className="post">
         <div className="postwrap">
-          <div className="post-title">나의 장면, postId = {postId}</div>
-          <div className="post-editgroup">
-            {editModal ? (
-              <button
-                className="post-edit-btn"
-                onClick={() => setEditModal(false)}
-              >
-                완료
-              </button>
-            ) : (
-              <div>
-                <div
-                  className="post-edit-delete"
-                  onClick={() => setDeleteModal(true)}
-                ></div>
-                <div
-                  className="post-edit-edit"
-                  onClick={() => setEditModal(true)}
-                ></div>
-              </div>
-            )}
-          </div>
+          <div className="post-title">나의 장면</div>
+          {user === userInfo.nickname ? (
+            <div className="post-editgroup">
+              {editModal ? (
+                <button
+                  className="post-edit-btn"
+                  onClick={() => setEditModal(false)}
+                >
+                  완료
+                </button>
+              ) : (
+                <div>
+                  <div
+                    className="post-edit-delete"
+                    onClick={() => setDeleteModal(true)}
+                  ></div>
+                  <div
+                    className="post-edit-edit"
+                    onClick={() => setEditModal(true)}
+                  ></div>
+                </div>
+              )}
+            </div>
+          ) : null}
           <img
             className="post-image"
-            src={
-              "https://urscene-s3-image.s3.us-east-2.amazonaws.com/521635346301520.jpeg"
-            }
+            src={`https://urscene-s3-image.s3.us-east-2.amazonaws.com/${image}`}
             alt=""
           />
           <div className="post-label">
-            <div className="post-label-title">닉네임 자리</div>
+            <div className="post-label-title">{user}</div>
             {likeModal ? (
               <div
                 className="post-label-like2"
@@ -122,10 +164,7 @@ function Post() {
               피셔에게 인셉션을 실행하는데 이것을 정보를 심는 일
             </textarea>
           ) : (
-            <div className="post-desc">
-              영화 초반, 코드와 아서가 사이토에게 정보를 추출하는 일을 한다.
-              피셔에게 인셉션을 실행하는데 이것을 정보를 심는 일
-            </div>
+            <div className="post-desc">{content}</div>
           )}
           <div className="post-devider" />
           <div
@@ -140,19 +179,31 @@ function Post() {
                 <div className="post-infogroup-minus"></div>
               )}
             </div>
-            {movieModal === false ? null : <MovieInfo />}
+            {movieModal === false ? null : (
+              <MovieInfo description={description} />
+            )}
           </div>
           <div className="post-devider2" />
           <WriteComment
+            curImg={curImg}
             handleInputValue={handleInputValue}
             postComment={postComment}
           />
           <div className="post-comments">
-            <MyComment />
-            {!comments ? (
+            {/* <MyComment /> */}
+            {comments.length === 0 ? (
               <div className="post-comment-no">첫 댓글을 남겨보세요!</div>
             ) : (
-              <Comment />
+              comments.map((el) => {
+                return (
+                  <Comment
+                    key={el.id}
+                    userInfo={userInfo}
+                    comments={el}
+                    deleteComment={deleteComment}
+                  />
+                );
+              })
             )}
           </div>
         </div>

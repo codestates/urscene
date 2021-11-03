@@ -8,14 +8,12 @@ import Jake from "../img/UserImage-Jake.png";
 import Meg from "../img/UserImage-Meg.png";
 import Mili from "../img/UserImage-Mili.png";
 import Steven from "../img/UserImage-Steven.png";
-import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
 
 function Userinfo() {
-  const history = useHistory();
-  const { userInfo, isLogin } = useContext(MyContext); // 유저 정보를 확인
+  const { userInfo, setUserInfo, setIsLogin } = useContext(MyContext); // 유저 정보를 확인
   console.log(userInfo, "=> userinfo page");
 
   const userImg = [Jake, Meg, Mili, Steven];
@@ -93,7 +91,7 @@ function Userinfo() {
       console.log("save click");
       axios
         .patch("http://localhost:80/user", {
-          newName: nickname,
+          newName: nickname === "" ? userInfo.nickname : nickname,
           newPassword: password,
           newImage: selectImg,
         })
@@ -114,10 +112,10 @@ function Userinfo() {
       .post("http://localhost:80/signout")
       .then((res) => {
         console.log("signout success", res);
-        console.log("click logout");
+        window.location.replace("/main");
         window.sessionStorage.removeItem("userInfo");
         window.sessionStorage.removeItem("isLogin");
-        window.location.replace("/main");
+        sessionStorage.clear();
       })
       .catch((err) => {
         console.log("signout err message =>", err);
@@ -131,6 +129,9 @@ function Userinfo() {
       .then((res) => {
         console.log("delete success");
         window.location.replace("/");
+        window.sessionStorage.removeItem("userInfo");
+        window.sessionStorage.removeItem("isLogin");
+        sessionStorage.clear();
       })
       .catch((err) => {
         console.log("delete error =>", err);
@@ -190,6 +191,7 @@ function Userinfo() {
               <div className="ui-nickname">
                 <div className="ui-nickname-title">닉네임</div>
                 <input
+                  placeholder={userInfo.nickname}
                   onBlur={nicknameValidation}
                   onChange={handleInputValue("nickname")}
                   className="ui-nickname-input"
@@ -205,6 +207,7 @@ function Userinfo() {
               <div className="ui-password">
                 <div className="ui-nickname-title">비밀번호</div>
                 <input
+                  placeholder="새로운 비밀번호를 입력해주세요."
                   onChange={handleInputValue("password")}
                   onBlur={passwordValidation}
                   className="ui-nickname-input"
@@ -212,9 +215,10 @@ function Userinfo() {
                 ></input>
                 <div className="ui-nickname-warning">{pwErrMsg}</div>
               </div>
-              <div className="ui-repassword">
-                <div className="ui-nickname-title">비밀번호확인</div>
+              <div className="ui-password">
+                <div className="ui-nickname-title">비밀번호 확인</div>
                 <input
+                  placeholder="새로운 비밀번호를 입력해주세요."
                   onBlur={passwordCheckValidation}
                   onChange={handleInputValue("passwordCheck")}
                   className="ui-nickname-input"

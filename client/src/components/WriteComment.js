@@ -1,9 +1,10 @@
-function WriteComment({ handleInputValue, postComment }) {
+function WriteComment({ handleInputValue, postComment, curImg }) {
   return (
     <div className="post-writecomment">
       <form onSubmit={(e) => e.preventDefault()}>
-        <img className="post-wc-image" src="img/UserImage-Jake.png" />
+        <img className="post-wc-image" src={curImg} />
         <input
+          type="text"
           onChange={(e) => handleInputValue(e)}
           className="post-wc-input"
           placeholder="댓글 달기..."

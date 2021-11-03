@@ -17,6 +17,7 @@ function Login() {
   console.log(userinfo);
   const [emailErrMsg, setEmailErrMsg] = useState("");
   const [errMsg, setErrMsg] = useState("");
+  const [loginErrMsg, setLoginErrMsg] = useState(""); // 가입이 되지 않은 경우 에러
 
   const handleInputValue = (key) => (e) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
@@ -48,6 +49,7 @@ function Login() {
           handleResponseSuccess();
         })
         .catch((err) => {
+          setLoginErrMsg("이메일과 비밀번호를 다시 확인해 주세요.");
           console.log("login err message=>", err);
         });
     }
