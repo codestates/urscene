@@ -63,7 +63,7 @@ function Post() {
       .then((res) => {
         //console.log("comment res ???", res.data.data);
         setComments(res.data.data); // 응답 데이터 확인 필요
-        comments.concat(res.data.data);
+        //comments.concat(res.data.data);
       })
       .catch((err) => console.error(err));
   };
@@ -98,14 +98,15 @@ function Post() {
   }, []);
 
   // 댓글 삭제하기
-  const deleteComment = () => {
+  const deleteComment = (e) => {
     axios
-      .delete(`http://localhost:80/comment/${comments.id}`)
+      .delete(`http://localhost:80/comment/${e.target.id}`)
       .then((res) => {
         console.log(res);
       })
       .catch((err) => {
         console.log("deleteComment err", err);
+        console.log("comments.id");
       });
   };
 

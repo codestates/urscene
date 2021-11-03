@@ -20,6 +20,7 @@ function Comment({ comments, userInfo, deleteComment }) {
           {userInfo.nickname === comments.User.nickname ? (
             <div
               onClick={deleteComment}
+              id={comments.id}
               className="post-mycomment-group2-delete"
             ></div>
           ) : null}
