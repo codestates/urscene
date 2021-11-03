@@ -83,27 +83,27 @@ function Userinfo() {
   // 회원정보 수정 요청
   const handleChangeUserInfo = () => {
     const { nickname, password, passwordCheck } = userinfo;
-    // if (!password || !passwordCheck || !nickname) {
-    //   setErrMsg("필수 정보입니다.");
-    //   setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
-    // } else {
-    // setErrMsg("");
-    console.log("save click");
-    axios
-      .patch("http://localhost:80/user", {
-        newName: nickname === "" ? userInfo.nickname : nickname,
-        newPassword: password,
-        newImage: selectImg,
-      })
-      .then((res) => {
-        console.log("save success");
-        console.log(res);
-        window.location.replace("/mygallery");
-      })
-      .catch((err) => {
-        console.log("userinfo err message =>", err);
-      });
-    // }
+    if (!password || !passwordCheck || !nickname) {
+      setErrMsg("필수 정보입니다.");
+      setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
+    } else {
+      setErrMsg("");
+      console.log("save click");
+      axios
+        .patch("http://localhost:80/user", {
+          newName: nickname === "" ? userInfo.nickname : nickname,
+          newPassword: password,
+          newImage: selectImg,
+        })
+        .then((res) => {
+          console.log("save success");
+          console.log(res);
+          window.location.replace("/mygallery");
+        })
+        .catch((err) => {
+          console.log("userinfo err message =>", err);
+        });
+    }
   };
 
   // 로그아웃 요청
@@ -207,7 +207,7 @@ function Userinfo() {
               <div className="ui-password">
                 <div className="ui-nickname-title">비밀번호</div>
                 <input
-                  placeholder="새로운 비밀번호를 사용하시려면 입력해주세요."
+                  placeholder="새로운 비밀번호를 입력해주세요."
                   onChange={handleInputValue("password")}
                   onBlur={passwordValidation}
                   className="ui-nickname-input"
@@ -218,7 +218,7 @@ function Userinfo() {
               <div className="ui-password">
                 <div className="ui-nickname-title">비밀번호 확인</div>
                 <input
-                  placeholder="새로운 비밀번호를 사용하시려면 입력해주세요."
+                  placeholder="새로운 비밀번호를 입력해주세요."
                   onBlur={passwordCheckValidation}
                   onChange={handleInputValue("passwordCheck")}
                   className="ui-nickname-input"

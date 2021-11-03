@@ -24,6 +24,9 @@ function Post() {
   const [singlePost, setSinglePost] = useState(null);
   console.log("singlePost ???", singlePost);
   console.log(writeComment);
+  useEffect(() => {
+    getSinglePost();
+  }, []);
 
   const handleDeleteModal = () => {
     setDeleteModal(!deleteModal);
@@ -37,17 +40,12 @@ function Post() {
     axios
       .get(`http://localhost:80/singlepost/${singlepostid}`)
       .then((res) => {
-        console.log(res);
         setSinglePost(res.data.data);
       })
       .catch((err) => {
         console.log("getsinglepost err =>", err);
       });
   };
-
-  useEffect(() => {
-    getSinglePost();
-  }, []);
 
   // 댓글 가져오기
   const getComments = () => {
@@ -116,11 +114,11 @@ function Post() {
           </div>
           <img
             className="post-image"
-            src={`https://urscene-s3-image.s3.us-east-2.amazonaws.com/${singlePost.image}`}
+            src={`https://urscene-s3-image.s3.us-east-2.amazonaws.com/`}
             alt=""
           />
           <div className="post-label">
-            <div className="post-label-title">{singlePost.User.nickname}</div>
+            <div className="post-label-title">{""}</div>
             {likeModal ? (
               <div
                 className="post-label-like2"
@@ -139,7 +137,7 @@ function Post() {
               피셔에게 인셉션을 실행하는데 이것을 정보를 심는 일
             </textarea>
           ) : (
-            <div className="post-desc">{singlePost.content}</div>
+            <div className="post-desc">{""}</div>
           )}
           <div className="post-devider" />
           <div
