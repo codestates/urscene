@@ -30,10 +30,12 @@ router.patch("/gallery/:galleryid", gallery.patchGallery)
 router.get("/gallery", gallery.myGallery)
 router.post("/gallery/like/:galleryid", gallery.postLike)
 router.delete("/gallery/like/:galleryid", gallery.deleteLike)
+router.get("/gallery/like/:galleryid", gallery.getLike)
 
 //singlepost
 router.post("/singlepost/like/:singlepostid", singlepost.singlepost)
 router.delete("/singlepost/like/:singlelikeid", singlepost.singlelike)
+router.get("/singlepost/like/:singlepostid", singlepost.getLike)
 router.post("/singlepost", singlepost.post)
 // router.get("/singlepost", singlepost.movietitle)
 router.get("/singlepost/:singlepostid", singlepost.get)
