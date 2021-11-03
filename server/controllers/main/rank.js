@@ -1,12 +1,6 @@
 const { Singlepost, Singlepost_gallerypost, Gallerypost, sequelize } = require("../../models")
 
 module.exports = async (req, res) => {
-	// const data = await Singlepost_gallerypost.findOne({
-	// 	include: [],
-	// 	where: { Gallerypost_id: 1 },
-	// })
-	// console.log(data)
-
 	const data = await sequelize.query(
 		"SELECT Galleryposts.id, count(Likes.id) AS count FROM Galleryposts INNER JOIN Likes ON Galleryposts.id = Likes.gallerypost_id Group by Galleryposts.id ORDER BY count desc LIMIT 9"
 	)
@@ -27,9 +21,10 @@ module.exports = async (req, res) => {
 		const data = singleimage.map((el) => el.dataValues.Singlepost.dataValues)
 		image.push(data)
 	}
-	// console.log(image)
+	image = image.filter((el) => el.length !== 0)
+	console.log(image.length)
 
-	for (const element of likelist) {
+	for (let i = 0; i < image.length; i++) {
 		const gallery = await Singlepost_gallerypost.findOne({
 			include: [
 				{
@@ -37,7 +32,7 @@ module.exports = async (req, res) => {
 					attributes: ["id", "title", "content"],
 				},
 			],
-			where: { Gallerypost_id: element.id },
+			where: { Gallerypost_id: likelist[i].id },
 		})
 		const data = gallery.dataValues.Gallerypost.dataValues
 		array.push(data)
