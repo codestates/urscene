@@ -2,6 +2,10 @@ import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import useLocalStorage from "./useLocalStorage";
+import Jake from "../img/UserImage-Jake.png";
+import Meg from "../img/UserImage-Meg.png";
+import Mili from "../img/UserImage-Mili.png";
+import Steven from "../img/UserImage-Steven.png";
 export const MyContext = createContext({
   userInfo: { nickname: "" },
   isLogin: false,
@@ -13,6 +17,7 @@ export const MyContext = createContext({
 
 const Store = (props) => {
   const history = useHistory();
+  const userImg = [Jake, Meg, Mili, Steven];
   const [userInfo, setUserInfo] = useLocalStorage("userInfo", null);
   const [isLogin, setIsLogin] = useLocalStorage("isLogin", false);
 
@@ -34,8 +39,6 @@ const Store = (props) => {
       .then((res) => {
         setUserInfo(res.data);
         setIsLogin(true);
-        //console.log("userInfo res???", res.data);
-        //console.log("isLogin ???", isLogin);
         history.push("/main");
       })
       .catch((err) => {
@@ -45,7 +48,6 @@ const Store = (props) => {
   };
 
   useEffect(() => {
-    isAuthenticated();
     handleLogin();
     setUserInfo(JSON.parse(window.sessionStorage.getItem("userInfo")));
   }, []);
@@ -55,11 +57,20 @@ const Store = (props) => {
   }, [userInfo]);
 
   useEffect(() => {
-    window.sessionStorage.setItem("isLogin", JSON.stringify(userInfo));
+    window.sessionStorage.setItem("isLogin", JSON.stringify(isLogin));
   }, [isLogin]);
 
   return (
-    <MyContext.Provider value={{ handleResponseSuccess, userInfo, isLogin }}>
+    <MyContext.Provider
+      value={{
+        handleResponseSuccess,
+        userInfo,
+        isLogin,
+        setUserInfo,
+        setIsLogin,
+        userImg,
+      }}
+    >
       {props.children}
     </MyContext.Provider>
   );

@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from "react";
 import MainNav from "../components/MainNav";
 import GalleryContent from "../components/GalleryContent";
 import GalleryDeleteModal from "../components/GalleryDeleteModal";
+import SceneInGalleryDeleteModal from "../components/SceneInGalleryDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import { useHistory, useParams } from "react-router";
@@ -16,7 +17,9 @@ function Gallery() {
   const [likeModal, setlikeModal] = useState(false); // 좋아요 버튼 false가 안누른상태
   const [editDeleteModal, setEditDeleteModal] = useState(true); // 수정버튼 클릭시 장면 설명 수정
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
-  const [deleteModal, setDeleteModal] = useState(false); // 삭제 버늩 클릭시 삭제 모달 팝업
+  const [deleteModal, setDeleteModal] = useState(false); // 삭제 버튼 클릭시 삭제 모달 팝업
+  const [requireLoginModal, setRequireLoginModal] = useState(false);
+  const [sceneDeleteModal, setSceneDeleteModal] = useState(false);
 
   const [nicknameGallery, setNicknameGallery] = useState(""); // API로 받아온 갤러리 작성자 닉네임
   const [titleGallery, setTitleGallery] = useState(""); // API로 받아온 갤러리 타이틀
@@ -25,10 +28,9 @@ function Gallery() {
 
   const handleMatchingUserAndnickName = () => {
     if (userInfo === null) {
-      // 기능 구현을 위해 임시로 false로 바꿔놓음. 원래는 true가 정상
-      return setEditDeleteModal(false);
+      setEditDeleteModal(true);
     } else if (userInfo.nickname === nicknameGallery) {
-      return setEditDeleteModal(false);
+      setEditDeleteModal(false);
     }
   };
 
@@ -48,8 +50,7 @@ function Gallery() {
     axios
       .get(`${process.env.REACT_APP_EC2_URL}/gallery/${galleryId}`)
       .then((res) => {
-        console.log("handleLandingDetailGallery 함수 트리거");
-        console.log(res.data);
+        // console.log(res.data);
         setNicknameGallery(res.data.nickname);
         setTitleGallery(res.data.title);
         setContentGallery(res.data.content);
@@ -60,6 +61,7 @@ function Gallery() {
       });
   };
 
+  // 갤러리 정보 수정 함수
   const handlePatchGallery = () => {
     axios
       .patch(`${process.env.REACT_APP_EC2_URL}/gallery/${galleryId}`, {
@@ -75,10 +77,49 @@ function Gallery() {
       });
   };
 
+  // 좋아요 생성 취소 함수
+  const handleLike = () => {
+    // 비로그인 사용자에게는 로그인이 필요합니다 안내메시지 표시
+    if (userInfo === null) {
+      setRequireLoginModal(true);
+      return;
+    }
+    if (likeModal === false) {
+      // 빈 하트 이므로 like 요청을 보내고
+      // 성공을 하면 true로 바꿔준다.
+      axios
+        .post(`${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryId}`)
+        .then((res) => {
+          console.log("좋아요 요청 성공");
+          console.log("res.data ===", res.data);
+          setlikeModal(true);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else if (likeModal === true) {
+      // 풀 하트 이므로 delete like 요청을 보내고
+      // 성공을 하면 false로 바꿔준다.
+      axios
+        .delete(`${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryId}`)
+        .then((res) => {
+          console.log("좋아요 삭제 성공");
+          console.log("res.data ===", res.data);
+          setlikeModal(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
   useEffect(() => {
     handleLandingDetailGallery();
-    handleMatchingUserAndnickName();
   }, []);
+
+  useEffect(() => {
+    handleMatchingUserAndnickName();
+  }, [nicknameGallery]);
 
   return (
     <div>
@@ -137,17 +178,17 @@ function Gallery() {
               ) : (
                 <div>
                   <div className="gallery-desc">{contentGallery}</div>
-                  {likeModal ? (
+                  <div className="gallery-likeGroup">
                     <div
-                      className="gallery-like2"
-                      onClick={() => setlikeModal(!likeModal)}
+                      className={likeModal ? "gallery-like" : "gallery-unlike"}
+                      onClick={handleLike}
                     ></div>
-                  ) : (
-                    <div
-                      className="gallery-like1"
-                      onClick={() => setlikeModal(!likeModal)}
-                    ></div>
-                  )}
+                    {requireLoginModal ? (
+                      <div className="gallery-like-comment">
+                        로그인이 필요합니다.
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
               )}
             </div>
@@ -159,6 +200,8 @@ function Gallery() {
                       key={scene.id}
                       scene={scene}
                       editModal={editModal}
+                      galleryId={galleryId}
+                      handleLandingDetailGallery={handleLandingDetailGallery}
                     />
                   );
                 })}
@@ -182,6 +225,7 @@ function Gallery() {
           handleDeleteModal={handleDeleteModal}
         />
       ) : null}
+      {/* {sceneDeleteModal ? <SceneInGalleryDeleteModal /> : null} */}
     </div>
   );
 }

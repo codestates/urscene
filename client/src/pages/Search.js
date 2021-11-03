@@ -57,7 +57,7 @@ function Search() {
         if (res.data.search_gallery.length !== 2) {
           setAddGalleryIcon(true);
         }
-        console.log(res.data.search_gallery);
+        // console.log(res.data.search_gallery);
         setGalleryResult(res.data.search_gallery);
       });
   };

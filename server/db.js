@@ -6,6 +6,8 @@ const { Description } = require("./models")
 const { Gallerypost } = require("./models")
 const { Singlepost } = require("./models")
 const { Singlepost_gallerypost } = require("./models")
+const { Like } = require("./models")
+const jwt = require("jsonwebtoken")
 require("dotenv").config()
 
 module.exports = {
@@ -65,4 +67,96 @@ module.exports = {
 			})
 		})
 	},
+	getDescriptionsByTitle: async (title) => {
+		const data = await Description.findOne({
+			where: {
+				[Op.or]: [{ title }, { title_eng: title }],
+			},
+		})
+		return data
+	},
+	addsinglepost: async (data) => {
+		const { id, title, image, content, genre, descriptionsId } = data
+		const list = await Singlepost.create({
+			user_id: id,
+			title,
+			image,
+			content,
+			genre,
+			description_id: descriptionsId,
+		})
+		return list
+	},
+	mygetSinglepost: async (id) => {
+		const mysinglepost = await Singlepost.findAll({
+			where: { user_id: id },
+		})
+		return mysinglepost
+	},
+	getSinglepost: async (data) => {
+		const singlepost = await Singlepost.findOne({
+			include: [
+				{
+					model: User,
+					attributes: ["nickname", "image"],
+				},
+				{
+					model: Description,
+					attributes: ["title", "title_eng", "genre", "director", "released"],
+				},
+			],
+			where: { id: data },
+		})
+		return singlepost
+	},
+	getDeleteSinglepost: async (data) => {
+		const singleId = await Singlepost.findOne({
+			where: { id: data.singlepostid, user_id: data.id },
+		})
+		return singleId
+	},
+	deleteSinglepost: async (singlepostid) => {
+		const destroy = await Singlepost.destroy({
+			where: { id: singlepostid },
+		})
+		return destroy
+	},
+	getSingleLike: async (data) => {
+		const userLike = await Like.findOne({
+			where: {
+				user_id: data.userid, //userinfo.id
+				id: data.singlelikeid,
+			},
+		})
+		return userLike.dataValues
+	},
+	deleteSingleLike: async (data) => {
+		const destroy = await Like.destroy({
+			where: {
+				id: data.id,
+				singlepost_id: data.singlepost_id,
+			},
+		})
+		return destroy
+	},
+	getSinglepost: async (id) => await Singlepost.findOne({ where: { id } }),
+	updateSinglepost: async (data) => {
+		const edit = await Singlepost.update(
+			{
+				content: data.content,
+			},
+			{
+				where: { id: data.singleid },
+			}
+		)
+		return edit
+	},
+	getSinglepostLike: async (data) =>
+		await Like.findOrCreate({
+			where: { user_id: data.id, singlepost_id: data.singlepostid }, //userinfo.id
+		}),
+	getSingleLike: async (data) =>
+		await Like.findOne({
+			where: { user_id: data.id, singlepost_id: data.singlepostid },
+		}),
 }

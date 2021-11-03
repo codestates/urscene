@@ -8,4 +8,5 @@ module.exports = {
 	deleteLike: require("./deleteLike"),
 	postLike: require("./postLike"),
 	deletePhoto: require("./deletePhoto"),
+	getLike: require("./getLike"),
 }
