@@ -19,7 +19,7 @@ function Gallery() {
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
   const [deleteModal, setDeleteModal] = useState(false); // 삭제 버튼 클릭시 삭제 모달 팝업
   const [requireLoginModal, setRequireLoginModal] = useState(false);
-  const [sceneDeleteModal, setSceneDeleteModal] = useState(false);
+  const [galleryLikeId, setGalleryLikeId] = useState("");
 
   const [nicknameGallery, setNicknameGallery] = useState(""); // API로 받아온 갤러리 작성자 닉네임
   const [titleGallery, setTitleGallery] = useState(""); // API로 받아온 갤러리 타이틀
@@ -77,6 +77,25 @@ function Gallery() {
       });
   };
 
+  // 좋아요 정보 불러오는 함수
+  const handleLandingLike = () => {
+    axios
+      .get(`${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryId}`)
+      .then((res) => {
+        if (res.data.Like === null) {
+          setlikeModal(false);
+        } else if (res.data.Like) {
+          console.log("res.data.Like===", res.data.Like);
+          setlikeModal(true);
+          setGalleryLikeId(res.data.Like);
+        }
+      })
+      .catch((err) => {
+        console.log("좋아요 정보가 없습니다.");
+        console.log(err);
+      });
+  };
+
   // 좋아요 생성 취소 함수
   const handleLike = () => {
     // 비로그인 사용자에게는 로그인이 필요합니다 안내메시지 표시
@@ -101,10 +120,10 @@ function Gallery() {
       // 풀 하트 이므로 delete like 요청을 보내고
       // 성공을 하면 false로 바꿔준다.
       axios
-        .delete(`${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryId}`)
+        .delete(
+          `${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryLikeId}`,
+        )
         .then((res) => {
-          console.log("좋아요 삭제 성공");
-          console.log("res.data ===", res.data);
           setlikeModal(false);
         })
         .catch((err) => {
@@ -115,6 +134,7 @@ function Gallery() {
 
   useEffect(() => {
     handleLandingDetailGallery();
+    handleLandingLike();
   }, []);
 
   useEffect(() => {
@@ -140,11 +160,7 @@ function Gallery() {
                       handleTitleGallery(e);
                     }}
                   ></textarea>
-                  <div
-                    className="gallery-btn"
-                    // onClick={() => setEditModal(!editModal)}
-                    onClick={handlePatchGallery}
-                  >
+                  <div className="gallery-btn" onClick={handlePatchGallery}>
                     완료
                   </div>
                 </div>
@@ -210,7 +226,7 @@ function Gallery() {
               <div className="gallery-nocontent">
                 <div className="gallery-nocontent-img"></div>
                 <div className="gallery-nocontent-title">
-                  장면을 추가해 주세요.
+                  마이 갤러리에서 장면을 추가해 주세요.
                 </div>
               </div>
             )}

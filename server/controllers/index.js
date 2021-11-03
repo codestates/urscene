@@ -16,12 +16,12 @@ router.get("/comment/:singlepostid", comment.commentget)
 router.delete("/comment/:commentid", isAuthorizedUser, comment.commentdelete)
 
 //main
-router.get("/main/single", main.genre)
-router.get("/main", main.rank)
+router.get("/main/single", main.genre);
+router.get("/main", main.rank);
 
 //search
-router.get("/search/single", search.singlepost)
-router.get("/search/gallery", search.gallery)
+router.get("/search/single", search.singlepost);
+router.get("/search/gallery", search.gallery);
 
 //gallery
 router.get("/gallery/:galleryid", gallery.getGallery)
@@ -63,5 +63,6 @@ router.post("/gallery/:gallerypost_id", isAuthorizedUser, gallery.addSinglepostT
 //description
 router.get("/description/:title", isAuthorizedUser, description)
 
+
 //user
-module.exports = router
+module.exports = router;
