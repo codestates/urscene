@@ -1,4 +1,4 @@
-const db = require("../../db")
+const { isAuthorized, decrypt } = require("../../lib/jwt")
 require("dotenv").config()
 
 module.exports = async (req, res) => {
@@ -13,16 +13,8 @@ module.exports = async (req, res) => {
 		const cookieUUID = req.cookies.uuid
 
 		if (decryptedUUID === cookieUUID) {
-			res
-				.clearCookie("token", {
-					httpOnly: true,
-					sameSite: "none",
-					secure: true,
-					path: "/",
-					domain: "urscene.link",
-				})
-				.status(205)
-				.json({ message: "signed-out-successfully" })
+			res.clearCookie("token")
+			res.clearCookie("uuid").status(205).json({ message: "signed-out-successfully" })
 		}
 	} catch (err) {
 		res.status(500).json({ message: "server-error" })
