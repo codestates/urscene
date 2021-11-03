@@ -45,7 +45,7 @@ const Store = (props) => {
   };
 
   useEffect(() => {
-    isAuthenticated();
+    //isAuthenticated();
     handleLogin();
     setUserInfo(JSON.parse(window.sessionStorage.getItem("userInfo")));
   }, []);
@@ -59,7 +59,15 @@ const Store = (props) => {
   }, [isLogin]);
 
   return (
-    <MyContext.Provider value={{ handleResponseSuccess, userInfo, isLogin }}>
+    <MyContext.Provider
+      value={{
+        handleResponseSuccess,
+        userInfo,
+        isLogin,
+        setUserInfo,
+        setIsLogin,
+      }}
+    >
       {props.children}
     </MyContext.Provider>
   );

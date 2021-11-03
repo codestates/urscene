@@ -1941,28 +1941,19 @@ body {
     margin: 58px auto 0 auto;
   }
 
-  /* userinfo 페이지 : 패스워드 확인 */
-  .ui-repassword {
-    width: 400px;
-    height: 114px;
-    margin: 56px auto 0 auto;
+  .ui-password > input {
+    font-size: 16px;
   }
 
   .ui-btn {
     width: 400px;
     height: 56px;
     margin: 55px auto 0 auto;
-
     background: #0059f7;
     border-radius: 8px;
     border-width: 0px;
-
-    font-family: Roboto;
-    font-weight: 500;
     font-size: 20px;
     line-height: 24px;
-    /* identical to box height, or 120% */
-
     color: #ffffff;
     cursor: pointer;
   }
@@ -1971,15 +1962,9 @@ body {
     width: 59px;
     height: 24px;
     margin: 68px auto 0 auto;
-
-    font-family: Roboto;
-    font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    /* identical to box height, or 150% */
-
     text-decoration-line: underline;
-
     color: #ffffff;
     cursor: pointer;
   }
@@ -1988,15 +1973,9 @@ body {
     width: 59px;
     height: 24px;
     margin: 16px auto 0 auto;
-
-    font-family: Roboto;
-    font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    /* identical to box height, or 150% */
-
     text-decoration-line: underline;
-
     color: #ffffff;
     cursor: pointer;
   }
