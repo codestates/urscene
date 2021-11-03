@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { MyContext } from "../contexts/Store";
 import MainNav from "../components/MainNav";
-import MyComment from "../components/MyComment";
 import WriteComment from "../components/WriteComment";
 import Comment from "../components/Comment";
 import MovieInfo from "../components/MovieInfo";
@@ -27,14 +26,38 @@ function Post() {
   const [image, setimage] = useState(null); // 게시한 이미지
   const [description, setdescription] = useState(null); // 영화정보
   const [singlePost, setSinglePost] = useState(null);
-  //console.log(singlePost, "<=singlepost");
-  console.log("comments => ", comments);
-  console.log("user => ", user);
 
-  console.log(writeComment);
+  console.log(singlePost, "<=singlepost");
+  console.log("comments => ", comments);
+  // console.log("user => ", user);
+  //console.log(writeComment);
+  console.log("content => ", content);
+
   useEffect(() => {
     getSinglePost();
+    getComments();
   }, []);
+
+  // 싱글 포스트 삭제하기
+
+  //싱글 포스트 수정하기
+  const patchPostContent = () => {
+    axios
+      .patch(`http://localhost:80/singlepost/${postId}`, {
+        content: content,
+      })
+      .then((res) => {
+        setEditModal(false);
+        console.log(res.status);
+      })
+      .catch((err) => {
+        console.log("patch content err => ", err);
+      });
+  };
+
+  const handleChangeContent = (e) => {
+    setcontent(e.target.value);
+  };
 
   const handleDeleteModal = () => {
     setDeleteModal(!deleteModal);
@@ -45,7 +68,7 @@ function Post() {
     axios
       .get(`http://localhost:80/singlepost/${postId}`)
       .then((res) => {
-        setSinglePost(res.data.data);
+        setSinglePost(res);
         setuser(res.data.data.User.nickname);
         setcontent(res.data.data.content);
         setimage(res.data.data.image);
@@ -93,10 +116,6 @@ function Post() {
       });
   };
 
-  useEffect(() => {
-    getComments();
-  }, []);
-
   // 댓글 삭제하기
   const deleteComment = (e) => {
     axios
@@ -119,10 +138,7 @@ function Post() {
           {user === userInfo.nickname ? (
             <div className="post-editgroup">
               {editModal ? (
-                <button
-                  className="post-edit-btn"
-                  onClick={() => setEditModal(false)}
-                >
+                <button className="post-edit-btn" onClick={patchPostContent}>
                   완료
                 </button>
               ) : (
@@ -146,22 +162,15 @@ function Post() {
           />
           <div className="post-label">
             <div className="post-label-title">{user}</div>
-            {likeModal ? (
-              <div
-                className="post-label-like2"
-                onClick={() => setlikeModal(false)}
-              ></div>
-            ) : (
-              <div
-                className="gallery-label-like1"
-                onClick={() => setlikeModal(true)}
-              ></div>
-            )}
+            <div
+              className={likeModal ? "post-label-like2" : "post-label-like1"}
+              onClick={() => setlikeModal(!likeModal)}
+            ></div>
           </div>
           {editModal ? (
-            <textarea className="post-editdesc">
-              영화 초반, 코드와 아서가 사이토에게 정보를 추출하는 일을 한다.
-              피셔에게 인셉션을 실행하는데 이것을 정보를 심는 일
+            // 장면 설명 수정
+            <textarea onChange={handleChangeContent} className="post-editdesc">
+              {content}
             </textarea>
           ) : (
             <div className="post-desc">{content}</div>
@@ -197,6 +206,7 @@ function Post() {
               comments.map((el) => {
                 return (
                   <Comment
+                    curImg={curImg}
                     key={el.id}
                     userInfo={userInfo}
                     comments={el}

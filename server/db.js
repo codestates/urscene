@@ -147,7 +147,7 @@ module.exports = {
     });
     return destroy;
   },
-  getSinglepost: async (id) => await Singlepost.findOne({where: {id}}),
+  mygetSinglepost: async (id) => await Singlepost.findOne({where: {id}}),
   updateSinglepost: async (data) => {
     const edit = await Singlepost.update(
       {
