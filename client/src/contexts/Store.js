@@ -2,6 +2,10 @@ import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import useLocalStorage from "./useLocalStorage";
+import Jake from "../img/UserImage-Jake.png";
+import Meg from "../img/UserImage-Meg.png";
+import Mili from "../img/UserImage-Mili.png";
+import Steven from "../img/UserImage-Steven.png";
 export const MyContext = createContext({
   userInfo: { nickname: "" },
   isLogin: false,
@@ -13,6 +17,7 @@ export const MyContext = createContext({
 
 const Store = (props) => {
   const history = useHistory();
+  const userImg = [Jake, Meg, Mili, Steven];
   const [userInfo, setUserInfo] = useLocalStorage("userInfo", null);
   const [isLogin, setIsLogin] = useLocalStorage("isLogin", false);
 
@@ -63,6 +68,7 @@ const Store = (props) => {
         isLogin,
         setUserInfo,
         setIsLogin,
+        userImg,
       }}
     >
       {props.children}

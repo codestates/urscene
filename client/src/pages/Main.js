@@ -19,12 +19,12 @@ function Main() {
   const [galleryPerPage] = useState(3);
   const [galleryIcon] = useState([1, 2, 3]);
 
-  const handleLandingPage = () => {
-    axios.get(process.env.REACT_APP_EC2_URL + "/main").then((res) => {
-      setRankingGallerys(res.data.Ranking_gallery);
-      setCurrentRankingGallery(res.data.Ranking_gallery.slice(0, 3));
-    });
-  };
+  // const handleLandingPage = () => {
+  //   axios.get(process.env.REACT_APP_EC2_URL + "/main").then((res) => {
+  //     setRankingGallerys(res.data.Ranking_gallery);
+  //     setCurrentRankingGallery(res.data.Ranking_gallery.slice(0, 3));
+  //   });
+  // };
 
   const [currentRankingGallery, setCurrentRankingGallery] = useState([]);
 
@@ -50,9 +50,9 @@ function Main() {
     }
   };
 
-  useEffect(() => {
-    handleLandingPage();
-  }, []);
+  // useEffect(() => {
+  //   handleLandingPage();
+  // }, []);
 
   useEffect(() => {
     handleCurrentRankingGallery();
