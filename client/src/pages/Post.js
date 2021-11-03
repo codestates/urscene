@@ -102,7 +102,7 @@ function Post() {
     axios
       .delete(`http://localhost:80/comment/${e.target.id}`)
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log("deleteComment err", err);

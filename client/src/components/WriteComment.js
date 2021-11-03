@@ -1,7 +1,8 @@
 function WriteComment({ handleInputValue, postComment, curImg }) {
   return (
     <div className="post-writecomment">
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={() => postComment()}>
+        {/* <form> */}
         <img className="post-wc-image" src={curImg} />
         <input
           type="text"
