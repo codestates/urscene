@@ -7,7 +7,6 @@ const { Gallerypost } = require("./models")
 const { Singlepost } = require("./models")
 const { Singlepost_gallerypost } = require("./models")
 const { Like } = require("./models")
-const jwt = require("jsonwebtoken")
 require("dotenv").config()
 
 module.exports = {
