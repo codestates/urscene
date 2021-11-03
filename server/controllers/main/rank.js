@@ -1,4 +1,4 @@
-const { Singlepost, Singlepost_gallerypost, Gallerypost, sequelize } = require("../../models")
+const { Singlepost, Singlepost_gallerypost, Gallerypost, sequelize } = require("../../models");
 
 module.exports = async (req, res) => {
 	const data = await sequelize.query(
@@ -39,8 +39,8 @@ module.exports = async (req, res) => {
 	}
 	// console.log(array)
 
-	array.map((el, index) => {
-		el.image = image[index]
-	})
-	res.status(200).json({ Ranking_gallery: array })
-}
+  array.map((el, index) => {
+    el.image = image[index];
+  });
+  res.status(200).json({ Ranking_gallery: array });
+};
