@@ -746,6 +746,7 @@ body {
   }
 
   .loginwrap {
+    padding-top: 30px;
     margin: auto;
     width: 840px;
     height: auto;
@@ -818,7 +819,7 @@ body {
   .lin-password {
     width: 400px;
     height: 114px;
-    margin-top: 44px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -863,7 +864,7 @@ body {
   #lin-btnLogin {
     width: 400px;
     height: 56px;
-    margin-top: 87px;
+    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     background: #0059f7;
@@ -873,7 +874,6 @@ body {
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
-    /* identical to box height, or 133% */
     color: #ffffff;
     cursor: pointer;
   }
@@ -881,7 +881,7 @@ body {
   .lin-signup {
     width: 400px;
     height: 60px;
-    margin-top: 87px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     padding: 22px;
