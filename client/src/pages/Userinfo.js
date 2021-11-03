@@ -110,10 +110,18 @@ function Userinfo() {
 
   // 로그아웃 요청
   const handleLogout = () => {
-    console.log("click logout");
-    window.sessionStorage.removeItem("userInfo");
-    window.sessionStorage.removeItem("isLogin");
-    window.location.replace("/main");
+    axios
+      .post("http://localhost:80/signout")
+      .then((res) => {
+        console.log("signout success", res);
+        console.log("click logout");
+        window.sessionStorage.removeItem("userInfo");
+        window.sessionStorage.removeItem("isLogin");
+        window.location.replace("/main");
+      })
+      .catch((err) => {
+        console.log("signout err message =>", err);
+      });
   };
 
   // 회원탈퇴 요청

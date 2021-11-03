@@ -1,17 +1,16 @@
-const jwt = require("jsonwebtoken");
-const CryptoJS = require("crypto-js");
-const uuid4 = require("uuid4");
-require("dotenv").config();
+const jwt = require("jsonwebtoken")
+const CryptoJS = require("crypto-js")
+const uuid4 = require("uuid4")
+require("dotenv").config()
 
 module.exports = {
-
 	sendToken: (res, token) => {
 		res.cookie("token", token, {
 			httpOnly: true,
 			sameSite: "None",
 			secure: true,
 			path: "/",
-			maxAge: 24 * 60 * 60 * 10000,
+			maxAge: 24 * 6 * 60 * 10000,
 		})
 	},
 	sendUUID: (res, uuid) => {
@@ -20,7 +19,7 @@ module.exports = {
 			sameSite: "None",
 			secure: true,
 			path: "/",
-			maxAge: 24 * 60 * 60 * 10000,
+			maxAge: 24 * 6 * 60 * 10000,
 		})
 	},
 	isAuthorized: (req) => {
@@ -53,4 +52,3 @@ module.exports = {
 		return tokens[2] + tokens[1] + tokens[0] + tokens[3] + tokens[4]
 	},
 }
-
