@@ -21,14 +21,33 @@ function Post() {
   const [deleteModal, setDeleteModal] = useState(false); // 좋아요 버튼 false가 안누른상태
   const [comments, setComments] = useState([]); //
   const [writeComment, setWriteComment] = useState("");
+  const [singlePost, setSinglePost] = useState(null);
+  console.log("singlePost ???", singlePost);
   console.log(writeComment);
 
   const handleDeleteModal = () => {
     setDeleteModal(!deleteModal);
   };
 
-  // 싱글포스트 생성 시 얻은 id, 잠시 임의의 값 넣어둠
-  const singlepostid = 11;
+  // 싱글포스트 생성 시 얻은 id
+  const singlepostid = postId;
+
+  // 싱글포스트 가져오기
+  const getSinglePost = () => {
+    axios
+      .get(`http://localhost:80/singlepost/${singlepostid}`)
+      .then((res) => {
+        console.log(res);
+        setSinglePost(res.data.data);
+      })
+      .catch((err) => {
+        console.log("getsinglepost err =>", err);
+      });
+  };
+
+  useEffect(() => {
+    getSinglePost();
+  }, []);
 
   // 댓글 가져오기
   const getComments = () => {
@@ -51,7 +70,7 @@ function Post() {
       .post(
         "http://localhost:80/comment",
         {
-          singlepostid: singlepostid, // id 확인 필요
+          singlepostid: singlepostid,
           comment: writeComment,
         },
         { accept: "application/json" },
@@ -73,7 +92,7 @@ function Post() {
       <MainNav />
       <div className="post">
         <div className="postwrap">
-          <div className="post-title">나의 장면, postId = {postId}</div>
+          <div className="post-title">나의 장면</div>
           <div className="post-editgroup">
             {editModal ? (
               <button
@@ -97,13 +116,11 @@ function Post() {
           </div>
           <img
             className="post-image"
-            src={
-              "https://urscene-s3-image.s3.us-east-2.amazonaws.com/521635346301520.jpeg"
-            }
+            src={`https://urscene-s3-image.s3.us-east-2.amazonaws.com/${singlePost.image}`}
             alt=""
           />
           <div className="post-label">
-            <div className="post-label-title">닉네임 자리</div>
+            <div className="post-label-title">{singlePost.User.nickname}</div>
             {likeModal ? (
               <div
                 className="post-label-like2"
@@ -122,10 +139,7 @@ function Post() {
               피셔에게 인셉션을 실행하는데 이것을 정보를 심는 일
             </textarea>
           ) : (
-            <div className="post-desc">
-              영화 초반, 코드와 아서가 사이토에게 정보를 추출하는 일을 한다.
-              피셔에게 인셉션을 실행하는데 이것을 정보를 심는 일
-            </div>
+            <div className="post-desc">{singlePost.content}</div>
           )}
           <div className="post-devider" />
           <div
@@ -140,7 +154,9 @@ function Post() {
                 <div className="post-infogroup-minus"></div>
               )}
             </div>
-            {movieModal === false ? null : <MovieInfo />}
+            {movieModal === false ? null : (
+              <MovieInfo singlePost={singlePost} />
+            )}
           </div>
           <div className="post-devider2" />
           <WriteComment

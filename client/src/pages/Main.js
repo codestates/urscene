@@ -184,7 +184,15 @@ function Main() {
               })}
               <div className="main-genre-img-wrap">
                 {curScenes.map((curScene, idx) => {
-                  return <GenreScene key={idx} value={curScene} />;
+                  return (
+                    <GenreScene
+                      key={idx}
+                      value={curScene}
+                      onClick={() => {
+                        history.push(`/post/${idx}`);
+                      }}
+                    />
+                  );
                 })}
               </div>
               {addSceneIcon ? null : (

@@ -1480,6 +1480,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    cursor: pointer;
   }
   .main-genre-img-addText {
     width: 43px;

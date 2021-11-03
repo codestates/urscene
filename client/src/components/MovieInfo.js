@@ -1,4 +1,4 @@
-function MovieInfo() {
+function MovieInfo({ singlePost }) {
   return (
     <div>
       <li className="post-infogroup-list">영화제목 : 이상한 나라의 엘리스</li>

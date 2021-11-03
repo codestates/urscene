@@ -52,7 +52,7 @@ const Store = (props) => {
   }, [userInfo]);
 
   useEffect(() => {
-    window.sessionStorage.setItem("isLogin", JSON.stringify(userInfo));
+    window.sessionStorage.setItem("isLogin", JSON.stringify(isLogin));
   }, [isLogin]);
 
   return (
