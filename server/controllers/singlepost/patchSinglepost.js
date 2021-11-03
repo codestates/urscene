@@ -1,29 +1,21 @@
-const { Singlepost } = require("../../models")
+const db = require("../../db")
+const { isAuthorized } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
+	const userinfo = isAuthorized(req)
+	if (!userinfo) {
+		return res.status(400).json({ message: "not-authorized" })
+	}
 	const { singlepostid } = req.params
-	const post = await Singlepost.findOne({
-		where: { id: singlepostid },
-	})
-	// getUserById(req.body.id)
-	// getUserById: async (id) =>
-	// User.findOne({
-	// 	where: { id: id },
-	// })
-	// singlepostid 있는지 확인하고 없으면 400 있으면 수정
+	const { content } = req.body
+	const post = await db.getSinglepost(singlepostid)
+
 	if (!post) {
 		res.status(400).json({ message: "data-not-found" })
 	} else {
-		await Singlepost.update(
-			{
-				content: req.body.content,
-			},
-			{
-				where: { id: post.dataValues.id },
-			}
-		)
+		const singleid = post.dataValues.id
+		await db.updateSinglepost({ content, singleid })
 
-		const { id, content } = post.dataValues
-		res.status(200).json({ data: { id: id, content: content } })
+		res.status(200).json({ data: { id: post.dataValues.id, content: post.dataValues.content } })
 	}
 }
