@@ -9,63 +9,6 @@ import axios from "axios";
 import { useHistory } from "react-router";
 require("dotenv").config();
 
-let dummyData = {
-  Ranking_gallery: [
-    {
-      id: 2,
-      title: "너무 오싹한이야기들..",
-      content: "여름에 너무추웠어요",
-      image: [
-        {
-          image: "헠.jpg",
-        },
-        {
-          image: "기름뜨겁.jpg",
-        },
-      ],
-    },
-    {
-      id: 1,
-      title: "너무행복한 장면들",
-      content: "정말 재미있었던 장면들만",
-      image: [
-        {
-          image: "내 장면.jpg",
-        },
-        {
-          image: "귀요미.jpg",
-        },
-        {
-          image: "돈잃으면 속쓰린법.jpg",
-        },
-      ],
-    },
-    {
-      id: 3,
-      title: "전쟁터의 잔혹함",
-      content: "실제로 전쟁이나면 진짜 무서울듯",
-      image: [
-        {
-          image: "제가슴만봐요.jpg",
-        },
-        {
-          image: "무서워 이러다 다 주글꺼야.jpg",
-        },
-      ],
-    },
-    {
-      id: 4,
-      title: "진짜 배꼽빠지게웃긴",
-      content: "눈물이 났어요...웃겨서",
-      image: [
-        {
-          image: "뭐라도해야지 두두두.jpg",
-        },
-      ],
-    },
-  ],
-};
-
 function Main() {
   const history = useHistory();
 
@@ -76,12 +19,12 @@ function Main() {
   const [galleryPerPage] = useState(3);
   const [galleryIcon] = useState([1, 2, 3]);
 
-  const handleLandingPage = () => {
-    axios.get(process.env.REACT_APP_EC2_URL + "/main").then((res) => {
-      setRankingGallerys(res.data.Ranking_gallery);
-      setCurrentRankingGallery(res.data.Ranking_gallery.slice(0, 3));
-    });
-  };
+  // const handleLandingPage = () => {
+  //   axios.get(process.env.REACT_APP_EC2_URL + "/main").then((res) => {
+  //     setRankingGallerys(res.data.Ranking_gallery);
+  //     setCurrentRankingGallery(res.data.Ranking_gallery.slice(0, 3));
+  //   });
+  // };
 
   const [currentRankingGallery, setCurrentRankingGallery] = useState([]);
 
@@ -107,9 +50,9 @@ function Main() {
     }
   };
 
-  useEffect(() => {
-    handleLandingPage();
-  }, []);
+  // useEffect(() => {
+  //   handleLandingPage();
+  // }, []);
 
   useEffect(() => {
     handleCurrentRankingGallery();
@@ -241,7 +184,15 @@ function Main() {
               })}
               <div className="main-genre-img-wrap">
                 {curScenes.map((curScene, idx) => {
-                  return <GenreScene key={idx} value={curScene} />;
+                  return (
+                    <GenreScene
+                      key={idx}
+                      value={curScene}
+                      onClick={() => {
+                        history.push(`/post/${idx}`);
+                      }}
+                    />
+                  );
                 })}
               </div>
               {addSceneIcon ? null : (
