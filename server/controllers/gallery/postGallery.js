@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
 				return res.status(401).json({ title, message: "title-is-too-long" })
 			}
 			await db.addGallery({ user_id, title, content })
-			res.status(201).json({ title, message: "gallery-created-successfully" })
+			return res.status(201).json({ user_id, title, message: "gallery-created-successfully" })
 		}
 		return res.status(400).json({ message: "invalid-token" })
 	} catch (err) {
