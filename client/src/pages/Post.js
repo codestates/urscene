@@ -14,7 +14,7 @@ axios.defaults.withCredentials = true;
 
 function Post() {
   const { postId } = useParams();
-  const { userInfo, userImg } = useContext(MyContext); // 유저 정보를 확인
+  const { userInfo, userImg } = useContext(MyContext); // 로그인 유저 정보
   const [curImg, setCurImg] = useState(userImg[userInfo.image]);
   const [movieModal, setMoiveModal] = useState(false); // 영화정보 열기닫기
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
@@ -22,13 +22,14 @@ function Post() {
   const [deleteModal, setDeleteModal] = useState(false); // 좋아요 버튼 false가 안누른상태
   const [comments, setComments] = useState([]); //
   const [writeComment, setWriteComment] = useState("");
-  const [user, setuser] = useState(null);
-  const [content, setcontent] = useState(null);
-  const [image, setimage] = useState(null);
-  const [description, setdescription] = useState(null);
+  const [user, setuser] = useState(null); // 작성자 닉네임
+  const [content, setcontent] = useState(null); // 작성 내용
+  const [image, setimage] = useState(null); // 게시한 이미지
+  const [description, setdescription] = useState(null); // 영화정보
   const [singlePost, setSinglePost] = useState(null);
   //console.log(singlePost, "<=singlepost");
   console.log("comments => ", comments);
+  console.log("user => ", user);
 
   console.log(writeComment);
   useEffect(() => {
@@ -62,6 +63,7 @@ function Post() {
       .then((res) => {
         //console.log("comment res ???", res.data.data);
         setComments(res.data.data); // 응답 데이터 확인 필요
+        comments.concat(res.data.data);
       })
       .catch((err) => console.error(err));
   };
@@ -84,6 +86,7 @@ function Post() {
       .then((res) => {
         console.log(res.status);
         setWriteComment("");
+        // window.location.replace(`/post/${postId}`);
       })
       .catch((err) => {
         console.log(err);
@@ -93,6 +96,18 @@ function Post() {
   useEffect(() => {
     getComments();
   }, []);
+
+  // 댓글 삭제하기
+  const deleteComment = () => {
+    axios
+      .delete(`http://localhost:80/comment/${comments.id}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log("deleteComment err", err);
+      });
+  };
 
   return (
     <div>
@@ -175,11 +190,18 @@ function Post() {
           />
           <div className="post-comments">
             {/* <MyComment /> */}
-            {!comments ? (
+            {comments.length === 0 ? (
               <div className="post-comment-no">첫 댓글을 남겨보세요!</div>
             ) : (
               comments.map((el) => {
-                return <Comment comments={el} />;
+                return (
+                  <Comment
+                    key={el.id}
+                    userInfo={userInfo}
+                    comments={el}
+                    deleteComment={deleteComment}
+                  />
+                );
               })
             )}
           </div>
