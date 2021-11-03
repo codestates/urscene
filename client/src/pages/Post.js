@@ -13,30 +13,57 @@ axios.defaults.withCredentials = true;
 
 function Post() {
   const { postId } = useParams();
-  const { userInfo, userImg } = useContext(MyContext); // 로그인 유저 정보
-  const [curImg, setCurImg] = useState(userImg[userInfo.image]);
+  const { userInfo } = useContext(MyContext); // 로그인 유저 정보
   const [movieModal, setMoiveModal] = useState(false); // 영화정보 열기닫기
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
   const [likeModal, setlikeModal] = useState(false); // 좋아요 버튼 false가 안누른상태
-  const [deleteModal, setDeleteModal] = useState(false); // 좋아요 버튼 false가 안누른상태
-  const [comments, setComments] = useState([]); //
-  const [writeComment, setWriteComment] = useState("");
+  const [deleteModal, setDeleteModal] = useState(false); // 삭제 모달
+  const [comments, setComments] = useState([]); // 댓글목록
+  const [writeComment, setWriteComment] = useState(""); // 댓글 작성하기
   const [user, setuser] = useState(null); // 작성자 닉네임
   const [content, setcontent] = useState(null); // 작성 내용
   const [image, setimage] = useState(null); // 게시한 이미지
   const [description, setdescription] = useState(null); // 영화정보
   const [singlePost, setSinglePost] = useState(null);
+  const [isUser, setIsUser] = useState(userInfo);
+  const [likeId, setLikeId] = useState("");
   const history = useHistory();
   console.log(singlePost, "<=singlepost");
   console.log("comments => ", comments);
   // console.log("user => ", user);
-  //console.log(writeComment);
-  console.log("content => ", content);
+  console.log("post userInfo =>", userInfo);
+  //console.log("likeId => ", likeId);
 
   useEffect(() => {
     getSinglePost();
     getComments();
   }, []);
+
+  // 좋아요 요청 및 취소
+  const onClickLikePost = () => {
+    if (likeModal === false) {
+      axios
+        .post(`http://localhost:80/singlepost/like/${postId}`)
+        .then((res) => {
+          console.log("like res =>", res.data);
+          setlikeModal(true);
+          setLikeId(res.data.check.id);
+        })
+        .catch((err) => {
+          console.log("like post err =>", err);
+        });
+    } else if (likeModal === true) {
+      axios
+        .delete(`http://localhost:80/singlepost/like/${likeId}`)
+        .then((res) => {
+          console.log("unlike res =>", res.data);
+          setlikeModal(false);
+        })
+        .catch((err) => {
+          console.log("unlike post err =>", err);
+        });
+    }
+  };
 
   // 싱글 포스트 삭제하기
   const deletePost = () => {
@@ -146,7 +173,7 @@ function Post() {
       <div className="post">
         <div className="postwrap">
           <div className="post-title">나의 장면</div>
-          {user === userInfo.nickname ? (
+          {isUser === null ? null : (
             <div className="post-editgroup">
               {editModal ? (
                 <button className="post-edit-btn" onClick={patchPostContent}>
@@ -165,7 +192,8 @@ function Post() {
                 </div>
               )}
             </div>
-          ) : null}
+          )}
+
           <img
             className="post-image"
             src={`https://urscene-s3-image.s3.us-east-2.amazonaws.com/${image}`}
@@ -173,10 +201,12 @@ function Post() {
           />
           <div className="post-label">
             <div className="post-label-title">{user}</div>
-            <div
-              className={likeModal ? "post-label-like2" : "post-label-like1"}
-              onClick={() => setlikeModal(!likeModal)}
-            ></div>
+            {userInfo !== null ? (
+              <div
+                className={likeModal ? "post-label-like2" : "post-label-like1"}
+                onClick={onClickLikePost}
+              ></div>
+            ) : null}
           </div>
           {editModal ? (
             // 장면 설명 수정
@@ -204,11 +234,12 @@ function Post() {
             )}
           </div>
           <div className="post-devider2" />
-          <WriteComment
-            curImg={curImg}
-            handleInputValue={handleInputValue}
-            postComment={postComment}
-          />
+          {!isUser ? null : (
+            <WriteComment
+              handleInputValue={handleInputValue}
+              postComment={postComment}
+            />
+          )}
           <div className="post-comments">
             {/* <MyComment /> */}
             {comments.length === 0 ? (
@@ -217,7 +248,6 @@ function Post() {
               comments.map((el) => {
                 return (
                   <Comment
-                    curImg={curImg}
                     key={el.id}
                     userInfo={userInfo}
                     comments={el}

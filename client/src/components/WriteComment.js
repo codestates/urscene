@@ -1,9 +1,9 @@
-function WriteComment({ handleInputValue, postComment, curImg }) {
+function WriteComment({ handleInputValue, postComment }) {
   return (
     <div className="post-writecomment">
       <form onSubmit={() => postComment()}>
         {/* <form> */}
-        <img className="post-wc-image" src={curImg} />
+        <img className="post-wc-image" src={""} />
         <input
           type="text"
           onChange={(e) => handleInputValue(e)}

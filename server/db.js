@@ -129,14 +129,15 @@ module.exports = {
     });
     return destroy;
   },
-  getSingleLike: async (data) => {
+
+  getLike: async (data) => {
     const userLike = await Like.findOne({
       where: {
-        user_id: data.userid, //userinfo.id
         id: data.singlelikeid,
+        user_id: data.userid, //userinfo.id
       },
     });
-    return userLike.dataValues;
+    return userLike;
   },
   deleteSingleLike: async (data) => {
     const destroy = await Like.destroy({
@@ -147,6 +148,7 @@ module.exports = {
     });
     return destroy;
   },
+
   mygetSinglepost: async (id) => await Singlepost.findOne({where: {id}}),
   updateSinglepost: async (data) => {
     const edit = await Singlepost.update(
