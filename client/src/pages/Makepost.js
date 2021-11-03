@@ -79,6 +79,8 @@ function Makepost() {
 
   const handleDeleteButtonClick = () => {
     setInputVaule("");
+    setOptions([]);
+    setHasText(false);
   };
 
   const handleDropDownClick = (data) => {
