@@ -13,19 +13,11 @@ module.exports = async (req, res) => {
     const decryptedUUID = await decrypt(uuid, process.env.ENCRYPTION_KEY);
     const cookieUUID = req.cookies.uuid;
 
-    if (decryptedUUID === cookieUUID) {
-      res
-        .clearCookie("token", {
-          httpOnly: true,
-          sameSite: "none",
-          secure: true,
-          path: "/",
-          domain: "urscene.link",
-        })
-        .status(205)
-        .json({ message: "signed-out-successfully" });
-    }
-  } catch (err) {
-    res.status(500).json({ message: "server-error" });
-  }
-};
+		if (decryptedUUID === cookieUUID) {
+			res.clearCookie("token")
+			res.clearCookie("uuid").status(205).json({ message: "signed-out-successfully" })
+		}
+	} catch (err) {
+		res.status(500).json({ message: "server-error" })
+	}
+}

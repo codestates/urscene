@@ -57,7 +57,7 @@ router.delete("/user", user.withdrawUser)
 
 //gallery
 router.post("/gallery", gallery.postGallery)
-// router.post("/gallery/:galleryid", gallery.addSinglepostToGallery)
+router.post("/gallery/:gallerypost_id", gallery.addSinglepostToGallery)
 
 //description
 router.get("/description/:title", description)
