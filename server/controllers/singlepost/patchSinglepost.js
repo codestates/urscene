@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
 	}
 	const { singlepostid } = req.params
 	const { content } = req.body
-	const post = await db.getSinglepost(singlepostid)
+	const post = await db.mygetSinglepost(singlepostid)
 
 	if (!post) {
 		res.status(400).json({ message: "data-not-found" })
