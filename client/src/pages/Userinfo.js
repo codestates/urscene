@@ -129,6 +129,9 @@ function Userinfo() {
       .then((res) => {
         console.log("delete success");
         window.location.replace("/");
+        window.sessionStorage.removeItem("userInfo");
+        window.sessionStorage.removeItem("isLogin");
+        sessionStorage.clear();
       })
       .catch((err) => {
         console.log("delete error =>", err);

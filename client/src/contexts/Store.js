@@ -34,8 +34,6 @@ const Store = (props) => {
       .then((res) => {
         setUserInfo(res.data);
         setIsLogin(true);
-        //console.log("userInfo res???", res.data);
-        //console.log("isLogin ???", isLogin);
         history.push("/main");
       })
       .catch((err) => {
@@ -45,7 +43,6 @@ const Store = (props) => {
   };
 
   useEffect(() => {
-    //isAuthenticated();
     handleLogin();
     setUserInfo(JSON.parse(window.sessionStorage.getItem("userInfo")));
   }, []);
