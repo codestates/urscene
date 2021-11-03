@@ -8,7 +8,7 @@ import SceneDeleteModal from "../components/SceneDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import axios from "axios";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 axios.defaults.withCredentials = true;
 
 function Post() {
@@ -26,7 +26,7 @@ function Post() {
   const [image, setimage] = useState(null); // 게시한 이미지
   const [description, setdescription] = useState(null); // 영화정보
   const [singlePost, setSinglePost] = useState(null);
-
+  const history = useHistory();
   console.log(singlePost, "<=singlepost");
   console.log("comments => ", comments);
   // console.log("user => ", user);
@@ -39,6 +39,17 @@ function Post() {
   }, []);
 
   // 싱글 포스트 삭제하기
+  const deletePost = () => {
+    axios
+      .delete(`http://localhost:80/singlepost/${postId}`)
+      .then((res) => {
+        console.log(res.data);
+        history.push("/main");
+      })
+      .catch((err) => {
+        console.log("delete post err => ", err);
+      });
+  };
 
   //싱글 포스트 수정하기
   const patchPostContent = () => {
@@ -221,7 +232,10 @@ function Post() {
       <MainFooter></MainFooter>
       <TopButton></TopButton>
       {deleteModal ? (
-        <SceneDeleteModal handleDeleteModal={handleDeleteModal} />
+        <SceneDeleteModal
+          deletePost={deletePost}
+          handleDeleteModal={handleDeleteModal}
+        />
       ) : null}
     </div>
   );
