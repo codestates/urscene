@@ -39,9 +39,10 @@ function Post() {
     getComments();
   }, []);
 
-  useEffect(() => {
-    getComments();
-  }, [comments]);
+  // TODO: 페이지 새로고침을 해야 댓글 쓰기, 삭제 확인 가능..
+  // useEffect(() => {
+  //   getComments();
+  // }, [comments]);
 
   // 좋아요 요청 및 취소
   const onClickLikePost = () => {
@@ -163,7 +164,6 @@ function Post() {
       .delete(`http://localhost:80/comment/${e.target.id}`)
       .then((res) => {
         console.log(res.data);
-        // TODO: 페이지 새로고침을 해야 함..
       })
       .catch((err) => {
         console.log("deleteComment err", err);
@@ -240,6 +240,7 @@ function Post() {
           <div className="post-devider2" />
           {!isUser ? null : (
             <WriteComment
+              userInfo={userInfo}
               handleInputValue={handleInputValue}
               postComment={postComment}
             />
