@@ -18,6 +18,8 @@ function Login() {
   const [emailErrMsg, setEmailErrMsg] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [loginErrMsg, setLoginErrMsg] = useState(""); // 가입이 되지 않은 경우 에러
+  const [testEmail, setTestEmail] = useState("");
+  const [testPassword, setTestPassword] = useState("");
 
   const handleInputValue = (key) => (e) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
@@ -53,6 +55,22 @@ function Login() {
           console.log("login err message=>", err);
         });
     }
+  };
+
+  // 사이트 체험하기
+  const handleExperienceSite = () => {
+    axios
+      .post("http://localhost:80/signin", {
+        email: "test@test.com",
+        password: "Abcd1234!",
+      })
+      .then((res) => {
+        console.log("login success ??", res.statusText);
+        handleResponseSuccess();
+      })
+      .catch((err) => {
+        console.log("login err message=>", err);
+      });
   };
 
   return (
@@ -94,6 +112,14 @@ function Login() {
                 <div className="lin-signup-text">회원가입</div>
               </div>
             </Link>
+            <div className="lin-experience">
+              <div
+                className="lin-experience-text"
+                onClick={handleExperienceSite}
+              >
+                체험하기
+              </div>
+            </div>
             <div className="lin-divider"></div>
             <div>
               <button className="lin-kakao"></button>
