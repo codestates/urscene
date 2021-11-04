@@ -221,10 +221,11 @@ function Gallery() {
                 })}
               </div>
             ) : (
-              <div className="gallery-nocontent">
+              <div className="gallery-nocontent-wrap">
                 <div className="gallery-nocontent-img"></div>
                 <div className="gallery-nocontent-title">
-                  마이 갤러리에서 장면을 추가해 주세요.
+                  장면이 아직 없습니다. <br />
+                  마이 갤러리에서 추가해 주세요.
                 </div>
               </div>
             )}

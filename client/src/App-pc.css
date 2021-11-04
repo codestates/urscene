@@ -1563,13 +1563,9 @@ body {
     width: 43px;
     height: 19px;
     margin: 0 auto 0 auto;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 16px;
     text-align: center;
-
     color: #f4f4f4;
     cursor: pointer;
   }
@@ -1648,9 +1644,9 @@ body {
   .genre-img {
     width: 250px;
     height: 157px;
-    border: 1px solid #eaeaea;
+    border: 1px solid #344583;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 9px;
     margin-right: 18px;
     margin-bottom: 20px;
   }
@@ -2724,32 +2720,33 @@ body {
     left: 227px;
   }
 
-  .gallery-nocontent {
-    width: 200px;
-    height: 150px;
-    margin: 200px auto 0 auto;
+  .gallery-nocontent-wrap {
+    width: 840px;
+    height: 200px;
+    border: 1px solid #344583;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    margin-top: 100px;
+    padding: 40px;
   }
 
   .gallery-nocontent-img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background: url("../src/img/noresult.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: none;
-    cursor: pointer;
-    margin-left: 50px;
+    background-size: contain;
+    margin: 0 auto;
   }
 
   .gallery-nocontent-title {
     font-size: 18px;
     line-height: 22px;
-    /* identical to box height, or 122% */
     text-align: center;
     color: #c0c0c0;
     margin: 10px auto 0 auto;
-    word-break: keep-all;
-    width: 160px;
   }
 
   /* 갤러리 삭제 모달*/
