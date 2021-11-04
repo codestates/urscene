@@ -51,6 +51,9 @@ function Makepost() {
 
   const handleInputChange = (e) => {
     const { value } = e.target;
+    if (e.key === "Enter") {
+      return handleSearchMovieTitle();
+    }
     if (value.includes("\\")) return;
     value ? setHasText(true) : setHasText(false);
     setInputVaule(value);
@@ -209,6 +212,9 @@ function Makepost() {
                   placeholder="영화 제목을 입력하고 돋보기를 눌러주세요"
                   value={inputValue}
                   onChange={(e) => handleInputChange(e)}
+                  onKeyPress={(e) => {
+                    handleInputChange(e);
+                  }}
                 />
                 <div
                   className="MP-movie-icondelete"

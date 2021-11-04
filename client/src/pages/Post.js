@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { MyContext } from "../contexts/Store";
 import MainNav from "../components/MainNav";
-import MyComment from "../components/MyComment";
 import WriteComment from "../components/WriteComment";
 import Comment from "../components/Comment";
 import MovieInfo from "../components/MovieInfo";
@@ -9,32 +8,100 @@ import SceneDeleteModal from "../components/SceneDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import axios from "axios";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 axios.defaults.withCredentials = true;
 
 function Post() {
   const { postId } = useParams();
-  const { userInfo, userImg } = useContext(MyContext); // 로그인 유저 정보
-  const [curImg, setCurImg] = useState(userImg[userInfo.image]);
+  const { userInfo } = useContext(MyContext); // 로그인 유저 정보
   const [movieModal, setMoiveModal] = useState(false); // 영화정보 열기닫기
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
   const [likeModal, setlikeModal] = useState(false); // 좋아요 버튼 false가 안누른상태
-  const [deleteModal, setDeleteModal] = useState(false); // 좋아요 버튼 false가 안누른상태
-  const [comments, setComments] = useState([]); //
-  const [writeComment, setWriteComment] = useState("");
+  const [deleteModal, setDeleteModal] = useState(false); // 삭제 모달
+  const [comments, setComments] = useState([]); // get 댓글목록 불러온거
+  const [commentContent, setCommentContent] = useState(comments.length); // post 완료된 댓글목록 불러온거
+  const [writeComment, setWriteComment] = useState(""); // 댓글 작성하기
   const [user, setuser] = useState(null); // 작성자 닉네임
   const [content, setcontent] = useState(null); // 작성 내용
   const [image, setimage] = useState(null); // 게시한 이미지
   const [description, setdescription] = useState(null); // 영화정보
   const [singlePost, setSinglePost] = useState(null);
+  const [isUser, setIsUser] = useState(userInfo);
+  const [likeId, setLikeId] = useState("");
+  const history = useHistory();
   //console.log(singlePost, "<=singlepost");
-  console.log("comments => ", comments);
-  console.log("user => ", user);
+  //console.log("comments => ", comments);
+  //console.log("commentContent => ", commentContent);
+  // console.log("user => ", user);
+  // console.log("post userInfo =>", userInfo);
+  //console.log("likeId => ", likeId);
 
-  console.log(writeComment);
   useEffect(() => {
     getSinglePost();
+    getComments();
   }, []);
+
+  useEffect(() => {
+    getComments();
+  }, [commentContent]);
+
+  // 좋아요 요청 및 취소
+  const onClickLikePost = () => {
+    if (likeModal === false) {
+      axios
+        .post(`http://localhost:80/singlepost/like/${postId}`)
+        .then((res) => {
+          console.log("like res =>", res.data);
+          setlikeModal(true);
+          setLikeId(res.data.check.id);
+        })
+        .catch((err) => {
+          console.log("like post err =>", err);
+        });
+    } else if (likeModal === true) {
+      axios
+        .delete(`http://localhost:80/singlepost/like/${likeId}`)
+        .then((res) => {
+          console.log("unlike res =>", res.data);
+          setlikeModal(false);
+        })
+        .catch((err) => {
+          console.log("unlike post err =>", err);
+        });
+    }
+  };
+
+  // 싱글 포스트 삭제하기
+  const deletePost = () => {
+    axios
+      .delete(`http://localhost:80/singlepost/${postId}`)
+      .then((res) => {
+        console.log(res.data);
+        history.push("/main");
+      })
+      .catch((err) => {
+        console.log("delete post err => ", err);
+      });
+  };
+
+  //싱글 포스트 수정하기
+  const patchPostContent = () => {
+    axios
+      .patch(`http://localhost:80/singlepost/${postId}`, {
+        content: content,
+      })
+      .then((res) => {
+        setEditModal(false);
+        console.log(res.status);
+      })
+      .catch((err) => {
+        console.log("patch content err => ", err);
+      });
+  };
+
+  const handleChangeContent = (e) => {
+    setcontent(e.target.value);
+  };
 
   const handleDeleteModal = () => {
     setDeleteModal(!deleteModal);
@@ -45,7 +112,7 @@ function Post() {
     axios
       .get(`http://localhost:80/singlepost/${postId}`)
       .then((res) => {
-        setSinglePost(res.data.data);
+        setSinglePost(res);
         setuser(res.data.data.User.nickname);
         setcontent(res.data.data.content);
         setimage(res.data.data.image);
@@ -84,18 +151,18 @@ function Post() {
         { accept: "application/json" },
       )
       .then((res) => {
-        console.log(res.status);
-        setWriteComment("");
-        // window.location.replace(`/post/${postId}`);
+        writeCommentDeleted();
+        console.log("comment post res =>", res.data.data.comment);
+        setCommentContent(commentContent + 1);
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  useEffect(() => {
-    getComments();
-  }, []);
+  const writeCommentDeleted = () => {
+    setWriteComment("");
+  };
 
   // 댓글 삭제하기
   const deleteComment = (e) => {
@@ -103,6 +170,7 @@ function Post() {
       .delete(`http://localhost:80/comment/${e.target.id}`)
       .then((res) => {
         console.log(res);
+        setCommentContent(commentContent - 1);
       })
       .catch((err) => {
         console.log("deleteComment err", err);
@@ -116,13 +184,10 @@ function Post() {
       <div className="post">
         <div className="postwrap">
           <div className="post-title">나의 장면</div>
-          {user === userInfo.nickname ? (
+          {isUser === null ? null : userInfo.nickname === user ? (
             <div className="post-editgroup">
               {editModal ? (
-                <button
-                  className="post-edit-btn"
-                  onClick={() => setEditModal(false)}
-                >
+                <button className="post-edit-btn" onClick={patchPostContent}>
                   완료
                 </button>
               ) : (
@@ -139,6 +204,7 @@ function Post() {
               )}
             </div>
           ) : null}
+
           <img
             className="post-image"
             src={`https://urscene-s3-image.s3.us-east-2.amazonaws.com/${image}`}
@@ -146,22 +212,17 @@ function Post() {
           />
           <div className="post-label">
             <div className="post-label-title">{user}</div>
-            {likeModal ? (
+            {userInfo !== null ? (
               <div
-                className="post-label-like2"
-                onClick={() => setlikeModal(false)}
+                className={likeModal ? "post-label-like2" : "post-label-like1"}
+                onClick={onClickLikePost}
               ></div>
-            ) : (
-              <div
-                className="gallery-label-like1"
-                onClick={() => setlikeModal(true)}
-              ></div>
-            )}
+            ) : null}
           </div>
           {editModal ? (
-            <textarea className="post-editdesc">
-              영화 초반, 코드와 아서가 사이토에게 정보를 추출하는 일을 한다.
-              피셔에게 인셉션을 실행하는데 이것을 정보를 심는 일
+            // 장면 설명 수정
+            <textarea onChange={handleChangeContent} className="post-editdesc">
+              {content}
             </textarea>
           ) : (
             <div className="post-desc">{content}</div>
@@ -184,11 +245,14 @@ function Post() {
             )}
           </div>
           <div className="post-devider2" />
-          <WriteComment
-            curImg={curImg}
-            handleInputValue={handleInputValue}
-            postComment={postComment}
-          />
+          {!isUser ? null : (
+            <WriteComment
+              writeComment={writeComment}
+              userInfo={userInfo}
+              handleInputValue={handleInputValue}
+              postComment={postComment}
+            />
+          )}
           <div className="post-comments">
             {/* <MyComment /> */}
             {comments.length === 0 ? (
@@ -211,7 +275,10 @@ function Post() {
       <MainFooter></MainFooter>
       <TopButton></TopButton>
       {deleteModal ? (
-        <SceneDeleteModal handleDeleteModal={handleDeleteModal} />
+        <SceneDeleteModal
+          deletePost={deletePost}
+          handleDeleteModal={handleDeleteModal}
+        />
       ) : null}
     </div>
   );

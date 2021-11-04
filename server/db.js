@@ -1,13 +1,13 @@
-const Sequelize = require("sequelize")
-const jwt = require("jsonwebtoken")
-const Op = Sequelize.Op
-const { User } = require("./models")
-const { Description } = require("./models")
-const { Gallerypost } = require("./models")
-const { Singlepost } = require("./models")
-const { Singlepost_gallerypost } = require("./models")
-const { Like } = require("./models")
-require("dotenv").config()
+const Sequelize = require("sequelize");
+const jwt = require("jsonwebtoken");
+const Op = Sequelize.Op;
+const {User} = require("./models");
+const {Description} = require("./models");
+const {Gallerypost} = require("./models");
+const {Singlepost} = require("./models");
+const {Singlepost_gallerypost} = require("./models");
+const {Like} = require("./models");
+require("dotenv").config();
 
 module.exports = {
 	getUserById: async (id) => await User.findOne({ where: { id } }),

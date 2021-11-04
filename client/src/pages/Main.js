@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import MainNav from "../components/MainNav";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import BestGallery from "../components/BestGallery";
 import GenreScene from "../components/GenreScene";
-import mainGenre from "../components/dummy/mainGenre";
 import axios from "axios";
-import { useHistory } from "react-router";
+import LoadingIndicator from "../components/LoadingIndicator";
 require("dotenv").config();
 
+axios.defaults.withCredentials = true;
 function Main() {
   const history = useHistory();
+  const [isLoading, setIsLoading] = useState(true);
 
   // 인기 갤러리 코드 : 시작
   const [rankingGallerys, setRankingGallerys] = useState([]);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [galleryPerPage] = useState(3);
   const [galleryIcon] = useState([1, 2, 3]);
@@ -24,6 +25,7 @@ function Main() {
       console.log(res.data);
       setRankingGallerys(res.data.Ranking_gallery);
       setCurrentRankingGallery(res.data.Ranking_gallery.slice(0, 3));
+      setIsLoading(false);
     });
   };
 
@@ -92,7 +94,11 @@ function Main() {
         `${process.env.REACT_APP_EC2_URL}/main/single/?genre=${curGenre}&page=1&limit=${scenePerPage}`,
       )
       .then((res) => {
+        if (res.data.single.length !== 4) {
+          setAddSceneIcon(true);
+        }
         setCurSenes(res.data.single);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -110,7 +116,7 @@ function Main() {
         `${process.env.REACT_APP_EC2_URL}/main/single/?genre=${curGenre}&page=${curScenePage}&limit=${scenePerPage}`,
       )
       .then((res) => {
-        if (res.data.single.length === 0) {
+        if (res.data.single.length !== 4) {
           setAddSceneIcon(true);
         } else {
           setCurSenes([...curScenes, ...res.data.single]);
@@ -140,10 +146,13 @@ function Main() {
                 className="main-gallery-Arrowleft"
                 onClick={handleArrowLeft}
               ></div>
-              <div> </div>
-              {currentRankingGallery.map((gallery, idx) => {
-                return <BestGallery key={idx} gallery={gallery} />;
-              })}
+              {isLoading ? (
+                <LoadingIndicator />
+              ) : (
+                currentRankingGallery.map((gallery, idx) => {
+                  return <BestGallery key={idx} gallery={gallery} />;
+                })
+              )}
               <div
                 className="main-gallery-Arrowright"
                 onClick={handleArrowRight}
