@@ -3,9 +3,6 @@ const db = require("../../db")
 
 module.exports = async (req, res) => {
 	const userinfo = isAuthorized(req)
-	if (!userinfo) {
-		return res.status(400).json({ message: "not-authorized" })
-	}
 	if (!req.body.title || !req.body.image || !req.body.content || !req.body.genre) {
 		res.status(400).json({ message: "bad request" }) //하나라도 없으면 400
 	} else {

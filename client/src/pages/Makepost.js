@@ -66,11 +66,13 @@ function Makepost() {
   const handleSearchMovieTitle = () => {
     if (inputValue.includes("\\")) return;
     // axios 요청해서 더미데이터 받아와야 할듯
+    console.log("제목 검색 함수 시작");
+    console.log("inputValue===", inputValue);
     axios
       .get(`${process.env.REACT_APP_EC2_URL}/description/${inputValue}`)
       .then((res) => {
         // console.log(res.data);
-        setOptions(res.data.korMovie);
+        setOptions(res.data.korMovie || res.data.engMovie);
       })
       .catch((err) => {
         console.log(err);
@@ -204,7 +206,7 @@ function Makepost() {
               <div className="MP-movie">
                 <input
                   type="text"
-                  placeholder="영화 제목을 검색해 주세요."
+                  placeholder="영화 제목을 입력하고 돋보기를 눌러주세요"
                   value={inputValue}
                   onChange={(e) => handleInputChange(e)}
                 />
@@ -216,14 +218,12 @@ function Makepost() {
                   className="MP-movie-icon"
                   onClick={handleSearchMovieTitle}
                 ></div>
-                {/* 컴포넌트 추출 포인트 : 시작 */}
                 {hasText ? (
                   <Dropdown
                     options={options}
                     handleDropDownClick={handleDropDownClick}
                   />
                 ) : null}
-                {/* 컴포넌트 추출 포인트 : 끝 */}
               </div>
             </div>
             <div className="MP-input-wrap">

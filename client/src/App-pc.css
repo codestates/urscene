@@ -353,6 +353,10 @@ body {
     width: 400px;
   }
 
+  .MP-movie-DropDownContainer > li {
+    border: 1px solid rgb(223, 225, 229);
+  }
+
   .MP-photo-label {
     margin-top: 18px;
     margin-bottom: 29px;
@@ -2599,8 +2603,9 @@ body {
 
   .gallery-like {
     width: 40px;
-    height: 60px;
-    margin-left: 25px;
+    height: 40px;
+    margin-left: 12.5px;
+    margin-right: 12.5px;
     float: left;
     background: url("../src/img/FullHeart.png");
     background-repeat: no-repeat;
@@ -2678,7 +2683,9 @@ body {
     /* identical to box height, or 122% */
     text-align: center;
     color: #c0c0c0;
-    margin-top: 10px;
+    margin: 10px auto 0 auto;
+    word-break: keep-all;
+    width: 160px;
   }
 
   /* 갤러리 삭제 모달*/

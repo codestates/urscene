@@ -7,7 +7,6 @@ const {Gallerypost} = require("./models");
 const {Singlepost} = require("./models");
 const {Singlepost_gallerypost} = require("./models");
 const {Like} = require("./models");
-
 require("dotenv").config();
 
 module.exports = {
@@ -18,7 +17,14 @@ module.exports = {
   authenticateUser: async (email, password) =>
     await User.findAll({where: {[Op.and]: [{email}, {password}]}}),
   updateUser: async (data) =>
-    await User.update(data, {raw: true, where: {id: data.id}}),
+    await User.update(
+      {
+        password: data.newPassword,
+        nickname: data.newName,
+        image: data.newImage,
+      },
+      {raw: true, where: {id: data.id}}
+    ),
   deleteUser: async (id) => await User.destroy({where: {id}}),
   getSinglePostById: async (singlepost_id) =>
     await Singlepost.findOne({raw: true, where: {id: singlepost_id}}),
@@ -129,14 +135,14 @@ module.exports = {
     });
     return destroy;
   },
-  getSingleLike: async (data) => {
+  getLike: async (data) => {
     const userLike = await Like.findOne({
       where: {
-        user_id: data.userid, //userinfo.id
         id: data.singlelikeid,
+        user_id: data.userid, //userinfo.id
       },
     });
-    return userLike.dataValues;
+    return userLike;
   },
   deleteSingleLike: async (data) => {
     const destroy = await Like.destroy({
@@ -147,7 +153,7 @@ module.exports = {
     });
     return destroy;
   },
-  getSinglepost: async (id) => await Singlepost.findOne({where: {id}}),
+  mygetSinglepost: async (id) => await Singlepost.findOne({where: {id}}),
   updateSinglepost: async (data) => {
     const edit = await Singlepost.update(
       {
