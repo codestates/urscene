@@ -53,273 +53,128 @@ body {
     color: #ffffff;
   }
 
-  /* mainFooter */
-  .mainFooter {
-    position: relative;
-    width: 414px;
-    height: 184px;
-    /* left: 0px;
-    top: 0px; */
-    /* Dark */
+  /* loading 로딩 */
+  .loading-wrap {
+    z-index: 999;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(13, 14, 44, 1);
+    display: grid;
+    place-items: center;
+  }
+
+  .loading {
+    height: 100%;
+  }
+
+  /* ===== mainFooter =====*/
+  .mF-container {
     background: #0a142f;
+    margin: auto;
+    bottom: 0;
+  }
+  .mainFooter {
+    height: 224px;
+    background: #0a142f;
+    padding: 63px 124px 18px;
+    border: 1px solid red;
   }
 
-  .mF-UI {
-    position: absolute;
-    width: 207px;
-    height: 54px;
-    margin-left: 67px;
-    margin-top: 36px;
+  .footer-wrap {
+    height: 91px;
+    width: auto;
+    text-align: left;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 
-  .mF-UI-content {
-    position: absolute;
-    height: 20px;
-    /* margin-left: 16.18%; */
-    /* margin-right: 63.04%; */
-    /* top: calc(50% - 20px / 2 - 46px); */
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
+  .mF-footer-logo {
+    float: left;
+    width: 55px;
+    height: 68px;
+    background-color: #0059f7;
+    background: url("./img/footer_logo.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .mF-UI-about {
+    margin-left: 77px;
+    width: 130px;
+    height: 67px;
+  }
+
+  .mF-UI-title {
     font-size: 14px;
+    font-weight: bold;
     line-height: 16px;
-    /* White */
     color: #ffffff;
+    margin-bottom: 16px;
   }
-
-  .mF-UI-group {
-    position: absolute;
-    /* left: 16.18%; */
-    /* right: 33.82%; */
-    /* top: 34.78%; */
-    margin-top: 41px;
-    margin-bottom: 51.09%;
-  }
-
-  .mF-UI-group-content {
-    position: absolute;
-    height: 18px;
-    left: 0%;
-    right: 46.82%;
-    margin-top: calc(50% - 18px / 2);
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 900;
+  .mF-UI-text {
     font-size: 12px;
     line-height: 14px;
-    /* White */
     color: #ffffff;
-    mix-blend-mode: normal;
+    font-weight: 900;
     opacity: 0.7;
-
-    width: 110.09px;
+    float: left;
+    margin-right: 24px;
   }
 
   .mF-contact {
-    position: absolute;
-    left: 46.86%;
-    right: 0%;
-    top: 19.57%;
-    bottom: 26.09%;
+    display: inline-block;
+    width: 326px;
+    height: 75px;
+    margin-left: 5%;
   }
 
   .mF-contact-title {
-    position: absolute;
-    height: 30px;
-    left: 0%;
-    right: 4.55%;
-    top: calc(50% - 30px / 2 - 35px);
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+    float: left;
     line-height: 16px;
-    /* White */
     color: #ffffff;
   }
 
-  .mF-contact-Front {
-    position: absolute;
-    left: 0%;
-    right: 12.27%;
-    top: 30%;
-    bottom: 52%;
-  }
-
-  .mF-contact-Front-title {
-    position: absolute;
-    height: 14px;
-    left: 0%;
-    right: 84.97%;
-    top: calc(50% - 14px / 2 - 2px);
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 900;
+  .mF-contact-name {
+    float: left;
     font-size: 12px;
     line-height: 14px;
-    /* identical to box height */
-    /* White */
     color: #ffffff;
-    mix-blend-mode: normal;
-    opacity: 0.7;
+    margin-right: 11px;
+    text-decoration: none;
   }
 
-  .mF-contact-Front-name1 {
-    position: absolute;
-    height: 14px;
-    left: 30.05%;
-    right: 52.33%;
-    top: calc(50% - 14px / 2 - 2px);
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-    /* White */
-    color: #ffffff;
-  }
-
-  .mF-contact-Front-name2 {
-    position: absolute;
-    height: 14px;
-    left: 55.96%;
-    right: 26.42%;
-    top: calc(50% - 14px / 2 - 2px);
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-    /* White */
-    color: #ffffff;
-  }
-
-  .mF-contact-Backtitle {
-    position: absolute;
-    height: 14px;
-    left: 0%;
-    right: 87.73%;
-    top: calc(50% - 14px / 2 + 17px);
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 900;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-    /* White */
-    color: #ffffff;
-    mix-blend-mode: normal;
-    opacity: 0.7;
-  }
-
-  .mF-contact-Backname1 {
-    position: absolute;
-    height: 14px;
-    left: 26.36%;
-    right: 58.18%;
-    top: calc(50% - 14px / 2 + 17px);
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-    /* White */
-    color: #ffffff;
-  }
-
-  .mF-contact-Backname2 {
-    position: absolute;
-    height: 14px;
-    left: 49.09%;
-    right: 35.45%;
-    top: calc(50% - 14px / 2 + 17px);
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-    /* White */
-    color: #ffffff;
+  .contact-back {
+    float: left;
+    margin-left: 30px;
   }
 
   .mf-divider {
-    position: absolute;
-    height: 1px;
-    left: 13.77%;
-    right: 13.77%;
-    top: calc(50% - 1px / 2 + 34.5px);
-    /* White */
-    background: #ffffff;
-    mix-blend-mode: normal;
+    margin-top: 40px;
     opacity: 0.15;
-    /* White */
     border: 1px solid #ffffff;
   }
 
-  /* .mF-footer1 {
-    position: absolute;
-    width: 95px;
-    height: 19px;
-    margin-left: 58px;
-    margin-top: 143px;
-  } */
-
-  .mF-footer-logo {
-    position: absolute;
-    left: 14.01%;
-    right: 80.92%;
-    top: 77.72%;
-    bottom: 11.96%;
-    /* Blue/Blue 600 */
-    background-color: #0059f7;
-    /* background: url(""); */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-  }
-
   .mF-footer-title {
-    position: absolute;
-    height: 16px;
-    left: 20.53%;
-    right: 63.04%;
-    top: calc(50% - 16px / 2 + 61px);
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
     font-size: 14px;
     line-height: 16px;
-    /* White */
     color: #ffffff;
   }
 
   .mF-footer2 {
-    position: absolute;
-    height: 11px;
-    left: 46.62%;
-    right: 13.77%;
-    top: calc(50% - 11px / 2 + 61.5px);
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 900;
-    font-size: 5px;
-    line-height: 11px;
-    /* identical to box height */
-    text-align: left;
-    /* White */
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
     color: #ffffff;
-    mix-blend-mode: normal;
     opacity: 0.75;
-    width: 200px;
-    letter-spacing: -0.3px;
+    margin-top: 30px;
   }
 
   /* ===== 랜딩페이지 =====*/
