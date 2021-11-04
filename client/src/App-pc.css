@@ -353,6 +353,10 @@ body {
     width: 400px;
   }
 
+  .MP-movie-DropDownContainer > li {
+    border: 1px solid rgb(223, 225, 229);
+  }
+
   .MP-photo-label {
     margin-top: 18px;
     margin-bottom: 29px;
