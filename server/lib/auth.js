@@ -1,5 +1,4 @@
 const { isAuthorized, decrypt } = require("./jwt")
-const db = require("../db")
 
 module.exports = {
 	isAuthorizedUser: async (req, res, next) => {
