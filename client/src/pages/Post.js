@@ -18,7 +18,8 @@ function Post() {
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
   const [likeModal, setlikeModal] = useState(false); // 좋아요 버튼 false가 안누른상태
   const [deleteModal, setDeleteModal] = useState(false); // 삭제 모달
-  const [comments, setComments] = useState([]); // 댓글목록
+  const [comments, setComments] = useState([]); // get 댓글목록 불러온거
+  const [commentContent, setCommentContent] = useState(comments.length); // post 완료된 댓글목록 불러온거
   const [writeComment, setWriteComment] = useState(""); // 댓글 작성하기
   const [user, setuser] = useState(null); // 작성자 닉네임
   const [content, setcontent] = useState(null); // 작성 내용
@@ -28,10 +29,11 @@ function Post() {
   const [isUser, setIsUser] = useState(userInfo);
   const [likeId, setLikeId] = useState("");
   const history = useHistory();
-  console.log(singlePost, "<=singlepost");
-  console.log("comments => ", comments);
+  //console.log(singlePost, "<=singlepost");
+  //console.log("comments => ", comments);
+  //console.log("commentContent => ", commentContent);
   // console.log("user => ", user);
-  console.log("post userInfo =>", userInfo);
+  // console.log("post userInfo =>", userInfo);
   //console.log("likeId => ", likeId);
 
   useEffect(() => {
@@ -39,10 +41,9 @@ function Post() {
     getComments();
   }, []);
 
-  // TODO: 페이지 새로고침을 해야 댓글 쓰기, 삭제 확인 가능..
   useEffect(() => {
     getComments();
-  }, [comments]);
+  }, [commentContent]);
 
   // 좋아요 요청 및 취소
   const onClickLikePost = () => {
@@ -150,12 +151,17 @@ function Post() {
         { accept: "application/json" },
       )
       .then((res) => {
-        console.log(res.status);
-        setWriteComment("");
+        writeCommentDeleted();
+        console.log("comment post res =>", res.data.data.comment);
+        setCommentContent(commentContent + 1);
       })
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  const writeCommentDeleted = () => {
+    setWriteComment("");
   };
 
   // 댓글 삭제하기
@@ -163,7 +169,8 @@ function Post() {
     axios
       .delete(`http://localhost:80/comment/${e.target.id}`)
       .then((res) => {
-        console.log(res.data);
+        console.log(res);
+        setCommentContent(commentContent - 1);
       })
       .catch((err) => {
         console.log("deleteComment err", err);
@@ -240,6 +247,7 @@ function Post() {
           <div className="post-devider2" />
           {!isUser ? null : (
             <WriteComment
+              writeComment={writeComment}
               userInfo={userInfo}
               handleInputValue={handleInputValue}
               postComment={postComment}

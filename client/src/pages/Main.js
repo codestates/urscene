@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import MainNav from "../components/MainNav";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import BestGallery from "../components/BestGallery";
 import GenreScene from "../components/GenreScene";
-import mainGenre from "../components/dummy/mainGenre";
 import axios from "axios";
-import { useHistory } from "react-router";
+import LoadingIndicator from "../components/LoadingIndicator";
 require("dotenv").config();
 
+axios.defaults.withCredentials = true;
 function Main() {
   const history = useHistory();
+  const [isLoading, setIsLogin] = useState(true);
 
   // 인기 갤러리 코드 : 시작
   const [rankingGallerys, setRankingGallerys] = useState([]);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [galleryPerPage] = useState(3);
   const [galleryIcon] = useState([1, 2, 3]);
@@ -125,6 +126,7 @@ function Main() {
     <div>
       <div className="main-back">
         <MainNav />
+
         <div className="main-wrap">
           <div className="main-gallery">
             <div
