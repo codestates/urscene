@@ -2838,7 +2838,7 @@ body {
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     display: grid;
     place-items: center;
   }
@@ -2851,6 +2851,7 @@ body {
     margin: 0px auto 0 auto;
     text-align: center;
     position: relative;
+    padding: 20px;
   }
 
   .add-text {
@@ -2859,8 +2860,6 @@ body {
     line-height: 40px;
     color: #ffffff;
     margin: 40px auto 0 auto;
-    word-break: keep-all;
-    width: 200px;
   }
 
   .add-btn {
@@ -2904,12 +2903,25 @@ body {
     height: 40px;
     outline-style: none;
     border: none;
-    /* font-size: 16px; */
     line-height: 21px;
     display: inline-block;
     margin-top: 20px;
     padding-left: 16px;
-    border-radius: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .addModal-input-drop {
+    width: 300px;
+    height: 40px;
+    outline-style: none;
+    border: none;
+    line-height: 21px;
+    display: inline-block;
+    margin-top: 20px;
+    padding-left: 16px;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
   }
 
   .addModal-Drop {
@@ -2917,29 +2929,26 @@ body {
     /* float: none; */
     background-color: white;
     list-style-type: none;
-    /* margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 0px; */
-    margin-top: -5px;
-    margin-left: 99px;
+    margin: 0 auto;
     padding: 0.5rem 15px;
     border: 1px solid rgb(223, 225, 229);
     border-radius: 0 0 1rem 1rem;
     box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
     z-index: 3;
-    position: absolute;
     font-size: 16px;
     line-height: 21px;
   }
 
   .addModal-Drop > li {
-    border: 1px solid rgb(223, 225, 229);
-    color: #7c9cbf;
+    color: #344583;
     cursor: pointer;
     margin-top: 3px;
     padding: 5px;
+  }
+
+  .addModal-hr {
+    border: 1px solid rgb(223, 225, 229);
+    margin-top: 5px;
   }
 
   .addModal-err {
