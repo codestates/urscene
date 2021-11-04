@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MainFooter from "../components/MainFooter";
-import LoadingIndicator from "../components/LoadingIndicator";
 
 function Landing() {
   return (
