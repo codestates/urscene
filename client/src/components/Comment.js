@@ -4,7 +4,7 @@ function Comment({ comments, userInfo, deleteComment }) {
   const [isUser, setIsUser] = useState(userInfo);
 
   console.log("comment userinfo =>", isUser);
-  // console.log("comments userinfo =>", comments.User);
+  console.log("comments userinfo =>", comments.User);
   return (
     <>
       <div className="post-mycomment">
@@ -19,13 +19,14 @@ function Comment({ comments, userInfo, deleteComment }) {
             {comments.comment}
           </div>
 
-          {isUser === null ? null : (
+          {isUser === null ? null : userInfo.nickname ===
+            comments.User.nickname ? (
             <div
               onClick={deleteComment}
               id={comments.id}
               className="post-mycomment-group2-delete"
             ></div>
-          )}
+          ) : null}
         </div>
       </div>
     </>
