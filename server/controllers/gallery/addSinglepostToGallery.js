@@ -4,6 +4,7 @@ require("dotenv").config()
 module.exports = async (req, res) => {
 	const { singlepost_id } = req.body
 	const { gallerypost_id } = req.params
+
 	try {
 		if (!singlepost_id) {
 			return res.status(400).json({ message: "request-error" })
@@ -21,7 +22,7 @@ module.exports = async (req, res) => {
 		delete singlepostData.updatedAt
 
 		const existentSinglepost = await db.getJunctionTableData(singlepost_id, gallerypost_id)
-		if (existentSinglepost.length > 1) {
+		if (existentSinglepost.length !== 0) {
 			return res.status(400).json({ singlepost_id, message: "singlepost-already-exists" })
 		}
 
