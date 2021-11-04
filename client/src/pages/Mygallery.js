@@ -60,16 +60,20 @@ function Mygallery() {
 
   // 나의 장면 불러오기
   const getAllMyScene = () => {
-    axios.get(`${process.env.REACT_APP_EC2_URL}/singlepost`).then((res) => {
-      setHaveScenes(res.data.my);
-    });
+    axios
+      .get(`${process.env.REACT_APP_EC2_URL}/user/singlepost`)
+      .then((res) => {
+        setHaveScenes(res.data.my);
+      });
   };
 
   // 나의 갤러리 불러오기
   const getAllMyGallery = () => {
-    axios.get(`${process.env.REACT_APP_EC2_URL}/gallery`).then((res) => {
-      setHaveGallery(res.data.my);
-    });
+    axios
+      .get(`${process.env.REACT_APP_EC2_URL}/user/gallerypost`)
+      .then((res) => {
+        setHaveGallery(res.data.my);
+      });
   };
 
   useEffect(() => {

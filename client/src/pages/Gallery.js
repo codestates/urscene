@@ -148,9 +148,7 @@ function Gallery() {
         <MainNav />
         <div className="gallery">
           <div className="gallerywrap">
-            <div className="gallery-nickname">
-              {nicknameGallery} 님의 gallery id = {galleryId}
-            </div>
+            <div className="gallery-nickname">{nicknameGallery} 님의</div>
             <div className="gallery-group1">
               {editModal ? (
                 <div>

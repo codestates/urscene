@@ -2827,7 +2827,6 @@ body {
     border-radius: 10px;
     margin: 0px auto 0 auto;
     text-align: center;
-    border: 1px solid red;
     position: relative;
   }
 
@@ -2845,7 +2844,6 @@ body {
     width: 300px;
     height: 34px;
     margin-top: 40px;
-    border: 1px solid red;
     display: inline-block;
     position: relative;
   }
