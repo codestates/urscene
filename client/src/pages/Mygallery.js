@@ -9,18 +9,24 @@ import MadeScene from "../components/MadeScene";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import axios from "axios";
+require("dotenv").config();
 axios.defaults.withCredentials = true;
 
 function Mygallery() {
   const { userInfo, isLogin } = useContext(MyContext); // 유저 정보를 확인
-  console.log("mygallery, 받아온 userInfo ??? ", userInfo);
   const [isLikeSceneClicked, setIsLikeSceneClicked] = useState(false);
   const [isLikeGalleryClicked, setIsLikeGalleryClicked] = useState(false);
-  const [haveScenes, setHaveScenes] = useState(true);
-  const [haveGallery, setHaveGallery] = useState(true);
-  const [haveLikeScene, setHaveLikeScene] = useState(true);
-  const [haveLikeGallery, setHaveLikeGallery] = useState(true);
-  console.log("mygallery islogin ???", isLogin);
+  const [haveScenes, setHaveScenes] = useState([]);
+  const [haveGallery, setHaveGallery] = useState([]);
+  const [haveLikeScene, setHaveLikeScene] = useState([]);
+  const [haveLikeGallery, setHaveLikeGallery] = useState([]);
+  const [reRender, setReRender] = useState(false);
+
+  console.log("reRender===", reRender);
+  // 페이지 리 랜더링용
+  const handleRender = () => {
+    setReRender(!reRender);
+  };
 
   // 좋아한 장면 펼치기
   const ClickLikeScene = () => {
@@ -33,28 +39,43 @@ function Mygallery() {
   };
 
   // 갤러리, 싱글포스트, 좋아한 갤러리, 좋아한 장면 불러오기
-  const getAllGallery = () => {
-    axios
-      .get("http://localhost:80/user/gallery")
-      .then((res) => {
-        console.log("post res ???", res);
-        setHaveScenes(res.data.singlepost);
-        setHaveGallery(res.data.gallery);
-        setHaveLikeScene(res.data.liked_singlepost);
-        setHaveLikeGallery(res.data.liked_gallery);
-      })
-      .catch((err) => {
-        console.error("singlepost err message =>", err);
-        setHaveScenes(false);
-        setHaveGallery(false);
-        setHaveLikeScene(false);
-        setHaveLikeGallery(false);
-      });
+  // const getAllGallery = () => {
+  //   axios
+  //     .get("http://localhost:80/gallery")
+  //     .then((res) => {
+  //       console.log("post res ???", res);
+  //       setHaveScenes(res.data.singlepost);
+  //       setHaveGallery(res.data.gallery);
+  //       setHaveLikeScene(res.data.liked_singlepost);
+  //       setHaveLikeGallery(res.data.liked_gallery);
+  //     })
+  //     .catch((err) => {
+  //       console.error("singlepost err message =>", err);
+  //       setHaveScenes(false);
+  //       setHaveGallery(false);
+  //       setHaveLikeScene(false);
+  //       setHaveLikeGallery(false);
+  //     });
+  // };
+
+  // 나의 장면 불러오기
+  const getAllMyScene = () => {
+    axios.get(`${process.env.REACT_APP_EC2_URL}/singlepost`).then((res) => {
+      setHaveScenes(res.data.my);
+    });
+  };
+
+  // 나의 갤러리 불러오기
+  const getAllMyGallery = () => {
+    axios.get(`${process.env.REACT_APP_EC2_URL}/gallery`).then((res) => {
+      setHaveGallery(res.data.my);
+    });
   };
 
   useEffect(() => {
-    getAllGallery();
-  }, []);
+    getAllMyScene();
+    getAllMyGallery();
+  }, [reRender]);
 
   return (
     <div>
@@ -82,7 +103,18 @@ function Mygallery() {
               <div className="my-g-add-icon"></div>
             </div>
             {haveScenes ? (
-              <MadeScene />
+              <div className="made-scene-wrap">
+                {haveScenes.map((scene) => {
+                  return (
+                    <MadeScene
+                      key={scene.id}
+                      scene={scene}
+                      haveGallery={haveGallery}
+                      handleRender={handleRender}
+                    />
+                  );
+                })}
+              </div>
             ) : (
               <div className="no-results-wrap">
                 <center>
@@ -101,7 +133,11 @@ function Mygallery() {
               <div className="my-g-add-icon"></div>
             </div>
             {haveGallery ? (
-              <MadeGallery />
+              <div className="like-gallery-container">
+                {haveGallery.map((gallery) => {
+                  return <MadeGallery key={gallery.id} gallery={gallery} />;
+                })}
+              </div>
             ) : (
               <div className="no-results-wrap">
                 <center>
