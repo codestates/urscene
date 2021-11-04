@@ -902,6 +902,26 @@ body {
     margin: 0px auto;
   }
 
+  .lin-experience {
+    width: 400px;
+    height: 60px;
+    margin-top: 00px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 22px;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration-line: underline;
+    color: #ffffff;
+  }
+
+  .lin-experience-text {
+    width: 58px;
+    height: 24px;
+    cursor: pointer;
+    margin: 0px auto;
+  }
+
   .lin-divider {
     width: 400px;
     height: 0px;

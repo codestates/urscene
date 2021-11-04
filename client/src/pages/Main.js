@@ -92,6 +92,9 @@ function Main() {
         `${process.env.REACT_APP_EC2_URL}/main/single/?genre=${curGenre}&page=1&limit=${scenePerPage}`,
       )
       .then((res) => {
+        if (res.data.single.length !== 4) {
+          setAddSceneIcon(true);
+        }
         setCurSenes(res.data.single);
       })
       .catch((err) => {
@@ -110,7 +113,7 @@ function Main() {
         `${process.env.REACT_APP_EC2_URL}/main/single/?genre=${curGenre}&page=${curScenePage}&limit=${scenePerPage}`,
       )
       .then((res) => {
-        if (res.data.single.length === 0) {
+        if (res.data.single.length !== 4) {
           setAddSceneIcon(true);
         } else {
           setCurSenes([...curScenes, ...res.data.single]);
