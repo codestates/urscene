@@ -13,14 +13,14 @@ axios.defaults.withCredentials = true;
 
 function Mygallery() {
   const { userInfo, isLogin } = useContext(MyContext); // 유저 정보를 확인
-  console.log("mygallery, 받아온 userInfo ??? ", userInfo);
   const [isLikeSceneClicked, setIsLikeSceneClicked] = useState(false);
   const [isLikeGalleryClicked, setIsLikeGalleryClicked] = useState(false);
   const [haveScenes, setHaveScenes] = useState(true);
   const [haveGallery, setHaveGallery] = useState(true);
   const [haveLikeScene, setHaveLikeScene] = useState(true);
   const [haveLikeGallery, setHaveLikeGallery] = useState(true);
-  console.log("mygallery islogin ???", isLogin);
+  // console.log("mygallery, 받아온 userInfo ??? ", userInfo);
+  // console.log("mygallery islogin ???", isLogin);
 
   // 좋아한 장면 펼치기
   const ClickLikeScene = () => {

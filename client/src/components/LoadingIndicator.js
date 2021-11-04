@@ -1,10 +1,11 @@
 import React from "react";
-import gogo from "../img/gogo.gif";
+import aaa from "../img/aaa.gif";
+import lo from "../img/lo.gif";
 
 function LoadingIndicator() {
   return (
     <div className="loading-wrap">
-      <img className="loading" src={gogo} alt="loading" />
+      <img className="loading" src={lo} alt="loading" />
     </div>
   );
 }

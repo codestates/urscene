@@ -12,7 +12,7 @@ require("dotenv").config();
 axios.defaults.withCredentials = true;
 function Main() {
   const history = useHistory();
-  const [isLoading, setIsLogin] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   // 인기 갤러리 코드 : 시작
   const [rankingGallerys, setRankingGallerys] = useState([]);
@@ -25,6 +25,7 @@ function Main() {
       console.log(res.data);
       setRankingGallerys(res.data.Ranking_gallery);
       setCurrentRankingGallery(res.data.Ranking_gallery.slice(0, 3));
+      setIsLoading(false);
     });
   };
 
@@ -94,6 +95,7 @@ function Main() {
       )
       .then((res) => {
         setCurSenes(res.data.single);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -126,7 +128,6 @@ function Main() {
     <div>
       <div className="main-back">
         <MainNav />
-
         <div className="main-wrap">
           <div className="main-gallery">
             <div
@@ -142,10 +143,13 @@ function Main() {
                 className="main-gallery-Arrowleft"
                 onClick={handleArrowLeft}
               ></div>
-              <div> </div>
-              {currentRankingGallery.map((gallery, idx) => {
-                return <BestGallery key={idx} gallery={gallery} />;
-              })}
+              {isLoading ? (
+                <LoadingIndicator />
+              ) : (
+                currentRankingGallery.map((gallery, idx) => {
+                  return <BestGallery key={idx} gallery={gallery} />;
+                })
+              )}
               <div
                 className="main-gallery-Arrowright"
                 onClick={handleArrowRight}
