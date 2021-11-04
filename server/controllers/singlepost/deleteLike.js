@@ -10,8 +10,12 @@ module.exports = async (req, res) => {
 	const userid = userinfo.id
 
 	const data = await db.getLike({ userid, singlelikeid })
-	const { id, singlepost_id } = data
+	if (!data) {
+		res.status(404).json({ message: "data-not-found" })
+	} else {
+		const { id, singlepost_id } = data
 
-	await db.deleteSingleLike({ id, singlepost_id })
-	res.status(200).json({ message: "delete-singlelike-successfully" })
+		await db.deleteSingleLike({ id, singlepost_id })
+		res.status(200).json({ message: "delete-singlelike-successfully" })
+	}
 }

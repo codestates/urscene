@@ -1,4 +1,5 @@
 const db = require("../../db")
+const { isAuthorized } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
 	const { singlepostid } = req.params
@@ -7,7 +8,7 @@ module.exports = async (req, res) => {
 	const check = await db.getSingleLike({ id, singlepostid })
 
 	if (!check) {
-		res.status(404).json({ Like: null })
+		res.status(200).json({ Like: null })
 	} else {
 		const data = check.dataValues.id
 		res.status(200).json({ Like: data })
