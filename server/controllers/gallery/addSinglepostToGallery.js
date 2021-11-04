@@ -2,12 +2,13 @@ const db = require("../../db");
 require("dotenv").config();
 
 module.exports = async (req, res) => {
-  const { singlepost_id } = req.body;
-  const { gallerypost_id } = req.params;
-  try {
-    if (!singlepost_id) {
-      return res.status(400).json({ message: "request-error" });
-    }
+	const { singlepost_id } = req.body
+	const { gallerypost_id } = req.params
+
+	try {
+		if (!singlepost_id) {
+			return res.status(400).json({ message: "request-error" })
+		}
 
     const singlepostData = await db.getSinglePostById(singlepost_id);
     if (!singlepostData) {
