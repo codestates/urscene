@@ -2103,19 +2103,17 @@ body {
     height: 32px;
     float: right;
     margin-top: 5px;
-
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
     box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
       0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
-    font-weight: 500;
     font-size: 14px;
     line-height: 18px;
     text-align: center;
-
     color: #5a7fa8;
+    cursor: pointer;
   }
 
   .post-edit-edit {
@@ -2153,55 +2151,50 @@ body {
     width: 840px;
     height: 40px;
     margin-top: 22px;
+    display: flex;
   }
 
   .post-label-title {
     width: 397px;
     height: 33px;
     margin-top: 7px;
-    float: left;
-
-    font-family: Roboto;
     font-weight: bold;
     font-size: 26px;
     line-height: 30px;
     display: flex;
-    align-items: flex-end;
-
+    flex-wrap: wrap;
+    flex-direction: row;
     color: #ffffff;
   }
 
   .post-label-like1 {
     width: 40px;
     height: 40px;
-    float: right;
-
+    margin-left: auto;
     background: url("../src/img/Heart.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
+    cursor: pointer;
   }
 
   .post-label-like2 {
     width: 40px;
     height: 40px;
-    float: right;
-
+    margin-left: auto;
     background: url("../src/img/FullHeart.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
+    cursor: pointer;
   }
 
   .post-desc {
     width: 840px;
     height: 68px;
     margin-top: 21px;
-    font-family: Roboto;
-    font-weight: normal;
     font-size: 28px;
     line-height: 33px;
-
     color: #ffffff;
     text-align: left;
     word-break: keep-all;
