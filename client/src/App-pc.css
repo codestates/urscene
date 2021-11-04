@@ -129,7 +129,7 @@ body {
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(13, 14, 44, 1);
+    background-color: black;
     display: grid;
     place-items: center;
   }
@@ -357,7 +357,6 @@ body {
     border-radius: 0 0 1rem 1rem;
     box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
     z-index: 3;
-
     position: relative;
     font-size: 16px;
     line-height: 21px;
@@ -365,7 +364,18 @@ body {
   }
 
   .MP-movie-DropDownContainer > li {
-    border: 1px solid rgb(223, 225, 229);
+    cursor: pointer;
+  }
+
+  .MP-movie-dropdown-hr {
+    border: 1px solid rgb(236, 236, 236);
+    margin-bottom: 3px;
+  }
+
+  #dropdown {
+    text-align: center;
+    margin: 5px;
+    color: rgb(182, 182, 182);
   }
 
   .MP-photo-label {
@@ -1212,6 +1222,18 @@ body {
     background-color: #000;
   }
 
+  .landing-main-logo {
+    float: left;
+    width: 158px;
+    height: 32px;
+    background: url("./img/NavLogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
   .landing-main-img {
     background: url("./img/Frame129.png");
     width: 625px;
@@ -1254,6 +1276,8 @@ body {
     height: 562px;
     background-color: #070e27;
     text-align: center;
+    display: flex;
+    justify-content: center;
   }
 
   .link {
@@ -1412,6 +1436,7 @@ body {
   }
 
   .main-gallery {
+    padding-top: 34px;
     width: 1060px;
     height: 360px;
   }
@@ -1427,25 +1452,25 @@ body {
   .main-gallery-Arrowleft {
     width: 20px;
     height: 299px;
-
     background: url("./img/ArrowLeft.png");
     width: 25px;
     height: 80px;
     background-position: center;
     background-size: cover;
     margin: auto 0px;
+    cursor: pointer;
   }
 
   .main-gallery-Arrowright {
     width: 25px;
     height: 80px;
-
     background: url("./img/ArrowRight.png");
     width: 25px;
     height: 80px;
     background-position: center;
     background-size: cover;
     margin: auto 0px;
+    cursor: pointer;
   }
 
   .main-gallery-page {
@@ -1576,6 +1601,10 @@ body {
     border-radius: 4.86133px;
     padding: 11px;
     margin-bottom: 30px;
+  }
+
+  .BG-container:hover {
+    box-shadow: 0 2px 3px rgba(44, 46, 148, 0.808);
   }
 
   .BG-title {
@@ -2119,6 +2148,7 @@ body {
     width: 100vw;
     height: auto;
     background-color: #070e27;
+    padding-top: 34px;
   }
 
   .postwrap {
@@ -2131,12 +2161,8 @@ body {
   .post-title {
     width: 840px;
     height: 51px;
-
-    font-family: Roboto;
-    font-weight: normal;
     font-size: 32px;
     line-height: 37px;
-
     color: #ffffff;
     text-align: left;
   }
@@ -2258,7 +2284,6 @@ body {
     font-weight: normal;
     font-size: 28px;
     line-height: 33px;
-
     color: black;
     text-align: left;
     word-break: keep-all;
@@ -2286,14 +2311,10 @@ body {
     height: 25px;
     margin-left: 12px;
     margin-top: 4px;
-
-    font-family: Roboto;
-    font-weight: normal;
     font-size: 24px;
     line-height: 28px;
     display: flex;
     align-items: center;
-
     color: #ffffff;
     float: left;
   }
@@ -2304,7 +2325,6 @@ body {
     margin-left: 12px;
     display: flex;
     align-items: center;
-
     color: #ffffff;
     cursor: pointer;
   }
@@ -2406,6 +2426,7 @@ body {
 
   .post-comment-no {
     color: #7c9cbf;
+    text-align: center;
   }
 
   .post-mycomment {
@@ -2677,6 +2698,7 @@ body {
     border-radius: 10px;
     display: flex;
     position: relative;
+    cursor: pointer;
   }
 
   .gallery-content-img {

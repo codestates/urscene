@@ -7,6 +7,7 @@ import MovieInfo from "../components/MovieInfo";
 import SceneDeleteModal from "../components/SceneDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
+import LoadingIndicator from "../components/LoadingIndicator";
 import axios from "axios";
 import { useParams, useHistory } from "react-router";
 axios.defaults.withCredentials = true;
@@ -28,6 +29,7 @@ function Post() {
   const [singlePost, setSinglePost] = useState(null);
   const [isUser, setIsUser] = useState(userInfo);
   const [likeId, setLikeId] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
   //console.log(singlePost, "<=singlepost");
   //console.log("comments => ", comments);

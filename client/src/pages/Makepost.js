@@ -9,30 +9,6 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 require("dotenv").config();
 
-let dummyData = [
-  {
-    year: "2020",
-    movieTitle: "조제",
-    movieTitleEng: "Josée",
-    directors: "김종관",
-    genre: "멜로/로맨스,드라마",
-  },
-  {
-    year: "2020",
-    movieTitle: "조제, 호랑이 그리고 물고기들",
-    movieTitleEng: "Josee, The Tiger And The Fish",
-    directors: "타무라 코타로",
-    genre: "애니메이션",
-  },
-  {
-    year: "2003",
-    movieTitle: "조제, 호랑이 그리고 물고기들",
-    movieTitleEng: "Josee, The Tiger And The Fish",
-    directors: "이누도 잇신 ",
-    genre: "드라마",
-  },
-];
-
 function Makepost() {
   const [seletedGenre, setSeletedGenre] = useState(""); // 선택한 장르가 담기는 곳
   const [postDescription, setPostDescription] = useState(""); // 장면 설명이 담기는 곳
@@ -209,17 +185,19 @@ function Makepost() {
               <div className="MP-movie">
                 <input
                   type="text"
-                  placeholder="영화 제목을 입력하고 돋보기를 눌러주세요"
+                  placeholder="영화 제목을 입력해주세요"
                   value={inputValue}
                   onChange={(e) => handleInputChange(e)}
                   onKeyPress={(e) => {
                     handleInputChange(e);
                   }}
                 />
-                <div
-                  className="MP-movie-icondelete"
-                  onClick={handleDeleteButtonClick}
-                ></div>
+                {inputValue === "" ? null : (
+                  <div
+                    className="MP-movie-icondelete"
+                    onClick={handleDeleteButtonClick}
+                  ></div>
+                )}
                 <div
                   className="MP-movie-icon"
                   onClick={handleSearchMovieTitle}
@@ -264,7 +242,7 @@ function Makepost() {
               {uploadImageName === null ? (
                 <div>
                   <div className="MP-photo-show" ref={uploadBoxRef}>
-                    사진을 드래그 혹은 선택하기를 눌러 업로드해주세요.
+                    드래그 혹은 선택하기를 눌러 업로드해주세요.
                   </div>
                   <input
                     className="MP-photo-btn"

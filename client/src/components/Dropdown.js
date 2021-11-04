@@ -10,10 +10,11 @@ function Dropdown({ options, handleDropDownClick }) {
               {movie.title} ({movie.genre}) ({movie.released}년작)
             </div>
             <div> 감독 : {movie.director}</div>
+            <div className="MP-movie-dropdown-hr"></div>
           </li>
         );
       })}
-      <li>원하시는 결과가 없을 경우 단어를 추가해주세요.</li>
+      <li id="dropdown">원하시는 결과가 없을 경우 단어를 추가해주세요.</li>
     </ul>
   );
 }
