@@ -40,9 +40,9 @@ function Post() {
   }, []);
 
   // TODO: 페이지 새로고침을 해야 댓글 쓰기, 삭제 확인 가능..
-  // useEffect(() => {
-  //   getComments();
-  // }, [comments]);
+  useEffect(() => {
+    getComments();
+  }, [comments]);
 
   // 좋아요 요청 및 취소
   const onClickLikePost = () => {
