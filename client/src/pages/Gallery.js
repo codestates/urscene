@@ -79,6 +79,7 @@ function Gallery() {
 
   // 좋아요 정보 불러오는 함수
   const handleLandingLike = () => {
+    if (userInfo === null) return;
     axios
       .get(`${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryId}`)
       .then((res) => {
@@ -195,15 +196,14 @@ function Gallery() {
                 <div>
                   <div className="gallery-desc">{contentGallery}</div>
                   <div className="gallery-likeGroup">
-                    <div
-                      className={likeModal ? "gallery-like" : "gallery-unlike"}
-                      onClick={handleLike}
-                    ></div>
-                    {requireLoginModal ? (
-                      <div className="gallery-like-comment">
-                        로그인이 필요합니다.
-                      </div>
-                    ) : null}
+                    {userInfo === null ? null : (
+                      <div
+                        className={
+                          likeModal ? "gallery-like" : "gallery-unlike"
+                        }
+                        onClick={handleLike}
+                      ></div>
+                    )}
                   </div>
                 </div>
               )}
@@ -241,7 +241,6 @@ function Gallery() {
           handleDeleteModal={handleDeleteModal}
         />
       ) : null}
-      {/* {sceneDeleteModal ? <SceneInGalleryDeleteModal /> : null} */}
     </div>
   );
 }
