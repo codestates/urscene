@@ -732,7 +732,7 @@ body {
   }
 
   .bookmarker {
-    background: url("./img/bookmark.png");
+    background: url("./img/bookmark-1.png");
     width: 40px;
     height: 40px;
     background-position: center;
@@ -1699,11 +1699,15 @@ body {
     width: 185px;
     height: 122px;
     border-radius: 10px;
-    border: 1px solid #eaeaea;
+    border: 1px solid #344583;
     box-sizing: border-box;
     margin-bottom: 20px;
     margin-right: 20px;
     position: relative;
+  }
+
+  .result-scene-img:hover {
+    box-shadow: 0 2px 3px rgba(44, 46, 148, 0.808);
   }
 
   .result-scene-img > img {
