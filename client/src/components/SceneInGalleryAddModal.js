@@ -18,8 +18,6 @@ function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
   };
 
   const handleAddSceneinGallery = () => {
-    console.log("갤러리 아이디 ===", galleryId);
-    console.log("장면 아이디 ===", scene.id);
     axios
       .post(
         `${process.env.REACT_APP_EC2_URL}/gallery/${galleryId}`,
@@ -38,7 +36,6 @@ function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
         }
       })
       .catch((err) => {
-        console.log("담기 실패");
         console.log(err);
       });
   };
