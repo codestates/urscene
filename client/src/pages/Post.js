@@ -173,7 +173,7 @@ function Post() {
       <div className="post">
         <div className="postwrap">
           <div className="post-title">나의 장면</div>
-          {isUser === null ? null : (
+          {isUser === null ? null : userInfo.nickname === user ? (
             <div className="post-editgroup">
               {editModal ? (
                 <button className="post-edit-btn" onClick={patchPostContent}>
@@ -192,7 +192,7 @@ function Post() {
                 </div>
               )}
             </div>
-          )}
+          ) : null}
 
           <img
             className="post-image"
