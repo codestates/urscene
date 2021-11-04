@@ -242,7 +242,7 @@ function Makepost() {
               {uploadImageName === null ? (
                 <div>
                   <div className="MP-photo-show" ref={uploadBoxRef}>
-                    사진을 드래그 혹은 선택하기를 눌러 업로드해주세요.
+                    드래그 혹은 선택하기를 눌러 업로드해주세요.
                   </div>
                   <input
                     className="MP-photo-btn"

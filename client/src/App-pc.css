@@ -356,7 +356,6 @@ body {
     border-radius: 0 0 1rem 1rem;
     box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
     z-index: 3;
-
     position: relative;
     font-size: 16px;
     line-height: 21px;
@@ -364,7 +363,18 @@ body {
   }
 
   .MP-movie-DropDownContainer > li {
-    border: 1px solid rgb(223, 225, 229);
+    cursor: pointer;
+  }
+
+  .MP-movie-dropdown-hr {
+    border: 1px solid rgb(236, 236, 236);
+    margin-bottom: 3px;
+  }
+
+  #dropdown {
+    text-align: center;
+    margin: 5px;
+    color: rgb(182, 182, 182);
   }
 
   .MP-photo-label {
