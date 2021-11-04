@@ -39,6 +39,10 @@ function Post() {
     getComments();
   }, []);
 
+  useEffect(() => {
+    getComments();
+  }, [comments]);
+
   // 좋아요 요청 및 취소
   const onClickLikePost = () => {
     if (likeModal === false) {
@@ -147,7 +151,6 @@ function Post() {
       .then((res) => {
         console.log(res.status);
         setWriteComment("");
-        // window.location.replace(`/post/${postId}`);
       })
       .catch((err) => {
         console.log(err);
@@ -160,6 +163,7 @@ function Post() {
       .delete(`http://localhost:80/comment/${e.target.id}`)
       .then((res) => {
         console.log(res.data);
+        // TODO: 페이지 새로고침을 해야 함..
       })
       .catch((err) => {
         console.log("deleteComment err", err);
