@@ -21,16 +21,36 @@ module.exports = {
 			{ raw: true, where: { id: data.id } }
 		),
 	deleteUser: async (id) => await User.destroy({ where: { id } }),
-	getSinglePostById: async (singlepost_id) => await Singlepost.findOne({ raw: true, where: { id: singlepost_id } }),
-	getJunctionTableData: async (singlepost_id, gallerypost_id) =>
-		await Singlepost_gallerypost.findAll({ raw: true, where: { [Op.and]: [{ singlepost_id }, { gallerypost_id }] } }),
-	getGalleryById: async (gallerypost_id) => await Gallerypost.findOne({ raw: true, where: { id: gallerypost_id } }),
-	getverify: async (token) => {
-		userinfo = jwt.verify(token, process.env.ACCESS_SECRET)
-		return userinfo
-	},
 	addGallery: async (data) => await Gallerypost.create(data),
 	addSinglepostToGallery: async (data) => await Singlepost_gallerypost.create(data),
+	getSinglePostById: async (singlepost_id) => await Singlepost.findOne({ raw: true, where: { id: singlepost_id } }),
+	getGalleryById: async (gallerypost_id) => await Gallerypost.findOne({ raw: true, where: { id: gallerypost_id } }),
+	getJunctionTableData: async (singlepost_id, gallerypost_id) =>
+		await Singlepost_gallerypost.findAll({ raw: true, where: { [Op.and]: [{ singlepost_id }, { gallerypost_id }] } }),
+	getLikedSinglepostById: async (id) =>
+		await Like.findAll({
+			raw: true,
+			attributes: ["id", "user_id", "singlepost_id"],
+			order: [["id", "DESC"]],
+			where: {
+				user_id: id,
+				singlepost_id: {
+					[Op.ne]: null,
+				},
+			},
+		}),
+	getLikedGalleryById: async (id) =>
+		await Like.findAll({
+			raw: true,
+			attributes: ["id", "user_id", "gallerypost_id"],
+			order: [["id", "DESC"]],
+			where: {
+				user_id: id,
+				gallerypost_id: {
+					[Op.ne]: null,
+				},
+			},
+		}),
 	getDescriptionByKorTitle: async (title) =>
 		await Description.findAll({
 			raw: true,
@@ -38,13 +58,13 @@ module.exports = {
 			order: [["title", "ASC"]],
 			where: {
 				title: {
-					[Op.like]: "%" + title + "%",
+					[Op.substring]: title,
 				},
 				genre: {
 					[Op.notLike]: "%" + "성인물" + "%",
 				},
 				director: {
-					[Op.notLike]: "director-not-found",
+					[Op.notLike]: "%" + "director" + "%",
 				},
 			},
 			limit: 5,
