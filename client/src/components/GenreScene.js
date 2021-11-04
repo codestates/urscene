@@ -11,7 +11,10 @@ function GenreScene({ value }) {
           history.push(`/post/${value.id}`);
         }}
       >
-        <img src={value.image} alt={value.title} />
+        <img
+          src={`${process.env.REACT_APP_S3_URL_ImageUpload}/${value.image}`}
+          alt={value.title}
+        />
       </div>
     </div>
   );

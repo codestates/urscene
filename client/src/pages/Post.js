@@ -7,7 +7,6 @@ import MovieInfo from "../components/MovieInfo";
 import SceneDeleteModal from "../components/SceneDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
-import LoadingIndicator from "../components/LoadingIndicator";
 import axios from "axios";
 import { useParams, useHistory } from "react-router";
 axios.defaults.withCredentials = true;
