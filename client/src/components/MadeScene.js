@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import SceneInGalleryAddModal from "./SceneInGalleryAddModal";
 require("dotenv").config();
 
-function MadeScene({ scene, haveGallery, handleRender }) {
+function MadeScene({ scene, haveGallery }) {
   const history = useHistory();
   const [addModal, setAddModal] = useState(false);
 
@@ -27,7 +27,6 @@ function MadeScene({ scene, haveGallery, handleRender }) {
           handleSetAddModal={handleSetAddModal}
           scene={scene}
           haveGallery={haveGallery}
-          handleRender={handleRender}
         />
       ) : null}
     </div>

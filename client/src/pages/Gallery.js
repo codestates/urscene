@@ -86,7 +86,6 @@ function Gallery() {
         if (res.data.Like === null) {
           setlikeModal(false);
         } else if (res.data.Like) {
-          console.log("res.data.Like===", res.data.Like);
           setlikeModal(true);
           setGalleryLikeId(res.data.Like);
         }
@@ -110,9 +109,8 @@ function Gallery() {
       axios
         .post(`${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryId}`)
         .then((res) => {
-          console.log("좋아요 요청 성공");
-          console.log("res.data ===", res.data);
           setlikeModal(true);
+          setGalleryLikeId(res.data.Likedata.id);
         })
         .catch((err) => {
           console.log(err);
@@ -120,6 +118,7 @@ function Gallery() {
     } else if (likeModal === true) {
       // 풀 하트 이므로 delete like 요청을 보내고
       // 성공을 하면 false로 바꿔준다.
+      console.log("galleryLikeId===", galleryLikeId);
       axios
         .delete(
           `${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryLikeId}`,

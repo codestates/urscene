@@ -10,8 +10,7 @@ function GalleryDeleteModal({ galleryId, handleDeleteModal }) {
     axios
       .delete(`${process.env.REACT_APP_EC2_URL}/gallery/${galleryId}`)
       .then((res) => {
-        console.log(res);
-        history.push("/main");
+        history.push("/mygallery");
       })
       .catch((err) => {
         console.log(err);

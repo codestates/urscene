@@ -11,7 +11,6 @@ function MadeGallery({ gallery }) {
     axios
       .get(`${process.env.REACT_APP_EC2_URL}/gallery/${gallery.id}`)
       .then((res) => {
-        console.log("갤러리 정보 불러오기 함수 시작");
         setRenderPosts(res.data.singlepost.slice(0, 4));
       });
   };

@@ -750,18 +750,17 @@ body {
     flex-wrap: wrap;
     justify-content: flex-start;
     padding-top: 20px;
-    /* border: 1px solid red; */
+    margin-bottom: 20px;
   }
 
   /* 좋아한 갤러리 */
   .like-gallery-container {
-    width: 860px;
+    width: 830px;
     height: auto;
     box-sizing: border-box;
     border-radius: 4.86133px;
     /* padding: 11px; */
-    margin-top: 20px;
-    margin-right: 20px;
+    margin: 20px;
     display: flex;
     justify-content: start;
     flex-wrap: wrap;

@@ -22,7 +22,6 @@ function Main() {
 
   const handleLandingPage = () => {
     axios.get(process.env.REACT_APP_EC2_URL + "/main").then((res) => {
-      console.log(res.data);
       setRankingGallerys(res.data.Ranking_gallery);
       setCurrentRankingGallery(res.data.Ranking_gallery.slice(0, 3));
       setIsLoading(false);
@@ -76,7 +75,7 @@ function Main() {
   const [previousGenre, setPreviousGenre] = useState("");
   const [curScenes, setCurSenes] = useState([]);
 
-  const [curScenePage, setCurScenePage] = useState(4);
+  const [curScenePage, setCurScenePage] = useState(5);
   const [scenePerPage] = useState(4);
 
   const [addSceneIcon, setAddSceneIcon] = useState(false);
@@ -89,6 +88,7 @@ function Main() {
   };
 
   const handleCurrentScene = () => {
+    console.log("장르별 장면 함수 시작");
     axios
       .get(
         `${process.env.REACT_APP_EC2_URL}/main/single/?genre=${curGenre}&page=1&limit=${scenePerPage}`,
@@ -97,6 +97,7 @@ function Main() {
         if (res.data.single.length !== 4) {
           setAddSceneIcon(true);
         }
+        console.log("res.data.single===", res.data.single);
         setCurSenes(res.data.single);
         setIsLoading(false);
       })
@@ -107,20 +108,22 @@ function Main() {
 
   useEffect(() => {
     handleCurrentScene();
+    setCurScenePage(5);
   }, [curGenre]);
 
   const handleAddCurrentScene = () => {
     setCurScenePage(curScenePage + scenePerPage);
+    console.log("curScenePage===", curScenePage);
     axios
       .get(
         `${process.env.REACT_APP_EC2_URL}/main/single/?genre=${curGenre}&page=${curScenePage}&limit=${scenePerPage}`,
       )
       .then((res) => {
+        console.log("res.data.single===", res.data.single);
         if (res.data.single.length !== 4) {
           setAddSceneIcon(true);
-        } else {
-          setCurSenes([...curScenes, ...res.data.single]);
         }
+        setCurSenes([...curScenes, ...res.data.single]);
       })
       .catch((err) => {
         console.log(err);
