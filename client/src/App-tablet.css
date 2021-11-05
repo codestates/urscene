@@ -80,7 +80,7 @@ body {
   .mainFooter {
     height: 224px;
     background: #0a142f;
-    border: 1px solid red;
+    border: 1px solid #0a142f;
   }
 
   .footer-wrap {
@@ -127,10 +127,10 @@ body {
   }
 
   .mF-contact {
-    float: left;
-    width: 150px;
-    height: 80px;
-    /* margin-left: 250px; */
+    position: absolute;
+    left: 380px;
+    width: 170px;
+    height: 90px;
   }
 
   .mF-contact-name {
@@ -142,11 +142,16 @@ body {
     text-decoration: none;
   }
 
-  .contact-back {
-    float: left;
-    margin-left: 30px;
+  .contact-front {
+    width: auto;
+    height: 18px;
   }
 
+  .contact-back {
+    margin-top: 12px;
+    width: auto;
+    height: 18px;
+  }
   .mf-divider {
     margin-top: 20px;
     opacity: 0.15;
