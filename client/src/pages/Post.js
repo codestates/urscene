@@ -7,6 +7,7 @@ import MovieInfo from "../components/MovieInfo";
 import SceneDeleteModal from "../components/SceneDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
+import SceneInGalleryAddModal from "../components/SceneInGalleryAddModal";
 import axios from "axios";
 import { useParams, useHistory } from "react-router";
 axios.defaults.withCredentials = true;
@@ -29,17 +30,27 @@ function Post() {
   const [isUser, setIsUser] = useState(userInfo);
   const [likeId, setLikeId] = useState(""); // 좋아요 id
   const history = useHistory();
-  //console.log(singlePost, "<=singlepost");
-  //console.log("comments => ", comments);
-  //console.log("commentContent => ", commentContent);
-  // console.log("user => ", user);
-  // console.log("post userInfo =>", userInfo);
-  //console.log("likeId => ", likeId);
+  const [addModal, setAddModal] = useState(false);
+  const [haveGallery, setHaveGallery] = useState([]); // 갤러리 리스트
 
+  // 나의 갤러리 불러오기
+  const getAllMyGallery = () => {
+    axios
+      .get(`${process.env.REACT_APP_EC2_URL}/user/gallerypost`)
+      .then((res) => {
+        setHaveGallery([...res.data.my].reverse());
+      });
+  };
+  //console.log("haveGallery ???", haveGallery);
+
+  const handleSetAddModal = () => {
+    setAddModal(!addModal);
+  };
   useEffect(() => {
     getSinglePost();
     getComments();
     getLikeinfo();
+    getAllMyGallery();
   }, []);
 
   useEffect(() => {
@@ -212,6 +223,13 @@ function Post() {
               ) : (
                 <div>
                   <div
+                    className="post-addTogall"
+                    onClick={() => setAddModal(true)}
+                  >
+                    <div className="post-add-icon"></div>
+                    갤러리에 추가
+                  </div>
+                  <div
                     className="post-edit-delete"
                     onClick={() => setDeleteModal(true)}
                   ></div>
@@ -297,6 +315,13 @@ function Post() {
         <SceneDeleteModal
           deletePost={deletePost}
           handleDeleteModal={handleDeleteModal}
+        />
+      ) : null}
+      {addModal ? (
+        <SceneInGalleryAddModal
+          handleSetAddModal={handleSetAddModal}
+          postId={postId}
+          haveGallery={haveGallery}
         />
       ) : null}
     </div>

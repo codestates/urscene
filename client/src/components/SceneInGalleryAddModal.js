@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 require("dotenv").config();
 
-function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
+function SceneInGalleryAddModal({ handleSetAddModal, postId, haveGallery }) {
   const [drop, setDrop] = useState(false);
   const [galleryTitle, setGalleryTitle] = useState("");
   const [galleryId, setGalleryId] = useState("");
@@ -22,7 +22,7 @@ function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
       .post(
         `${process.env.REACT_APP_EC2_URL}/gallery/${galleryId}`,
         {
-          singlepost_id: scene.id,
+          singlepost_id: postId,
         },
         { withCredentials: true },
       )

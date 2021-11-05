@@ -3,7 +3,7 @@ import { MyContext } from "../contexts/Store";
 import { Link, useHistory } from "react-router-dom";
 
 function MainNav() {
-  const { userInfo, isLogin } = useContext(MyContext); // 유저 정보를 확인
+  const { isLogin } = useContext(MyContext); // 유저 정보를 확인
   //console.log("mainvav islogin ???", isLogin);
   //console.log("mainvav, userInfo ??? ", userInfo);
 
