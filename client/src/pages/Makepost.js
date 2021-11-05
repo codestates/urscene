@@ -225,6 +225,7 @@ function Makepost() {
                 <option value="액션">액션</option>
                 <option value="미스터리/스릴러">미스터리/스릴러</option>
                 <option value="전쟁">전쟁</option>
+                <option value="애니메이션">애니메이션</option>
               </select>
             </div>
             <div className="MP-photo-wrap">

@@ -332,6 +332,7 @@ body {
     background-position: center;
     background-size: contain;
     float: right;
+    cursor: pointer;
   }
 
   .MP-movie-icondelete {
@@ -341,6 +342,7 @@ body {
     background-position: center;
     background-size: contain;
     float: right;
+    cursor: pointer;
   }
 
   .MP-movie-DropDownContainer {
@@ -374,8 +376,9 @@ body {
 
   #dropdown {
     text-align: center;
-    margin: 5px;
+    margin: 8px;
     color: rgb(182, 182, 182);
+    font-size: 14px;
   }
 
   .MP-photo-label {
@@ -732,14 +735,29 @@ body {
   }
 
   .bookmarker {
-    background: url("./img/bookmark.png");
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
     background-position: center;
     background-size: contain;
-    left: 144px;
     position: absolute;
     cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .bookmarker:hover #addTogall {
+    background-color: rgba(33, 32, 37, 0.7);
+    transition: 0.2s;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    text-align: center;
+    line-height: 120px;
+    border-radius: 8px;
+  }
+
+  #addTogall {
+    opacity: 0;
+    text-align: center;
   }
 
   /* 좋아한 장면 */
@@ -1552,6 +1570,7 @@ body {
 
   .main-genre-img-wrap {
     margin-top: 45px;
+    padding-bottom: 20px;
     width: 1080px;
     height: auto;
     display: flex;
@@ -1563,15 +1582,15 @@ body {
     width: 43px;
     height: 19px;
     margin: 0 auto 0 auto;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 16px;
     text-align: center;
-
     color: #f4f4f4;
     cursor: pointer;
+  }
+
+  .addtext-wrap {
+    padding-bottom: 20px;
   }
 
   .main-genre-img-addImage {
@@ -1633,7 +1652,7 @@ body {
   .BG-img > img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 
   .BG-img-no {
@@ -1648,9 +1667,9 @@ body {
   .genre-img {
     width: 250px;
     height: 157px;
-    border: 1px solid #eaeaea;
+    border: 1px solid #344583;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 9px;
     margin-right: 18px;
     margin-bottom: 20px;
   }
@@ -1703,7 +1722,7 @@ body {
     width: 185px;
     height: 122px;
     border-radius: 10px;
-    border: 1px solid #eaeaea;
+    border: 1px solid #344583;
     box-sizing: border-box;
     margin-bottom: 20px;
     margin-right: 20px;
@@ -1713,7 +1732,7 @@ body {
   .result-scene-img > img {
     width: 100%;
     height: 100%;
-    object-fit: scale-down;
+    object-fit: cover;
     border-radius: 10px;
   }
 
@@ -2220,6 +2239,7 @@ body {
     border-radius: 5px;
     background: #c4c4c4;
     border-radius: 10px;
+    object-fit: cover;
   }
 
   .post-label {
@@ -2266,7 +2286,7 @@ body {
 
   .post-desc {
     width: 840px;
-    height: 68px;
+    height: auto;
     margin-top: 21px;
     font-size: 28px;
     line-height: 33px;
@@ -2550,21 +2570,17 @@ body {
     width: 100px;
     height: 48px;
     float: left;
-
     background: #0059f7;
     border-radius: 8px;
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
-    /* identical to box height, or 120% */
-
     color: #ffffff;
     padding-top: 13px;
     cursor: pointer;
     margin-left: 115px;
     margin-top: 6px;
+    text-align: center;
   }
 
   .gallery-titleinput {
@@ -2706,7 +2722,7 @@ body {
     height: 162px;
     border-radius: 10px;
     border: 1px solid #eaeaea;
-    object-fit: contain;
+    object-fit: cover;
     color: white;
     position: absolute;
   }
@@ -2724,32 +2740,33 @@ body {
     left: 227px;
   }
 
-  .gallery-nocontent {
-    width: 200px;
-    height: 150px;
-    margin: 200px auto 0 auto;
+  .gallery-nocontent-wrap {
+    width: 840px;
+    height: 200px;
+    border: 1px solid #344583;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    margin-top: 100px;
+    padding: 40px;
   }
 
   .gallery-nocontent-img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background: url("../src/img/noresult.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: none;
-    cursor: pointer;
-    margin-left: 50px;
+    background-size: contain;
+    margin: 0 auto;
   }
 
   .gallery-nocontent-title {
     font-size: 18px;
     line-height: 22px;
-    /* identical to box height, or 122% */
     text-align: center;
     color: #c0c0c0;
     margin: 10px auto 0 auto;
-    word-break: keep-all;
-    width: 160px;
   }
 
   /* 갤러리 삭제 모달*/
@@ -2837,7 +2854,7 @@ body {
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     display: grid;
     place-items: center;
   }
@@ -2850,6 +2867,7 @@ body {
     margin: 0px auto 0 auto;
     text-align: center;
     position: relative;
+    padding: 20px;
   }
 
   .add-text {
@@ -2858,14 +2876,12 @@ body {
     line-height: 40px;
     color: #ffffff;
     margin: 40px auto 0 auto;
-    word-break: keep-all;
-    width: 200px;
   }
 
   .add-btn {
     width: 300px;
     height: 34px;
-    margin-top: 40px;
+    margin-top: 30px;
     display: inline-block;
     position: relative;
   }
@@ -2903,12 +2919,31 @@ body {
     height: 40px;
     outline-style: none;
     border: none;
-    /* font-size: 16px; */
+    line-height: 21px;
+    display: inline-block;
+    margin-top: 20px;
+    /* padding-left: 16px; */
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .addModal-input::placeholder {
+    color: #000;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .addModal-input-drop {
+    width: 300px;
+    height: 40px;
+    outline-style: none;
+    border: none;
     line-height: 21px;
     display: inline-block;
     margin-top: 20px;
     padding-left: 16px;
-    border-radius: 10px;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
   }
 
   .addModal-Drop {
@@ -2916,29 +2951,26 @@ body {
     /* float: none; */
     background-color: white;
     list-style-type: none;
-    /* margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 0px; */
-    margin-top: -5px;
-    margin-left: 99px;
+    margin: 0 auto;
     padding: 0.5rem 15px;
     border: 1px solid rgb(223, 225, 229);
     border-radius: 0 0 1rem 1rem;
     box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
     z-index: 3;
-    position: absolute;
     font-size: 16px;
     line-height: 21px;
   }
 
   .addModal-Drop > li {
-    border: 1px solid rgb(223, 225, 229);
-    color: #7c9cbf;
+    color: #344583;
     cursor: pointer;
     margin-top: 3px;
     padding: 5px;
+  }
+
+  .addModal-hr {
+    border: 1px solid rgb(223, 225, 229);
+    margin-top: 5px;
   }
 
   .addModal-err {

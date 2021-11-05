@@ -43,11 +43,12 @@ function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
   return (
     <div className="addModal-background">
       <div className="addModal">
-        <div className="add-text">갤러리를 선택하고 담기를 눌러주세요</div>
+        <div className="add-text">어떤 갤러리에 추가할까요?</div>
         <input
+          readOnly
           type="text"
-          placeholder="담으실 갤러리를 선택해주세요"
-          className="addModal-input"
+          placeholder="🖇 갤러리 선택"
+          className={drop ? "addModal-input-drop" : "addModal-input"}
           onFocus={() => setDrop(true)}
           value={galleryTitle}
         />
@@ -57,6 +58,7 @@ function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
               return (
                 <li key={gallery.id} onClick={() => handle(gallery)}>
                   <div>{gallery.title}</div>
+                  <div className="addModal-hr"></div>
                 </li>
               );
             })}
@@ -71,17 +73,17 @@ function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
           </div>
         ) : null}
         <div className="add-btn">
-          <div className="add-btn-ok" onClick={handleAddSceneinGallery}>
-            담기
-          </div>
-          <button
-            className="add-btn-cancel"
+          <div
+            className="add-btn-ok"
             onClick={() => {
               handleSetAddModal();
               setErrModal(false);
             }}
           >
             취소
+          </div>
+          <button className="add-btn-cancel" onClick={handleAddSceneinGallery}>
+            담기
           </button>
         </div>
         {errModal ? (

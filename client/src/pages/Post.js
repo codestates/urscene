@@ -27,8 +27,7 @@ function Post() {
   const [description, setdescription] = useState(null); // 영화정보
   const [singlePost, setSinglePost] = useState(null);
   const [isUser, setIsUser] = useState(userInfo);
-  const [likeId, setLikeId] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [likeId, setLikeId] = useState(""); // 좋아요 id
   const history = useHistory();
   //console.log(singlePost, "<=singlepost");
   //console.log("comments => ", comments);
@@ -40,11 +39,30 @@ function Post() {
   useEffect(() => {
     getSinglePost();
     getComments();
+    getLikeinfo();
   }, []);
 
   useEffect(() => {
     getComments();
   }, [commentContent]);
+
+  // 좋아요 정보 불러오기
+  const getLikeinfo = () => {
+    axios
+      .get(`http://localhost:80/singlepost/like/${postId}`)
+      .then((res) => {
+        //console.log("like info => ", res);
+        if (res.data.Like === null) {
+          setlikeModal(false);
+        } else {
+          setlikeModal(true);
+          setLikeId(res.data.Like);
+        }
+      })
+      .catch((err) => {
+        console.log("getLikeinfo err=>", err);
+      });
+  };
 
   // 좋아요 요청 및 취소
   const onClickLikePost = () => {
@@ -52,7 +70,7 @@ function Post() {
       axios
         .post(`http://localhost:80/singlepost/like/${postId}`)
         .then((res) => {
-          console.log("like res =>", res.data);
+          //console.log("like res =>", res.data);
           setlikeModal(true);
           setLikeId(res.data.check.id);
         })
