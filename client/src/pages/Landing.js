@@ -10,9 +10,9 @@ function Landing() {
         <div className="landing-main-container">
           <div className="landing-main-img">
             <div className="landing-main-text">
-              <span>서로 다른 장면으로</span>
+              서로 다른 장면으로
               <br></br>
-              <span>공감하는 하나의 영화</span>
+              공감하는 하나의 영화
             </div>
           </div>
           <div className="landing-main-subt-1">
@@ -25,6 +25,7 @@ function Landing() {
             <br></br>
             <span>함께 나누고 소통해 보세요.</span>
           </div>
+          <div className="landing-arrow"></div>
         </div>
       </center>
 
