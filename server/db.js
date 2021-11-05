@@ -58,7 +58,7 @@ module.exports = {
 			order: [["title", "ASC"]],
 			where: {
 				title: {
-					[Op.substring]: title,
+					[Op.like]: title + "%",
 				},
 				genre: {
 					[Op.notLike]: "%" + "성인물" + "%",
@@ -73,6 +73,7 @@ module.exports = {
 		await Description.findAll({
 			raw: true,
 			attributes: ["id", "title", "title_eng", "genre", "director", "released"],
+			order: [["title_eng", "ASC"]],
 			where: {
 				title_eng: {
 					[Op.like]: "%" + title + "%",
