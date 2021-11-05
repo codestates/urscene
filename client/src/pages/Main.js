@@ -71,6 +71,7 @@ function Main() {
     "액션",
     "미스터리/스릴러",
     "전쟁",
+    "애니메이션",
   ];
   const [curGenre, setCurGenre] = useState(genres[0]);
   const [previousGenre, setPreviousGenre] = useState("");
@@ -207,8 +208,10 @@ function Main() {
               </div>
               {addSceneIcon ? null : (
                 <div onClick={handleAddCurrentScene}>
-                  <div className="main-genre-img-addText">더 보기</div>
-                  <div className="main-genre-img-addImage"></div>
+                  <div className="addtext-wrap">
+                    <div className="main-genre-img-addText">더 보기</div>
+                    <div className="main-genre-img-addImage"></div>
+                  </div>
                 </div>
               )}
             </div>

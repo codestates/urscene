@@ -183,4 +183,5 @@ module.exports = {
 		await Like.findOne({
 			where: { user_id: data.id, singlepost_id: data.singlepostid },
 		}),
+	patchSinglepost: async (id) => await Singlepost.findOne({ where: { id: id } }),
 }

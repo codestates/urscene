@@ -8,8 +8,8 @@ module.exports = async (req, res) => {
 	}
 	const { singlepostid } = req.params
 	const { content } = req.body
-	const post = await db.mygetSinglepost(singlepostid)
-
+	const post = await db.patchSinglepost(singlepostid)
+	console.log(post.dataValues)
 	if (!post) {
 		res.status(400).json({ message: "data-not-found" })
 	} else {

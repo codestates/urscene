@@ -4,8 +4,8 @@
 
 body {
   /* 사파리에서 폰트가 못생겨보임 - 해결못함 */
-  font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo",
-    apple sd gothic neo;
+  /* font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo",
+    apple sd gothic neo; */
   height: 100%;
   margin: 0;
 }
@@ -80,7 +80,6 @@ body {
   .mainFooter {
     height: 224px;
     background: #0a142f;
-    padding: 63px 124px 18px;
     border: 1px solid red;
   }
 
@@ -88,10 +87,8 @@ body {
     height: 91px;
     width: auto;
     text-align: left;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    margin-top: 65px;
+    margin-left: 100px;
   }
 
   .mF-footer-logo {
@@ -106,14 +103,15 @@ body {
   }
 
   .mF-UI-about {
-    margin-left: 77px;
-    width: 130px;
-    height: 67px;
+    float: left;
+    margin-left: 70px;
+    width: 120px;
+    height: 60px;
   }
 
   .mF-UI-title {
-    font-size: 14px;
     font-weight: bold;
+    font-size: 14px;
     line-height: 16px;
     color: #ffffff;
     margin-bottom: 16px;
@@ -129,16 +127,10 @@ body {
   }
 
   .mF-contact {
-    display: inline-block;
-    width: 326px;
-    height: 75px;
-    margin-left: 5%;
-  }
-
-  .mF-contact-title {
     float: left;
-    line-height: 16px;
-    color: #ffffff;
+    width: 150px;
+    height: 80px;
+    /* margin-left: 250px; */
   }
 
   .mF-contact-name {
@@ -146,7 +138,7 @@ body {
     font-size: 12px;
     line-height: 14px;
     color: #ffffff;
-    margin-right: 11px;
+    margin-right: 16px;
     text-decoration: none;
   }
 
@@ -156,7 +148,7 @@ body {
   }
 
   .mf-divider {
-    margin-top: 40px;
+    margin-top: 20px;
     opacity: 0.15;
     border: 1px solid #ffffff;
   }
@@ -169,48 +161,61 @@ body {
 
   .mF-footer2 {
     font-weight: 900;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 10px;
+    line-height: 12px;
     text-align: center;
     color: #ffffff;
     opacity: 0.75;
-    margin-top: 30px;
+    margin-top: 17px;
   }
 
   /* ===== 랜딩페이지 =====*/
   .landing-main-container {
-    height: 935px;
+    height: 995px;
     background-color: #000;
+  }
+
+  .landing-main-logo {
+    float: left;
+    width: 158px;
+    height: 32px;
+    background: url("./img/NavLogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-top: 20px;
+    margin-left: 20px;
   }
 
   .landing-main-img {
     background: url("./img/Frame129.png");
-    width: 625px;
+    width: 768px;
     height: 524px;
   }
 
   .landing-main-text {
     position: absolute;
     color: #fff;
-    font-size: 64px;
+    font-size: 42px;
     font-weight: bold;
-    margin-top: 315px;
-    margin-left: 42px;
-    line-height: 80px;
+    margin: 315px auto;
+    line-height: 65px;
+    left: 50%;
+    transform: translate(-50%);
   }
 
   .landing-main-subt-1 {
+    width: 240px;
     color: #fff;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: lighter;
-    line-height: 43px;
-    margin-top: 56px;
+    line-height: 35px;
   }
 
   .landing-main-subt-1 > hr {
-    width: 180px;
+    width: 145px;
     margin: 7px 0 0;
-    border: 3px solid #0059f7;
+    border: 2px solid #0059f7;
   }
 
   .landing-main-subt-2 {
@@ -218,13 +223,24 @@ body {
     margin-top: 104px;
     font-size: 36px;
     line-height: 52px;
-    margin-bottom: 99px;
+    margin-bottom: 68px;
+  }
+
+  .landing-arrow {
+    width: 30px;
+    height: 30px;
+    background: url("./img/arrow_down.png");
+    background-position: center;
+    background-size: cover;
   }
 
   .landing-2-container {
-    height: 562px;
+    height: 396px;
     background-color: #070e27;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-left: 52px;
   }
 
   .link {
@@ -243,102 +259,103 @@ body {
     font-size: 24px;
     text-decoration: underline;
     text-underline-position: under;
+    cursor: pointer;
   }
 
   .landing-2-text-box {
-    width: 400px;
+    width: 320px;
     height: 300px;
-    margin-right: 20px;
-    margin-top: 131px;
+    margin-top: 81px;
     display: inline-block;
     vertical-align: middle;
   }
 
   .landing-2-icon-1 {
-    width: 90px;
-    height: 90px;
+    width: 60px;
+    height: 60px;
     background: url("./img/icon1.png");
     background-position: center;
     background-size: contain;
   }
   .landing-2-icon-2 {
-    width: 90px;
-    height: 90px;
+    width: 60px;
+    height: 60px;
     background: url("./img/icon2.png");
     background-position: center;
     background-size: contain;
   }
   .landing-2-icon-3 {
-    width: 90px;
-    height: 90px;
+    width: 60px;
+    height: 60px;
     background: url("./img/icon3.png");
     background-position: center;
     background-size: contain;
   }
 
   .landing-2-text-title {
-    margin-top: 29px;
+    margin-top: 13px;
     text-align: left;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: bold;
-    line-height: 46px;
+    line-height: 35px;
     color: white;
   }
 
   .landing-2-img {
-    width: 400px;
-    height: 300px;
+    width: 310px;
+    height: 263px;
     border: 1px solid red;
     display: inline-block;
     vertical-align: middle;
-    margin-top: 131px;
-    margin-left: 20px;
-    /* background: url(""); */
+    margin-top: 81px;
   }
 
   .landing-2-text-sub {
     color: #787e95;
     text-align-last: left;
-    font-size: 22px;
-    line-height: 32px;
+    font-size: 18px;
+    line-height: 26px;
     margin-top: 23px;
   }
 
   .landing-start-wrap {
-    height: 430px;
+    height: 340px;
     background-color: #070e27;
+    padding-top: 40px;
   }
 
   .start-box {
-    width: 840px;
-    height: 328px;
+    width: 653px;
+    height: 255px;
     background-color: #0059f7;
-    border-radius: 24px;
+    border-radius: 18.6585px;
+    /* margin-top: ; */
   }
 
   .start-sub {
-    padding-top: 72px;
-    font-size: 20px;
+    padding-top: 55px;
+    font-size: 15px;
+    line-height: 25px;
     line-height: 32px;
     color: #ffffff;
     opacity: 0.5;
   }
 
   .start-title {
-    padding-top: 16px;
-    font-size: 36px;
-    line-height: 40px;
+    padding-top: 12px;
+    font-size: 28px;
+    line-height: 31px;
     color: #ffffff;
     font-weight: bold;
   }
 
   .start-btn {
-    margin-top: 32px;
-    width: 170px;
-    height: 64px;
-    padding: 20px 24px;
+    margin-top: 24px;
+    width: 131.51px;
+    height: 49.76px;
+    padding: 15px 18px;
     background: #689eff;
-    border-radius: 8px;
+    border-radius: 6px;
     text-align: center;
   }
 
@@ -346,19 +363,20 @@ body {
     color: #fff;
     display: inline-block;
     vertical-align: middle;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 12px;
+    line-height: 19px;
     height: 24px;
     text-align: center;
   }
 
   .start-btn-arrow {
     display: inline-block;
-    vertical-align: middle;
     margin-left: 10px;
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
     background: url("./img/arrow-left-fill.png");
+    background-position: center;
+    background-size: contain;
   }
 
   /* Login Page */

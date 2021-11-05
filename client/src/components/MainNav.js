@@ -28,7 +28,7 @@ function MainNav() {
 
   return (
     <div className="mainNav">
-      <Link to="/">
+      <Link to="/main">
         <div className="mainNav-group-logo"></div>
       </Link>
       <div className="form-wrap">
