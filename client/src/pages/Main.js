@@ -137,14 +137,8 @@ function Main() {
         <MainNav />
         <div className="main-wrap">
           <div className="main-gallery">
-            <div
-              className="main-text"
-              onClick={() => {
-                history.push("/gallery/20");
-              }}
-            >
-              인기 갤러리
-            </div>
+            <div className="main-text">인기 갤러리</div>
+            <div className="main-gallery-all">모든 갤러리 보기</div>
             <div className="main-gallery-wrap">
               <div
                 className="main-gallery-Arrowleft"

@@ -31,7 +31,15 @@ function Userinfo() {
     password: "",
     passwordCheck: "",
   });
+  const [newinfo, setnewinfo] = useState({
+    id: userInfo.id,
+    email: userInfo.email,
+    nickname: userInfo.nickname,
+    image: userInfo.image,
+  });
+  console.log("newinfo ??? ", newinfo);
   console.log("change userinfo ???", userinfo);
+  //console.log("user userInfo =>", userInfo);
 
   const handleInputValue = (key) => (e) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
@@ -91,14 +99,18 @@ function Userinfo() {
       console.log("save click");
       axios
         .patch("http://localhost:80/user", {
-          newName: nickname === "" ? userInfo.nickname : nickname,
+          newName: nickname,
           newPassword: password,
           newImage: selectImg,
         })
         .then((res) => {
-          console.log("save success");
-          console.log(res);
-          window.location.replace("/mygallery");
+          console.log("save success", res.data);
+          axios
+            .get("http://localhost:80/user", { withCredentials: true })
+            .then((res) => {
+              setUserInfo(res.data);
+              window.location.replace("/mygallery");
+            });
         })
         .catch((err) => {
           console.log("userinfo err message =>", err);
@@ -138,7 +150,6 @@ function Userinfo() {
       });
   };
 
-  console.log("curImg ??? =>", curImg);
   const handleModal = () => {
     setModal(!modal);
   };
@@ -151,6 +162,7 @@ function Userinfo() {
     setCurImg(e.target.src);
     setSelectImg(e.target.alt);
   };
+  console.log("selectImg ??? =>", selectImg);
 
   return (
     <div>

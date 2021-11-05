@@ -1458,6 +1458,11 @@ body {
     height: 360px;
   }
 
+  .main-gallery-all {
+    /* position: absolute; */
+    float: right;
+  }
+
   .main-gallery-wrap {
     width: 1060px;
     height: 299px;
