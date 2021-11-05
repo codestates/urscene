@@ -57,11 +57,7 @@ router.delete(
 );
 router.post("/gallery/like/:galleryid", isAuthorizedUser, gallery.postLike);
 router.get("/gallery/like/:galleryid", isAuthorizedUser, gallery.getLike);
-router.delete(
-  "/gallery/like/:gallerylikeid",
-  isAuthorizedUser,
-  gallery.deleteLike
-);
+router.delete("/gallery/like/:gallerylikeid", isAuthorizedUser, gallery.deleteLike);
 
 //singlepost
 router.post("/singlepost", isAuthorizedUser, singlepost.post);
