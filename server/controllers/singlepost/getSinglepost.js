@@ -1,21 +1,9 @@
-const { Singlepost, Description, User } = require("../../models")
+const db = require("../../db")
 
 module.exports = async (req, res) => {
-	const userinfo = getverify(req.cookies.jwt)
 	const { singlepostid } = req.params
-	let post = await Singlepost.findOne({
-		include: [
-			{
-				model: User,
-				attributes: ["nickname", "image"],
-			},
-			{
-				model: Description,
-				attributes: ["title", "title_eng", "genre", "director", "released"],
-			},
-		],
-		where: { id: singlepostid },
-	})
+
+	let post = await db.getSinglepost(singlepostid)
 	if (!post) {
 		//singlepostid 없으면 404
 		res.status(404).json({ message: "data-not-found" })

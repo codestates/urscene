@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MainFooter from "../components/MainFooter";
-import LoadingIndicator from "../components/LoadingIndicator";
 
 function Landing() {
   return (
     <div>
-      <div className="mainNav-group-logo"></div>
+      <div className="landing-main-logo"></div>
       <center>
         <div className="landing-main-container">
           <div className="landing-main-img">

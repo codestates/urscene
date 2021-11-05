@@ -1,23 +1,15 @@
-const { getverify } = require("../../db")
-const { Like } = require("../../models")
+const {isAuthorized} = require("../../lib/jwt");
+const db = require("../../db");
 
 module.exports = async (req, res) => {
-	const userinfo = getverify(req.cookies.jwt)
+	const userinfo = isAuthorized(req)
+	const id = userinfo.id
 	const { singlepostid } = req.params
-	console.log(singlepostid)
-	if (singlepostid) {
-		const over = await Like.findOne({
-			where: { user_id: userinfo.id, singlepost_id: singlepostid }, //userinfo.id
-		})
-		if (!over) {
-			const Likedata = await Like.create({
-				user_id: userinfo.id, //userinfo.id
-				singlepost_id: singlepostid,
-			})
-			delete Likedata.dataValues.user_id
-			res.status(201).json({ Likedata })
-		} else {
-			res.status(403).json({ message: "중복" }) //403?불필요?
-		}
-	}
-}
+
+	const over = await db.getSinglepostLike({ id, singlepostid })
+	const check = over[0]
+	console.log(check.dataValues)
+
+  delete check.dataValues.user_id;
+  res.status(201).json({check});
+};

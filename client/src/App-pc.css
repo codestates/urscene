@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -65,7 +61,8 @@ body {
   }
 
   .mainNav-search {
-    width: 445px;
+    border: 1px solid red;
+    width: 410px;
     height: 30px;
     outline: none;
     font-size: 18px;
@@ -86,6 +83,18 @@ body {
     margin-right: 16px;
     float: right;
     left: 10px;
+  }
+
+  .mainNav-btn {
+    width: 40px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 21px;
+    color: #0059f7;
+    display: inline-block;
+    text-align: center;
+    padding-top: 5px;
+    cursor: pointer;
   }
 
   .mainNav-create {
@@ -109,6 +118,24 @@ body {
   #nav-form {
     width: 600px;
     margin: 0px;
+  }
+
+  /* loading 로딩 */
+  .loading-wrap {
+    z-index: 999;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: black;
+    display: grid;
+    place-items: center;
+  }
+
+  .loading {
+    height: 100%;
   }
 
   /* ===== mainFooter =====*/
@@ -285,6 +312,7 @@ body {
     line-height: 21px;
     display: inline-block;
   }
+
   .MP-movie > select {
     outline-style: none;
     border: none;
@@ -329,11 +357,25 @@ body {
     border-radius: 0 0 1rem 1rem;
     box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
     z-index: 3;
-
     position: relative;
     font-size: 16px;
     line-height: 21px;
     width: 400px;
+  }
+
+  .MP-movie-DropDownContainer > li {
+    cursor: pointer;
+  }
+
+  .MP-movie-dropdown-hr {
+    border: 1px solid rgb(236, 236, 236);
+    margin-bottom: 3px;
+  }
+
+  #dropdown {
+    text-align: center;
+    margin: 5px;
+    color: rgb(182, 182, 182);
   }
 
   .MP-photo-label {
@@ -453,7 +495,11 @@ body {
     margin: auto;
     text-align: left;
     padding-bottom: 20px;
-    /* border: 1px solid red; */
+  }
+
+  .my-g-title-wrap {
+    display: flex;
+    justify-content: space-between;
   }
 
   .my-g-title {
@@ -461,21 +507,14 @@ body {
     font-weight: bold;
     font-size: 32px;
     line-height: 37px;
-    display: inline-block;
   }
 
   .my-g-user-wrap {
     margin-top: 34px;
     width: 110px;
     height: 40px;
-    float: right;
-  }
-
-  .my-g-hr {
-    border: 1px solid #3a456f;
-    width: 840px;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    display: flex;
+    justify-content: right;
   }
 
   .my-g-account-icon {
@@ -484,8 +523,9 @@ body {
     background: url("./img/account.png");
     background-position: center;
     background-size: contain;
+    background-repeat: no-repeat;
     margin-top: 9px;
-    display: inline-block;
+    margin-right: 10px;
   }
 
   .my-g-account-name {
@@ -497,6 +537,13 @@ body {
     float: right;
     margin-top: 8px;
     cursor: pointer;
+  }
+
+  .my-g-hr {
+    border: 1px solid #3a456f;
+    width: 840px;
+    margin-top: 20px;
+    margin-bottom: 40px;
   }
 
   .my-g-scene-wrap {
@@ -549,7 +596,7 @@ body {
   }
 
   .my-g-like-hr {
-    border: 1px solid #3a456f;
+    border: 1px solid #c3c5cc;
     width: 840px;
     margin: 15px 0 15px 0;
   }
@@ -581,6 +628,11 @@ body {
     line-height: 30px;
     float: left;
     cursor: pointer;
+  }
+
+  .my-g-like-no {
+    color: #7c9cbf;
+    margin: 5px;
   }
 
   /* ===== Makegallery page ===== */
@@ -671,18 +723,21 @@ body {
   /* 나의 장면들 */
   .made-scene-wrap {
     width: 838px;
-    height: 142px;
+    height: auto;
     display: flex;
-    flex-flow: column wrap;
+    /* flex-flow: column wrap; */
     position: relative;
+    flex-wrap: wrap;
+    justify-content: start;
   }
+
   .bookmarker {
     background: url("./img/bookmark.png");
     width: 40px;
     height: 40px;
     background-position: center;
     background-size: contain;
-    left: 154px;
+    left: 144px;
     position: absolute;
     cursor: pointer;
   }
@@ -700,14 +755,27 @@ body {
 
   /* 좋아한 갤러리 */
   .like-gallery-container {
-    width: 340px;
+    width: 860px;
+    height: auto;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    /* padding: 11px; */
+    margin-top: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+  }
+
+  .like-gallery-item {
+    width: auto;
     height: auto;
     border: 0.972265px solid #344583;
     box-sizing: border-box;
     border-radius: 4.86133px;
     padding: 11px;
     margin-top: 20px;
-    margin-right: 20px;
+    margin-right: 70px;
   }
 
   /* Login Page */
@@ -719,6 +787,7 @@ body {
   }
 
   .loginwrap {
+    padding-top: 30px;
     margin: auto;
     width: 840px;
     height: auto;
@@ -791,7 +860,7 @@ body {
   .lin-password {
     width: 400px;
     height: 114px;
-    margin-top: 44px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -836,7 +905,7 @@ body {
   #lin-btnLogin {
     width: 400px;
     height: 56px;
-    margin-top: 87px;
+    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     background: #0059f7;
@@ -846,7 +915,6 @@ body {
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
-    /* identical to box height, or 133% */
     color: #ffffff;
     cursor: pointer;
   }
@@ -854,7 +922,7 @@ body {
   .lin-signup {
     width: 400px;
     height: 60px;
-    margin-top: 87px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     padding: 22px;
@@ -865,6 +933,26 @@ body {
   }
 
   .lin-signup-text {
+    width: 58px;
+    height: 24px;
+    cursor: pointer;
+    margin: 0px auto;
+  }
+
+  .lin-experience {
+    width: 400px;
+    height: 60px;
+    margin-top: 00px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 22px;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration-line: underline;
+    color: #ffffff;
+  }
+
+  .lin-experience-text {
     width: 58px;
     height: 24px;
     cursor: pointer;
@@ -1134,6 +1222,18 @@ body {
     background-color: #000;
   }
 
+  .landing-main-logo {
+    float: left;
+    width: 158px;
+    height: 32px;
+    background: url("./img/NavLogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
   .landing-main-img {
     background: url("./img/Frame129.png");
     width: 625px;
@@ -1176,6 +1276,8 @@ body {
     height: 562px;
     background-color: #070e27;
     text-align: center;
+    display: flex;
+    justify-content: center;
   }
 
   .link {
@@ -1194,6 +1296,7 @@ body {
     font-size: 24px;
     text-decoration: underline;
     text-underline-position: under;
+    cursor: pointer;
   }
 
   .landing-2-text-box {
@@ -1333,6 +1436,7 @@ body {
   }
 
   .main-gallery {
+    padding-top: 34px;
     width: 1060px;
     height: 360px;
   }
@@ -1348,25 +1452,25 @@ body {
   .main-gallery-Arrowleft {
     width: 20px;
     height: 299px;
-
     background: url("./img/ArrowLeft.png");
     width: 25px;
     height: 80px;
     background-position: center;
     background-size: cover;
     margin: auto 0px;
+    cursor: pointer;
   }
 
   .main-gallery-Arrowright {
     width: 25px;
     height: 80px;
-
     background: url("./img/ArrowRight.png");
     width: 25px;
     height: 80px;
     background-position: center;
     background-size: cover;
     margin: auto 0px;
+    cursor: pointer;
   }
 
   .main-gallery-page {
@@ -1448,12 +1552,12 @@ body {
 
   .main-genre-img-wrap {
     margin-top: 45px;
-    /* border: 1px solid red; */
     width: 1080px;
     height: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    cursor: pointer;
   }
   .main-genre-img-addText {
     width: 43px;
@@ -1471,12 +1575,12 @@ body {
   }
 
   .main-genre-img-addImage {
-    width: 50px;
+    width: 30px;
     height: 30px;
-    margin: 0 auto 0 auto;
+    margin: -6px auto 0 auto;
     background: url("./img/Chevron\ Bottom.png");
     background-position: center;
-    background-size: none;
+    background-size: 30px;
     background-repeat: no-repeat;
     cursor: pointer;
   }
@@ -1496,6 +1600,11 @@ body {
     box-sizing: border-box;
     border-radius: 4.86133px;
     padding: 11px;
+    margin-bottom: 30px;
+  }
+
+  .BG-container:hover {
+    box-shadow: 0 2px 3px rgba(44, 46, 148, 0.808);
   }
 
   .BG-title {
@@ -1505,6 +1614,7 @@ body {
     text-align: left;
     margin-top: 6px;
     margin-bottom: 10px;
+    cursor: pointer;
   }
 
   .BG-img-wrap {
@@ -1523,7 +1633,16 @@ body {
   .BG-img > img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+  }
+
+  .BG-img-no {
+    width: 100%;
+    height: 100%;
+    background: url("../src/img/noresult.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 
   .genre-img {
@@ -1552,6 +1671,7 @@ body {
     width: 840px;
     height: auto;
     color: #fff;
+    margin-bottom: 100px;
   }
 
   .search-results {
@@ -1567,30 +1687,33 @@ body {
     line-height: 30px;
     text-align: left;
     margin-bottom: 23px;
+    margin-top: 50px;
   }
 
   /* ResultScene 검색결과 장면 */
   .result-scene-wrap {
-    width: 838px;
-    height: 300px;
+    width: 840px;
+    height: auto;
     display: flex;
-    flex-flow: column wrap;
+    flex-wrap: wrap;
+    justify-content: start;
   }
 
   .result-scene-img {
-    width: 194px;
+    width: 185px;
     height: 122px;
     border-radius: 10px;
     border: 1px solid #eaeaea;
     box-sizing: border-box;
     margin-bottom: 20px;
     margin-right: 20px;
+    position: relative;
   }
 
   .result-scene-img > img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: scale-down;
     border-radius: 10px;
   }
 
@@ -1617,6 +1740,17 @@ body {
     font-size: 18px;
     line-height: 22px;
     color: #c0c0c0;
+  }
+
+  /* ResultGallery 검색결과 장면 */
+  .result-gallery-wrap {
+    width: 840px;
+    height: auto;
+    display: flex;
+    flex-flow: wrap;
+
+    justify-content: space-between;
+    margin-bottom: 20px;
   }
 
   .singupModal-background {
@@ -1714,8 +1848,6 @@ body {
     width: 70px;
     height: 70px;
     margin: 27px auto 0 auto;
-
-    background: url("../src/img/UserImage-Meg.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -1805,7 +1937,7 @@ body {
   /* userinfo 페이지 : 닉네임 */
   .ui-nickname {
     width: 400px;
-    height: 158px;
+    height: auto;
     margin: 36px auto 0 auto;
   }
 
@@ -1892,28 +2024,19 @@ body {
     margin: 58px auto 0 auto;
   }
 
-  /* userinfo 페이지 : 패스워드 확인 */
-  .ui-repassword {
-    width: 400px;
-    height: 114px;
-    margin: 56px auto 0 auto;
+  .ui-password > input {
+    font-size: 16px;
   }
 
   .ui-btn {
     width: 400px;
     height: 56px;
     margin: 55px auto 0 auto;
-
     background: #0059f7;
     border-radius: 8px;
     border-width: 0px;
-
-    font-family: Roboto;
-    font-weight: 500;
     font-size: 20px;
     line-height: 24px;
-    /* identical to box height, or 120% */
-
     color: #ffffff;
     cursor: pointer;
   }
@@ -1922,15 +2045,9 @@ body {
     width: 59px;
     height: 24px;
     margin: 68px auto 0 auto;
-
-    font-family: Roboto;
-    font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    /* identical to box height, or 150% */
-
     text-decoration-line: underline;
-
     color: #ffffff;
     cursor: pointer;
   }
@@ -1939,15 +2056,9 @@ body {
     width: 59px;
     height: 24px;
     margin: 16px auto 0 auto;
-
-    font-family: Roboto;
-    font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    /* identical to box height, or 150% */
-
     text-decoration-line: underline;
-
     color: #ffffff;
     cursor: pointer;
   }
@@ -2037,6 +2148,7 @@ body {
     width: 100vw;
     height: auto;
     background-color: #070e27;
+    padding-top: 34px;
   }
 
   .postwrap {
@@ -2049,12 +2161,8 @@ body {
   .post-title {
     width: 840px;
     height: 51px;
-
-    font-family: Roboto;
-    font-weight: normal;
     font-size: 32px;
     line-height: 37px;
-
     color: #ffffff;
     text-align: left;
   }
@@ -2070,19 +2178,17 @@ body {
     height: 32px;
     float: right;
     margin-top: 5px;
-
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
     box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
       0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
-    font-weight: 500;
     font-size: 14px;
     line-height: 18px;
     text-align: center;
-
     color: #5a7fa8;
+    cursor: pointer;
   }
 
   .post-edit-edit {
@@ -2120,55 +2226,50 @@ body {
     width: 840px;
     height: 40px;
     margin-top: 22px;
+    display: flex;
   }
 
   .post-label-title {
     width: 397px;
     height: 33px;
     margin-top: 7px;
-    float: left;
-
-    font-family: Roboto;
     font-weight: bold;
     font-size: 26px;
     line-height: 30px;
     display: flex;
-    align-items: flex-end;
-
+    flex-wrap: wrap;
+    flex-direction: row;
     color: #ffffff;
   }
 
   .post-label-like1 {
     width: 40px;
     height: 40px;
-    float: right;
-
+    margin-left: auto;
     background: url("../src/img/Heart.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
+    cursor: pointer;
   }
 
   .post-label-like2 {
     width: 40px;
     height: 40px;
-    float: right;
-
+    margin-left: auto;
     background: url("../src/img/FullHeart.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
+    cursor: pointer;
   }
 
   .post-desc {
     width: 840px;
     height: 68px;
     margin-top: 21px;
-    font-family: Roboto;
-    font-weight: normal;
     font-size: 28px;
     line-height: 33px;
-
     color: #ffffff;
     text-align: left;
     word-break: keep-all;
@@ -2183,7 +2284,6 @@ body {
     font-weight: normal;
     font-size: 28px;
     line-height: 33px;
-
     color: black;
     text-align: left;
     word-break: keep-all;
@@ -2211,14 +2311,10 @@ body {
     height: 25px;
     margin-left: 12px;
     margin-top: 4px;
-
-    font-family: Roboto;
-    font-weight: normal;
     font-size: 24px;
     line-height: 28px;
     display: flex;
     align-items: center;
-
     color: #ffffff;
     float: left;
   }
@@ -2229,7 +2325,6 @@ body {
     margin-left: 12px;
     display: flex;
     align-items: center;
-
     color: #ffffff;
     cursor: pointer;
   }
@@ -2297,7 +2392,6 @@ body {
     font-weight: normal;
     font-size: 20px;
     line-height: 26px;
-    /* identical to box height */
 
     background: #ffffff;
     border-radius: 8px;
@@ -2316,8 +2410,6 @@ body {
     font-weight: normal;
     font-size: 20px;
     line-height: 26px;
-    /* identical to box height */
-
     color: #0059f7;
     position: relative;
     bottom: 48px;
@@ -2330,6 +2422,11 @@ body {
     height: auto;
     margin-left: 30px;
     margin-top: 42px;
+  }
+
+  .post-comment-no {
+    color: #7c9cbf;
+    text-align: center;
   }
 
   .post-mycomment {
@@ -2538,7 +2635,7 @@ body {
   }
 
   .gallery-desc {
-    width: 771px;
+    width: 765px;
     height: 76px;
     float: left;
     font-weight: normal;
@@ -2548,10 +2645,17 @@ body {
     text-align: left;
   }
 
-  .gallery-like1 {
+  .gallery-likeGroup {
+    height: 76px;
+    width: 65px;
+    float: left;
+  }
+
+  .gallery-unlike {
     width: 40px;
-    height: 60px;
-    margin-left: 25px;
+    height: 40px;
+    margin-left: 12.5px;
+    margin-right: 12.5px;
     float: left;
     background: url("../src/img/Heart.png");
     background-repeat: no-repeat;
@@ -2560,16 +2664,23 @@ body {
     cursor: pointer;
   }
 
-  .gallery-like2 {
+  .gallery-like {
     width: 40px;
-    height: 60px;
-    margin-left: 25px;
+    height: 40px;
+    margin-left: 12.5px;
+    margin-right: 12.5px;
     float: left;
     background: url("../src/img/FullHeart.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
     cursor: pointer;
+  }
+
+  .gallery-like-comment {
+    color: white;
+    font-size: 13px;
+    word-break: keep-all;
   }
 
   .gallery-group3 {
@@ -2585,6 +2696,9 @@ body {
     height: 162px;
     margin: 6px;
     border-radius: 10px;
+    display: flex;
+    position: relative;
+    cursor: pointer;
   }
 
   .gallery-content-img {
@@ -2592,20 +2706,22 @@ body {
     height: 162px;
     border-radius: 10px;
     border: 1px solid #eaeaea;
-    box-sizing: border-box;
+    object-fit: contain;
+    color: white;
+    position: absolute;
   }
 
   .gallery-content-delete {
     width: 40px;
     height: 40px;
     position: relative;
-    left: 227px;
-    bottom: 165px;
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
     cursor: pointer;
+    position: absolute;
+    left: 227px;
   }
 
   .gallery-nocontent {
@@ -2631,7 +2747,9 @@ body {
     /* identical to box height, or 122% */
     text-align: center;
     color: #c0c0c0;
-    margin-top: 10px;
+    margin: 10px auto 0 auto;
+    word-break: keep-all;
+    width: 160px;
   }
 
   /* 갤러리 삭제 모달*/
@@ -2672,13 +2790,15 @@ body {
     font-size: 24px;
     line-height: 24px;
     color: #ffffff;
-    margin-top: 68px;
+    margin: 68px auto 0 auto;
+    word-break: keep-all;
+    width: 200px;
   }
 
   .delete-btn {
     width: 300px;
     height: 34px;
-    margin-top: 53px;
+    margin-top: 33px;
   }
 
   .delete-btn-ok {
@@ -2707,6 +2827,122 @@ body {
     line-height: 24px;
     color: #000000;
     cursor: pointer;
+  }
+
+  /* 갤러리에 장면 추가 모달*/
+  .addModal-background {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center;
+  }
+
+  .addModal {
+    width: 500px;
+    height: auto;
+    background: #0059f7;
+    border-radius: 10px;
+    margin: 0px auto 0 auto;
+    text-align: center;
+    position: relative;
+  }
+
+  .add-text {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 40px;
+    color: #ffffff;
+    margin: 40px auto 0 auto;
+    word-break: keep-all;
+    width: 200px;
+  }
+
+  .add-btn {
+    width: 300px;
+    height: 34px;
+    margin-top: 40px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .add-btn-ok {
+    float: left;
+    width: 59px;
+    height: 24px;
+    margin-left: 64px;
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .add-btn-cancel {
+    float: left;
+    width: 100px;
+    height: 34px;
+    margin-left: 34px;
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    cursor: pointer;
+  }
+
+  .addModal-input {
+    width: 300px;
+    height: 40px;
+    outline-style: none;
+    border: none;
+    /* font-size: 16px; */
+    line-height: 21px;
+    display: inline-block;
+    margin-top: 20px;
+    padding-left: 16px;
+    border-radius: 10px;
+  }
+
+  .addModal-Drop {
+    width: 300px;
+    /* float: none; */
+    background-color: white;
+    list-style-type: none;
+    /* margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px; */
+    margin-top: -5px;
+    margin-left: 99px;
+    padding: 0.5rem 15px;
+    border: 1px solid rgb(223, 225, 229);
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
+    z-index: 3;
+    position: absolute;
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  .addModal-Drop > li {
+    border: 1px solid rgb(223, 225, 229);
+    color: #7c9cbf;
+    cursor: pointer;
+    margin-top: 3px;
+    padding: 5px;
+  }
+
+  .addModal-err {
+    margin: 10px 0px;
   }
 }
 

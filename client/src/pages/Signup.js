@@ -7,6 +7,7 @@ import Jake from "../img/UserImage-Jake.png";
 import Meg from "../img/UserImage-Meg.png";
 import Mili from "../img/UserImage-Mili.png";
 import Steven from "../img/UserImage-Steven.png";
+import LoadingIndicator from "../components/LoadingIndicator";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
@@ -30,6 +31,7 @@ function Signup() {
 
   const userImg = [Jake, Meg, Mili, Steven];
   const [curImg, setCurImg] = useState(userImg[0]);
+  const [selectImg, setSelectImg] = useState("");
   console.log("curImg =>", curImg);
 
   const handleInputValue = (key) => (e) => {
@@ -43,9 +45,17 @@ function Signup() {
       setEmailErrMsg("이메일 형식이 맞지 않습니다.");
     } else {
       setEmailErrMsg("");
-      // TODO: 서버에 이메일이 존재하는지 요청을 보낸다.
-      // setEmailErrMsg("이미 사용중인 이메일입니다.")
-      // setEmailCheckMsg("사용중 가능한 이메일입니다.")
+      axios
+        .post("http://localhost:80/signup/takenemail", {
+          email: userinfo.email,
+        })
+        .then((res) => {
+          setEmailCheckMsg("사용 가능한 이메일입니다.");
+        })
+        .catch((err) => {
+          console.log("err message =>", err);
+          setEmailErrMsg("이미 사용중인 이메일입니다.");
+        });
     }
   };
 
@@ -72,14 +82,25 @@ function Signup() {
 
   // 닉네임 유효성 검사
   const nicknameValidation = (e) => {
-    // TODO: 서버에 닉네임이 있는지 요청하고 응답을 받는다.
-    // setNickErrMsg("이미 사용중인 닉네임입니다.")
-    // setNickCheckMsg("사용 가능한 닉네임입니다.")
-    console.log("nickname valid??", e.target.value);
+    axios
+      .post("http://localhost:80/signup/takenname", {
+        nickname: userinfo.nickname,
+      })
+      .then((res) => {
+        setNickErrMsg("");
+        setNickCheckMsg("사용 가능한 닉네임입니다.");
+      })
+      .catch((err) => {
+        setNickErrMsg("이미 사용중인 닉네임입니다.");
+        console.error(err);
+      });
+    // console.log("nickname valid??", e.target.value);
   };
 
   const clickUserImage = (e) => {
     setCurImg(e.target.src);
+    setSelectImg(e.target.alt);
+    console.log("click img =>", e.target.alt);
   };
 
   // 회원가입
@@ -92,11 +113,11 @@ function Signup() {
       setErrMsg("");
       console.log("signup click");
       axios
-        .post("https://urscene.link/user", {
+        .post("http://localhost:80/signup", {
           nickname: nickname,
           email: email,
           password: password,
-          image: curImg,
+          image: selectImg,
         })
         .then((res) => {
           console.log("signup success");
@@ -125,19 +146,19 @@ function Signup() {
                 ></input>
                 {userinfo.email === "" ? (
                   <div className="signup-email-warning">{errMsg}</div>
-                ) : (
+                ) : emailErrMsg ? (
                   <div className="signup-email-warning">{emailErrMsg}</div>
+                ) : (
+                  <div className="signup-email-ok">{emailCheckMsg}</div>
                 )}
-                <div className="signup-email-ok">{emailCheckMsg}</div>
-                {/* <button className="signup-email-check">중복확인</button> */}
               </div>
               <div className="signup-password">
                 <div className="signup-email-title">비밀번호</div>
                 <input
                   onChange={handleInputValue("password")}
+                  onBlur={passwordValidation}
                   className="signup-email-input"
                   type="password"
-                  onBlur={passwordValidation}
                 ></input>
                 <div className="signup-password-warning">{pwErrMsg}</div>
               </div>
@@ -164,11 +185,11 @@ function Signup() {
                 ></input>
                 {userinfo.nickname === "" ? (
                   <div className="signup-password-warning">{errMsg}</div>
-                ) : (
+                ) : nickErrMsg ? (
                   <div className="signup-password-warning">{nickErrMsg}</div>
+                ) : (
+                  <div className="signup-email-ok">{nickCheckMsg}</div>
                 )}
-                <div className="signup-email-ok">{nickCheckMsg}</div>
-                {/* <button className="signup-email-check">중복확인</button> */}
               </div>
               <div className="signup-image"> 프로필 이미지 선택</div>
               <div className="signup-image-group">
@@ -177,7 +198,7 @@ function Signup() {
                     <img
                       onClick={clickUserImage}
                       src={src}
-                      alt=""
+                      alt={idx}
                       key={idx}
                       className={
                         curImg === src
