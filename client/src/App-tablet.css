@@ -80,7 +80,6 @@ body {
   .mainFooter {
     height: 224px;
     background: #0a142f;
-    padding: 63px 124px 18px;
     border: 1px solid red;
   }
 
@@ -88,10 +87,8 @@ body {
     height: 91px;
     width: auto;
     text-align: left;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    margin-top: 65px;
+    margin-left: 100px;
   }
 
   .mF-footer-logo {
@@ -106,14 +103,15 @@ body {
   }
 
   .mF-UI-about {
-    margin-left: 77px;
-    width: 130px;
-    height: 67px;
+    float: left;
+    margin-left: 70px;
+    width: 120px;
+    height: 60px;
   }
 
   .mF-UI-title {
-    font-size: 14px;
     font-weight: bold;
+    font-size: 14px;
     line-height: 16px;
     color: #ffffff;
     margin-bottom: 16px;
@@ -129,16 +127,10 @@ body {
   }
 
   .mF-contact {
-    display: inline-block;
-    width: 326px;
-    height: 75px;
-    margin-left: 5%;
-  }
-
-  .mF-contact-title {
     float: left;
-    line-height: 16px;
-    color: #ffffff;
+    width: 150px;
+    height: 80px;
+    /* margin-left: 250px; */
   }
 
   .mF-contact-name {
@@ -146,7 +138,7 @@ body {
     font-size: 12px;
     line-height: 14px;
     color: #ffffff;
-    margin-right: 11px;
+    margin-right: 16px;
     text-decoration: none;
   }
 
@@ -156,7 +148,7 @@ body {
   }
 
   .mf-divider {
-    margin-top: 40px;
+    margin-top: 20px;
     opacity: 0.15;
     border: 1px solid #ffffff;
   }
@@ -169,12 +161,12 @@ body {
 
   .mF-footer2 {
     font-weight: 900;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 10px;
+    line-height: 12px;
     text-align: center;
     color: #ffffff;
     opacity: 0.75;
-    margin-top: 30px;
+    margin-top: 17px;
   }
 
   /* ===== 랜딩페이지 =====*/
