@@ -28,6 +28,7 @@ function Post() {
   const [singlePost, setSinglePost] = useState(null);
   const [isUser, setIsUser] = useState(userInfo);
   const [likeId, setLikeId] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
   //console.log(singlePost, "<=singlepost");
   //console.log("comments => ", comments);

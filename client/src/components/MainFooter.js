@@ -43,9 +43,11 @@ function MainFooter() {
               손연주
             </a>
           </div>
-          <div className="mf-divider"></div>
-          <div className="mF-footer2">
-            © 2021 너의 장면은 | All Rights Reserved
+          <div className="mf-divider-wrap">
+            <div className="mf-divider"></div>
+            <div className="mF-footer2">
+              © 2021 너의 장면은 | All Rights Reserved
+            </div>
           </div>
         </div>
       </div>
