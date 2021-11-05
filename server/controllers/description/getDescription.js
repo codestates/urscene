@@ -2,14 +2,9 @@ const axios = require("axios")
 const db = require("../../db")
 require("dotenv").config()
 
-// + 클라이언트로 리스폰스 보내줄 때 배열 길이 5개로 맞춰서 보내줘야 한다
-// + db에서 검색한 값 랜덤으로 보내주는 알고리즘도 짜야 한다
-
 module.exports = async (req, res) => {
 	const { title } = req.params
-	const url = encodeURI(
-		`http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=${process.env.OPEN_API_KEY}&itemPerPage=20&movieNm=${title}`
-	)
+	const url = `http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=${process.env.OPEN_API_KEY}&itemPerPage=50&movieNm=${title}`
 
 	try {
 		let korMovie = await db.getDescriptionByKorTitle(title)
