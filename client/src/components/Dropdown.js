@@ -14,7 +14,7 @@ function Dropdown({ options, handleDropDownClick }) {
           </li>
         );
       })}
-      <li id="dropdown">원하시는 결과가 없을 경우 단어를 추가해주세요.</li>
+      <li id="dropdown">원하는 결과가 없을 경우 다른 단어로 검색해주세요.</li>
     </ul>
   );
 }

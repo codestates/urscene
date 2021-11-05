@@ -45,8 +45,9 @@ function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
       <div className="addModal">
         <div className="add-text">어떤 갤러리에 추가할까요?</div>
         <input
+          readOnly
           type="text"
-          placeholder="담으실 갤러리를 클릭해주세요."
+          placeholder="🖇 갤러리 선택"
           className={drop ? "addModal-input-drop" : "addModal-input"}
           onFocus={() => setDrop(true)}
           value={galleryTitle}
