@@ -2172,6 +2172,7 @@ body {
     height: auto;
     background-color: #070e27;
     padding-top: 34px;
+    color: #fff;
   }
 
   .postwrap {
@@ -2212,6 +2213,25 @@ body {
     text-align: center;
     color: #5a7fa8;
     cursor: pointer;
+  }
+
+  .post-addTogall {
+    float: left;
+    cursor: pointer;
+    margin-top: 20px;
+    color: #5a7fa8;
+    font-size: 18px;
+  }
+
+  .post-add-icon {
+    background: url("./img/bookmark.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
   }
 
   .post-edit-edit {
@@ -2926,15 +2946,17 @@ body {
     line-height: 21px;
     display: inline-block;
     margin-top: 20px;
-    /* padding-left: 16px; */
+    padding-left: 16px;
     border-radius: 6px;
+    font-size: 16px;
     cursor: pointer;
+    text-align: center;
   }
 
   .addModal-input::placeholder {
     color: #000;
     font-size: 18px;
-    text-align: center;
+    /* text-align: center; */
   }
 
   .addModal-input-drop {

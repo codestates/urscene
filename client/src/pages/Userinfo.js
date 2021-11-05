@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { MyContext } from "../contexts/Store";
 import MainNav from "../components/MainNav";
 import SignoutModal from "../components/SignoutModal";
@@ -13,7 +13,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 function Userinfo() {
-  const { userInfo, setUserInfo, setIsLogin } = useContext(MyContext); // 유저 정보를 확인
+  const { userInfo, setUserInfo } = useContext(MyContext); // 유저 정보를 확인
   console.log(userInfo, "=> userinfo page");
 
   const userImg = [Jake, Meg, Mili, Steven];
@@ -31,14 +31,8 @@ function Userinfo() {
     password: "",
     passwordCheck: "",
   });
-  const [newinfo, setnewinfo] = useState({
-    id: userInfo.id,
-    email: userInfo.email,
-    nickname: userInfo.nickname,
-    image: userInfo.image,
-  });
-  console.log("newinfo ??? ", newinfo);
-  console.log("change userinfo ???", userinfo);
+  // console.log("newinfo ??? ", newinfo);
+  //console.log("change userinfo ???", userinfo);
   //console.log("user userInfo =>", userInfo);
 
   const handleInputValue = (key) => (e) => {
@@ -162,7 +156,7 @@ function Userinfo() {
     setCurImg(e.target.src);
     setSelectImg(e.target.alt);
   };
-  console.log("selectImg ??? =>", selectImg);
+  // console.log("selectImg ??? =>", selectImg);
 
   return (
     <div>

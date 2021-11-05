@@ -7,7 +7,6 @@ import Jake from "../img/UserImage-Jake.png";
 import Meg from "../img/UserImage-Meg.png";
 import Mili from "../img/UserImage-Mili.png";
 import Steven from "../img/UserImage-Steven.png";
-import LoadingIndicator from "../components/LoadingIndicator";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
