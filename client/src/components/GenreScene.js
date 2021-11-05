@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
+require("dotenv").config();
 
 function GenreScene({ value }) {
   const history = useHistory();
