@@ -74,6 +74,10 @@ function Search() {
         console.log(res.data.search_gallery);
         setGalleryResult([...galleryResult, ...res.data.search_gallery]);
         setAddGalleryStart(addGalleryStart + 2);
+      })
+      .catch((err) => {
+        console.log(err);
+        setAddGalleryIcon(true);
       });
   };
 
