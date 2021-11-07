@@ -1,7 +1,7 @@
 const db = require("../../db")
+const bcrypt = require("bcrypt")
 const { isAuthorized } = require("../../lib/jwt")
 const { passwordRegex } = require("../../lib/regex")
-require("dotenv").config()
 
 module.exports = async (req, res) => {
 	try {
@@ -25,7 +25,9 @@ module.exports = async (req, res) => {
 		if (existentName) {
 			return res.status(409).send({ newName, message: "name-already-exists" })
 		}
-		await db.updateUser({ id, newName, newPassword, newImage })
+		const salt = await bcrypt.genSalt(10)
+		const hashPassword = await bcrypt.hash(newPassword, salt)
+		await db.updateUser({ id, newName, hashPassword, newImage })
 		return res.status(200).json({ newName, newImage, message: "update-successfully" })
 	} catch (err) {
 		res.status(500).json({ message: "server-error" })
