@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import useLocalStorage from "./useLocalStorage";
@@ -47,9 +47,38 @@ const Store = (props) => {
       });
   };
 
+  // 구글 소셜 로그인
+  const handleGetAccessToken = async (authorizationCode) => {
+    // code를 가지고 서버에 요청을 보내어 악세스 토큰을 얻는다.
+    console.log("AccessToken 얻는 함수 실행");
+    axios
+      .get("http://localhost:80/sign/google", {
+        //code 전달
+        authorizationCode: authorizationCode,
+      })
+      .then((res) => {
+        // 받은 결과값을 확인하고 로그인상태 및 유저 정보를 셋팅해준다.
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handlerGoogleLogin = () => {
+    console.log("구글 로그인 핸들러");
+    const url = new URL(window.location.href);
+    console.log("url ===", url);
+    const authorizationCode = url.searchParams.get("code");
+    console.log("authorizationCode ===", authorizationCode);
+    if (authorizationCode) {
+      handleGetAccessToken(authorizationCode);
+    }
+  };
+
   useEffect(() => {
     handleLogin();
     setUserInfo(JSON.parse(window.sessionStorage.getItem("userInfo")));
+    handlerGoogleLogin();
   }, []);
 
   useEffect(() => {
@@ -59,6 +88,8 @@ const Store = (props) => {
   useEffect(() => {
     window.sessionStorage.setItem("isLogin", JSON.stringify(isLogin));
   }, [isLogin]);
+
+  // 소셜 로그인
 
   return (
     <MyContext.Provider

@@ -1,7 +1,7 @@
 import "./App-mobile.css";
 import "./App-tablet.css";
 import "./App-pc.css";
-import React, { useState } from "react";
+import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Login from "./pages/Login.js";
 import Signup from "./pages/Signup.js";
@@ -15,6 +15,7 @@ import Gallery from "./pages/Gallery.js";
 import Mygallery from "./pages/Mygallery.js";
 import Landing from "./pages/Landing.js";
 import AllScenes from "./pages/AllScenes.js";
+import AllGallery from "./pages/AllGallery.js";
 
 require("dotenv").config();
 
@@ -57,6 +58,9 @@ function App() {
         </Route>
         <Route path="/allscenes">
           <AllScenes />
+        </Route>
+        <Route path="/allgallery">
+          <AllGallery />
         </Route>
       </Switch>
     </div>
