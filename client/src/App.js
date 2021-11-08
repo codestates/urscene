@@ -14,6 +14,7 @@ import Post from "./pages/Post.js";
 import Gallery from "./pages/Gallery.js";
 import Mygallery from "./pages/Mygallery.js";
 import Landing from "./pages/Landing.js";
+import AllScenes from "./pages/AllScenes.js";
 
 require("dotenv").config();
 
@@ -53,6 +54,9 @@ function App() {
         </Route>
         <Route path="/mygallery">
           <Mygallery />
+        </Route>
+        <Route path="/allscenes">
+          <AllScenes />
         </Route>
       </Switch>
     </div>

@@ -16,13 +16,13 @@ function MainNav() {
 
   const handleSearch = () => {
     if (searchText !== "") {
-      history.push(`/search/${searchText}`);
+      window.location.replace(`/search/${searchText}`);
     }
   };
 
   const handleMoveSearchPage = (e) => {
     if (e.key === "Enter" && searchText !== "") {
-      history.push(`/search/${searchText}`);
+      window.location.replace(`/search/${searchText}`);
     }
   };
 
