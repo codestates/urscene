@@ -1,10 +1,21 @@
 function MovieInfo({ description }) {
   return (
-    <div>
-      <li className="post-infogroup-list">영화제목 : {description.title}</li>
-      <li className="post-infogroup-list">장르 : {description.genre}</li>
-      <li className="post-infogroup-list">감독 : {description.director}</li>
-      <li className="post-infogroup-list">개봉 : {description.released}년</li>
+    <div className="post-infogroup-wrap">
+      <div className="post-info-1">
+        <div className="post-infogroup-title">제목</div>
+        <div className="post-infogroup-list">{description.title}</div>
+      </div>
+      <div className="post-info-1">
+        <div className="post-infogroup-title">감독</div>
+        <div className="post-infogroup-list"> {description.director}</div>
+      </div>
+      <div className="post-info-1">
+        <div className="post-infogroup-title">개요</div>
+        <div className="post-infogroup-list">
+          {description.genre} ㅣ {description.released}년
+        </div>
+        <div className="post-infogroup-list"> </div>
+      </div>
     </div>
   );
 }

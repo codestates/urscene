@@ -258,9 +258,15 @@ function Post() {
           </div>
           {editModal ? (
             // 장면 설명 수정
-            <textarea onChange={handleChangeContent} className="post-editdesc">
-              {content}
-            </textarea>
+            <>
+              <textarea
+                onChange={handleChangeContent}
+                className="post-editdesc"
+              >
+                {content}
+              </textarea>
+              {/* <div className="blink">ㅣ</div> */}
+            </>
           ) : (
             <div className="post-desc">{content}</div>
           )}
