@@ -40,6 +40,7 @@ function Mygallery() {
       .then((res) => {
         setHaveScenes([...res.data.my].reverse());
         setRenderScenes([...res.data.my].reverse().slice(0, scenePerPage));
+        console.log("getAllMyScene 성공");
       })
       .catch((err) => {
         console.log(err);
@@ -72,6 +73,7 @@ function Mygallery() {
       .then((res) => {
         if (renderGallery.length <= 2) {
           setAddGalleryIcon(true);
+          console.log("getAllMyGallery 성공");
         }
         setHaveGallery([...res.data.my].reverse());
         setRenderGallery([...res.data.my].reverse().slice(0, galleryPerPage));
@@ -108,6 +110,7 @@ function Mygallery() {
         setRenderLikeScenes(
           [...res.data.likedSinglepostData].slice(0, likeScenePerPage),
         );
+        console.log("getAllMyLikeScene 성공");
       })
       .catch((err) => {
         console.log(err);
@@ -145,6 +148,7 @@ function Mygallery() {
         setRenderLikeGallerys(
           [...res.data.likedGalleryData].slice(0, likeGalleryPerPage),
         );
+        console.log("getAllMyLikeGallery 성공");
       })
       .catch((err) => {
         console.log(err);

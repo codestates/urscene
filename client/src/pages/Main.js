@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import MainNav from "../components/MainNav";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
@@ -89,7 +90,6 @@ function Main() {
   };
 
   const handleCurrentScene = () => {
-    console.log("장르별 장면 함수 시작");
     axios
       .get(
         `${process.env.REACT_APP_EC2_URL}/main/single/?genre=${curGenre}&page=1&limit=${scenePerPage}`,
@@ -98,7 +98,6 @@ function Main() {
         if (res.data.single.length !== 4) {
           setAddSceneIcon(true);
         }
-        console.log("res.data.single===", res.data.single);
         setCurSenes(res.data.single);
         setIsLoading(false);
       })
@@ -114,13 +113,11 @@ function Main() {
 
   const handleAddCurrentScene = () => {
     setCurScenePage(curScenePage + scenePerPage);
-    console.log("curScenePage===", curScenePage);
     axios
       .get(
         `${process.env.REACT_APP_EC2_URL}/main/single/?genre=${curGenre}&page=${curScenePage}&limit=${scenePerPage}`,
       )
       .then((res) => {
-        console.log("res.data.single===", res.data.single);
         if (res.data.single.length !== 4) {
           setAddSceneIcon(true);
         }
@@ -174,6 +171,9 @@ function Main() {
           </div>
           <div className="main-genre">
             <div className="main-text">장르별 장면</div>
+            <Link to="/allscenes">
+              <div className="main-text-all">모든 장면 보기</div>
+            </Link>
             <div className="main-genre-category-wrap">
               {genres.map((el) => {
                 return (

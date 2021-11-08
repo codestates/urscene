@@ -1450,6 +1450,17 @@ body {
     font-size: 32px;
     text-align: left;
     margin-bottom: 28px;
+    width: 200px;
+    display: inline-block;
+  }
+
+  .main-text-all {
+    font-size: 20px;
+    text-align: left;
+    margin-bottom: 28px;
+    width: 180px;
+    display: inline-block;
+    color: white;
   }
 
   .main-gallery {
@@ -1582,6 +1593,7 @@ body {
     justify-content: flex-start;
     cursor: pointer;
   }
+
   .main-genre-img-addText {
     width: 43px;
     height: 19px;
@@ -3001,6 +3013,54 @@ body {
 
   .addModal-err {
     margin: 10px 0px;
+  }
+
+  /* 모든 장면 보기 페이지 */
+  .allScene-back {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+  }
+
+  .allScene-wrap {
+    width: 1060px;
+    height: auto;
+    margin: auto;
+    /* border: 1px solid red; */
+  }
+
+  .allScene-genre {
+    width: 1060px;
+    margin-top: 80px;
+    /* border: 1px solid red; */
+  }
+
+  .allScene-text {
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 28px;
+    width: 200px;
+    display: inline-block;
+  }
+
+  .allScene-category-wrap {
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    /* border: 1px solid red; */
+  }
+
+  .allScene-img-wrap {
+    margin-top: 45px;
+    padding-bottom: 20px;
+    width: 1080px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    cursor: pointer;
+    /* border: 1px solid red; */
   }
 }
 

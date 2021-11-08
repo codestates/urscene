@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
+require("dotenv").config();
 
 function BestGallery({ gallery }) {
   const history = useHistory();
@@ -25,7 +26,10 @@ function BestGallery({ gallery }) {
           {rendering.map((ele, idx) => {
             return (
               <div className="BG-img" key={idx}>
-                <img src={ele} alt={ele} />
+                <img
+                  src={`${process.env.REACT_APP_S3_URL_ImageUpload}/${ele.image}`}
+                  alt={ele.image}
+                />
               </div>
             );
           })}
