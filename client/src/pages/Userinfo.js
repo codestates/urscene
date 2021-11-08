@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { MyContext } from "../contexts/Store";
 import MainNav from "../components/MainNav";
 import SignoutModal from "../components/SignoutModal";
@@ -13,7 +13,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 function Userinfo() {
-  const { userInfo, setUserInfo, setIsLogin } = useContext(MyContext); // 유저 정보를 확인
+  const { userInfo, setUserInfo } = useContext(MyContext); // 유저 정보를 확인
   console.log(userInfo, "=> userinfo page");
 
   const userImg = [Jake, Meg, Mili, Steven];
@@ -31,7 +31,9 @@ function Userinfo() {
     password: "",
     passwordCheck: "",
   });
-  console.log("change userinfo ???", userinfo);
+  // console.log("newinfo ??? ", newinfo);
+  //console.log("change userinfo ???", userinfo);
+  //console.log("user userInfo =>", userInfo);
 
   const handleInputValue = (key) => (e) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
@@ -91,14 +93,18 @@ function Userinfo() {
       console.log("save click");
       axios
         .patch("http://localhost:80/user", {
-          newName: nickname === "" ? userInfo.nickname : nickname,
+          newName: nickname,
           newPassword: password,
           newImage: selectImg,
         })
         .then((res) => {
-          console.log("save success");
-          console.log(res);
-          window.location.replace("/mygallery");
+          console.log("save success", res.data);
+          axios
+            .get("http://localhost:80/user", { withCredentials: true })
+            .then((res) => {
+              setUserInfo(res.data);
+              window.location.replace("/mygallery");
+            });
         })
         .catch((err) => {
           console.log("userinfo err message =>", err);
@@ -138,7 +144,6 @@ function Userinfo() {
       });
   };
 
-  console.log("curImg ??? =>", curImg);
   const handleModal = () => {
     setModal(!modal);
   };
@@ -151,6 +156,7 @@ function Userinfo() {
     setCurImg(e.target.src);
     setSelectImg(e.target.alt);
   };
+  // console.log("selectImg ??? =>", selectImg);
 
   return (
     <div>
