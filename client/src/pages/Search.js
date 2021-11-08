@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MainNav from "../components/MainNav";
 import NoResult from "../components/NoResult";
 import ResultScene from "../components/ResultScene";

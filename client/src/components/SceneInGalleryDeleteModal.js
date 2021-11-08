@@ -1,6 +1,5 @@
 import axios from "axios";
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
 require("dotenv").config();
 
 function SceneInGalleryDeleteModal({
@@ -9,8 +8,6 @@ function SceneInGalleryDeleteModal({
   sceneId,
   handleLandingDetailGallery,
 }) {
-  const history = useHistory();
-
   const handleDeleteGallery = () => {
     axios
       .delete(

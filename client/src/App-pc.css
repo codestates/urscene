@@ -731,7 +731,7 @@ body {
     /* flex-flow: column wrap; */
     position: relative;
     flex-wrap: wrap;
-    justify-content: start;
+    /* justify-content: start; */
   }
 
   .bookmarker {
@@ -780,7 +780,7 @@ body {
     /* padding: 11px; */
     margin: 20px;
     display: flex;
-    justify-content: start;
+    /* justify-content: start; */
     flex-wrap: wrap;
   }
 
@@ -1455,12 +1455,13 @@ body {
   }
 
   .main-text-all {
-    font-size: 20px;
+    /* font-size: 20px;
     text-align: left;
     margin-bottom: 28px;
     width: 180px;
-    display: inline-block;
+    display: inline-block; */
     color: white;
+    float: right;
   }
 
   .main-gallery {
@@ -1472,6 +1473,7 @@ body {
   .main-gallery-all {
     /* position: absolute; */
     float: right;
+    color: white;
   }
 
   .main-gallery-wrap {
@@ -1660,9 +1662,10 @@ body {
   }
 
   .BG-img {
-    width: 157px;
+    width: 150px;
     height: 100px;
-    border: 1px solid #eaeaea;
+    /* border: 0.1px solid gray; */
+    margin: 1px;
   }
 
   .BG-img > img {
@@ -1683,7 +1686,7 @@ body {
   .genre-img {
     width: 250px;
     height: 157px;
-    border: 1px solid #344583;
+    /* border: 1px solid #344583; */
     box-sizing: border-box;
     border-radius: 9px;
     margin-right: 18px;
@@ -1731,14 +1734,14 @@ body {
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    /* justify-content: start; */
   }
 
   .result-scene-img {
     width: 185px;
     height: 122px;
     border-radius: 10px;
-    border: 1px solid #344583;
+    /* border: 1px solid #344583; */
     box-sizing: border-box;
     margin-bottom: 20px;
     margin-right: 20px;
@@ -2324,7 +2327,7 @@ body {
     width: 840px;
     height: auto;
     margin-top: 21px;
-    font-size: 28px;
+    font-size: 20px;
     line-height: 33px;
     color: #ffffff;
     text-align: left;
@@ -2334,18 +2337,22 @@ body {
 
   .post-editdesc {
     width: 840px;
-    height: 68px;
+    height: 150px;
     margin-top: 21px;
     font-family: Roboto;
     font-weight: normal;
-    font-size: 28px;
+    font-size: 20px;
     line-height: 33px;
-    color: black;
+    color: white;
     text-align: left;
     word-break: keep-all;
     white-space: pre-line;
     border-radius: 8px;
     overflow: hidden;
+    background-color: #070e27;
+    resize: none;
+    outline: none;
+    box-shadow: 12px 13px 0px rgba(39, 74, 214, 0.28);
   }
 
   .post-devider {
@@ -2757,7 +2764,7 @@ body {
     width: 267px;
     height: 162px;
     border-radius: 10px;
-    border: 1px solid #eaeaea;
+    /* border: 1px solid #eaeaea; */
     object-fit: cover;
     color: white;
     position: absolute;
@@ -3061,6 +3068,42 @@ body {
     justify-content: flex-start;
     cursor: pointer;
     /* border: 1px solid red; */
+  }
+
+  /* 모든 갤러리 보기 페이지 */
+  .allGallery-back {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+  }
+
+  .allGallery-wrap {
+    width: 1060px;
+    height: auto;
+    margin: auto;
+  }
+
+  .allGallery-gallery {
+    padding-top: 34px;
+    width: 1060px;
+    height: auto;
+  }
+
+  .allGallery-text {
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 28px;
+    width: 250px;
+    display: inline-block;
+  }
+
+  .allGallery-gallery-wrap {
+    width: 1060px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 }
 

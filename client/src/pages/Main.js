@@ -74,7 +74,6 @@ function Main() {
     "애니메이션",
   ];
   const [curGenre, setCurGenre] = useState(genres[0]);
-  const [previousGenre, setPreviousGenre] = useState("");
   const [curScenes, setCurSenes] = useState([]);
 
   const [curScenePage, setCurScenePage] = useState(5);
@@ -85,7 +84,6 @@ function Main() {
   const changeCurGenre = (e) => {
     setCurScenePage(4);
     setAddSceneIcon(false);
-    setPreviousGenre(curGenre);
     setCurGenre(e.target.innerText);
   };
 
@@ -135,7 +133,9 @@ function Main() {
         <div className="main-wrap">
           <div className="main-gallery">
             <div className="main-text">인기 갤러리</div>
-            <div className="main-gallery-all">모든 갤러리 보기</div>
+            <Link to="/allgallery">
+              <div className="main-gallery-all">모든 갤러리 보기</div>
+            </Link>
             <div className="main-gallery-wrap">
               <div
                 className="main-gallery-Arrowleft"

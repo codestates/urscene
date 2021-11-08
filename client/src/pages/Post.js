@@ -14,7 +14,7 @@ axios.defaults.withCredentials = true;
 
 function Post() {
   const { postId } = useParams();
-  const { userInfo } = useContext(MyContext); // 로그인 유저 정보
+  const { isLogin, userInfo } = useContext(MyContext); // 로그인 유저 정보
   const [movieModal, setMoiveModal] = useState(false); // 영화정보 열기닫기
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
   const [likeModal, setlikeModal] = useState(false); // 좋아요 버튼 false가 안누른상태
@@ -34,23 +34,24 @@ function Post() {
   const [haveGallery, setHaveGallery] = useState([]); // 갤러리 리스트
 
   // 나의 갤러리 불러오기
-  const getAllMyGallery = () => {
-    axios
-      .get(`${process.env.REACT_APP_EC2_URL}/user/gallerypost`)
-      .then((res) => {
-        setHaveGallery([...res.data.my].reverse());
-      });
-  };
+  // const getAllMyGallery = () => {
+  //   axios
+  //     .get(`${process.env.REACT_APP_EC2_URL}/user/gallerypost`)
+  //     .then((res) => {
+  //       setHaveGallery([...res.data.my].reverse());
+  //     });
+  // };
   //console.log("haveGallery ???", haveGallery);
 
   const handleSetAddModal = () => {
     setAddModal(!addModal);
   };
+
   useEffect(() => {
     getSinglePost();
     getComments();
     getLikeinfo();
-    getAllMyGallery();
+    // getAllMyGallery();
   }, []);
 
   useEffect(() => {
@@ -59,6 +60,7 @@ function Post() {
 
   // 좋아요 정보 불러오기
   const getLikeinfo = () => {
+    if (isLogin === false) return;
     axios
       .get(`http://localhost:80/singlepost/like/${postId}`)
       .then((res) => {

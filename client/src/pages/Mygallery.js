@@ -13,7 +13,7 @@ require("dotenv").config();
 axios.defaults.withCredentials = true;
 
 function Mygallery() {
-  const { userInfo, isLogin } = useContext(MyContext); // 유저 정보를 확인
+  const { userInfo } = useContext(MyContext); // 유저 정보를 확인
   const [isLikeSceneClicked, setIsLikeSceneClicked] = useState(false);
   const [isLikeGalleryClicked, setIsLikeGalleryClicked] = useState(false);
 
@@ -40,7 +40,6 @@ function Mygallery() {
       .then((res) => {
         setHaveScenes([...res.data.my].reverse());
         setRenderScenes([...res.data.my].reverse().slice(0, scenePerPage));
-        console.log("getAllMyScene 성공");
       })
       .catch((err) => {
         console.log(err);
@@ -71,10 +70,9 @@ function Mygallery() {
     axios
       .get(`${process.env.REACT_APP_EC2_URL}/user/gallerypost`)
       .then((res) => {
-        if (renderGallery.length <= 2) {
-          setAddGalleryIcon(true);
-          console.log("getAllMyGallery 성공");
-        }
+        // if (renderGallery.length < 2) {
+        //   setAddGalleryIcon(true);
+        // }
         setHaveGallery([...res.data.my].reverse());
         setRenderGallery([...res.data.my].reverse().slice(0, galleryPerPage));
       });
@@ -110,7 +108,6 @@ function Mygallery() {
         setRenderLikeScenes(
           [...res.data.likedSinglepostData].slice(0, likeScenePerPage),
         );
-        console.log("getAllMyLikeScene 성공");
       })
       .catch((err) => {
         console.log(err);
@@ -148,7 +145,6 @@ function Mygallery() {
         setRenderLikeGallerys(
           [...res.data.likedGalleryData].slice(0, likeGalleryPerPage),
         );
-        console.log("getAllMyLikeGallery 성공");
       })
       .catch((err) => {
         console.log(err);

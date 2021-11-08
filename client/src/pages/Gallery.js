@@ -2,7 +2,6 @@ import React, { useEffect, useContext, useState } from "react";
 import MainNav from "../components/MainNav";
 import GalleryContent from "../components/GalleryContent";
 import GalleryDeleteModal from "../components/GalleryDeleteModal";
-import SceneInGalleryDeleteModal from "../components/SceneInGalleryDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import { useHistory, useParams } from "react-router";
@@ -18,7 +17,6 @@ function Gallery() {
   const [editDeleteModal, setEditDeleteModal] = useState(true); // 수정버튼 클릭시 장면 설명 수정
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
   const [deleteModal, setDeleteModal] = useState(false); // 삭제 버튼 클릭시 삭제 모달 팝업
-  const [requireLoginModal, setRequireLoginModal] = useState(false);
   const [galleryLikeId, setGalleryLikeId] = useState("");
 
   const [nicknameGallery, setNicknameGallery] = useState(""); // API로 받아온 갤러리 작성자 닉네임
@@ -100,7 +98,6 @@ function Gallery() {
   const handleLike = () => {
     // 비로그인 사용자에게는 로그인이 필요합니다 안내메시지 표시
     if (userInfo === null) {
-      setRequireLoginModal(true);
       return;
     }
     if (likeModal === false) {

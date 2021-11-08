@@ -1,5 +1,4 @@
 import React from "react";
-import aaa from "../img/aaa.gif";
 import lo from "../img/lo.gif";
 
 function LoadingIndicator() {

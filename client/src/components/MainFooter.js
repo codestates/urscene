@@ -21,6 +21,7 @@ function MainFooter() {
                 href="https://github.com/LeeSangHeon86/urscene"
                 target="_blank"
                 className="mF-contact-name"
+                rel="noreferrer"
               >
                 이상헌
               </a>
@@ -28,6 +29,7 @@ function MainFooter() {
                 href="https://github.com/dddtttt000/urscene"
                 target="_blank"
                 className="mF-contact-name"
+                rel="noreferrer"
               >
                 임송하
               </a>
@@ -39,6 +41,7 @@ function MainFooter() {
                 href="https://github.com/kangseokho/urscene"
                 target="_blank"
                 className="mF-contact-name"
+                rel="noreferrer"
               >
                 강석호
               </a>
@@ -46,6 +49,7 @@ function MainFooter() {
                 href="https://github.com/usreon/urscene"
                 target="_blank"
                 className="mF-contact-name"
+                rel="noreferrer"
               >
                 손연주
               </a>

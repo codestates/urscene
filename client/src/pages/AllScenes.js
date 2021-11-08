@@ -5,10 +5,8 @@ import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import GenreScene from "../components/GenreScene";
 import useIntersectionObserver from "../customHook/useIntersectionObserver";
-import axios from "axios";
 import searchAPI from "../api/searchAPI";
 require("dotenv").config();
-axios.defaults.withCredentials = true;
 
 function AllScenes() {
   const history = useHistory();
