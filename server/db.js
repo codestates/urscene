@@ -52,12 +52,6 @@ module.exports = {
 				title: {
 					[Op.like]: title + "%",
 				},
-				genre: {
-					[Op.notLike]: "%" + "성인물" + "%",
-				},
-				director: {
-					[Op.notLike]: "%" + "director" + "%",
-				},
 			},
 			limit: 5,
 		}),
@@ -68,7 +62,7 @@ module.exports = {
 			order: [["title_eng", "ASC"]],
 			where: {
 				title_eng: {
-					[Op.like]: "%" + title + "%",
+					[Op.like]: title + "%",
 				},
 			},
 			limit: 5,
