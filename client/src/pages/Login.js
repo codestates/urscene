@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import MainNav from "../components/MainNav";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import axios from "axios";
@@ -8,6 +8,7 @@ import { MyContext } from "../contexts/Store";
 axios.defaults.withCredentials = true;
 
 function Login() {
+  const history = useHistory();
   const { handleResponseSuccess } = useContext(MyContext);
   const [userinfo, setuserinfo] = useState({
     email: "",
@@ -117,11 +118,16 @@ function Login() {
             <button type="submit" id="lin-btnLogin" onClick={handleLogin}>
               로그인
             </button>
-            <Link to="signup">
-              <div className="lin-signup">
-                <div className="lin-signup-text">회원가입</div>
+            {/* <Link to="signup"> */}
+            <div className="lin-signup">
+              <div
+                onClick={() => history.push("/signup")}
+                className="lin-signup-text"
+              >
+                회원가입
               </div>
-            </Link>
+            </div>
+            {/* </Link> */}
             <div className="lin-experience">
               <div
                 className="lin-experience-text"
