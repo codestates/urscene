@@ -6,7 +6,7 @@ const db = require("../../db")
 module.exports = async (req, res) => {
 	const { title } = req.params
 	const url = encodeURI(
-		`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=N&listCount=50&ServiceKey=${process.env.KMDB_API_KEY}&title=${title}`
+		`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=N&listCount=70&ServiceKey=${process.env.KMDB_API_KEY}&title=${title}`
 	)
 
 	try {
