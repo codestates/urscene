@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import MainNav from "../components/MainNav";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import axios from "axios";
@@ -8,6 +8,7 @@ import { MyContext } from "../contexts/Store";
 axios.defaults.withCredentials = true;
 
 function Login() {
+  const history = useHistory();
   const { handleResponseSuccess } = useContext(MyContext);
   const [userinfo, setuserinfo] = useState({
     email: "",
@@ -78,6 +79,11 @@ function Login() {
     window.location.assign(GOOGLE_LOGIN_URL);
   };
 
+  const url = `https://kauth.kakao.com/oauth/authorize?client_id=a87651345b7491d42793ae30327c6fb0&redirect_uri=http://localhost:3000&response_type=code`;
+  const socialLoginHandler = () => {
+    window.location.assign(url);
+  };
+
   return (
     <div>
       <MainNav />
@@ -112,11 +118,16 @@ function Login() {
             <button type="submit" id="lin-btnLogin" onClick={handleLogin}>
               로그인
             </button>
-            <Link to="signup">
-              <div className="lin-signup">
-                <div className="lin-signup-text">회원가입</div>
+            {/* <Link to="signup"> */}
+            <div className="lin-signup">
+              <div
+                onClick={() => history.push("/signup")}
+                className="lin-signup-text"
+              >
+                회원가입
               </div>
-            </Link>
+            </div>
+            {/* </Link> */}
             <div className="lin-experience">
               <div
                 className="lin-experience-text"
@@ -127,7 +138,10 @@ function Login() {
             </div>
             <div className="lin-divider"></div>
             <div>
-              <button className="lin-kakao"></button>
+              <button
+                className="lin-kakao"
+                onClick={socialLoginHandler}
+              ></button>
             </div>
             <div>
               <button className="lin-google" onClick={googleLoginHandler}>

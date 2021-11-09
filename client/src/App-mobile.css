@@ -51,8 +51,6 @@ body {
     width: 100px;
     height: 28px;
     margin-left: 38px;
-    font-family: Sora;
-    font-style: normal;
     font-weight: 600;
     font-size: 20px;
     line-height: 28px;
@@ -87,8 +85,6 @@ body {
     /* margin-left: 16.18%; */
     /* margin-right: 63.04%; */
     /* top: calc(50% - 20px / 2 - 46px); */
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
@@ -112,8 +108,6 @@ body {
     right: 46.82%;
     margin-top: calc(50% - 18px / 2);
 
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 900;
     font-size: 12px;
     line-height: 14px;
@@ -139,8 +133,6 @@ body {
     left: 0%;
     right: 4.55%;
     top: calc(50% - 30px / 2 - 35px);
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
@@ -163,8 +155,6 @@ body {
     right: 84.97%;
     top: calc(50% - 14px / 2 - 2px);
 
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 900;
     font-size: 12px;
     line-height: 14px;
@@ -181,8 +171,6 @@ body {
     left: 30.05%;
     right: 52.33%;
     top: calc(50% - 14px / 2 - 2px);
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
@@ -198,8 +186,6 @@ body {
     right: 26.42%;
     top: calc(50% - 14px / 2 - 2px);
 
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
@@ -214,8 +200,6 @@ body {
     left: 0%;
     right: 87.73%;
     top: calc(50% - 14px / 2 + 17px);
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 900;
     font-size: 12px;
     line-height: 14px;
@@ -233,8 +217,6 @@ body {
     right: 58.18%;
     top: calc(50% - 14px / 2 + 17px);
 
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
@@ -249,8 +231,6 @@ body {
     left: 49.09%;
     right: 35.45%;
     top: calc(50% - 14px / 2 + 17px);
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
@@ -301,8 +281,6 @@ body {
     left: 20.53%;
     right: 63.04%;
     top: calc(50% - 16px / 2 + 61px);
-    font-family: Roboto;
-    font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 16px;
@@ -316,8 +294,6 @@ body {
     left: 46.62%;
     right: 13.77%;
     top: calc(50% - 11px / 2 + 61.5px);
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 900;
     font-size: 5px;
     line-height: 11px;
@@ -354,9 +330,6 @@ body {
     height: 34px;
     margin-left: 27px;
     margin-top: 22px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 32px;
     line-height: 37px;
     padding: 3px;
@@ -376,8 +349,6 @@ body {
   .lin-email-title {
     width: 360px;
     height: 20px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 21px;
@@ -396,9 +367,6 @@ body {
     box-sizing: border-box;
     box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 21px;
     /* identical to box height */
@@ -411,9 +379,6 @@ body {
     height: 18px;
     margin-top: 8px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 18px;
 
@@ -433,8 +398,6 @@ body {
   .lin-password-title {
     width: 360px;
     height: 20px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 21px;
@@ -453,9 +416,6 @@ body {
     box-sizing: border-box;
     box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 21px;
     /* identical to box height */
@@ -468,9 +428,6 @@ body {
     height: 18px;
     margin-top: 8px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 18px;
 
@@ -490,8 +447,6 @@ body {
     padding: 0px;
     border: 0px;
 
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
@@ -507,8 +462,6 @@ body {
     margin-top: 34px;
     margin-left: auto;
     margin-right: auto;
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
 
@@ -575,8 +528,6 @@ body {
     width: 108px;
     height: 23px;
     margin: 16px 126px 15px 77px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 23px;
@@ -606,9 +557,6 @@ body {
     width: 252px;
     height: 34px;
     margin: 22px 135px 0px 27px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 32px;
     line-height: 37px;
 
@@ -626,8 +574,6 @@ body {
   .signup-email-title {
     width: 360px;
     height: 20px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 21px;
@@ -649,9 +595,6 @@ body {
     box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
     border-radius: 6px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 21px;
     padding-left: 16px;
@@ -661,9 +604,6 @@ body {
     width: 250px;
     height: 18px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 18px;
     color: #ff7171;
@@ -674,9 +614,6 @@ body {
     width: 250px;
     height: 18px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 18px;
     color: #0059f7;
@@ -694,8 +631,6 @@ body {
       0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
@@ -721,9 +656,6 @@ body {
     width: 360px;
     height: 18px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 18px;
     color: #ff7171;
@@ -750,8 +682,6 @@ body {
     height: 20px;
     margin: 82px auto 0px auto;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 23px;
@@ -825,8 +755,6 @@ body {
     position: relative;
     width: 67px;
     height: 24px;
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
@@ -868,8 +796,6 @@ body {
     width: 135px;
     height: 48px;
     margin: 56px auto 0px auto;
-    font-family: Roboto;
-    font-style: normal;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
@@ -890,8 +816,6 @@ body {
     border-radius: 8px;
     border-width: 0px;
 
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -922,9 +846,6 @@ body {
     top: 26px;
     width: 252px;
     height: 34px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 32px;
     line-height: 37px;
 
@@ -950,8 +871,6 @@ body {
     height: 19px;
     margin: 23px auto 0 auto;
 
-    font-family: Roboto;
-    font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 19px;
@@ -972,8 +891,6 @@ body {
     height: 20px;
     text-align: left;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 21px;
@@ -1039,8 +956,6 @@ body {
     width: 360px;
     height: 20px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 21px;
@@ -1060,9 +975,6 @@ body {
     box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
     border-radius: 6px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 21px;
     /* identical to box height */
@@ -1074,9 +986,6 @@ body {
     width: 360px;
     height: 18px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 18px;
 
@@ -1088,9 +997,6 @@ body {
     width: 360px;
     height: 18px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 18px;
 
@@ -1109,8 +1015,6 @@ body {
       0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
@@ -1147,8 +1051,6 @@ body {
     background: #0059f7;
     border-radius: 8px;
     border-width: 0px;
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
@@ -1163,8 +1065,6 @@ body {
     height: 24px;
     margin: 52px auto 0 auto;
 
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 24px;
@@ -1181,8 +1081,6 @@ body {
     height: 24px;
     margin: 16px auto 0 auto;
 
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -1220,8 +1118,6 @@ body {
   }
 
   .soM-label {
-    font-family: Roboto;
-    font-style: normal;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
@@ -1248,8 +1144,6 @@ body {
     margin-left: 21px;
     margin-top: 5px;
 
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -1270,8 +1164,6 @@ body {
     background: #ffffff;
     border-radius: 8px;
     border-width: 0px;
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -1302,9 +1194,6 @@ body {
     margin-top: 39px;
     margin-left: 27px;
 
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 32px;
     line-height: 37px;
 
@@ -1335,8 +1224,6 @@ body {
       0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
@@ -1385,8 +1272,6 @@ body {
     margin-top: 16px;
     float: left;
 
-    font-family: Roboto;
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 21px;
@@ -1425,9 +1310,6 @@ body {
     height: 88px;
     margin-top: 18px;
     margin-left: 27px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 18px;
     line-height: 21px;
 
@@ -1441,9 +1323,6 @@ body {
     width: 360px;
     height: 68px;
     margin-top: 21px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 18px;
     line-height: 21px;
 
@@ -1474,10 +1353,6 @@ body {
     width: 80px;
     height: 34px;
     margin-left: 12px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 18px;
     line-height: 21px;
     display: flex;
@@ -1491,10 +1366,6 @@ body {
     width: 50px;
     height: 34px;
     margin-left: 12px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 35px;
     line-height: 28px;
     display: flex;
@@ -1511,10 +1382,6 @@ body {
     width: auto;
     margin-top: 5px;
     width: 340px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 19px;
     /* or 145% */
@@ -1549,10 +1416,6 @@ body {
     width: 295px;
     height: 52px;
     margin-left: 8px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 21px;
     /* identical to box height */
@@ -1568,9 +1431,6 @@ body {
     width: 30px;
     height: 21px;
 
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 21px;
     /* identical to box height */
@@ -1616,8 +1476,6 @@ body {
     width: 83px;
     height: 23px;
     margin-top: 0px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 21px;
@@ -1631,10 +1489,6 @@ body {
     width: 562px;
     height: 27px;
     margin-top: 5px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 15px;
     line-height: 18px;
 

@@ -11,11 +11,13 @@ const { isAuthorizedUser } = require("../lib/auth");
 const router = express.Router();
 
 //sign
-router.post("/signup", sign.signUp);
-router.post("/signin", sign.signIn);
-router.post("/signout", isAuthorizedUser, sign.signOut);
-router.post("/signup/takenname", sign.isTakenName);
-router.post("/signup/takenemail", sign.isTakenEmail);
+router.post("/signup", sign.signUp)
+router.post("/signin", sign.signIn)
+router.post("/signout", isAuthorizedUser, sign.signOut)
+router.post("/signup/takenname", sign.isTakenName)
+router.post("/signup/takenemail", sign.isTakenEmail)
+router.post("/sign/kakao", sign.kakao)
+
 
 //user
 router.get("/user", isAuthorizedUser, user.getUserInfo);
