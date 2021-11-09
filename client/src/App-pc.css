@@ -955,9 +955,7 @@ body {
   .lin-experience {
     width: 400px;
     height: 60px;
-    margin-top: 00px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     padding: 22px;
     font-weight: 500;
     font-size: 16px;
@@ -1166,7 +1164,6 @@ body {
     margin: 40px auto 0px auto;
     font-size: 20px;
     line-height: 26px;
-    /* identical to box height */
     color: #d4d4d4;
     text-align: left;
   }
@@ -1450,13 +1447,12 @@ body {
   }
 
   .main-text-all {
-    /* font-size: 20px;
-    text-align: left;
-    margin-bottom: 28px;
-    width: 180px;
-    display: inline-block; */
     color: white;
     float: right;
+    margin-right: 30px;
+    margin-top: 16px;
+    text-decoration: underline;
+    text-underline-position: under;
   }
 
   .main-gallery {
@@ -1469,6 +1465,10 @@ body {
     /* position: absolute; */
     float: right;
     color: white;
+    margin-right: 30px;
+    margin-top: 16px;
+    text-decoration: underline;
+    text-underline-position: under;
   }
 
   .main-gallery-wrap {
@@ -2325,8 +2325,6 @@ body {
     line-height: 33px;
     color: #ffffff;
     text-align: left;
-    word-break: keep-all;
-    white-space: pre-line;
   }
 
   .post-editdesc {
@@ -2338,12 +2336,11 @@ body {
     font-size: 28px;
     line-height: 33px;
     text-align: left;
-    /* border-radius: 8px; */
     overflow: auto;
     padding: 14px;
-    /* border: 1px solid #232424; */
-    border: none;
-    /* outline: none; */
+    border: 1px solid #7c9cbf;
+    border-radius: 6px;
+    resize: none;
   }
 
   .post-editdesc:focus {
@@ -2351,16 +2348,6 @@ body {
     outline: none;
     width: 840px;
     height: 200px;
-  }
-
-  @keyframes blink-effect {
-    50% {
-      opacity: 0;
-    }
-  }
-
-  .blink {
-    animation: blink-effect 1s step-end infinite;
   }
 
   .post-devider {
@@ -2419,6 +2406,7 @@ body {
     color: #fff;
     display: inline-block;
   }
+
   .post-infogroup-wrap {
     width: auto;
     height: 100px;
@@ -2590,7 +2578,6 @@ body {
 
     font-size: 20px;
     line-height: 23px;
-
     color: #ffffff;
     text-align: left;
     margin-bottom: 10px;
@@ -2605,10 +2592,8 @@ body {
   .gallery-title {
     width: 730px;
     height: 34px;
-
     font-size: 32px;
     line-height: 37px;
-
     color: #ffffff;
     text-align: left;
     float: left;
@@ -2634,21 +2619,21 @@ body {
   .gallery-titleinput {
     width: 620px;
     height: 69px;
-
-    background: #ffffff;
-    border: 1px solid #dbe2ea;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    background: #070e27;
+    color: #ffffff;
+    border: 1px solid #7c9cbf;
     border-radius: 6px;
     float: left;
     font-size: 32px;
     line-height: 42px;
-    /* identical to box height */
-
-    color: #7c9cbf;
-    padding-left: 16px;
-    padding-top: 14.5px;
+    padding-left: 14px;
+    padding-top: 4px;
     margin-bottom: 16px;
+  }
+
+  .gallery-titleinput:focus {
+    outline: none;
+    border: none;
   }
 
   .gallery-edit {
@@ -2656,7 +2641,6 @@ body {
     height: 40px;
     margin-left: 28px;
     float: left;
-
     background: url("../src/img/pencil.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2668,7 +2652,6 @@ body {
     width: 40px;
     height: 40px;
     float: left;
-
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2690,12 +2673,16 @@ body {
     padding-top: 16px;
     font-size: 22px;
     line-height: 29px;
-    color: #7c9cbf;
-    background: #ffffff;
-    border: 1px solid #dbe2ea;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    background: #070e27;
+    color: #ffffff;
+    border: 1px solid #7c9cbf;
     border-radius: 6px;
+    resize: none;
+  }
+
+  .gallery-descinput:focus {
+    outline: none;
+    border: none;
   }
 
   .gallery-desc {
@@ -2759,7 +2746,6 @@ body {
     width: 267px;
     height: 162px;
     margin: 6px;
-    border-radius: 10px;
     display: flex;
     position: relative;
     cursor: pointer;
@@ -2768,8 +2754,7 @@ body {
   .gallery-content-img {
     width: 267px;
     height: 162px;
-    border-radius: 10px;
-    /* border: 1px solid #eaeaea; */
+    border-radius: 2px;
     object-fit: cover;
     color: white;
     position: absolute;
