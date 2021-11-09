@@ -54,6 +54,7 @@ body {
     background: url("./img/Lens.png");
     background-position: center;
     background-size: contain;
+    background-repeat: no-repeat;
     width: 30px;
     height: 30px;
     display: table-cell;
@@ -1806,6 +1807,7 @@ body {
     height: 313px;
     margin: 0px auto 0px auto;
     background: #0059f7;
+    text-align: center;
     border-radius: 10px;
   }
 
@@ -2508,27 +2510,26 @@ body {
 
   .post-mycomment-group2 {
     width: 740px;
-    height: 110px;
+    height: auto;
     float: left;
     margin-left: 10px;
   }
 
   .post-mycomment-group2-nickname {
-    width: 102px;
+    width: auto;
     height: 29px;
     margin-top: 8px;
     font-weight: bold;
     font-size: 22px;
     line-height: 29px;
     /* identical to box height */
-
     color: #ffffff;
     text-align: left;
   }
 
   .post-mycomment-group2-comment {
-    width: 582px;
-    height: 27px;
+    width: 700px;
+    height: auto;
     margin-top: 13px;
 
     font-size: 26px;
@@ -2536,20 +2537,19 @@ body {
 
     color: #ffffff;
     text-align: left;
+    word-break: break-all;
   }
 
   .post-mycomment-group2-delete {
-    width: 50px;
-    height: 50px;
-
+    width: 40px;
+    height: 40px;
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
-    position: relative;
-    bottom: 85px;
-    left: 700px;
+    float: right;
     cursor: pointer;
+    border: 1px solid pink;
   }
 
   /* Gallery 페이지*/
