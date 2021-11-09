@@ -1764,7 +1764,7 @@ body {
 
   /* signup 페이지 : 이미지 선택*/
   .signup-image {
-    width: 400px;
+    width: 360px;
     height: 20px;
     margin: 40px auto 0px auto;
     font-size: 20px;
@@ -2671,7 +2671,6 @@ body {
     padding-top: 4px;
     margin-bottom: 16px;
   }
-
 
   .gallery-titleinput:focus {
     outline: none;
