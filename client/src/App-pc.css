@@ -959,9 +959,7 @@ body {
   .lin-experience {
     width: 400px;
     height: 60px;
-    margin-top: 00px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     padding: 22px;
     font-weight: 500;
     font-size: 16px;
@@ -1170,7 +1168,6 @@ body {
     margin: 40px auto 0px auto;
     font-size: 20px;
     line-height: 26px;
-    /* identical to box height */
     color: #d4d4d4;
     text-align: left;
   }
@@ -1455,13 +1452,12 @@ body {
   }
 
   .main-text-all {
-    /* font-size: 20px;
-    text-align: left;
-    margin-bottom: 28px;
-    width: 180px;
-    display: inline-block; */
     color: white;
     float: right;
+    margin-right: 30px;
+    margin-top: 16px;
+    text-decoration: underline;
+    text-underline-position: under;
   }
 
   .main-gallery {
@@ -1474,6 +1470,10 @@ body {
     /* position: absolute; */
     float: right;
     color: white;
+    margin-right: 30px;
+    margin-top: 16px;
+    text-decoration: underline;
+    text-underline-position: under;
   }
 
   .main-gallery-wrap {

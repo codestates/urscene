@@ -1,6 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import MainNav from "../components/MainNav";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import axios from "axios";

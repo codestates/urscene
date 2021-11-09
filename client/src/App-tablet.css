@@ -1391,16 +1391,15 @@ body {
 
   /* Login Page */
   .login {
-    position: absolute;
+    padding-top: 22px;
     width: 100vw;
     height: 900px;
     left: 0px;
-    top: 104px;
     background: #070e27;
   }
 
   .loginwrap {
-    margin: 22px auto;
+    margin: 0 auto;
     width: 400px;
     height: auto;
     text-align: center;
@@ -1410,9 +1409,6 @@ body {
     display: inline-block;
     width: 252px;
     height: 34px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 32px;
     /* line-height: 42px; */
     text-align: center;
@@ -1431,8 +1427,6 @@ body {
   .lin-email-title {
     width: 360px;
     height: 20px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 23px;
@@ -1450,13 +1444,8 @@ body {
     border: 1px solid #dbe2ea;
     box-sizing: border-box;
     box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 21px;
-    /* identical to box height */
     padding-left: 16px;
     color: #000000;
   }
@@ -1544,9 +1533,6 @@ body {
     border-radius: 8px;
     padding: 0px;
     border: 0px;
-
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
@@ -1558,21 +1544,34 @@ body {
 
   .lin-signup {
     width: 360px;
-    height: 60px;
-    margin-top: 41px;
-    margin-left: auto;
-    margin-right: auto;
+    height: 30px;
+    margin: 41px auto 0;
     padding: 0px auto 36px auto;
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    /* identical to box height, or 150% */
     text-decoration-line: underline;
     color: #ffffff;
   }
 
   .lin-signup-text {
+    width: 58px;
+    height: 24px;
+    cursor: pointer;
+    margin: 0px auto;
+  }
+
+  .lin-experience {
+    width: 400px;
+    height: 60px;
+    margin: 0 auto;
+    padding: 22px;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration-line: underline;
+    color: #ffffff;
+  }
+
+  .lin-experience-text {
     width: 58px;
     height: 24px;
     cursor: pointer;
@@ -1642,9 +1641,10 @@ body {
 
   /* signup 페이지 */
   .signup {
-    position: absolute;
     width: 100vw;
     height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
     left: 0px;
     top: 104px;
     background: #070e27;
@@ -1661,12 +1661,8 @@ body {
     width: 252px;
     height: 34px;
     margin: 0px auto;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 32px;
     line-height: 37px;
-
     color: #ffffff;
   }
 
@@ -1800,69 +1796,47 @@ body {
 
   /* signup 페이지 : 이미지 선택*/
   .signup-image {
-    width: 360px;
+    width: 400px;
     height: 20px;
-    margin: 82px auto 0px auto;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 23px;
-    /* identical to box height */
-
+    margin: 40px auto 0px auto;
+    font-size: 20px;
+    line-height: 26px;
     color: #d4d4d4;
     text-align: left;
   }
 
   .signup-image-group {
-    width: 360px;
-    height: 88px;
-    margin: 18px auto 0 auto;
+    width: 400px;
+    height: 98px;
+    margin: 26px auto 0 auto;
     display: flex;
     justify-content: space-around;
     align-content: space-around;
+    padding-top: 14px;
   }
 
   .signup-image-group-1 {
-    width: 60px;
-    height: 61px;
-    background: url("../src/img/UserImage-Jake.png");
-    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
     background-position: center;
     background-size: cover;
     cursor: pointer;
-    margin-top: 13px;
   }
-  .signup-image-group-2 {
-    width: 60px;
-    height: 61px;
-    background: url("../src/img/UserImage-Meg.png");
-    background-repeat: no-repeat;
+  .signup-image-group-1:hover {
+    width: 70px;
+    height: 70px;
     background-position: center;
     background-size: cover;
     cursor: pointer;
-    margin-top: 13px;
+    border: 2px solid #0000c5;
   }
-  .signup-image-group-3 {
-    width: 60px;
-    height: 61px;
-    background: url("../src/img/UserImage-Mili.png");
-    background-repeat: no-repeat;
+  .signup-image-group-1-selected {
+    width: 70px;
+    height: 70px;
     background-position: center;
     background-size: cover;
     cursor: pointer;
-    margin-top: 13px;
-  }
-  .signup-image-group-4 {
-    width: 60px;
-    height: 61px;
-    background: url("../src/img/UserImage-Steven.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    cursor: pointer;
-    margin-top: 13px;
+    border: 3px solid #0000c5;
   }
 
   .signup-btn {

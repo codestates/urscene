@@ -163,7 +163,7 @@ function Main() {
                   <div
                     onClick={changeCurGenre}
                     className={
-                      curGenre === el
+                      curGenre.current === el
                         ? "main-genre-name-selected"
                         : "main-genre-name"
                     }

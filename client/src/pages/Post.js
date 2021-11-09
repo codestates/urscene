@@ -26,22 +26,12 @@ function Post() {
   const [content, setcontent] = useState(null); // 작성 내용
   const [image, setimage] = useState(null); // 게시한 이미지
   const [description, setdescription] = useState(null); // 영화정보
-  const [singlePost, setSinglePost] = useState(null);
-  const [isUser, setIsUser] = useState(userInfo);
+  const [, setSinglePost] = useState(null);
+  const [isUser] = useState(userInfo);
   const [likeId, setLikeId] = useState(""); // 좋아요 id
   const history = useHistory();
   const [addModal, setAddModal] = useState(false);
-  const [haveGallery, setHaveGallery] = useState([]); // 갤러리 리스트
-
-  // 나의 갤러리 불러오기
-  // const getAllMyGallery = () => {
-  //   axios
-  //     .get(`${process.env.REACT_APP_EC2_URL}/user/gallerypost`)
-  //     .then((res) => {
-  //       setHaveGallery([...res.data.my].reverse());
-  //     });
-  // };
-  //console.log("haveGallery ???", haveGallery);
+  const [haveGallery] = useState([]); // 갤러리 리스트
 
   const handleSetAddModal = () => {
     setAddModal(!addModal);
