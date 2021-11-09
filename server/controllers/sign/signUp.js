@@ -4,7 +4,9 @@ const { validator } = require("../../lib/regex")
 
 module.exports = async (req, res) => {
 	try {
-		const { email, nickname, password, image } = req.body
+		const { email, nickname, image } = req.body
+		let { password } = req.body
+
 		const isInvalid = validator(email, password, nickname)
 		if (isInvalid) {
 			return res.status(isInvalid.code).json({ message: isInvalid.message })
@@ -19,10 +21,9 @@ module.exports = async (req, res) => {
 		if (userByName) {
 			return res.status(409).send({ nickname, message: "name-aready-exists" })
 		}
-
 		const salt = await bcrypt.genSalt(10)
-		const hashPassword = await bcrypt.hash(password, salt)
-		await db.addUser({ email, nickname, password: hashPassword, image })
+		password = await bcrypt.hash(password, salt)
+		await db.addUser({ email, nickname, password, image })
 		res.status(201).json({ nickname, message: "user-created" })
 	} catch (err) {
 		res.status(500).json({ message: "server-error" })
