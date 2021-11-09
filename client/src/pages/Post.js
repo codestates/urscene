@@ -233,12 +233,13 @@ function Post() {
               )}
             </div>
           ) : null}
-
-          <img
-            className="post-image"
-            src={`https://urscene-s3-image.s3.us-east-2.amazonaws.com/${image}`}
-            alt=""
-          />
+          <div className="post-img-wrap">
+            <img
+              className="post-image"
+              src={`https://urscene-s3-image.s3.us-east-2.amazonaws.com/${image}`}
+              alt=""
+            />
+          </div>
           <div className="post-label">
             <div className="post-label-title">{user}</div>
             {userInfo !== null ? (

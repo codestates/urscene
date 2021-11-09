@@ -2318,19 +2318,14 @@ body {
   .postwrap {
     width: 720px;
     height: auto;
-    margin: 0px auto 0px auto;
+    margin: 0 auto;
   }
 
   .post-title {
     width: 252px;
-    height: 34px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
+    height: 51px;
     font-size: 32px;
     line-height: 37px;
-
     color: #ffffff;
     text-align: left;
   }
@@ -2346,22 +2341,35 @@ body {
     height: 32px;
     float: right;
     margin-top: 5px;
-
     background: #ffffff;
     border: 1px solid #0880ae;
     box-sizing: border-box;
     box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
       0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: 500;
     font-size: 14px;
     line-height: 18px;
     text-align: center;
-
     color: #5a7fa8;
+  }
+
+  .post-addTogall {
+    float: left;
+    cursor: pointer;
+    margin-top: 20px;
+    color: #5a7fa8;
+    font-size: 18px;
+  }
+
+  .post-add-icon {
+    background: url("./img/bookmark.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
   }
 
   .post-edit-edit {
@@ -2386,10 +2394,10 @@ body {
 
   .post-image {
     width: 720px;
-    height: 380px;
+    height: 433px;
     margin-top: 12px;
-    border-radius: 10px;
     background: #ffffff;
+    object-fit: cover;
   }
 
   .post-label {
@@ -2403,9 +2411,6 @@ body {
     height: 33px;
     margin-top: 7px;
     float: left;
-
-    font-family: Roboto;
-    font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 28px;
@@ -2419,7 +2424,6 @@ body {
     width: 40px;
     height: 40px;
     float: right;
-
     background: url("../src/img/Heart.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2430,7 +2434,6 @@ body {
     width: 40px;
     height: 40px;
     float: right;
-
     background: url("../src/img/FullHeart.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2439,36 +2442,36 @@ body {
 
   .post-desc {
     width: 639px;
-    height: 56px;
-    margin-top: 23px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
+    height: auto;
+    margin-top: 21px;
+    font-size: 20px;
     line-height: 28px;
-
     color: #ffffff;
     text-align: left;
-    word-break: keep-all;
-    white-space: pre-line;
   }
 
   .post-editdesc {
-    width: 720px;
-    height: 68px;
+    background-color: #070e27;
+    color: white;
+    width: 840px;
+    height: 200px;
     margin-top: 21px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-
-    color: black;
+    font-size: 20px;
+    line-height: 33px;
     text-align: left;
-    word-break: keep-all;
-    white-space: pre-line;
-    border-radius: 8px;
-    overflow: hidden;
+    /* border-radius: 8px; */
+    overflow: auto;
+    padding: 14px;
+    /* border: 1px solid #232424; */
+    border: none;
+    /* outline: none; */
+  }
+
+  .post-editdesc:focus {
+    border: none;
+    outline: none;
+    width: 840px;
+    height: 200px;
   }
 
   .post-devider {
@@ -2482,56 +2485,72 @@ body {
     width: 500px;
     height: max-content;
     margin-top: 12px;
+    cursor: pointer;
   }
 
   .post-infogroup-label {
-    width: 90px;
-    height: 34px;
-    margin-left: 6px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
+    width: 80px;
+    height: 25px;
+    margin-left: 12px;
+    margin-top: 4px;
     font-size: 20px;
-    line-height: 23px;
+    line-height: 28px;
     display: flex;
     align-items: center;
-
     color: #ffffff;
     float: left;
   }
 
-  .post-infogroup-plus {
-    width: 50px;
-    height: 34px;
+  .post-infogroup-plusminus {
+    width: 30px;
+    height: 30px;
     margin-left: 12px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 35px;
-    line-height: 28px;
     display: flex;
     align-items: center;
-
     color: #ffffff;
     cursor: pointer;
   }
 
-  .post-infogroup-list {
-    list-style-type: disc;
+  .post-infogroup-plus {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Add_fff.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    display: inline-block;
+  }
+
+  .post-infogroup-minus {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Minus.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    display: inline-block;
+  }
+
+  .post-infogroup-wrap {
     width: auto;
-    height: 22px;
-    margin-top: 10px;
-    margin-left: 24px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
+    height: 100px;
+    margin-top: 13px;
+    margin-left: 14px;
     font-size: 20px;
-    line-height: 23px;
-    /* or 145% */
-    color: #ffffff;
+    line-height: 32px;
     text-align: left;
+  }
+
+  .post-infogroup-title {
+    margin-right: 10px;
+    font-weight: bold;
+    float: left;
+    color: rgb(214, 214, 214);
+  }
+
+  .post-infogroup-list {
+    margin-left: 10px;
+    color: rgb(202, 202, 202);
   }
 
   .post-devider2 {
@@ -2628,13 +2647,9 @@ body {
     width: 83px;
     height: 23px;
     margin-top: 0px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 23px;
-    /* identical to box height */
-
     color: #ffffff;
     text-align: left;
   }
@@ -2643,13 +2658,8 @@ body {
     width: 562px;
     height: 27px;
     margin-top: 5px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 20px;
     line-height: 23px;
-
     color: #ffffff;
     text-align: left;
   }
@@ -2657,7 +2667,6 @@ body {
   .post-mycomment-group2-delete {
     width: 40px;
     height: 40px;
-
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;

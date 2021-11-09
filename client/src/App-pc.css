@@ -2338,8 +2338,6 @@ body {
     line-height: 33px;
     color: #ffffff;
     text-align: left;
-    word-break: keep-all;
-    white-space: pre-line;
   }
 
   .post-editdesc {
@@ -2364,16 +2362,6 @@ body {
     outline: none;
     width: 840px;
     height: 200px;
-  }
-
-  @keyframes blink-effect {
-    50% {
-      opacity: 0;
-    }
-  }
-
-  .blink {
-    animation: blink-effect 1s step-end infinite;
   }
 
   .post-devider {
@@ -2432,6 +2420,7 @@ body {
     color: #fff;
     display: inline-block;
   }
+
   .post-infogroup-wrap {
     width: auto;
     height: 100px;
