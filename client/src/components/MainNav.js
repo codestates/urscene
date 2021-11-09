@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 
 function MainNav() {
   const { isLogin } = useContext(MyContext); // 유저 정보를 확인
-  //console.log("mainvav islogin ???", isLogin);
-  //console.log("mainvav, userInfo ??? ", userInfo);
-
   const [searchText, setSearchText] = useState("");
 
   const handleChange = (e) => {

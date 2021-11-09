@@ -33,16 +33,6 @@ function Post() {
   const [addModal, setAddModal] = useState(false);
   const [haveGallery, setHaveGallery] = useState([]); // 갤러리 리스트
 
-  // 나의 갤러리 불러오기
-  // const getAllMyGallery = () => {
-  //   axios
-  //     .get(`${process.env.REACT_APP_EC2_URL}/user/gallerypost`)
-  //     .then((res) => {
-  //       setHaveGallery([...res.data.my].reverse());
-  //     });
-  // };
-  //console.log("haveGallery ???", haveGallery);
-
   const handleSetAddModal = () => {
     setAddModal(!addModal);
   };
@@ -51,7 +41,6 @@ function Post() {
     getSinglePost();
     getComments();
     getLikeinfo();
-    // getAllMyGallery();
   }, []);
 
   useEffect(() => {

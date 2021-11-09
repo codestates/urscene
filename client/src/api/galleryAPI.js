@@ -32,7 +32,25 @@ const galleryAPI = {
     if (result.data.my === false) {
       console.log("내가 작성한 장면 요청에 실패하였습니다.");
     }
-    return result.data.my.reverse();
+    return result.data.likedGalleryData.reverse();
+  },
+
+  // 장면 작성하기
+  make: async (title, desc) => {
+    const result = await axios.post(
+      `${process.env.REACT_APP_EC2_URL}/gallery`,
+      {
+        title: title,
+        content: desc,
+      },
+      {
+        withCredentials: true,
+      },
+    );
+    if (result.data === false) {
+      console.log("갤러리 생성 요청에 실패하였습니다.");
+    }
+    return result.data;
   },
 };
 
