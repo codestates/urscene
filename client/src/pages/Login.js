@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import MainNav from "../components/MainNav";
 import { Link } from "react-router-dom";
 import MainFooter from "../components/MainFooter";
@@ -78,6 +78,11 @@ function Login() {
     window.location.assign(GOOGLE_LOGIN_URL);
   };
 
+  const url = `https://kauth.kakao.com/oauth/authorize?client_id=a87651345b7491d42793ae30327c6fb0&redirect_uri=http://localhost:3000&response_type=code`;
+  const socialLoginHandler = () => {
+    window.location.assign(url);
+  };
+
   return (
     <div>
       <MainNav />
@@ -127,7 +132,10 @@ function Login() {
             </div>
             <div className="lin-divider"></div>
             <div>
-              <button className="lin-kakao"></button>
+              <button
+                className="lin-kakao"
+                onClick={socialLoginHandler}
+              ></button>
             </div>
             <div>
               <button className="lin-google" onClick={googleLoginHandler}>
