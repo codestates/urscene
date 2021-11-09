@@ -9,7 +9,7 @@ function BestGallery({ gallery }) {
 
   const handleGetScenes = async () => {
     try {
-      const result = await galleryAPI.getGallery(gallery.id);
+      const result = await galleryAPI.getGalleryId(gallery.id);
       setScenes(result.singlepost.slice(0, 4));
     } catch (err) {
       console.log(err);
@@ -18,7 +18,7 @@ function BestGallery({ gallery }) {
 
   useEffect(() => {
     handleGetScenes();
-  }, []);
+  }, [gallery]);
 
   return (
     <div>
