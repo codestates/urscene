@@ -17,7 +17,7 @@ body {
     background-color: #070e27;
     width: 100vw;
     margin-top: 0px;
-    padding: 27px;
+    padding: 25px;
     display: flex;
   }
 
@@ -33,27 +33,37 @@ body {
   }
 
   .form-wrap {
-    display: inline-block;
-    margin: auto;
-    width: 360px;
+    /* display: inline-block; */
+    width: 34vw;
+    margin-left: 15px;
+    flex: 1 1 auto;
+    display: flex;
+  }
+
+  #nav-form {
+    width: 100%;
+    margin: 0px;
   }
 
   .mainNav-search-wrap {
-    width: 360px;
+    flex: 1 1 auto;
+    width: 100%;
     height: 50px;
-    border-radius: 15px;
+    border-radius: 10px;
     background: #f0f0f0;
     padding: 10px;
     display: table;
     table-layout: fixed;
     position: relative;
     text-align: left;
+    display: flex;
   }
 
   .Lens {
     background: url("./img/Lens.png");
     background-position: center;
     background-size: contain;
+    background-repeat: no-repeat;
     width: 30px;
     height: 30px;
     display: table-cell;
@@ -61,8 +71,8 @@ body {
   }
 
   .mainNav-search {
-    border: 1px solid red;
-    width: 260px;
+    flex: 1 1 auto;
+    width: 70%;
     height: 30px;
     outline: none;
     font-size: 18px;
@@ -78,9 +88,9 @@ body {
     width: 50px;
     height: 50px;
     background-color: #ededed;
-    border-radius: 50px;
+    border-radius: 50%;
     padding: 16px;
-    margin-right: 14px;
+    margin-left: 13px;
     float: right;
     left: 10px;
   }
@@ -115,11 +125,6 @@ body {
     /* display: inline-block; */
   }
 
-  #nav-form {
-    width: 360px;
-    margin: 0px;
-  }
-
   /* loading 로딩 */
   .loading-wrap {
     z-index: 999;
@@ -135,6 +140,7 @@ body {
   }
 
   .loading {
+    width: 100vw;
     height: 100%;
   }
 
@@ -144,6 +150,7 @@ body {
     margin: auto;
     bottom: 0;
   }
+
   .mainFooter {
     height: 224px;
     background: #0a142f;
@@ -263,87 +270,6 @@ body {
     background-size: contain;
   }
 
-/*   .main-genre-img-addImage {
-    width: 30px;
-    height: 30px;
-    margin: -6px auto 0 auto;
-    background: url("./img/Chevron\ Bottom.png");
-    background-position: center;
-    background-size: 30px;
-    background-repeat: no-repeat;
-    cursor: pointer;
-  } */
-
-/*   .main-genre-img-noadd {
-    width: 200px;
-    height: 50px;
-    margin: 0 auto 0 auto;
-    text-align: center;
-  } */
-
- /* 인기 갤러리 BestGallery */
-/*   .BG-container {
-    width: 330px;
-    height: 262.51px;
-    border: 0.972265px solid #344583;
-    box-sizing: border-box;
-    border-radius: 4.86133px;
-    padding: 11px;
-    margin-bottom: 30px;
-  }
-
-  .BG-container:hover {
-    box-shadow: 0 2px 3px rgba(44, 46, 148, 0.808);
-  }
-
-  .BG-title {
-    font-size: 18px;
-    line-height: 21px;
-    color: #787e95;
-    text-align: left;
-    margin-top: 6px;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
-
-  .BG-img-wrap {
-    width: 315.49px;
-    height: 200.05px;
-    display: flex;
-    flex-flow: wrap;
-  }
-
-  .BG-img {
-    width: 157px;
-    height: 100px;
-    border: 1px solid #eaeaea;
-  }
-
-  .BG-img > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .BG-img-no {
-    width: 100%;
-    height: 100%;
-    background: url("../src/img/noresult.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-  }  */
-/* 
-  .genre-img {
-    width: 250px;
-    height: 157px;
-    /* border: 1px solid #344583; */
-    box-sizing: border-box;
-    border-radius: 3px;
-    margin-right: 18px;
-    margin-bottom: 20px;
-  }
-
   .genre-img > img {
     width: 100%;
     height: 100%;
@@ -357,98 +283,7 @@ body {
     object-fit: cover;
     border-radius: 3px;
     box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.8);
-  } */
-
-  /* ===== Search page ===== */
-  .search-container {
-    background-color: #070e27;
   }
-  .search-wrap {
-    margin-top: 43px;
-    width: 840px;
-    height: auto;
-    color: #fff;
-    margin-bottom: 100px;
-  }
-
-  .search-results {
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 37px;
-    text-align: left;
-    margin-bottom: 38px;
-  }
-
-  .results-text {
-    font-size: 26px;
-    line-height: 30px;
-    text-align: left;
-    margin-bottom: 23px;
-    margin-top: 50px;
-  }
-
-  /* ResultScene 검색결과 장면 */
-/*   .result-scene-wrap {
-    width: 840px;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-  }
-
-  .result-scene-img {
-    width: 185px;
-    height: 122px;
-    border-radius: 10px;
-    border: 1px solid #344583;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    position: relative;
-  }
-
-  .result-scene-img > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-  } */
-
-  /* 검색결과 없는 경우 컴포넌트 */
-/*   .no-results-wrap {
-    width: 840px;
-    height: 160px;
-    border: 1px solid #344583;
-    box-sizing: border-box;
-    border-radius: 8px;
-    margin-bottom: 40px;
-  }
-
-  .no-results-icon {
-    background: url("./img/noresult.png");
-    width: 60px;
-    height: 60px;
-    background-position: center;
-    background-size: contain;
-    margin: 20px;
-  }
-
-  .no-results-text {
-    font-size: 18px;
-    line-height: 22px;
-    color: #c0c0c0;
-  } */
-
-  /* ResultGallery 검색결과 장면 */
-/*   .result-gallery-wrap {
-    width: 840px;
-    height: auto;
-    display: flex;
-    flex-flow: wrap;
-
-    justify-content: space-between;
-    margin-bottom: 20px;
-  } */
 
   /* ===== Makepost page 갤러리 만들기===== */
   .MP-container {
@@ -894,7 +729,6 @@ body {
     background-size: contain;
   }
 
-
   /* ===== Main 메인페이지 ===== */
   .main-back {
     background-color: #070e27;
@@ -905,14 +739,15 @@ body {
 
   .main-wrap {
     width: 100vw;
-   height: auto;
+    height: auto;
     margin: auto;
   }
-  
+
   .main-gallery {
     width: 96vw;
     height: auto;
     margin: 34px auto 0px auto;
+  }
 
   .main-text {
     font-size: 30px;
@@ -925,6 +760,10 @@ body {
   .main-gallery-all {
     float: right;
     color: white;
+    margin-right: 30px;
+    margin-top: 16px;
+    text-decoration: underline;
+    text-underline-position: under;
   }
 
   .main-gallery-wrap {
@@ -994,6 +833,10 @@ body {
   .main-text-all {
     color: white;
     float: right;
+    margin-right: 30px;
+    margin-top: 16px;
+    text-decoration: underline;
+    text-underline-position: under;
   }
 
   .main-genre-category-wrap {
@@ -1172,16 +1015,15 @@ body {
 
   /* Login Page */
   .login {
-    position: absolute;
+    padding-top: 22px;
     width: 100vw;
     height: 900px;
     left: 0px;
-    top: 104px;
     background: #070e27;
   }
 
   .loginwrap {
-    margin: 22px auto;
+    margin: 0px auto;
     width: 400px;
     height: auto;
     text-align: center;
@@ -1552,7 +1394,7 @@ body {
 
   /* signup 페이지 : 이미지 선택*/
   .signup-image {
-    width: 400px;
+    width: 360px;
     height: 20px;
     margin: 40px auto 0px auto;
     font-size: 20px;
@@ -1562,7 +1404,7 @@ body {
   }
 
   .signup-image-group {
-    width: 400px;
+    width: 360px;
     height: 98px;
     margin: 26px auto 0 auto;
     display: flex;
@@ -1618,18 +1460,25 @@ body {
     top: 16px;
   }
 
+  /* 회원가입 완료 모달 */
   .singupModal-background {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: #000000;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    place-items: center;
   }
 
   .singupModal {
     width: 300px;
     height: 313px;
-    margin: 300px auto 0px auto;
+    margin: 0px auto 0px auto;
     background: #0059f7;
+    text-align: center;
     border-radius: 10px;
   }
 
@@ -1640,7 +1489,6 @@ body {
     height: 80px;
     margin: 43px auto 0px auto;
     background: url("../src/img/Signup-ok.png");
-    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
@@ -1677,7 +1525,6 @@ body {
     color: #000000;
     cursor: pointer;
   }
-
   /* userinfo 페이지 */
   .userinfo {
     position: absolute;
@@ -1690,7 +1537,7 @@ body {
   .userinfowrap {
     width: 361px;
     height: auto;
-    margin: 120px auto 0 auto;
+    margin: 120px auto 50px auto;
     text-align: center;
   }
 
@@ -1935,7 +1782,6 @@ body {
     width: 59px;
     height: 24px;
     margin: 24px auto 0 auto;
-
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -1949,10 +1795,20 @@ body {
 
   /* 회원 탈퇴 모달*/
   .singoutModal-background {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: #000000;
+    /* position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000000; */
+
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000000;
+    display: grid;
+    place-items: center;
   }
 
   .singoutModal {
@@ -1960,7 +1816,7 @@ body {
     height: 235px;
     background: #0059f7;
     border-radius: 10px;
-    margin: 390px auto 0 auto;
+    margin: 0px auto 0 auto;
   }
 
   .soM-label {
@@ -1976,9 +1832,7 @@ body {
     font-size: 20px;
     line-height: 24px;
     /* identical to box height, or 120% */
-
     text-align: center;
-
     color: #ffffff;
   }
 
@@ -2035,9 +1889,10 @@ body {
   }
 
   .postwrap {
-    width: 720px;
+    width: 96vw;
     height: auto;
-    margin: 0 auto;
+    margin: 0px auto 0 auto;
+    padding-top: 34px;
   }
 
   .post-title {
@@ -2050,7 +1905,7 @@ body {
   }
 
   .post-editgroup {
-    width: 720px;
+    width: 96vw;
     height: 40px;
     margin-top: -11px;
   }
@@ -2112,15 +1967,15 @@ body {
   }
 
   .post-image {
-    width: 720px;
+    width: 96vw;
     height: 433px;
     margin-top: 12px;
     background: #ffffff;
-    object-fit: cover;
+    object-fit: fill;
   }
 
   .post-label {
-    width: 720px;
+    width: 96vw;
     height: 40px;
     margin-top: 18px;
   }
@@ -2135,7 +1990,6 @@ body {
     line-height: 28px;
     display: flex;
     align-items: flex-end;
-
     color: #ffffff;
   }
 
@@ -2160,7 +2014,7 @@ body {
   }
 
   .post-desc {
-    width: 639px;
+    width: 96vw;
     height: auto;
     margin-top: 21px;
     font-size: 20px;
@@ -2172,11 +2026,11 @@ body {
   .post-editdesc {
     background-color: #070e27;
     color: white;
-    width: 840px;
+    width: 96vw;
     height: 200px;
     margin-top: 21px;
     font-size: 20px;
-    line-height: 33px;
+    line-height: 28px;
     text-align: left;
     overflow: auto;
     padding: 14px;
@@ -2188,12 +2042,12 @@ body {
   .post-editdesc:focus {
     border: none;
     outline: none;
-    width: 840px;
+    width: 96vw;
     height: 200px;
   }
 
   .post-devider {
-    width: 720px;
+    width: 96vw;
     height: 0px;
     border: 1px solid #3a456f;
     margin-top: 49px;
@@ -2272,74 +2126,82 @@ body {
   }
 
   .post-devider2 {
-    width: 720px;
+    width: 96vw;
     height: 0px;
     border: 1px solid #3a456f;
     margin-top: 12px;
   }
 
   .post-writecomment {
-    width: 720px;
+    width: 96vw;
     height: 70px;
     margin-top: 26px;
+    display: flex;
   }
 
   .post-wc-image {
-    width: 52px;
-    height: 52px;
-    margin-left: 12px;
+    width: 8vw;
+    height: 8vw;
+    margin-left: 2vw;
     float: left;
     border-radius: 50%;
   }
 
   .post-wc-input {
-    width: 620px;
+    width: 83vw;
     height: 52px;
-    margin: 1px 0 1px 21px;
-
+    flex: 1 1 auto;
+    margin: 1px 0 1px 2vw;
     font-size: 16px;
     line-height: 21px;
     /* identical to box height */
-
     background: #ffffff;
     border-radius: 8px;
     border-width: 0px;
     color: #7c9cbf;
     padding-left: 16px;
+    outline: none;
+    display: inline-block;
   }
 
   .post-wc-submit {
     width: 37px;
     height: 26px;
-
     font-size: 16px;
     line-height: 21px;
     /* identical to box height */
-
     color: #0059f7;
     position: relative;
-    bottom: 37px;
-    left: 660px;
+    bottom: 38px;
+    left: 88vw;
     cursor: pointer;
+    /* float: right; */
+    padding-bottom: 10px;
   }
 
   .post-comments {
-    width: 688px;
+    width: 96vw;
     height: auto;
-    margin-left: 30px;
     margin-top: 26px;
   }
 
+  .post-comment-no {
+    color: #7c9cbf;
+    text-align: center;
+  }
+
   .post-mycomment {
-    width: 688px;
-    height: 55px;
+    width: 96vw;
+    height: auto;
     margin-top: 16px;
+    display: flex;
   }
 
   .post-mycomment-group1 {
     width: 40px;
     height: 55px;
     float: left;
+    margin-left: 3vw;
   }
 
   .post-mycomment-group1-logo {
@@ -2349,14 +2211,14 @@ body {
   }
 
   .post-mycomment-group2 {
-    width: 634px;
-    height: 55px;
+    width: auto;
+    height: auto;
     float: left;
     margin-left: 12px;
   }
 
   .post-mycomment-group2-nickname {
-    width: 83px;
+    width: auto;
     height: 23px;
     margin-top: 0px;
     font-weight: bold;
@@ -2367,37 +2229,39 @@ body {
   }
 
   .post-mycomment-group2-comment {
-    width: 562px;
-    height: 27px;
+    width: 82vw;
+    height: auto;
     margin-top: 5px;
     font-size: 20px;
     line-height: 23px;
     color: #ffffff;
     text-align: left;
+    word-break: break-all;
   }
 
   .post-mycomment-group2-delete {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
-    position: relative;
-    bottom: 49px;
-    left: 594px;
+    /* position: relative;
+    bottom: 22vw;
+    left: 75vw; */
+    float: right;
     cursor: pointer;
   }
 
   /* Gallery 페이지*/
   .gallery {
     width: 100vw;
-    height: auto;
+    min-height: 700px;
     background: #070e27;
   }
 
   .gallerywrap {
-    width: 720px;
+    width: 96vw;
     height: auto;
     margin: 0px auto 0px auto;
     padding-top: 43px;
@@ -2415,12 +2279,12 @@ body {
   }
 
   .gallery-group1 {
-    width: 720px;
+    width: 96vw;
     height: 40px;
   }
 
   .gallery-title {
-    width: 560px;
+    width: auto;
     height: 32px;
     font-size: 32px;
     line-height: 37px;
@@ -2461,17 +2325,22 @@ body {
     margin-bottom: 16px;
   }
 
-
   .gallery-titleinput:focus {
     outline: none;
     border: none;
   }
 
+  .gallery-edit-group {
+    width: 80px;
+    float: right;
+    display: flex;
+  }
+
   .gallery-edit {
     width: 40px;
     height: 40px;
-    margin-left: 76px;
-    float: left;
+    /* margin-left: 76px; */
+    /* float: right; */
     background: url("../src/img/pencil.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2491,13 +2360,13 @@ body {
   }
 
   .gallery-group2 {
-    width: 720px;
-    height: auto;
+    width: 96vw;
+    min-height: 500;
     margin-top: 12px;
   }
 
   .gallery-descinput {
-    width: 97vw;
+    width: 96vw;
     height: 80px;
     margin-bottom: 30px;
     padding-top: 16px;
@@ -2509,6 +2378,7 @@ body {
     border: 1px solid #7c9cbf;
     border-radius: 6px;
     resize: none;
+    font: inherit;
   }
 
   .gallery-descinput:focus {
@@ -2516,21 +2386,26 @@ body {
     border: none;
   }
 
+  .gallery-desc-group {
+    display: flex;
+  }
   .gallery-desc {
-    width: 650px;
-    height: 50px;
-    float: left;
+    width: 410px;
+    min-height: 50px;
+    /* float: left; */
     font-size: 20px;
     line-height: 23px;
     color: #d0d0d0;
     text-align: left;
     margin-top: 10px;
+    flex: 1 1 auto;
   }
 
   .gallery-likeGroup {
-    float: left;
-    height: 76px;
+    float: right;
+    height: 50px;
     width: 65px;
+    margin-top: 10px;
   }
 
   .gallery-unlike {
@@ -2566,7 +2441,7 @@ body {
   }
 
   .gallery-group3 {
-    width: 840px;
+    width: 96vw;
     height: auto;
     margin-top: 19px;
     display: flex;
@@ -2574,16 +2449,16 @@ body {
   }
 
   .gallery-content {
-    width: 234px;
+    width: 30vw;
     height: 140px;
-    margin: 6px;
+    margin: 3px;
     display: flex;
     position: relative;
     cursor: pointer;
   }
 
   .gallery-content-img {
-    width: 234px;
+    width: 100%;
     height: 140px;
     background: #ffffff;
     border-radius: 2px;
@@ -2593,10 +2468,8 @@ body {
   .gallery-content-delete {
     width: 40px;
     height: 40px;
-    position: absolute;
-    /* left: 190px; */
-    /* left: 25vw;
-    bottom: 145px; */
+    position: relative;
+    left: 77%;
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2604,32 +2477,33 @@ body {
     cursor: pointer;
   }
 
-  .gallery-nocontent {
-    width: 200px;
-    height: 150px;
-    margin: 200px auto 0 auto;
+  .gallery-nocontent-wrap {
+    width: 96vw;
+    height: 200px;
+    border: 1px solid #344583;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    margin-top: 100px;
+    padding: 40px;
   }
 
   .gallery-nocontent-img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background: url("../src/img/noresult.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: none;
-    cursor: pointer;
-    margin-left: 50px;
+    background-size: contain;
+    margin: 0 auto;
   }
 
   .gallery-nocontent-title {
     font-size: 18px;
     line-height: 22px;
-    /* identical to box height, or 122% */
-
     text-align: center;
-
     color: #c0c0c0;
-    margin-top: 10px;
+    margin: 10px auto 0 auto;
   }
 
   /* 갤러리 삭제 모달*/
@@ -3120,25 +2994,6 @@ body {
     /* justify-content: start; */
   }
 
-  .result-scene-img {
-    width: 22vw;
-    height: 122px;
-    border-radius: 10px;
-    /* border: 1px solid #344583; */
-    box-sizing: border-box;
-    /* margin-bottom: 20px;
-    margin-right: 10px; */
-    margin: 0px 2px 20px 7px;
-    position: relative;
-  }
-
-  .result-scene-img > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-
   .bookmarker {
     width: 100%;
     height: 100%;
@@ -3224,6 +3079,232 @@ body {
     line-height: 22px;
     color: #c0c0c0;
   }
-
   /* ===== Mygallery page 마이갤러리==끝= */
+
+  /* ===== search page 시작 ===== */
+  .search-container {
+    background-color: #070e27;
+  }
+
+  .search-wrap {
+    margin-top: 34px;
+    width: 96vw;
+    height: auto;
+    color: #fff;
+    margin-bottom: 100px;
+  }
+
+  .search-results {
+    /* font-weight: bold; */
+    font-size: 30px;
+    line-height: 37px;
+    text-align: left;
+    margin-bottom: 38px;
+  }
+
+  .results-text {
+    font-size: 26px;
+    line-height: 30px;
+    text-align: left;
+    margin-bottom: 23px;
+    margin-top: 50px;
+  }
+
+  /* ResultScene 검색결과 장면 */
+  .result-scene-wrap {
+    width: 96vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: start; */
+  }
+
+  .result-scene-img {
+    width: 22vw;
+    height: 122px;
+    border-radius: 5px;
+    /* border: 1px solid #344583; */
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    margin-right: 9px;
+    position: relative;
+  }
+
+  .result-scene-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  /* 검색결과 없는 경우 컴포넌트 */
+  .no-results-wrap {
+    width: 840px;
+    height: 160px;
+    border: 1px solid #344583;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+
+  .no-results-icon {
+    background: url("./img/noresult.png");
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-size: contain;
+    margin: 20px;
+  }
+
+  .no-results-text {
+    font-size: 18px;
+    line-height: 22px;
+    color: #c0c0c0;
+  }
+
+  /* ResultGallery 검색결과 장면 */
+  .result-gallery-wrap {
+    width: 96vw;
+    height: auto;
+    display: flex;
+    flex-flow: wrap;
+
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  /* ===== search page 끝 ===== */
+
+  /* ===== 장면 갤러리에 담기 모달 ==시작== */
+  .addModal-background {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: grid;
+    place-items: center;
+  }
+
+  .addModal {
+    width: 500px;
+    height: auto;
+    background: #0059f7;
+    border-radius: 10px;
+    margin: 0px auto 0 auto;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+  }
+
+  .add-text {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 40px;
+    color: #ffffff;
+    margin: 40px auto 0 auto;
+  }
+
+  .add-btn {
+    width: 300px;
+    height: 34px;
+    margin-top: 30px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .add-btn-ok {
+    float: left;
+    width: 59px;
+    height: 24px;
+    margin-left: 64px;
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .add-btn-cancel {
+    float: left;
+    width: 100px;
+    height: 34px;
+    margin-left: 34px;
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+  }
+
+  .addModal-input {
+    width: 300px;
+    height: 40px;
+    outline-style: none;
+    border: none;
+    line-height: 21px;
+    display: inline-block;
+    margin-top: 20px;
+    padding-left: 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .addModal-input::placeholder {
+    color: #000;
+    font-size: 18px;
+    /* text-align: center; */
+  }
+
+  .addModal-input-drop {
+    width: 300px;
+    height: 40px;
+    outline-style: none;
+    border: none;
+    line-height: 21px;
+    display: inline-block;
+    margin-top: 20px;
+    padding-left: 16px;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+  }
+
+  .addModal-Drop {
+    width: 300px;
+    /* float: none; */
+    background-color: white;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0.5rem 15px;
+    border: 1px solid rgb(223, 225, 229);
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
+    z-index: 3;
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  .addModal-Drop > li {
+    color: #344583;
+    cursor: pointer;
+    margin-top: 3px;
+    padding: 5px;
+  }
+
+  .addModal-hr {
+    border: 1px solid rgb(223, 225, 229);
+    margin-top: 5px;
+  }
+
+  .addModal-err {
+    margin: 10px 0px;
+  }
+  /* ===== 장면 갤러리에 담기 모달 ==끝== */
 }

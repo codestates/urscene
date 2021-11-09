@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import MainNav from "../components/MainNav";
 import LikeScene from "../components/LikeScene";
 import LikeGallery from "../components/LikeGallery";
-import MadeGallery from "../components/MadeGallery";
 import ResultGallery from "../components/ResultGallery";
 import MadeScene from "../components/MadeScene";
 import MainFooter from "../components/MainFooter";
