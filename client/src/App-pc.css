@@ -816,9 +816,6 @@ body {
     display: inline-block;
     width: 100px;
     height: 42px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 36px;
     /* line-height: 42px; */
     padding: 3px;
@@ -838,7 +835,6 @@ body {
   .lin-email-title {
     width: 400px;
     height: 20px;
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 26px;
@@ -1223,7 +1219,6 @@ body {
     position: relative;
     width: 74px;
     height: 24px;
-    font-family: Roboto;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -1834,7 +1829,6 @@ body {
     width: 135px;
     height: 48px;
     margin: 56px auto 0px auto;
-    font-family: Roboto;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
@@ -1855,7 +1849,6 @@ body {
     border-radius: 8px;
     border-width: 0px;
 
-    font-family: Roboto;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -1882,8 +1875,6 @@ body {
   .ui-title {
     width: 208px;
     height: 42px;
-    font-family: Roboto;
-    font-weight: normal;
     font-size: 36px;
     line-height: 42px;
     color: #ffffff;
@@ -1905,7 +1896,6 @@ body {
     height: 26px;
     margin: 18px auto 0 auto;
 
-    font-family: Roboto;
     font-weight: bold;
     font-size: 22px;
     line-height: 26px;
@@ -2135,7 +2125,6 @@ body {
     width: 300px;
     height: 24px;
 
-    font-family: Roboto;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
@@ -2158,7 +2147,6 @@ body {
     margin-left: 64px;
     margin-top: 5px;
 
-    font-family: Roboto;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -2179,7 +2167,6 @@ body {
     background: #ffffff;
     border-radius: 8px;
     border-width: 0px;
-    font-family: Roboto;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -2561,9 +2548,6 @@ body {
     height: 27px;
     margin-top: 13px;
 
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 26px;
     line-height: 30px;
 
@@ -2604,9 +2588,6 @@ body {
     width: 360px;
     height: 26px;
 
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 20px;
     line-height: 23px;
 
@@ -2625,9 +2606,6 @@ body {
     width: 730px;
     height: 34px;
 
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 32px;
     line-height: 37px;
 
