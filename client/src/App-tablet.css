@@ -14,43 +14,110 @@ body {
   /* 태블릿 */
   .mainNav {
     height: 104px;
-    margin-top: 0px;
     background-color: #070e27;
     width: 100vw;
-  }
-
-  .mainNav-group {
-    position: absolute;
-    width: 200px;
-    height: 40px;
-    top: 32px;
-    left: 27px;
+    margin-top: 0px;
+    padding: 27px;
+    display: flex;
   }
 
   .mainNav-group-logo {
     float: left;
-    width: 40px;
-    height: 40px;
-    background: url("../src/img/MainNav-Vector.png");
+    width: 140px;
+    height: 32px;
+    background: url("./img/NavLogo.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 33.33px 30px;
+    background-size: contain;
+    margin-top: 9px;
   }
 
-  .mainNav-group-title {
-    float: left;
-    width: 129px;
-    height: 28px;
-    margin-left: 7px;
-    margin-top: 6px;
-    font-family: Sora;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
-    /* identical to box height, or 140% */
-    letter-spacing: -0.02em;
-    color: #ffffff;
+  .form-wrap {
+    display: inline-block;
+    margin: auto;
+    width: 360px;
+  }
+
+  .mainNav-search-wrap {
+    width: 360px;
+    height: 50px;
+    border-radius: 15px;
+    background: #f0f0f0;
+    padding: 10px;
+    display: table;
+    table-layout: fixed;
+    position: relative;
+    text-align: left;
+  }
+
+  .Lens {
+    background: url("./img/Lens.png");
+    background-position: center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .mainNav-search {
+    border: 1px solid red;
+    width: 260px;
+    height: 30px;
+    outline: none;
+    font-size: 18px;
+    line-height: 21px;
+    background-color: #f0f0f0;
+    border: none;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .mainNav-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #ededed;
+    border-radius: 50px;
+    padding: 16px;
+    margin-right: 14px;
+    float: right;
+    left: 10px;
+  }
+
+  .mainNav-btn {
+    width: 40px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 21px;
+    color: #0059f7;
+    display: inline-block;
+    text-align: center;
+    padding-top: 5px;
+    cursor: pointer;
+  }
+
+  .mainNav-create {
+    background: url("./img/Add.png");
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-size: contain;
+    /* display: inline-block; */
+  }
+
+  .mainNav-my {
+    background: url("./img/User.png");
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-size: contain;
+    /* display: inline-block; */
+  }
+
+  #nav-form {
+    width: 360px;
+    margin: 0px;
   }
 
   /* loading 로딩 */
@@ -172,6 +239,944 @@ body {
     color: #ffffff;
     opacity: 0.75;
     margin-top: 17px;
+  }
+
+  /* ===== top button 탑 버튼===== */
+  .topbutton {
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    padding: 12px;
+    cursor: pointer;
+  }
+
+  .topbutton > div {
+    width: 30px;
+    height: 30px;
+    background: url("./img/ArrowTop.png");
+    background-size: contain;
+  }
+
+  /* ===== Makepost page 갤러리 만들기===== */
+  .MP-container {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+    padding-bottom: 100px;
+  }
+
+  .MP-wrap {
+    width: 840px;
+    height: auto;
+    margin: auto;
+    text-align: left;
+    border: 1px solid #070e27;
+  }
+
+  .MP-title {
+    margin-top: 34px;
+    font-size: 32px;
+    line-height: 37px;
+    margin-bottom: 81px;
+  }
+
+  .MP-sub-title {
+    color: #d4d4d4;
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .MP-movie {
+    width: 400px;
+    height: 52px;
+    border: 1px solid #dbe2ea;
+    border-radius: 6px;
+    padding: 10px;
+    color: #7c9cbf;
+    background-color: #fff;
+    display: inline-block;
+  }
+
+  .MP-movie > input {
+    width: 300px;
+    height: 28px;
+    outline-style: none;
+    border: none;
+    /* font-size: 16px; */
+    line-height: 21px;
+    display: inline-block;
+  }
+
+  .MP-movie > select {
+    outline-style: none;
+    border: none;
+    font-size: 16px;
+    line-height: 21px;
+    outline: 0 none;
+  }
+
+  .MP-movie > input::placeholder {
+    color: #7c9cbf;
+  }
+
+  .MP-movie-icon {
+    background: url("./img/Lens.png");
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: contain;
+    float: right;
+    cursor: pointer;
+  }
+
+  .MP-movie-icondelete {
+    background: url("./img/deleteForSearchText.png");
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: contain;
+    float: right;
+    cursor: pointer;
+  }
+
+  .MP-movie-DropDownContainer {
+    background-color: white;
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: -11px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    margin-top: 8px;
+    padding: 0.5rem 15px;
+    border: 1px solid rgb(223, 225, 229);
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
+    z-index: 3;
+    position: relative;
+    font-size: 16px;
+    line-height: 21px;
+    width: 400px;
+  }
+
+  .MP-movie-DropDownContainer > li {
+    cursor: pointer;
+  }
+
+  .MP-movie-dropdown-hr {
+    border: 1px solid rgb(236, 236, 236);
+    margin-bottom: 3px;
+  }
+
+  #dropdown {
+    text-align: center;
+    margin: 8px;
+    color: rgb(182, 182, 182);
+    font-size: 14px;
+  }
+
+  .MP-photo-label {
+    margin-top: 18px;
+    margin-bottom: 29px;
+    width: 119px;
+    height: 43px;
+    text-align: center;
+    display: inline-block;
+    padding: 0.5em 0.75em;
+    color: #000;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #e4e4e4;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: 5px;
+    padding: 14px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .MP-photo-upload {
+    width: 200px;
+    display: inline-block;
+    margin-left: 15px;
+    color: white;
+    font-size: inherit;
+  }
+
+  .MP-photo-btn {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .MP-input-wrap {
+    width: 400px;
+    height: 126px;
+    margin: auto;
+  }
+
+  .MP-photo-wrap {
+    width: 400px;
+    height: 500px;
+    margin: auto;
+  }
+
+  .MP-photo-show {
+    width: 400px;
+    height: 350px;
+    background: #202846;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    object-fit: contain;
+  }
+
+  .MP-box-wrap {
+    width: 400px;
+    height: 200px;
+    margin: 50px auto;
+  }
+
+  #textarea {
+    width: 400px;
+    height: 146px;
+    border-radius: 6px;
+    padding: 16px;
+    color: #7c9cbf;
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  .MP-btn-wrap {
+    background: #0059f7;
+    border-radius: 8px;
+    width: 258px;
+    height: 56px;
+    margin: auto;
+    text-align: center;
+    margin-top: 38px;
+  }
+
+  .MP-btn-wrap > button {
+    border-radius: 8px;
+    cursor: pointer;
+    width: 258px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    background-color: #0059f7;
+  }
+
+  /* ===== Mygallery page 마이갤러리===== */
+
+  .my-g-container {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+  }
+
+  .my-g-wrap {
+    width: 840px;
+    height: auto;
+    margin: auto;
+    text-align: left;
+    padding-bottom: 20px;
+  }
+
+  .my-g-title-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .my-g-title {
+    margin-top: 34px;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+  }
+
+  .my-g-user-wrap {
+    margin-top: 34px;
+    width: 110px;
+    height: 40px;
+    display: flex;
+    justify-content: right;
+  }
+
+  .my-g-account-icon {
+    width: 18px;
+    height: 18px;
+    background: url("./img/account.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 9px;
+    margin-right: 10px;
+  }
+
+  .my-g-account-name {
+    font-size: 16px;
+    line-height: 19px;
+    align-items: center;
+    text-decoration-line: underline;
+    color: #ffffff;
+    float: right;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+
+  .my-g-hr {
+    border: 1px solid #3a456f;
+    width: 840px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .my-g-scene-wrap {
+    width: 840px;
+    margin-bottom: 40px;
+    /* height: 428px; */
+    /* border: 1px solid red; */
+  }
+
+  .my-g-sub-title {
+    font-size: 26px;
+    line-height: 30px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .my-g-add-wrap {
+    width: 110px;
+    height: 30px;
+    /* border: 1px solid red; */
+    float: right;
+  }
+
+  .my-g-add-list-wrap {
+    width: 125px;
+    height: 30px;
+    /* border: 1px solid red; */
+    float: right;
+  }
+
+  .my-g-add-text {
+    font-size: 18px;
+    line-height: 21px;
+    text-decoration-line: underline;
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .my-g-add-icon {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Add_fff.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    float: right;
+    margin-right: 12px;
+  }
+
+  .my-g-like-hr {
+    border: 1px solid #c3c5cc;
+    width: 840px;
+    margin: 15px 0 15px 0;
+  }
+
+  .my-g-like-add-icon {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Add_fff.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    margin-right: 12px;
+    display: inline-block;
+  }
+
+  .my-g-like-minus-icon {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Minus.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    margin-right: 12px;
+    display: inline-block;
+  }
+
+  .my-g-like-title {
+    font-size: 26px;
+    line-height: 30px;
+    float: left;
+    cursor: pointer;
+  }
+
+  .my-g-like-no {
+    color: #7c9cbf;
+    margin: 5px;
+  }
+
+  /* ===== Makegallery page ===== */
+  .MG-container {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+  }
+
+  .MG-wrap {
+    width: 614px;
+    height: 586px;
+    margin: auto;
+  }
+
+  .MG-name {
+    width: 614px;
+    height: 106px;
+    margin-bottom: 28px;
+  }
+
+  .MG-desc {
+    width: 614px;
+    height: 200px;
+    margin-bottom: 28px;
+  }
+
+  .MG-title {
+    font-size: 20px;
+    line-height: 26px;
+    color: #d5d5d5;
+  }
+
+  .MG-name > input {
+    width: 614px;
+    height: 52px;
+    outline-style: none;
+    border: none;
+    font-size: 16px;
+    line-height: 21px;
+    display: inline-block;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+    padding: 16px;
+  }
+
+  .MG-name > input::placeholder {
+    color: #7c9cbf;
+  }
+
+  .MG-desc > textarea {
+    width: 614px;
+    height: 146px;
+    border-radius: 6px;
+    padding: 16px;
+    font-size: 16px;
+    line-height: 21px;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+  }
+
+  .MG-desc > textarea::placeholder {
+    color: #7c9cbf;
+  }
+
+  .MG-btn {
+    width: 180px;
+    height: 56px;
+    background: #0059f7;
+    border-radius: 8px;
+    margin: 60px auto;
+  }
+
+  .MG-btn > button {
+    border-radius: 8px;
+    cursor: pointer;
+    width: 180px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    background-color: #0059f7;
+  }
+
+  /* 나의 장면들 */
+  .made-scene-wrap {
+    width: 838px;
+    height: auto;
+    display: flex;
+    /* flex-flow: column wrap; */
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .bookmarker {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .bookmarker:hover #addTogall {
+    background-color: rgba(33, 32, 37, 0.7);
+    transition: 0.2s;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    text-align: center;
+    line-height: 120px;
+    border-radius: 8px;
+  }
+
+  #addTogall {
+    opacity: 0;
+    text-align: center;
+  }
+
+  /* 좋아한 장면 */
+  .like-scene-wrap {
+    width: 860px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* 좋아한 갤러리 */
+  .like-gallery-container {
+    width: 830px;
+    height: auto;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    /* padding: 11px; */
+    margin: 20px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+  }
+
+  .like-gallery-item {
+    width: auto;
+    height: auto;
+    border: 0.972265px solid #344583;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    padding: 11px;
+    margin-top: 20px;
+    margin-right: 70px;
+  }
+
+  /* Login Page */
+  .login {
+    width: 100vw;
+    height: auto;
+    background: #070e27;
+    text-align: center;
+  }
+
+  .loginwrap {
+    padding-top: 30px;
+    margin: auto;
+    width: 840px;
+    height: auto;
+    text-align: center;
+    padding-bottom: 100px;
+  }
+
+  .lin-title {
+    display: inline-block;
+    width: 100px;
+    height: 42px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    /* line-height: 42px; */
+    padding: 3px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  /* ===== Main 메인페이지 ===== */
+  .main-back {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+  }
+
+  .main-wrap {
+    width: 1060px;
+    height: auto;
+    margin: auto;
+  }
+
+  .main-text {
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 28px;
+  }
+
+  .main-gallery {
+    padding-top: 34px;
+    width: 1060px;
+    height: 360px;
+  }
+
+  .main-gallery-all {
+    /* position: absolute; */
+    float: right;
+  }
+
+  .main-gallery-wrap {
+    width: 1060px;
+    height: 299px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .main-gallery-Arrowleft {
+    width: 20px;
+    height: 299px;
+    background: url("./img/ArrowLeft.png");
+    width: 25px;
+    height: 80px;
+    background-position: center;
+    background-size: cover;
+    margin: auto 0px;
+    cursor: pointer;
+  }
+
+  .main-gallery-Arrowright {
+    width: 25px;
+    height: 80px;
+    background: url("./img/ArrowRight.png");
+    width: 25px;
+    height: 80px;
+    background-position: center;
+    background-size: cover;
+    margin: auto 0px;
+    cursor: pointer;
+  }
+
+  .main-gallery-page {
+    width: 1060px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .main-gallery-numSelect {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: url("./img/SeletedPage.png");
+    background-position: center;
+    background-size: none;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    margin: auto 0px;
+  }
+
+  .main-gallery-numNoSelect {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: url("./img/NoSeletedPage.png");
+    background-position: center;
+    background-size: none;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    margin: auto 0px;
+  }
+
+  .main-genre {
+    width: 1060px;
+    margin-top: 80px;
+  }
+
+  .main-genre-category-wrap {
+    height: 100%;
+    width: 100%;
+    text-align: left;
+  }
+
+  .main-genre-name {
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    margin-right: 12px;
+    padding: 0px 20px;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #070e27;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .main-genre-name:hover {
+    background-color: #0059f7;
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  /* 선택된 것만 색 변경 */
+  .main-genre-name-selected {
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    margin-right: 12px;
+    padding: 0px 20px;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #070e27;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #0059f7;
+    color: #fff;
+  }
+
+  .main-genre-img-wrap {
+    margin-top: 45px;
+    padding-bottom: 20px;
+    width: 1080px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    cursor: pointer;
+  }
+  .main-genre-img-addText {
+    width: 43px;
+    height: 19px;
+    margin: 0 auto 0 auto;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #f4f4f4;
+    cursor: pointer;
+  }
+
+  .addtext-wrap {
+    padding-bottom: 20px;
+  }
+
+  .main-genre-img-addImage {
+    width: 30px;
+    height: 30px;
+    margin: -6px auto 0 auto;
+    background: url("./img/Chevron\ Bottom.png");
+    background-position: center;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  .main-genre-img-noadd {
+    width: 200px;
+    height: 50px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+  }
+
+  /* 인기 갤러리 BestGallery */
+  .BG-container {
+    width: 330px;
+    height: 262.51px;
+    border: 0.972265px solid #344583;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    padding: 11px;
+    margin-bottom: 30px;
+  }
+
+  .BG-container:hover {
+    box-shadow: 0 2px 3px rgba(44, 46, 148, 0.808);
+  }
+
+  .BG-title {
+    font-size: 18px;
+    line-height: 21px;
+    color: #787e95;
+    text-align: left;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .BG-img-wrap {
+    width: 315.49px;
+    height: 200.05px;
+    display: flex;
+    flex-flow: wrap;
+  }
+
+  .BG-img {
+    width: 157px;
+    height: 100px;
+    border: 1px solid #eaeaea;
+  }
+
+  .BG-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .BG-img-no {
+    width: 100%;
+    height: 100%;
+    background: url("../src/img/noresult.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .genre-img {
+    width: 250px;
+    height: 157px;
+    /* border: 1px solid #344583; */
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-right: 18px;
+    margin-bottom: 20px;
+  }
+
+  .genre-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+
+  .genre-img > img:hover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  /* ===== Search page ===== */
+  .search-container {
+    background-color: #070e27;
+  }
+  .search-wrap {
+    margin-top: 43px;
+    width: 840px;
+    height: auto;
+    color: #fff;
+    margin-bottom: 100px;
+  }
+
+  .search-results {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+    text-align: left;
+    margin-bottom: 38px;
+  }
+
+  .results-text {
+    font-size: 26px;
+    line-height: 30px;
+    text-align: left;
+    margin-bottom: 23px;
+    margin-top: 50px;
+  }
+
+  /* ResultScene 검색결과 장면 */
+  .result-scene-wrap {
+    width: 840px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .result-scene-img {
+    width: 185px;
+    height: 122px;
+    border-radius: 10px;
+    border: 1px solid #344583;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    position: relative;
+  }
+
+  .result-scene-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* 검색결과 없는 경우 컴포넌트 */
+  .no-results-wrap {
+    width: 840px;
+    height: 160px;
+    border: 1px solid #344583;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+
+  .no-results-icon {
+    background: url("./img/noresult.png");
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-size: contain;
+    margin: 20px;
+  }
+
+  .no-results-text {
+    font-size: 18px;
+    line-height: 22px;
+    color: #c0c0c0;
+  }
+
+  /* ResultGallery 검색결과 장면 */
+  .result-gallery-wrap {
+    width: 840px;
+    height: auto;
+    display: flex;
+    flex-flow: wrap;
+
+    justify-content: space-between;
+    margin-bottom: 20px;
   }
 
   /* ===== 랜딩페이지 =====*/

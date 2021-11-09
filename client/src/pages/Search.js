@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MainNav from "../components/MainNav";
 import NoResult from "../components/NoResult";
 import ResultScene from "../components/ResultScene";
@@ -6,7 +6,7 @@ import ResultGallery from "../components/ResultGallery";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import { useParams } from "react-router";
-import axios from "axios";
+import searchAPI from "../api/searchAPI";
 require("dotenv").config();
 
 function Search() {
@@ -16,81 +16,52 @@ function Search() {
   const [addSceneIcon, setAddSceneIcon] = useState(false); // 장면 더보기 렌더링 상태
   const [addGalleryIcon, setAddGalleryIcon] = useState(false); // 갤러리 더보기 렌더링 상태
 
-  const [addSceneStart, setAddSceneStart] = useState(9);
-  const [addGalleryStart, setAddGalleryStart] = useState(3);
+  const sceneStart = useRef(1);
+  const scenePerPage = useRef(8);
+  const galleryStart = useRef(1);
+  const galleryPerPage = useRef(2);
 
-  // 장면 검색 결과 API
-  const handleLandingScenePage = () => {
-    axios
-      .get(
-        `${process.env.REACT_APP_EC2_URL}/search/single?content=${searchWord}&page=1&limit=8`,
-      )
-      .then((res) => {
-        setSceneResult(res.data.search_single);
-      });
+  // 장면 검색
+  const handleLandingScenePage = async () => {
+    try {
+      const result = await searchAPI.scene(
+        searchWord,
+        sceneStart.current,
+        scenePerPage.current,
+      );
+      if (result.length < scenePerPage.current) {
+        setAddSceneIcon(true);
+      }
+      setSceneResult([...sceneResult, ...result]);
+      sceneStart.current += scenePerPage.current;
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  const handleLandingAddScenePage = () => {
-    axios
-      .get(
-        `${process.env.REACT_APP_EC2_URL}/search/single?content=${searchWord}&page=${addSceneStart}&limit=4`,
-      )
-      .then((res) => {
-        if (res.data.search_single.length !== 4) {
-          setAddSceneIcon(true);
-        }
-        setSceneResult([...sceneResult, ...res.data.search_single]);
-        setAddSceneStart(addSceneStart + 4);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  // 갤러리 검색 결과 API
-  const handleLandingGalleryPage = () => {
-    axios
-      .get(
-        `${process.env.REACT_APP_EC2_URL}/search/gallery?content=${searchWord}&page=1&limit=2`,
-      )
-      .then((res) => {
-        if (res.data.search_gallery.length !== 2) {
-          setAddGalleryIcon(true);
-        }
-        // console.log(res.data.search_gallery);
-        setGalleryResult(res.data.search_gallery);
-      });
-  };
-
-  const handleLandingAddGalleryPage = () => {
-    axios
-      .get(
-        `${process.env.REACT_APP_EC2_URL}/search/gallery?content=${searchWord}&page=${addGalleryStart}&limit=2`,
-      )
-      .then((res) => {
-        if (res.data.search_gallery.length !== 2) {
-          setAddGalleryIcon(true);
-        }
-        console.log(res.data.search_gallery);
-        setGalleryResult([...galleryResult, ...res.data.search_gallery]);
-        setAddGalleryStart(addGalleryStart + 2);
-      })
-      .catch((err) => {
-        console.log(err);
+  // 갤러리 검색
+  const handleLandingGalleryPage = async () => {
+    try {
+      const result = await searchAPI.gallery(
+        searchWord,
+        galleryStart.current,
+        galleryPerPage.current,
+      );
+      if (result.length < galleryPerPage.current) {
         setAddGalleryIcon(true);
-      });
+      }
+      setGalleryResult([...galleryResult, ...result]);
+      galleryStart.current += galleryPerPage.current;
+    } catch (err) {
+      console.log(err);
+      setAddGalleryIcon(true);
+    }
   };
 
   useEffect(() => {
-    setSceneResult([]);
-    setGalleryResult([]);
-    setAddSceneIcon(false);
-    setAddGalleryIcon(false);
-    setAddSceneStart(9);
-    setAddGalleryStart(3);
     handleLandingScenePage();
     handleLandingGalleryPage();
-  }, [searchWord]);
+  }, []);
 
   return (
     <div className="search-container">
@@ -106,8 +77,9 @@ function Search() {
                   return <ResultScene key={scene.id} scene={scene} />;
                 })}
               </div>
+              {/* <div onClick={handleLandingAddScenePage}> */}
               {addSceneIcon ? null : (
-                <div onClick={handleLandingAddScenePage}>
+                <div onClick={handleLandingScenePage}>
                   <div className="main-genre-img-addText">더 보기</div>
                   <div className="main-genre-img-addImage"></div>
                 </div>
@@ -125,8 +97,9 @@ function Search() {
                   return <ResultGallery key={gallery.id} gallery={gallery} />;
                 })}
               </div>
+              {/* <div onClick={handleLandingAddGalleryPage}> */}
               {addGalleryIcon ? null : (
-                <div onClick={handleLandingAddGalleryPage}>
+                <div onClick={handleLandingGalleryPage}>
                   <div className="main-genre-img-addText">더 보기</div>
                   <div className="main-genre-img-addImage"></div>
                 </div>

@@ -8,12 +8,12 @@ import MadeGallery from "../components/MadeGallery";
 import MadeScene from "../components/MadeScene";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
-import axios from "axios";
+import sceneAPI from "../api/sceneAPI";
+import galleryAPI from "../api/galleryAPI";
 require("dotenv").config();
-axios.defaults.withCredentials = true;
 
 function Mygallery() {
-  const { userInfo, isLogin } = useContext(MyContext); // 유저 정보를 확인
+  const { userInfo } = useContext(MyContext); // 유저 정보를 확인
   const [isLikeSceneClicked, setIsLikeSceneClicked] = useState(false);
   const [isLikeGalleryClicked, setIsLikeGalleryClicked] = useState(false);
 
@@ -34,16 +34,14 @@ function Mygallery() {
   };
 
   // 나의 장면 불러오기
-  const getAllMyScene = () => {
-    axios
-      .get(`${process.env.REACT_APP_EC2_URL}/user/singlepost`)
-      .then((res) => {
-        setHaveScenes([...res.data.my].reverse());
-        setRenderScenes([...res.data.my].reverse().slice(0, scenePerPage));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const getAllMyScene = async () => {
+    try {
+      const result = await sceneAPI.user();
+      setHaveScenes(result);
+      setRenderScenes(result.slice(0, scenePerPage));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // 나의 장면 더보기
@@ -66,16 +64,14 @@ function Mygallery() {
   const [addGalleryIcon, setAddGalleryIcon] = useState(false);
 
   // 나의 갤러리 불러오기
-  const getAllMyGallery = () => {
-    axios
-      .get(`${process.env.REACT_APP_EC2_URL}/user/gallerypost`)
-      .then((res) => {
-        if (renderGallery.length <= 2) {
-          setAddGalleryIcon(true);
-        }
-        setHaveGallery([...res.data.my].reverse());
-        setRenderGallery([...res.data.my].reverse().slice(0, galleryPerPage));
-      });
+  const getAllMyGallery = async () => {
+    try {
+      const result = await galleryAPI.user();
+      setHaveGallery(result);
+      setRenderGallery(result.slice(0, galleryPerPage));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // 나의 갤러리 더보기
@@ -100,18 +96,14 @@ function Mygallery() {
   const [addLikeSceneIcon, setAddLikeSceneIcon] = useState(false);
 
   // 내가 좋아요 한 전체 장면 불러오기
-  const getAllMyLikeScene = () => {
-    axios
-      .get(`${process.env.REACT_APP_EC2_URL}/user/like/singlepost`)
-      .then((res) => {
-        setHaveLikeScenes([...res.data.likedSinglepostData]);
-        setRenderLikeScenes(
-          [...res.data.likedSinglepostData].slice(0, likeScenePerPage),
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const getAllMyLikeScene = async () => {
+    try {
+      const result = await sceneAPI.userLike();
+      setHaveLikeScenes(result);
+      setRenderLikeScenes(result.slice(0, likeScenePerPage));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // 내가 좋아요 한 전체 장면 더보기
@@ -137,18 +129,14 @@ function Mygallery() {
   const [addLikeGalleryIcon, setAddLikeGalleryIcon] = useState(false);
 
   // 내가 좋아요 한 전체 갤러리 불러오기
-  const getAllMyLikeGallery = () => {
-    axios
-      .get(`${process.env.REACT_APP_EC2_URL}/user/like/gallerypost`)
-      .then((res) => {
-        setHaveLikeGallerys([...res.data.likedGalleryData]);
-        setRenderLikeGallerys(
-          [...res.data.likedGalleryData].slice(0, likeGalleryPerPage),
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const getAllMyLikeGallery = async () => {
+    try {
+      const result = await galleryAPI.userLike();
+      setHaveLikeGallerys(result);
+      setRenderLikeGallerys(result.slice(0, likeGalleryPerPage));
+    } catch (err) {
+      console.log(err);
+    }
   };
   // 내가 좋아요 한 전체 갤러리 더보기
   const handleAddCurrentLikeGallery = () => {

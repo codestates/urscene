@@ -1,11 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import MainNav from "../components/MainNav";
 import { Link } from "react-router-dom";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import axios from "axios";
 import { MyContext } from "../contexts/Store";
-
 axios.defaults.withCredentials = true;
 
 function Login() {
@@ -72,6 +71,17 @@ function Login() {
         console.log("login err message=>", err);
       });
   };
+  const GOOGLE_LOGIN_URL =
+    "https://accounts.google.com/o/oauth2/v2/auth?client_id=123608818142-seg1ni8901s8u5ci2hhhk3rd2tj0o8v1.apps.googleusercontent.com&response_type=code&redirect_uri=http://localhost:3000&scope=https://www.googleapis.com/auth/userinfo.email";
+
+  const googleLoginHandler = () => {
+    window.location.assign(GOOGLE_LOGIN_URL);
+  };
+
+  const url = `https://kauth.kakao.com/oauth/authorize?client_id=a87651345b7491d42793ae30327c6fb0&redirect_uri=http://localhost:3000&response_type=code`;
+  const socialLoginHandler = () => {
+    window.location.assign(url);
+  };
 
   return (
     <div>
@@ -122,10 +132,13 @@ function Login() {
             </div>
             <div className="lin-divider"></div>
             <div>
-              <button className="lin-kakao"></button>
+              <button
+                className="lin-kakao"
+                onClick={socialLoginHandler}
+              ></button>
             </div>
             <div>
-              <button className="lin-google">
+              <button className="lin-google" onClick={googleLoginHandler}>
                 <div className="lin-google-logo"></div>
                 <div className="lin-google-text">구글 로그인</div>
               </button>
@@ -140,57 +153,3 @@ function Login() {
 }
 
 export default Login;
-
-{
-  /* 
-          <div className="lin-email">
-            <div className="lin-em-group">
-              <div className="lin-em-group-label">
-                <div className="lin-em-group-label2">
-                  <div className="lin-em-group-label2-text">이메일</div>
-                </div>
-              </div>
-            </div>
-            <div className="lin-em-text">
-              <div className="lin-em-text-label">
-                <input className="lin-em-text-label-input"></input>
-              </div>
-            </div>
-            <div className="lin-em-warning">
-              <div className="lin-em-warning-label">
-                <div className="lin-em-warning-label-text">필수 정보입니다.</div>
-              </div>
-            </div>
-          </div>
-          <div className="lin-password">
-            <div className="lin-pw-group">
-              <div className="lin-pw-group-label">
-                <div className="lin-pw-group-label2">
-                  <div className="lin-pw-group-label2-text">비밀번호</div>
-                </div>
-              </div>
-            </div>
-            <div className="lin-pw-text">
-              <div className="lin-pw-text-label">
-                <input className="lin-pw-text-label-input" type="password"></input>
-              </div>
-            </div>
-            <div className="lin-pw-warning">
-              <div className="lin-pw-warning-label">
-                <div className="lin-pw-warning-label-text">필수 정보입니다.</div>
-              </div>
-            </div>
-          </div>
-          <button type="submit" id="lin-loginbtn">
-            <div className="lin-loginbtn-text">로그인</div>
-          </button>
-          <div className="lin-signup">회원가입</div>
-          <div className="lin-divider"></div>
-          <div className="lin-kakao">
-            <div className="lin-kakao-text">카카오 로그인</div>
-            <div className="lin-kakao-logo">로고</div>
-          </div>
-          <div className="lin-google"></div>
-          <div className="lin-google-text">구글 로그인</div>
-          <div className="lin-google-logo">로고</div> */
-}
