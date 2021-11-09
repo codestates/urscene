@@ -1,66 +1,65 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import MainNav from "../components/MainNav";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import BestGallery from "../components/BestGallery";
 import GenreScene from "../components/GenreScene";
-import axios from "axios";
 import LoadingIndicator from "../components/LoadingIndicator";
+import mainAPI from "../api/mainAPI";
 require("dotenv").config();
 
-axios.defaults.withCredentials = true;
 function Main() {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
 
   // 인기 갤러리 코드 : 시작
   const [rankingGallerys, setRankingGallerys] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [galleryPerPage] = useState(3);
+  const [currentRankingGallery, setCurrentRankingGallery] = useState([]);
   const [galleryIcon] = useState([1, 2, 3]);
+  const currentPage = useRef(1);
+  const galleryPerPage = useRef(3);
 
-  const handleLandingPage = () => {
-    axios.get(process.env.REACT_APP_EC2_URL + "/main").then((res) => {
-      console.log(res.data);
-      setRankingGallerys(res.data.Ranking_gallery);
-      setCurrentRankingGallery(res.data.Ranking_gallery.slice(0, 3));
+  const handleLandingPage = async () => {
+    try {
+      const result = await mainAPI.rangking();
+      setRankingGallerys(result);
+      setCurrentRankingGallery(result.slice(0, 3));
+    } catch (err) {
+      console.log(err);
+    } finally {
       setIsLoading(false);
-    });
+    }
   };
 
-  const [currentRankingGallery, setCurrentRankingGallery] = useState([]);
-
   function handleCurrentRankingGallery() {
-    const indexOfLast = currentPage * galleryPerPage;
-    const indexOfFirst = indexOfLast - galleryPerPage;
+    const indexOfLast = currentPage.current * galleryPerPage.current;
+    const indexOfFirst = indexOfLast - galleryPerPage.current;
     setCurrentRankingGallery(rankingGallerys.slice(indexOfFirst, indexOfLast));
   }
 
   const handleArrowLeft = () => {
-    if (currentPage === 1) {
-      setCurrentPage(3);
+    if (currentPage.current === 1) {
+      currentPage.current = 3;
     } else {
-      setCurrentPage(currentPage - 1);
+      currentPage.current -= 1;
     }
+    handleCurrentRankingGallery();
   };
 
   const handleArrowRight = () => {
-    if (currentPage === 3) {
-      setCurrentPage(1);
+    if (currentPage.current === 3) {
+      currentPage.current = 1;
     } else {
-      setCurrentPage(currentPage + 1);
+      currentPage.current += 1;
     }
+    handleCurrentRankingGallery();
   };
 
   useEffect(() => {
     handleLandingPage();
   }, []);
-
-  useEffect(() => {
-    handleCurrentRankingGallery();
-  }, [currentPage]);
-
   // 인기 갤러리 코드 : 끝
 
   // 장르별 장면 코드 : 시작
@@ -73,60 +72,41 @@ function Main() {
     "전쟁",
     "애니메이션",
   ];
-  const [curGenre, setCurGenre] = useState(genres[0]);
-  const [previousGenre, setPreviousGenre] = useState("");
-  const [curScenes, setCurSenes] = useState([]);
-
-  const [curScenePage, setCurScenePage] = useState(4);
-  const [scenePerPage] = useState(4);
-
+  const curGenre = useRef("로맨스");
+  const [curScenes, setCurScenes] = useState([]);
+  const curScenePage = useRef(1);
+  const scenePerPage = useRef(4);
   const [addSceneIcon, setAddSceneIcon] = useState(false);
 
-  const changeCurGenre = (e) => {
-    setCurScenePage(4);
-    setAddSceneIcon(false);
-    setPreviousGenre(curGenre);
-    setCurGenre(e.target.innerText);
+  const handleCurrentScene = async () => {
+    try {
+      const genreScene = await mainAPI.genre(
+        curGenre.current,
+        curScenePage.current,
+        scenePerPage.current,
+      );
+      if (genreScene.length !== 4) {
+        setAddSceneIcon(true);
+      }
+      setCurScenes([...curScenes, ...genreScene]);
+      curScenePage.current += scenePerPage.current;
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleCurrentScene = () => {
-    axios
-      .get(
-        `${process.env.REACT_APP_EC2_URL}/main/single/?genre=${curGenre}&page=1&limit=${scenePerPage}`,
-      )
-      .then((res) => {
-        if (res.data.single.length !== 4) {
-          setAddSceneIcon(true);
-        }
-        setCurSenes(res.data.single);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const changeCurGenre = (e) => {
+    curScenePage.current = 1;
+    curGenre.current = e.target.innerText;
+    setCurScenes([]);
+    setAddSceneIcon(false);
   };
 
   useEffect(() => {
     handleCurrentScene();
-  }, [curGenre]);
-
-  const handleAddCurrentScene = () => {
-    setCurScenePage(curScenePage + scenePerPage);
-    axios
-      .get(
-        `${process.env.REACT_APP_EC2_URL}/main/single/?genre=${curGenre}&page=${curScenePage}&limit=${scenePerPage}`,
-      )
-      .then((res) => {
-        if (res.data.single.length !== 4) {
-          setAddSceneIcon(true);
-        } else {
-          setCurSenes([...curScenes, ...res.data.single]);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  }, [curGenre.current]);
 
   return (
     <div>
@@ -134,14 +114,10 @@ function Main() {
         <MainNav />
         <div className="main-wrap">
           <div className="main-gallery">
-            <div
-              className="main-text"
-              onClick={() => {
-                history.push("/gallery/20");
-              }}
-            >
-              인기 갤러리
-            </div>
+            <div className="main-text">인기 갤러리</div>
+            <Link to="/allgallery">
+              <div className="main-gallery-all">모든 갤러리 보기</div>
+            </Link>
             <div className="main-gallery-wrap">
               <div
                 className="main-gallery-Arrowleft"
@@ -165,11 +141,12 @@ function Main() {
                   <div
                     key={idx}
                     className={
-                      currentPage === idx + 1
+                      currentPage.current === idx + 1
                         ? "main-gallery-numSelect"
                         : "main-gallery-numNoSelect"
                     }
-                    onClick={() => setCurrentPage(idx + 1)}
+                    // onClick={() => setCurrentPage(idx + 1)}
+                    onClick={() => (currentPage.current = idx + 1)}
                   ></div>
                 );
               })}
@@ -177,6 +154,9 @@ function Main() {
           </div>
           <div className="main-genre">
             <div className="main-text">장르별 장면</div>
+            <Link to="/allscenes">
+              <div className="main-text-all">모든 장면 보기</div>
+            </Link>
             <div className="main-genre-category-wrap">
               {genres.map((el) => {
                 return (
@@ -207,7 +187,7 @@ function Main() {
                 })}
               </div>
               {addSceneIcon ? null : (
-                <div onClick={handleAddCurrentScene}>
+                <div onClick={handleCurrentScene}>
                   <div className="addtext-wrap">
                     <div className="main-genre-img-addText">더 보기</div>
                     <div className="main-genre-img-addImage"></div>

@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
+import galleryAPI from "../api/galleryAPI";
+require("dotenv").config();
 
 function BestGallery({ gallery }) {
   const history = useHistory();
-  const imageGroup = [];
-  for (let i = 0; i < gallery.image.length; i++) {
-    imageGroup[i] = gallery.image[i];
-  }
+  const [scenes, setScenes] = useState([]);
 
-  const rendering = imageGroup.slice(0, 4);
+  const handleGetScenes = async () => {
+    try {
+      const result = await galleryAPI.getGalleryId(gallery.id);
+      setScenes(result.singlepost.slice(0, 4));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    handleGetScenes();
+  }, [gallery]);
 
   return (
     <div>
@@ -22,10 +32,13 @@ function BestGallery({ gallery }) {
           {gallery.title}
         </div>
         <div className="BG-img-wrap">
-          {rendering.map((ele, idx) => {
+          {scenes.map((scene) => {
             return (
-              <div className="BG-img" key={idx}>
-                <img src={ele} alt={ele} />
+              <div className="BG-img" key={scene.id}>
+                <img
+                  src={`${process.env.REACT_APP_S3_URL_ImageUpload}/${scene.image}`}
+                  alt={scene.image}
+                />
               </div>
             );
           })}

@@ -1,13 +1,12 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { MyContext } from "../contexts/Store";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function MainNav() {
-  const { userInfo, isLogin } = useContext(MyContext); // 유저 정보를 확인
+  const { isLogin } = useContext(MyContext); // 유저 정보를 확인
   //console.log("mainvav islogin ???", isLogin);
   //console.log("mainvav, userInfo ??? ", userInfo);
 
-  const history = useHistory();
   const [searchText, setSearchText] = useState("");
 
   const handleChange = (e) => {
@@ -16,13 +15,13 @@ function MainNav() {
 
   const handleSearch = () => {
     if (searchText !== "") {
-      history.push(`/search/${searchText}`);
+      window.location.replace(`/search/${searchText}`);
     }
   };
 
   const handleMoveSearchPage = (e) => {
     if (e.key === "Enter" && searchText !== "") {
-      history.push(`/search/${searchText}`);
+      window.location.replace(`/search/${searchText}`);
     }
   };
 

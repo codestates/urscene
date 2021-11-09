@@ -2,7 +2,6 @@ import React, { useEffect, useContext, useState } from "react";
 import MainNav from "../components/MainNav";
 import GalleryContent from "../components/GalleryContent";
 import GalleryDeleteModal from "../components/GalleryDeleteModal";
-import SceneInGalleryDeleteModal from "../components/SceneInGalleryDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import { useHistory, useParams } from "react-router";
@@ -18,7 +17,6 @@ function Gallery() {
   const [editDeleteModal, setEditDeleteModal] = useState(true); // 수정버튼 클릭시 장면 설명 수정
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
   const [deleteModal, setDeleteModal] = useState(false); // 삭제 버튼 클릭시 삭제 모달 팝업
-  const [requireLoginModal, setRequireLoginModal] = useState(false);
   const [galleryLikeId, setGalleryLikeId] = useState("");
 
   const [nicknameGallery, setNicknameGallery] = useState(""); // API로 받아온 갤러리 작성자 닉네임
@@ -86,7 +84,6 @@ function Gallery() {
         if (res.data.Like === null) {
           setlikeModal(false);
         } else if (res.data.Like) {
-          console.log("res.data.Like===", res.data.Like);
           setlikeModal(true);
           setGalleryLikeId(res.data.Like);
         }
@@ -101,7 +98,6 @@ function Gallery() {
   const handleLike = () => {
     // 비로그인 사용자에게는 로그인이 필요합니다 안내메시지 표시
     if (userInfo === null) {
-      setRequireLoginModal(true);
       return;
     }
     if (likeModal === false) {
@@ -110,9 +106,8 @@ function Gallery() {
       axios
         .post(`${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryId}`)
         .then((res) => {
-          console.log("좋아요 요청 성공");
-          console.log("res.data ===", res.data);
           setlikeModal(true);
+          setGalleryLikeId(res.data.Likedata.id);
         })
         .catch((err) => {
           console.log(err);
@@ -120,6 +115,7 @@ function Gallery() {
     } else if (likeModal === true) {
       // 풀 하트 이므로 delete like 요청을 보내고
       // 성공을 하면 false로 바꿔준다.
+      console.log("galleryLikeId===", galleryLikeId);
       axios
         .delete(
           `${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryLikeId}`,
@@ -224,8 +220,9 @@ function Gallery() {
               <div className="gallery-nocontent-wrap">
                 <div className="gallery-nocontent-img"></div>
                 <div className="gallery-nocontent-title">
-                  장면이 아직 없습니다. <br />
-                  마이 갤러리에서 추가해 주세요.
+                  장면이 없습니다.
+                  <br />
+                  갤러리에 장면을 추가해주세요.
                 </div>
               </div>
             )}

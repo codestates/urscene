@@ -6,3 +6,4 @@ module.exports = {
 	isTakenName: require("./isTakenName"),
 	kakao: require("./kakao"),
 }
+

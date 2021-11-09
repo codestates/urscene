@@ -1,15 +1,13 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 require("dotenv").config();
 
-function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
+function SceneInGalleryAddModal({ handleSetAddModal, postId }) {
   const [drop, setDrop] = useState(false);
   const [galleryTitle, setGalleryTitle] = useState("");
   const [galleryId, setGalleryId] = useState("");
   const [errModal, setErrModal] = useState(false);
-  const history = useHistory();
-  // console.log("galleryTitle===", galleryTitle);
+  const [haveGallery, setHaveGallery] = useState([]);
 
   const handle = (gallery) => {
     setGalleryTitle(gallery.title);
@@ -17,12 +15,20 @@ function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
     setDrop(false);
   };
 
+  const getAllMyGallery = () => {
+    axios
+      .get(`${process.env.REACT_APP_EC2_URL}/user/gallerypost`)
+      .then((res) => {
+        setHaveGallery([...res.data.my].reverse());
+      });
+  };
+
   const handleAddSceneinGallery = () => {
     axios
       .post(
         `${process.env.REACT_APP_EC2_URL}/gallery/${galleryId}`,
         {
-          singlepost_id: scene.id,
+          singlepost_id: postId,
         },
         { withCredentials: true },
       )
@@ -39,6 +45,10 @@ function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
         console.log(err);
       });
   };
+
+  useEffect(() => {
+    getAllMyGallery();
+  }, []);
 
   return (
     <div className="addModal-background">

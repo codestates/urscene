@@ -38,7 +38,11 @@ function ResultGallery({ gallery }) {
           {rendering.map((ele) => {
             return (
               <div className="BG-img">
-                <img key={ele.id} src={ele.image} alt="" />
+                <img
+                  key={ele.id}
+                  src={`${process.env.REACT_APP_S3_URL_ImageUpload}/${ele.image}`}
+                  alt=""
+                />
               </div>
             );
           })}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import Jake from "../img/UserImage-Jake.png";
 import Meg from "../img/UserImage-Meg.png";
 import Mili from "../img/UserImage-Mili.png";
@@ -11,13 +11,13 @@ function WriteComment({
   writeComment,
 }) {
   const imgId = { 0: Jake, 1: Meg, 2: Mili, 3: Steven };
-  const [userImg, setUserImg] = useState(imgId[userInfo.image]);
+  const [userImg] = useState(imgId[userInfo.image]);
 
   //console.log("댓글쓰기 userInfo => ", userInfo.image);
   return (
     <div className="post-writecomment">
       <form onSubmit={(e) => e.preventDefault()}>
-        <img className="post-wc-image" src={userImg} />
+        <img className="post-wc-image" src={userImg} alt={userImg} />
         <input
           type="text"
           value={writeComment}

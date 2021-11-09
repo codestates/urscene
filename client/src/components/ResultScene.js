@@ -4,7 +4,7 @@ require("dotenv").config();
 
 function ResultScene({ scene }) {
   const history = useHistory();
-  console.log(scene);
+  // console.log(scene);
   return (
     <div>
       <div
