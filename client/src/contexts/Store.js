@@ -47,7 +47,32 @@ const Store = (props) => {
       });
   };
 
+  const handleGetKakoAccessToken = async (authorizationCode) => {
+    console.log("AccessToken 얻는 함수 실행");
+    axios.post(
+      `${process.env.REACT_APP_EC2_URL}/sign/kakao`,
+      {
+        authorizationCode: authorizationCode,
+      },
+      {
+        headers: { accept: `application/json` },
+      },
+    );
+  };
+
+  const handlerKakaoLogin = () => {
+    console.log("구글 로그인 핸들러");
+    const url = new URL(window.location.href);
+    console.log("url ===", url);
+    const authorizationCode = url.searchParams.get("code");
+    console.log("authorizationCode ===", authorizationCode);
+    if (authorizationCode) {
+      handleGetKakoAccessToken(authorizationCode);
+    }
+  };
+
   useEffect(() => {
+    handlerKakaoLogin();
     handleLogin();
     setUserInfo(JSON.parse(window.sessionStorage.getItem("userInfo")));
   }, []);

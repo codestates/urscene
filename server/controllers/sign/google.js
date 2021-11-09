@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
 		code: code,
 		client_id: process.env.GOOGLEID,
 		client_secret: process.env.GOOGLE_SECRET,
-		redirect_uri: "https://    /oauth/oauth",
+		redirect_uri: "http://localhost:3000",
 		grant_type: "authorization_code",
 	}
 

@@ -4,4 +4,5 @@ module.exports = {
 	signOut: require("./signOut"),
 	isTakenEmail: require("./isTakenEmail"),
 	isTakenName: require("./isTakenName"),
+	kakao: require("./kakao"),
 }
