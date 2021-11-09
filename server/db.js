@@ -1,23 +1,15 @@
 const Sequelize = require("sequelize")
-const jwt = require("jsonwebtoken")
 const Op = Sequelize.Op
-const { User } = require("./models")
-const { Description } = require("./models")
-const { Gallerypost } = require("./models")
-const { Singlepost } = require("./models")
-const { Singlepost_gallerypost } = require("./models")
-const { Like } = require("./models")
-require("dotenv").config()
+const { User, Description, Gallerypost, Singlepost, Singlepost_gallerypost, Like } = require("./models")
 
 module.exports = {
 	getUserById: async (id) => await User.findOne({ where: { id } }),
 	getUserByEmail: async (email) => await User.findOne({ where: { email } }),
 	getUserByName: async (nickname) => await User.findOne({ where: { nickname } }),
 	addUser: async (data) => await User.create(data),
-	authenticateUser: async (email, password) => await User.findAll({ where: { [Op.and]: [{ email }, { password }] } }),
 	updateUser: async (data) =>
 		await User.update(
-			{ password: data.newPassword, nickname: data.newName, image: data.newImage },
+			{ password: data.hashPassword, nickname: data.newName, image: data.newImage },
 			{ raw: true, where: { id: data.id } }
 		),
 	deleteUser: async (id) => await User.destroy({ where: { id } }),

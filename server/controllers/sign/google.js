@@ -1,25 +1,28 @@
-const axios = require("axios");
+require("dotenv").config()
 
-module.exports = async (req, res) => {
-  const url = "https://www.googleapis.com/oauth2/v4/token";
-  const code = req.body.code || req.query.code; //??
+const clientID = process.env.GOOGLE_CLIENT_ID
+const clientSecret = process.env.GOOGLE_CLIENT_SECRET
+const axios = require("axios")
 
+module.exports = (req, res) => {
+	const url = "https://www.googleapis.com/oauth2/v4/token"
+	console.log(req.body)
 
-  const data = {
-    code: code,
-    client_id: process.env.GOOGLEID,
-    client_secret: process.env.GOOGLE_SECRET,
-    redirect_uri: "https://    /oauth/oauth",
-    grant_type: "authorization_code",
-  };
+	const data = {
+		client_id: clientID,
+		client_secret: clientSecret,
+		code: req.body.authorizationCode,
+	}
 
-  let token = await axios.post(url, data, {
-    Headers: { accept: "application/json" },
-  });
-  await axios.get({
-    url: `https://www.googleapis.com/oauth2/v1/userinfo`,
-    headers: {
-      Authorization: `Token ${token.data.access_token}`,
-    },
-  });
-};
+	axios
+		.post(url, data, {
+			headers: { accept: "application/json" },
+		})
+		.then((res) => {
+			accessToken = res.data.access_token
+			res.status(200).json({ accessToken })
+		})
+		.catch((e) => {
+			res.status(404)
+		})
+}
