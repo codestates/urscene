@@ -5,5 +5,5 @@ module.exports = {
 	isTakenEmail: require("./isTakenEmail"),
 	isTakenName: require("./isTakenName"),
 	kakao: require("./kakao"),
+	google: require("./google"),
 }
-
