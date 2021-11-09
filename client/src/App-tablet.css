@@ -2459,12 +2459,11 @@ body {
     font-size: 20px;
     line-height: 33px;
     text-align: left;
-    /* border-radius: 8px; */
     overflow: auto;
     padding: 14px;
-    /* border: 1px solid #232424; */
-    border: none;
-    /* outline: none; */
+    border: 1px solid #7c9cbf;
+    border-radius: 6px;
+    resize: none;
   }
 
   .post-editdesc:focus {
@@ -2686,152 +2685,79 @@ body {
 
   .gallerywrap {
     width: 720px;
-    height: 900px;
+    height: auto;
     margin: 0px auto 0px auto;
-    padding-top: 21px;
+    padding-top: 43px;
+    padding-bottom: 43px;
   }
 
   .gallery-nickname {
     width: 360px;
     height: 17px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 19px;
-
     color: #ffffff;
     text-align: left;
     margin-bottom: 10px;
-    margin-left: 1vw;
   }
 
-  /* .gallery-group1 {
+  .gallery-group1 {
     width: 720px;
     height: 40px;
-    text-align: left;
-  } */
-
-  .gallery-group1 {
-    width: 98vw;
-    height: 40px;
-    text-align: left;
   }
 
   .gallery-title {
-    width: 360px;
-    height: 34px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
+    width: 560px;
+    height: 32px;
     font-size: 32px;
     line-height: 37px;
-
     color: #ffffff;
     text-align: left;
     float: left;
   }
 
-  /* .gallery-btn {
-    width: 100px;
-    height: 34px;
-    float: left;
-
-    background: #0059f7;
-    border-radius: 8px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-
-    color: #ffffff;
-    padding-top: 8px;
-    cursor: pointer;
-    margin-left: 260px;
-    margin-top: 10px;
-  } */
-
   .gallery-btn {
     width: 100px;
-    /* width: 16vw; */
     height: 34px;
-    float: left;
-
+    float: right;
+    margin-right: 24px;
     background: #0059f7;
     border-radius: 8px;
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
     text-align: center;
-
     color: #ffffff;
-    padding-top: 8px;
+    padding-top: 6px;
     cursor: pointer;
-    margin-left: 27vw;
     margin-top: 10px;
   }
 
-  /* .gallery-titleinput {
+  .gallery-titleinput {
     width: 360px;
     height: 52px;
-
-    background: #ffffff;
-    border: 1px solid #dbe2ea;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
     border-radius: 6px;
     float: left;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 21px;
-
-    color: #7c9cbf;
-    padding-left: 16px;
-    padding-top: 16px;
+    background: #070e27;
+    color: #ffffff;
+    border: 1px solid #7c9cbf;
+    padding-left: 14px;
+    padding-top: 4px;
     margin-bottom: 16px;
-  } */
+  }
 
-  .gallery-titleinput {
-    /* width: 360px; */
-    width: 50vw;
-    height: 52px;
-
-    background: #ffffff;
-    border: 1px solid #dbe2ea;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
-    border-radius: 6px;
-    float: left;
-    margin-left: 1vw;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 21px;
-    /* identical to box height */
-
-    color: #7c9cbf;
-    padding-left: 16px;
-    padding-top: 16px;
-    margin-bottom: 16px;
+  .gallery-titleinput:focus {
+    outline: none;
+    border: none;
   }
 
   .gallery-edit {
     width: 40px;
     height: 40px;
-    margin-left: 280px;
+    margin-left: 76px;
     float: left;
-
     background: url("../src/img/pencil.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2843,7 +2769,6 @@ body {
     width: 40px;
     height: 40px;
     float: left;
-
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2851,86 +2776,55 @@ body {
     cursor: pointer;
   }
 
-  /* .gallery-group2 {
-    width: 720px;
-    height: auto;
-    margin-top: 12px;
-  } */
-
   .gallery-group2 {
     width: 720px;
     height: auto;
     margin-top: 12px;
-    text-align: left;
   }
-
-  /* .gallery-descinput {
-    width: 720px;
-    height: 80px;
-    margin-bottom: 30px;
-    padding-left: 16px;
-    padding-top: 16px;
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 21px;
-
-    color: #7c9cbf;
-
-    background: #ffffff;
-    border: 1px solid #dbe2ea;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
-    border-radius: 6px;
-  } */
 
   .gallery-descinput {
     width: 97vw;
     height: 80px;
     margin-bottom: 30px;
-    margin-left: 1vw;
-    margin-right: 1vw;
     padding-top: 16px;
     padding-left: 16px;
-
-    font-family: IBM Plex Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 21px;
-
-    color: #7c9cbf;
-
-    background: #ffffff;
-    border: 1px solid #dbe2ea;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    background: #070e27;
+    color: #ffffff;
+    border: 1px solid #7c9cbf;
     border-radius: 6px;
+    resize: none;
+  }
+
+  .gallery-descinput:focus {
+    outline: none;
+    border: none;
   }
 
   .gallery-desc {
-    width: 675px;
+    width: 650px;
     height: 50px;
     float: left;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 20px;
     line-height: 23px;
-
     color: #d0d0d0;
     text-align: left;
     margin-top: 10px;
   }
 
-  .gallery-like1 {
-    width: 40px;
-    height: 60px;
-    margin-left: 0px;
+  .gallery-likeGroup {
     float: left;
+    height: 76px;
+    width: 65px;
+  }
 
+  .gallery-unlike {
+    width: 40px;
+    height: 40px;
+    margin-left: 12.5px;
+    margin-right: 12.5px;
+    float: left;
     background: url("../src/img/Heart.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2938,12 +2832,12 @@ body {
     cursor: pointer;
   }
 
-  .gallery-like2 {
+  .gallery-like {
     width: 40px;
-    height: 60px;
-    margin-left: 0px;
+    height: 40px;
+    margin-left: 12.5px;
+    margin-right: 12.5px;
     float: left;
-
     background: url("../src/img/FullHeart.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2951,41 +2845,34 @@ body {
     cursor: pointer;
   }
 
-  /* .gallery-group3 {
-    border: 1px solid white;
-    width: 720px;
-    height: auto;
-    margin-top: 19px;
-    display: flex;
-    flex-wrap: wrap;
-  } */
+  .gallery-like-comment {
+    color: white;
+    font-size: 13px;
+    word-break: keep-all;
+  }
 
   .gallery-group3 {
-    border: 1px solid white;
-    width: 98vw;
+    width: 840px;
     height: auto;
     margin-top: 19px;
-    margin-left: 1vw;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
   }
 
   .gallery-content {
-    width: 31vw;
+    width: 234px;
     height: 140px;
-    margin-top: 0.5vw;
-    margin-left: 1vw;
-    background: #ffffff;
-    border-radius: 5px;
+    margin: 6px;
+    display: flex;
     position: relative;
+    cursor: pointer;
   }
 
   .gallery-content-img {
-    width: 31vw;
+    width: 234px;
     height: 140px;
     background: #ffffff;
-    border-radius: 10px;
+    border-radius: 2px;
     position: absolute;
   }
 
@@ -3036,10 +2923,15 @@ body {
 
   /* 갤러리 삭제 모달*/
   .deleteModal-background {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: #000000;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    place-items: center;
   }
 
   .deleteModal {
@@ -3047,7 +2939,7 @@ body {
     height: 277px;
     background: #0059f7;
     border-radius: 10px;
-    margin: 265px auto 0 auto;
+    margin: 10px auto 0 auto;
   }
 
   .delete-img {
@@ -3056,7 +2948,6 @@ body {
     left: 120px;
     width: 70px;
     height: 70px;
-
     background: url("../src/img/trash.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -3064,21 +2955,18 @@ body {
   }
 
   .delete-text {
-    font-family: Roboto;
-    font-style: normal;
     font-weight: bold;
     font-size: 24px;
-    line-height: 24px;
-    /* identical to box height, or 100% */
-
+    line-height: 30px;
     color: #ffffff;
     margin-top: 68px;
+    text-align: center;
   }
 
   .delete-btn {
     width: 300px;
     height: 34px;
-    margin-top: 53px;
+    margin-top: 20px;
   }
 
   .delete-btn-ok {

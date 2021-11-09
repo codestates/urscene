@@ -148,13 +148,13 @@ function Gallery() {
             <div className="gallery-group1">
               {editModal ? (
                 <div>
-                  <textarea
+                  <input
                     className="gallery-titleinput"
                     value={titleGallery}
                     onChange={(e) => {
                       handleTitleGallery(e);
                     }}
-                  ></textarea>
+                  ></input>
                   <div className="gallery-btn" onClick={handlePatchGallery}>
                     완료
                   </div>
