@@ -9,9 +9,9 @@ module.exports = async (req, res) => {
 		`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=N&listCount=50&ServiceKey=${process.env.KMDB_API_KEY}&title=${title}`
 	)
 
-	try {
-		let korMovie = await db.getDescriptionByKorTitle(title)
-		let engMovie = await db.getDescriptionByEngTitle(title)
+  try {
+    let korMovie = await db.getDescriptionByKorTitle(title);
+    let engMovie = await db.getDescriptionByEngTitle(title);
 
 		if (!korMovie.length && !engMovie.length) {
 			const urlData = await axios.get(url)

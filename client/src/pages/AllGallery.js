@@ -3,6 +3,7 @@ import MainNav from "../components/MainNav";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import BestGallery from "../components/BestGallery";
+import ResultGallery from "../components/ResultGallery";
 import useIntersectionObserver from "../customHook/useIntersectionObserver";
 import searchAPI from "../api/searchAPI";
 require("dotenv").config();
@@ -62,7 +63,7 @@ function AllGallery() {
             <div className="allGallery-text">모든 갤러리 보기</div>
             <div className="allGallery-gallery-wrap">
               {gallerys.map((gallery) => {
-                return <BestGallery key={gallery.id} gallery={gallery} />;
+                return <ResultGallery key={gallery.id} gallery={gallery} />;
               })}
             </div>
             <div ref={targetRef}></div>

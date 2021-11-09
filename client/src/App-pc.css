@@ -61,7 +61,6 @@ body {
   }
 
   .mainNav-search {
-    border: 1px solid red;
     width: 410px;
     height: 30px;
     outline: none;
@@ -514,7 +513,7 @@ body {
 
   .my-g-user-wrap {
     margin-top: 34px;
-    width: 110px;
+    width: auto;
     height: 40px;
     display: flex;
     justify-content: right;
@@ -778,7 +777,7 @@ body {
     box-sizing: border-box;
     border-radius: 4.86133px;
     /* padding: 11px; */
-    margin: 20px;
+    /* margin: 20px; */
     display: flex;
     /* justify-content: start; */
     flex-wrap: wrap;
@@ -1480,8 +1479,6 @@ body {
   }
 
   .main-gallery-Arrowleft {
-    width: 20px;
-    height: 299px;
     background: url("./img/ArrowLeft.png");
     width: 25px;
     height: 80px;
@@ -1492,8 +1489,6 @@ body {
   }
 
   .main-gallery-Arrowright {
-    width: 25px;
-    height: 80px;
     background: url("./img/ArrowRight.png");
     width: 25px;
     height: 80px;
@@ -3029,8 +3024,7 @@ body {
 
   .allScene-genre {
     width: 1060px;
-    margin-top: 80px;
-    /* border: 1px solid red; */
+    padding-top: 34px;
   }
 
   .allScene-text {
@@ -3094,6 +3088,60 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+
+  /* ResultGallery 컴포넌트 */
+  .RG-container {
+    width: 330px;
+    height: 262.51px;
+    border: 0.972265px solid #344583;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    padding: 11px;
+    margin: 0 20px 30px 0px;
+  }
+
+  .RG-container:hover {
+    box-shadow: 0 2px 3px rgba(44, 46, 148, 0.808);
+  }
+
+  .RG-title {
+    font-size: 18px;
+    line-height: 21px;
+    color: #787e95;
+    text-align: left;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .RG-img-wrap {
+    width: 315.49px;
+    height: 200.05px;
+    display: flex;
+    flex-flow: wrap;
+  }
+
+  .RG-img {
+    width: 150px;
+    height: 100px;
+    /* border: 0.1px solid gray; */
+    margin: 1px;
+  }
+
+  .RG-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .RG-img-no {
+    width: 100%;
+    height: 100%;
+    background: url("../src/img/noresult.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 }
 

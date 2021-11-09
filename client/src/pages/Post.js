@@ -41,7 +41,6 @@ function Post() {
     getSinglePost();
     getComments();
     getLikeinfo();
-    // getAllMyGallery();
   }, []);
 
   useEffect(() => {

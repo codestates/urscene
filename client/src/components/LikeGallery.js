@@ -24,19 +24,19 @@ function LikeGallery({ likeGallery }) {
   }, []);
 
   return (
-    <div className="like-gallery-item">
+    <div className="RG-container">
       <div
-        className="BG-title"
+        className="RG-title"
         onClick={() => {
           history.push(`/gallery/${likeGallery.id}`);
         }}
       >
         {nickname}님의 {likeGallery.title}
       </div>
-      <div className="BG-img-wrap">
+      <div className="RG-img-wrap">
         {rendering.map((ele) => {
           return (
-            <div className="BG-img">
+            <div className="RG-img">
               <img
                 key={ele.id}
                 src={`${process.env.REACT_APP_S3_URL_ImageUpload}/${ele.image}`}
