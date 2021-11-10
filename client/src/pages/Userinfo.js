@@ -31,9 +31,6 @@ function Userinfo() {
     password: "",
     passwordCheck: "",
   });
-  // console.log("newinfo ??? ", newinfo);
-  //console.log("change userinfo ???", userinfo);
-  //console.log("user userInfo =>", userInfo);
 
   const handleInputValue = (key) => (e) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
@@ -59,7 +56,6 @@ function Userinfo() {
         setNickErrMsg("이미 사용중인 닉네임입니다.");
         console.error(err);
       });
-    // console.log("nickname valid??", e.target.value);
   };
 
   // 비밀번호 유효성 검사
@@ -156,7 +152,6 @@ function Userinfo() {
     setCurImg(e.target.src);
     setSelectImg(e.target.alt);
   };
-  // console.log("selectImg ??? =>", selectImg);
 
   return (
     <div>
@@ -165,7 +160,7 @@ function Userinfo() {
         <div className="userinfo">
           <div className="userinfowrap">
             <div className="ui-title">개인정보 수정</div>
-            <img src={curImg} alt="" className="ui-image"></img>
+            <img src={curImg} alt="curImg" className="ui-image"></img>
             <div onClick={handleImgEdit} className="ui-description">
               프로필 사진 바꾸기
             </div>

@@ -23,6 +23,18 @@ const searchAPI = {
     }
     return result.data.search_gallery;
   },
+
+  //영화제목 검색 API
+  title: async (searchWord) => {
+    const result = await axios.get(
+      `${process.env.REACT_APP_EC2_URL}/description/${searchWord}`,
+    );
+    console.log(result);
+    if (result.data === false) {
+      console.log("제목 검색에 실패하였습니다.");
+    }
+    return result.data;
+  },
 };
 
 export default searchAPI;

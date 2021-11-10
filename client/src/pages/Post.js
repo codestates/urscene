@@ -41,7 +41,6 @@ function Post() {
     getSinglePost();
     getComments();
     getLikeinfo();
-    // getAllMyGallery();
   }, []);
 
   useEffect(() => {
@@ -258,7 +257,6 @@ function Post() {
               >
                 {content}
               </textarea>
-              {/* <div className="blink">ㅣ</div> */}
             </>
           ) : (
             <div className="post-desc">{content}</div>
