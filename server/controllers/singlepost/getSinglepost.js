@@ -1,9 +1,22 @@
-const db = require("../../db")
+const { Singlepost, User, Description } = require("../../models")
 
 module.exports = async (req, res) => {
 	const { singlepostid } = req.params
 
-	let post = await db.getSinglepost(singlepostid)
+	let post = await Singlepost.findOne({
+		include: [
+			{
+				model: User,
+				attributes: ["nickname", "image"],
+			},
+			{
+				model: Description,
+				attributes: ["title", "title_eng", "genre", "director", "released"],
+			},
+		],
+		where: { id: singlepostid },
+	})
+
 	if (!post) {
 		//singlepostid 없으면 404
 		res.status(404).json({ message: "data-not-found" })

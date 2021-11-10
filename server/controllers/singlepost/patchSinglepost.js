@@ -1,4 +1,4 @@
-const db = require("../../db")
+const { Singlepost } = require("../../models")
 const { isAuthorized } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
@@ -8,14 +8,19 @@ module.exports = async (req, res) => {
 	}
 	const { singlepostid } = req.params
 	const { content } = req.body
-	const post = await db.patchSinglepost(singlepostid)
-	console.log(post.dataValues)
+	const post = await Singlepost.findOne({ where: { id: singlepostid } })
 	if (!post) {
 		res.status(400).json({ message: "data-not-found" })
 	} else {
 		const singleid = post.dataValues.id
-		await db.updateSinglepost({ content, singleid })
-
+		await Singlepost.update(
+			{
+				content: content,
+			},
+			{
+				where: { id: singleid },
+			}
+		)
 		res.status(200).json({ data: { id: post.dataValues.id, content: post.dataValues.content } })
 	}
 }

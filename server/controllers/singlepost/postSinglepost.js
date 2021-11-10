@@ -1,5 +1,6 @@
 const { isAuthorized } = require("../../lib/jwt")
-const db = require("../../db")
+const { Description, Singlepost } = require("../../models")
+const { Op } = require("sequelize")
 
 module.exports = async (req, res) => {
 	const userinfo = isAuthorized(req)
@@ -7,12 +8,23 @@ module.exports = async (req, res) => {
 		res.status(400).json({ message: "bad request" }) //하나라도 없으면 400
 	} else {
 		const { title, image, content, genre } = req.body
-		const data = await db.getDescriptionsByTitle(title)
-		// console.log(data)
+		const data = await Description.findOne({
+			where: {
+				[Op.or]: [{ title }, { title_eng: title }],
+			},
+		})
+
 		const { id } = userinfo
 		const descriptionsId = data.dataValues.id
+		const singlepost = await Singlepost.create({
+			user_id: id,
+			title,
+			image,
+			content,
+			genre,
+			description_id: descriptionsId,
+		})
 
-		const singlepost = await db.addsinglepost({ id, title, image, content, genre, descriptionsId })
 		delete singlepost.dataValues.user_id
 		console.log(singlepost.dataValues)
 		res.status(201).json({ data: singlepost.dataValues, message: "ok" })
