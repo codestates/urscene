@@ -1,15 +1,18 @@
 const { isAuthorized } = require("../../lib/jwt")
-const db = require("../../db")
+const { Singlepost } = require("../../models")
 
 module.exports = async (req, res) => {
 	const userinfo = isAuthorized(req)
 	const id = userinfo.id
 	const { singlepostid } = req.params
-	const singleId = await db.getDeleteSinglepost({ singlepostid, id })
-	//commentid로 찾은 comment의 userid와 비교하려고찾았지
+	const singleId = await Singlepost.findOne({
+		where: { id: singlepostid, user_id: id },
+	})
 
 	if (singleId) {
-		await db.deleteSinglepost(singlepostid)
+		await Singlepost.destroy({
+			where: { id: singlepostid },
+		})
 		res.status(200).json({ message: "delete-successfully" })
 	} else {
 		res.status(400).json({ message: "data-not-found" })
