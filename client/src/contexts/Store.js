@@ -47,7 +47,6 @@ const Store = (props) => {
       });
   };
 
-
   const handleGetKakoAccessToken = async (authorizationCode) => {
     console.log("AccessToken 얻는 함수 실행");
     axios.post(
@@ -77,10 +76,16 @@ const Store = (props) => {
     // code를 가지고 서버에 요청을 보내어 악세스 토큰을 얻는다.
     console.log("AccessToken 얻는 함수 실행");
     axios
-      .get("http://localhost:80/sign/google", {
-        //code 전달
-        authorizationCode: authorizationCode,
-      })
+      .post(
+        "http://localhost:80/sign/google",
+        {
+          //code 전달
+          authorizationCode: authorizationCode,
+        },
+        {
+          headers: { accept: `application/json` },
+        },
+      )
       .then((res) => {
         // 받은 결과값을 확인하고 로그인상태 및 유저 정보를 셋팅해준다.
       })
