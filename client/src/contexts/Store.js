@@ -47,8 +47,7 @@ const Store = (props) => {
       });
   };
 
-  const handleGetKakoAccessToken = async (authorizationCode) => {
-    console.log("AccessToken 얻는 함수 실행");
+  const handleGetKakaoUser = async (authorizationCode) => {
     axios
       .post(
         `${process.env.REACT_APP_EC2_URL}/sign/kakao`,
@@ -65,21 +64,9 @@ const Store = (props) => {
       });
   };
 
-  const handlerKakaoLogin = () => {
-    console.log("카카오 로그인 핸들러");
-    const url = new URL(window.location.href);
-    console.log("url ===", url);
-    const authorizationCode = url.searchParams.get("code");
-    console.log("authorizationCode ===", authorizationCode);
-    if (authorizationCode) {
-      handleGetKakoAccessToken(authorizationCode);
-    }
-  };
-
   // 구글 소셜 로그인
-  const handleGetAccessToken = async (authorizationCode) => {
+  const handleGetGoogleUser = async (authorizationCode) => {
     // code를 가지고 서버에 요청을 보내어 악세스 토큰을 얻는다.
-    console.log("AccessToken 얻는 함수 실행");
     axios
       .post(
         "http://localhost:80/sign/google",
@@ -93,28 +80,28 @@ const Store = (props) => {
       )
       .then((res) => {
         // 받은 결과값을 확인하고 로그인상태 및 유저 정보를 셋팅해준다.
+        handleResponseSuccess();
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  // const handlerGoogleLogin = () => {
-  //   console.log("구글 로그인 핸들러");
-  //   const url = new URL(window.location.href);
-  //   console.log("url ===", url);
-  //   const authorizationCode = url.searchParams.get("code");
-  //   console.log("authorizationCode ===", authorizationCode);
-  //   if (authorizationCode) {
-  //     handleGetAccessToken(authorizationCode);
-  //   }
-  // };
+  const handlersocialLogin = () => {
+    const url = new URL(window.location.href);
+    const authorizationCode = url.searchParams.get("code");
+    const scope = url.searchParams.get("scope");
+    if (authorizationCode && scope) {
+      handleGetGoogleUser(authorizationCode);
+    } else if (authorizationCode && !scope) {
+      handleGetKakaoUser(authorizationCode);
+    }
+  };
 
   useEffect(() => {
-    handlerKakaoLogin();
     handleLogin();
     setUserInfo(JSON.parse(window.sessionStorage.getItem("userInfo")));
-    // handlerGoogleLogin();
+    handlersocialLogin();
   }, []);
 
   useEffect(() => {
