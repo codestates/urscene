@@ -136,17 +136,15 @@ function Main() {
               ></div>
             </div>
             <div className="main-gallery-page">
-              {galleryIcon.map((ele, idx) => {
+              {galleryIcon.map((ele) => {
                 return (
                   <div
-                    key={idx}
+                    key={ele}
                     className={
-                      currentPage.current === idx + 1
+                      currentPage.current === ele
                         ? "main-gallery-numSelect"
                         : "main-gallery-numNoSelect"
                     }
-                    // onClick={() => setCurrentPage(idx + 1)}
-                    onClick={() => (currentPage.current = idx + 1)}
                   ></div>
                 );
               })}
@@ -163,7 +161,7 @@ function Main() {
                   <div
                     onClick={changeCurGenre}
                     className={
-                      curGenre === el
+                      curGenre.current === el
                         ? "main-genre-name-selected"
                         : "main-genre-name"
                     }

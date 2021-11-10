@@ -148,13 +148,13 @@ function Gallery() {
             <div className="gallery-group1">
               {editModal ? (
                 <div>
-                  <textarea
+                  <input
                     className="gallery-titleinput"
                     value={titleGallery}
                     onChange={(e) => {
                       handleTitleGallery(e);
                     }}
-                  ></textarea>
+                  ></input>
                   <div className="gallery-btn" onClick={handlePatchGallery}>
                     완료
                   </div>
@@ -163,7 +163,7 @@ function Gallery() {
                 <div>
                   <div className="gallery-title">{titleGallery}</div>
                   {editDeleteModal ? null : (
-                    <div>
+                    <div className="gallery-edit-group">
                       <div
                         className="gallery-edit"
                         onClick={() => setEditModal(!editModal)}
@@ -187,7 +187,7 @@ function Gallery() {
                   }}
                 ></textarea>
               ) : (
-                <div>
+                <div className="gallery-desc-group">
                   <div className="gallery-desc">{contentGallery}</div>
                   <div className="gallery-likeGroup">
                     {userInfo === null ? null : (
@@ -227,10 +227,10 @@ function Gallery() {
               </div>
             )}
           </div>
-          <MainFooter></MainFooter>
-          <TopButton></TopButton>
         </div>
       </div>
+      <MainFooter></MainFooter>
+      <TopButton></TopButton>
       {deleteModal ? (
         <GalleryDeleteModal
           galleryId={galleryId}

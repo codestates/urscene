@@ -5,8 +5,9 @@ import TopButton from "../components/TopButton";
 import Dropdown from "../components/Dropdown";
 import AWS from "aws-sdk";
 import { useState, useRef, useEffect } from "react";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
+import searchAPI from "../api/searchAPI";
+import sceneAPI from "../api/sceneAPI";
 require("dotenv").config();
 
 function Makepost() {
@@ -19,12 +20,6 @@ function Makepost() {
   const [inputValue, setInputVaule] = useState(""); // 입력한 문자가 담기는 곳
   const [options, setOptions] = useState([]); // 드랍다운으로 보여지는 전체 목록
 
-  // useEffect(() => {
-  //   if (inputValue === "") {
-  //     setHasText(false);
-  //   }
-  // }, [inputValue]);
-
   const handleInputChange = (e) => {
     const { value } = e.target;
     if (e.key === "Enter") {
@@ -33,29 +28,16 @@ function Makepost() {
     if (value.includes("\\")) return;
     value ? setHasText(true) : setHasText(false);
     setInputVaule(value);
-    // const filterRegex = new RegExp(value, "i");
-    // const resultOptions = options.map((option) => {
-    //   if (option.movieTitle.match(filterRegex)) {
-    //     return option.movieTitle;
-    //   }
-    // });
-    // setOptions(resultOptions);
   };
 
-  const handleSearchMovieTitle = () => {
+  const handleSearchMovieTitle = async () => {
     if (inputValue.includes("\\")) return;
-    // axios 요청해서 더미데이터 받아와야 할듯
-    console.log("제목 검색 함수 시작");
-    console.log("inputValue===", inputValue);
-    axios
-      .get(`${process.env.REACT_APP_EC2_URL}/description/${inputValue}`)
-      .then((res) => {
-        // console.log(res.data);
-        setOptions(res.data.korMovie || res.data.engMovie);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    try {
+      const result = await searchAPI.title(inputValue);
+      setOptions(result.korMovie || result.engMovie);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleDeleteButtonClick = () => {
@@ -149,28 +131,18 @@ function Makepost() {
   };
   // 네이티브 SDK 를 통해 파일 업로드 : 끝
 
-  const handlePostSubmit = () => {
-    axios
-      .post(
-        "http://localhost:80/singlepost",
-        {
-          // user_id: "1", //(Token)
-          title: inputValue,
-          image: uploadImageName,
-          content: postDescription,
-          genre: seletedGenre,
-        },
-        {
-          withCredentials: true,
-        },
-      )
-      .then((res) => {
-        console.log("post success");
-        history.push("/mygallery");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const handlePostSubmit = async () => {
+    try {
+      await sceneAPI.make(
+        inputValue,
+        uploadImageName,
+        postDescription,
+        seletedGenre,
+      );
+      history.push("/mygallery");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -270,6 +242,7 @@ function Makepost() {
               <textarea
                 name=""
                 id="textarea"
+                placeholder="사진에 대해 설명해주세요"
                 onChange={(e) => setPostDescription(e.target.value)}
               ></textarea>
             </div>

@@ -58,6 +58,7 @@ function MainFooter() {
         </div>
         <div className="mf-divider-wrap">
           <div className="mf-divider"></div>
+          <div className="mF-footer-logo-mo"></div>
           <div className="mF-footer2">
             © 2021 너의 장면은 | All Rights Reserved
           </div>
