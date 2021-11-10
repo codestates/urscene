@@ -1155,7 +1155,7 @@ body {
     margin-right: auto;
     background: #0059f7;
     border-radius: 8px;
-    padding: 0px;
+    padding: 20px;
     border: 0px;
     font-weight: 500;
     font-size: 18px;
@@ -2905,6 +2905,7 @@ body {
     float: right;
     margin-top: 8px;
     cursor: pointer;
+    margin-right: 18px;
   }
 
   .my-g-hr {

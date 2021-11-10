@@ -114,9 +114,9 @@ function Login() {
                 <div className="lin-password-warning">{errMsg}</div>
               ) : null}
             </div>
-            <button type="submit" id="lin-btnLogin" onClick={handleLogin}>
+            <div type="submit" id="lin-btnLogin" onClick={handleLogin}>
               로그인
-            </button>
+            </div>
             {/* <Link to="signup"> */}
             <div className="lin-signup">
               <div
@@ -137,16 +137,13 @@ function Login() {
             </div>
             <div className="lin-divider"></div>
             <div>
-              <button
-                className="lin-kakao"
-                onClick={socialLoginHandler}
-              ></button>
+              <div className="lin-kakao" onClick={socialLoginHandler}></div>
             </div>
             <div>
-              <button className="lin-google" onClick={googleLoginHandler}>
+              <div className="lin-google" onClick={googleLoginHandler}>
                 <div className="lin-google-logo"></div>
                 <div className="lin-google-text">구글 로그인</div>
-              </button>
+              </div>
             </div>
           </form>
         </div>
