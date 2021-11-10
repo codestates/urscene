@@ -7,6 +7,8 @@ module.exports = {
 	getUserByEmail: async (email) => await User.findOne({ where: { email } }),
 	getUserByName: async (nickname) => await User.findOne({ where: { nickname } }),
 	addUser: async (data) => await User.create(data),
+	addGoogleUser: async (email) =>
+		await User.findOrCreate({ where: { email }, defaults: { nickname: email.slice(0, email.indexOf("@")), image: 1 } }),
 	updateUser: async (data) =>
 		await User.update(
 			{ password: data.hashPassword, nickname: data.newName, image: data.newImage },
@@ -52,12 +54,6 @@ module.exports = {
 				title: {
 					[Op.like]: title + "%",
 				},
-				genre: {
-					[Op.notLike]: "%" + "성인물" + "%",
-				},
-				director: {
-					[Op.notLike]: "%" + "director" + "%",
-				},
 			},
 			limit: 5,
 		}),
@@ -68,7 +64,7 @@ module.exports = {
 			order: [["title_eng", "ASC"]],
 			where: {
 				title_eng: {
-					[Op.like]: "%" + title + "%",
+					[Op.like]: title + "%",
 				},
 			},
 			limit: 5,
