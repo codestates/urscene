@@ -837,7 +837,7 @@ body {
   }
 
   .singupModal {
-    width: 300px;
+    width: 271px;
     height: 313px;
     margin: 0px auto 0px auto;
     background: #0059f7;
@@ -847,7 +847,6 @@ body {
 
   .suM-image {
     position: relative;
-    top: 43px;
     width: 80px;
     height: 80px;
     margin: 43px auto 0px auto;
@@ -859,7 +858,7 @@ body {
   .suM-text {
     width: 135px;
     height: 48px;
-    margin: 56px auto 0px auto;
+    margin: 26px auto 0px auto;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
@@ -1235,40 +1234,33 @@ body {
 
   /* Post 페이지 */
   .post {
+    padding-top: 1px;
     width: 414px;
     height: auto;
     background-color: #070e27;
-    position: absolute;
     top: 60px;
   }
 
   .postwrap {
     width: 414px;
     height: auto;
-    margin: 0px auto 50px auto;
+    padding: 0 27px;
   }
 
   .post-title {
     width: 275px;
     height: 55px;
-    margin-top: 39px;
-    margin-left: 27px;
-
+    margin-top: 38px;
     font-size: 32px;
     line-height: 37px;
-
     color: #ffffff;
     text-align: left;
-    padding-top: 10px;
-    float: left;
   }
 
   .post-editgroup {
-    width: 84px;
+    width: 86vw;
     height: 40px;
-    margin-right: 23px;
-    margin-top: 47px;
-    float: right;
+    margin-top: -11px;
   }
 
   .post-edit-btn {
@@ -1276,246 +1268,300 @@ body {
     height: 32px;
     float: right;
     margin-top: 5px;
-
     background: #ffffff;
     border: 1px solid #0880ae;
-    box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
-      0px 2px 4px rgba(44, 39, 56, 0.08);
     border-radius: 3px;
-
-    font-weight: 500;
     font-size: 14px;
     line-height: 18px;
     text-align: center;
-
     color: #5a7fa8;
+    cursor: pointer;
+  }
+
+  .post-addTogall {
+    float: left;
+    cursor: pointer;
+    margin-top: 20px;
+    color: #5a7fa8;
+    font-size: 16px;
+  }
+
+  .post-add-icon {
+    background: url("./img/bookmark.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 16px;
+    float: left;
+    margin-right: 6px;
   }
 
   .post-edit-edit {
-    width: 40px;
-    height: 40px;
+    width: 18px;
+    height: 18px;
     float: right;
+    margin-right: 10px;
+    margin-top: 18px;
     background: url("../src/img/pencil.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
+    cursor: pointer;
   }
 
   .post-edit-delete {
-    width: 40px;
-    height: 40px;
+    width: 18px;
+    height: 18px;
     float: right;
+    margin-top: 18px;
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
+    cursor: pointer;
   }
 
   .post-image {
     width: 360px;
     height: 190px;
     margin-top: 26px;
-    border-radius: 10px;
     background: #ffffff;
+    object-fit: cover;
   }
 
   .post-label {
-    width: 360px;
-    height: 50px;
-    margin-left: 27px;
+    width: 86vw;
+    height: 40px;
+    margin-top: 22px;
+    display: flex;
   }
 
   .post-label-title {
-    width: 269px;
+    width: 397px;
     height: 33px;
-    margin-top: 16px;
-    float: left;
-
+    margin-top: 7px;
     font-weight: bold;
     font-size: 18px;
     line-height: 21px;
     display: flex;
-    align-items: flex-end;
-
+    flex-wrap: wrap;
+    flex-direction: row;
     color: #ffffff;
   }
 
   .post-label-like1 {
-    width: 27px;
-    height: 26px;
-    float: right;
-    margin-top: 22px;
-
+    width: 40px;
+    height: 40px;
     background: url("../src/img/Heart.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 32px;
+    background-size: contain;
+    cursor: pointer;
+    margin-bottom: 10px;
   }
 
   .post-label-like2 {
-    width: 27px;
-    height: 26px;
-    float: right;
-    margin-top: 22px;
-
-    background: url("../src/img/FullHeart.png");
+    width: 30px;
+    height: 30px;
+    margin-right: 6px;
+    margin-top: 6px;
+    margin-left: auto;
+    background: url("../src/img/Off.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 23px;
+    background-size: contain;
+    cursor: pointer;
   }
 
   .post-desc {
-    width: 360px;
-    height: 88px;
-    margin-top: 18px;
-    margin-left: 27px;
-    font-size: 18px;
-    line-height: 21px;
-
-    color: #ffffff;
-    text-align: left;
-    word-break: keep-all;
-    white-space: pre-line;
-  }
-
-  .post-editdesc {
-    width: 360px;
-    height: 68px;
+    width: 840px;
+    height: auto;
     margin-top: 21px;
     font-size: 18px;
     line-height: 21px;
-
-    color: black;
+    color: #ffffff;
     text-align: left;
-    word-break: keep-all;
-    white-space: pre-line;
-    border-radius: 8px;
-    overflow: hidden;
+  }
+
+  .post-editdesc {
+    background-color: #070e27;
+    color: white;
+    width: 86vw;
+    height: 200px;
+    margin-top: 21px;
+    font-size: 18px;
+    text-align: left;
+    overflow: auto;
+    padding: 14px;
+    border: 1px solid #7c9cbf;
+    border-radius: 6px;
+    resize: none;
+  }
+
+  .post-editdesc:focus {
+    border: none;
+    outline: none;
+    width: 86vw;
+    height: 200px;
   }
 
   .post-devider {
     width: 360px;
-    height: 0px;
     border: 1px solid #3a456f;
-    margin-top: 29px;
-    margin-left: 27px;
+    margin-top: 42px;
   }
 
   .post-infogroup {
-    width: 360px;
+    width: 86vw;
     height: max-content;
-    margin-top: 12px;
-    margin-left: 27px;
+    margin-top: 14px;
+    cursor: pointer;
   }
 
   .post-infogroup-label {
-    width: 80px;
-    height: 34px;
+    width: 73px;
+    height: 25px;
     margin-left: 12px;
+    margin-top: 4px;
     font-size: 18px;
     line-height: 21px;
     display: flex;
     align-items: center;
-
     color: #ffffff;
     float: left;
   }
 
-  .post-infogroup-plus {
-    width: 50px;
-    height: 34px;
+  .post-infogroup-plusminus {
+    width: 30px;
+    height: 30px;
     margin-left: 12px;
-    font-size: 35px;
-    line-height: 28px;
     display: flex;
     align-items: center;
-
     color: #ffffff;
     cursor: pointer;
   }
 
-  .post-infogroup-list {
-    list-style-type: disc;
-    height: 25px;
-    margin-left: 20px;
+  .post-infogroup-plus {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Add_fff.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    display: inline-block;
+  }
+
+  .post-infogroup-minus {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Minus.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    display: inline-block;
+  }
+
+  .post-infogroup-wrap {
     width: auto;
-    margin-top: 5px;
-    width: 340px;
-    font-size: 16px;
-    line-height: 19px;
-    /* or 145% */
-    color: #ffffff;
+    height: 74px;
+    margin-top: 13px;
+    margin-left: 14px;
+    font-size: 22px;
+    line-height: 32px;
     text-align: left;
   }
 
+  .post-infogroup-title {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    float: left;
+    color: rgb(214, 214, 214);
+  }
+
+  .post-infogroup-list {
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 19px;
+    margin-left: 10px;
+    color: rgb(202, 202, 202);
+  }
+
   .post-devider2 {
-    width: 360px;
-    height: 0px;
+    width: 360;
     border: 1px solid #3a456f;
-    margin-top: 12px;
-    margin-left: 27px;
+    margin-top: 17px;
   }
 
   .post-writecomment {
-    width: 360px;
-    height: 52px;
-    margin-top: 26px;
-    margin-left: 27px;
-    margin-bottom: 21px;
+    width: 88vw;
+    height: 70px;
+    margin-top: 37px;
   }
 
   .post-wc-image {
     width: 52px;
     height: 52px;
-    float: left;
     border-radius: 50%;
+    float: left;
   }
 
   .post-wc-input {
-    width: 295px;
+    position: absolute;
+    float: left;
+    width: 68vw;
     height: 52px;
-    margin-left: 8px;
+    margin: 1px 0 1px 18px;
+    font-weight: normal;
     font-size: 16px;
-    line-height: 21px;
-    /* identical to box height */
-
     background: #ffffff;
     border-radius: 8px;
     border-width: 0px;
-    color: #7c9cbf;
+    color: black;
     padding-left: 16px;
   }
 
+  .post-writecomment > input::placeholder {
+    color: #7c9cbf;
+  }
+
   .post-wc-submit {
-    width: 30px;
-    height: 21px;
-
+    width: 37px;
+    height: 26px;
+    font-weight: normal;
     font-size: 16px;
-    line-height: 21px;
-    /* identical to box height */
-
+    line-height: 26px;
     color: #0059f7;
     position: relative;
-    bottom: 35px;
-    left: 310px;
+    left: 300px;
+    bottom: 36px;
+    padding-top: 14px;
     cursor: pointer;
   }
 
   .post-comments {
-    width: 360px;
+    width: 86vw;
     height: auto;
-    margin-left: 27px;
+    margin-top: 21px;
+    padding-bottom: 20px;
+  }
+
+  .post-comment-no {
+    color: #7c9cbf;
+    text-align: center;
+    padding-bottom: 40px;
   }
 
   .post-mycomment {
-    width: 360px;
-    height: 55px;
+    width: 400px;
+    height: 70px;
   }
 
   .post-mycomment-group1 {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 55px;
     float: left;
   }
 
@@ -1526,47 +1572,37 @@ body {
   }
 
   .post-mycomment-group2 {
-    width: 305px;
-    height: 55px;
+    width: 300px;
+    height: auto;
     float: left;
-    margin-left: 12px;
+    margin-left: 10px;
   }
 
   .post-mycomment-group2-nickname {
-    width: 83px;
-    height: 23px;
-    margin-top: 0px;
+    width: auto;
+    margin-top: 8px;
     font-weight: bold;
     font-size: 16px;
-    line-height: 21px;
-    /* identical to box height */
-
     color: #ffffff;
     text-align: left;
   }
 
   .post-mycomment-group2-comment {
-    width: 562px;
-    height: 27px;
-    margin-top: 5px;
+    margin-top: 13px;
     font-size: 15px;
-    line-height: 18px;
-
     color: #ffffff;
     text-align: left;
   }
 
   .post-mycomment-group2-delete {
-    width: 27px;
-    height: 27px;
-
+    width: 20px;
+    height: 20px;
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
-    position: relative;
-    bottom: 55px;
-    left: 278px;
+    float: right;
     cursor: pointer;
+    margin-right: 27px;
   }
 }
