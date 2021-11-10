@@ -17,48 +17,117 @@ body {
 @media only screen and (max-width: 414px) {
   /* 모바일 */
   .mainNav {
-    position: absolute;
-    width: 414px;
-    height: 60px;
-    margin-left: 0px;
-    margin-right: 0px;
-    /* margin-top: 44px; */
+    height: 138px;
     background-color: #070e27;
-  }
-
-  .mainNav-group {
-    position: absolute;
-    width: 138px;
-    height: 28px;
-    left: 31px;
-    top: 18px;
+    width: 100vw;
+    margin-top: 0px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
   }
 
   .mainNav-group-logo {
     float: left;
-    position: absolute;
-    width: 27px;
-    height: 28px;
-    background: url("../src/img/MainNav-Vector.png");
+    width: 138px;
+    height: 27px;
+    background: url("./img/NavLogo.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 22.5px 20.25px;
+    background-size: contain;
+    margin-bottom: 20px;
+  }
+
+  .form-wrap {
+    /* display: inline-block; */
+    width: 86vw;
+    /* margin-left: 15px; */
+    flex: 1 1 auto;
+    display: flex;
+  }
+
+  #nav-form {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .mainNav-search-wrap {
+    /* flex: 1 1 auto; */
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    background: #f0f0f0;
+    padding: 10px;
+    display: table;
+    table-layout: fixed;
+    position: relative;
+    text-align: left;
+    display: flex;
+  }
+
+  .Lens {
+    background: url("./img/Lens.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .mainNav-search {
+    /* flex: 1; */
+    width: 90%;
+    height: 30px;
+    outline: none;
+    font-size: 18px;
+    line-height: 21px;
+    background-color: #f0f0f0;
+    border: none;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  /* .mainNav-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #ededed;
+    border-radius: 50%;
+    padding: 16px;
+    margin-left: 13px;
+    float: right;
+    left: 10px;
+  } */
+
+  .mainNav-btn {
+    width: 40px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 21px;
+    color: #0059f7;
+    display: inline-block;
+    text-align: center;
+    padding-top: 5px;
     cursor: pointer;
   }
 
-  .mainNav-group-title {
-    float: left;
-    width: 100px;
-    height: 28px;
-    margin-left: 38px;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 28px;
-    /* identical to box height, or 140% */
-    letter-spacing: -0.02em;
-    color: #ffffff;
-    text-align: left;
-  }
+  /* .mainNav-create {
+    background: url("./img/Add.png");
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-size: contain;
+   
+  } */
+
+  /* .mainNav-my {
+    background: url("./img/User.png");
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-size: contain;
+  } */
 
   /* ===== mainFooter =====*/
   .mF-container {
@@ -377,67 +446,52 @@ body {
 
   /* Login Page */
   .login {
-    position: absolute;
+    padding-top: 22px;
     width: 100vw;
-    height: auto;
-    left: 0px;
-    /* top: 104px; */
-    top: 60px;
+    height: 900px;
     background: #070e27;
-    text-align: center;
   }
+
   .loginwrap {
     margin: 0px auto;
-    width: 414px;
+    width: 400px;
     height: auto;
     text-align: center;
+    padding: 0 27px;
   }
 
   .lin-title {
     width: 252px;
     height: 34px;
-    margin-left: 27px;
-    margin-top: 22px;
     font-size: 32px;
-    line-height: 37px;
-    padding: 3px;
     text-align: left;
     color: #ffffff;
   }
 
   /* Login 페이지 이메일 그룹 */
   .lin-email {
-    margin-top: 65px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 360px;
+    margin-top: 60px;
+    width: 86vw;
     height: 106px;
   }
 
   .lin-email-title {
-    width: 360px;
+    width: 86vw;
     height: 20px;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 21px;
-    /* identical to box height */
+    font-size: 18px;
     color: #d4d4d4;
     text-align: left;
   }
 
   .lin-email-input {
-    width: 360px;
+    width: 86vw;
     height: 52px;
     margin-top: 8px;
     border-radius: 6px;
     background: #ffffff;
     border: 1px solid #dbe2ea;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
-
     font-size: 16px;
-    line-height: 21px;
-    /* identical to box height */
     padding-left: 16px;
     color: #000000;
   }
@@ -446,47 +500,37 @@ body {
     width: 360px;
     height: 18px;
     margin-top: 8px;
-
     font-size: 14px;
     line-height: 18px;
-
     color: #ff7171;
     text-align: left;
   }
 
   /* Login 페이지 비밀번호 그룹 */
   .lin-password {
-    width: 360px;
+    width: 86vw;
     height: 106px;
-    margin-top: 17px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 30px;
   }
 
   .lin-password-title {
-    width: 360px;
+    width: 86vw;
     height: 20px;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 21px;
-    /* identical to box height */
+    font-size: 18px;
     color: #d4d4d4;
     text-align: left;
   }
 
   .lin-password-input {
-    width: 360px;
+    width: 86vw;
     height: 52px;
     margin-top: 8px;
     border-radius: 6px;
     background: #ffffff;
     border: 1px solid #dbe2ea;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
-
     font-size: 16px;
     line-height: 21px;
-    /* identical to box height */
     padding-left: 16px;
     color: #000000;
   }
@@ -495,45 +539,33 @@ body {
     width: 360px;
     height: 18px;
     margin-top: 8px;
-
     font-size: 14px;
     line-height: 18px;
-
     color: #ff7171;
     text-align: left;
   }
 
   /* Login page - 로그인 버튼 */
   #lin-btnLogin {
-    width: 360px;
+    width: 86vw;
     height: 56px;
-    margin-top: 46px;
-    margin-left: auto;
-    margin-right: auto;
     background: #0059f7;
     border-radius: 8px;
-    padding: 0px;
+    padding: 20px;
     border: 0px;
-
     font-weight: 500;
     font-size: 18px;
-    line-height: 24px;
-    /* identical to box height, or 133% */
     color: #ffffff;
-
     cursor: pointer;
+    margin-top: 40px;
   }
 
   .lin-signup {
-    width: 360px;
+    width: 86vw;
     height: 30px;
     margin-top: 34px;
-    margin-left: auto;
-    margin-right: auto;
     font-weight: 500;
     font-size: 16px;
-
-    /* identical to box height, or 150% */
     text-decoration-line: underline;
     color: #ffffff;
   }
@@ -545,35 +577,51 @@ body {
     margin: 0px auto;
   }
 
+  .lin-experience {
+    width: 86vw;
+    height: 60px;
+    padding: 22px;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration-line: underline;
+    color: #ffffff;
+  }
+
+  .lin-experience-text {
+    width: 58px;
+    height: 24px;
+    cursor: pointer;
+    margin: 0px auto;
+  }
+
   .lin-divider {
-    width: 360px;
+    width: 86vw;
     height: 0px;
     border: 1px solid #3a456f;
-    margin: 32px auto 0px auto;
+    margin-top: 20px;
   }
 
   /* Login page - 소셜 로그인 버튼 */
   .lin-kakao {
-    width: 360px;
-    height: 54px;
+    width: 86vw;
+    height: 52px;
+    margin-top: 32px;
     background-color: #ffe64d;
     border-radius: 6px;
-    margin: 32px auto 0px auto;
-    padding: 0px;
     border-width: 0px;
     background: url("../src/img/kakao_login_large_wide.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     cursor: pointer;
   }
 
   .lin-google {
-    width: 360px;
+    width: 86vw;
     height: 54px;
+    margin-top: 15px;
     background: #eeeeee;
     border-radius: 6px;
-    margin: 16px auto 0px auto;
     padding: 0px;
     border-width: 0px;
     cursor: pointer;
@@ -588,81 +636,71 @@ body {
     background: url("../src/img/btn-google.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
   }
 
   .lin-google-text {
-    float: left;
-    width: 108px;
-    height: 23px;
-    margin: 16px 126px 15px 77px;
-    font-weight: 500;
+    width: 80vw;
+    height: 20px;
+    padding-top: 16px;
     font-size: 18px;
     line-height: 23px;
-    /* identical to box height */
+    align-items: center;
     text-align: center;
     color: #000000;
   }
 
   /* signup 페이지 */
   .signup {
-    position: absolute;
     width: 100vw;
     height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
     left: 0px;
-    top: 60px;
+    top: 104px;
     background: #070e27;
     text-align: center;
   }
 
   .signupwrap {
-    width: 414px;
+    width: 500px;
     height: auto;
-    margin: 0px auto;
+    margin: 22px auto;
+    padding: 0 27px;
   }
 
   .signup-title {
+    text-align-last: left;
     width: 252px;
     height: 34px;
-    margin: 22px 135px 0px 27px;
     font-size: 32px;
-    line-height: 37px;
-
     color: #ffffff;
-    text-align: left;
   }
 
   /* signup 페이지 : 이메일 입력 그룹*/
   .signup-email {
-    width: 360px;
+    width: 86vw;
     height: 106px;
-    margin: 29px auto 0px auto;
+    margin-top: 29px;
   }
 
   .signup-email-title {
-    width: 360px;
+    width: 100%;
     height: 20px;
     font-weight: 500;
     font-size: 16px;
-    line-height: 21px;
-    /* identical to box height */
     color: #d4d4d4;
     text-align: left;
   }
 
   .signup-email-input {
-    width: 360px;
+    width: 86vw;
     height: 52px;
-
     margin-top: 8px;
     margin-bottom: 8px;
-
     background: #ffffff;
     border: 1px solid #dbe2ea;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
     border-radius: 6px;
-
     font-size: 16px;
     line-height: 21px;
     padding-left: 16px;
@@ -671,7 +709,6 @@ body {
   .signup-email-warning {
     width: 250px;
     height: 18px;
-
     font-size: 14px;
     line-height: 18px;
     color: #ff7171;
@@ -681,43 +718,17 @@ body {
   .signup-email-ok {
     width: 250px;
     height: 18px;
-
     font-size: 14px;
     line-height: 18px;
     color: #0059f7;
     text-align: left;
   }
 
-  .signup-email-check {
-    width: 100px;
-    height: 34px;
-
-    background: #ffffff;
-    border: 1px solid #0880ae;
-    box-sizing: border-box;
-    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
-      0px 2px 4px rgba(44, 39, 56, 0.08);
-    border-radius: 3px;
-
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    text-align: center;
-
-    color: #5a7fa8;
-
-    position: relative;
-    left: 130px;
-    bottom: 44px;
-
-    cursor: pointer;
-  }
-
   /* signup 페이지 : 비밀번호 입력 그룹*/
   .signup-password {
-    width: 360px;
+    width: 86vw;
     height: 106px;
-    margin: 65px auto 0px auto;
+    margin-top: 29px;
   }
 
   .signup-password-warning {
@@ -732,87 +743,67 @@ body {
 
   /* signup 페이지 : 비밀번호 재입력 그룹*/
   .signup-repassword {
-    width: 360px;
+    width: 86vw;
     height: 106px;
-    margin: 34px auto 0px auto;
+    margin-top: 29px;
   }
 
   /* signup 페이지 : 닉네임 입력 그룹*/
   .signup-nickname {
-    width: 360px;
+    width: 86vw;
     height: 106px;
-    margin: 52px auto 0px auto;
+    margin-top: 29px;
   }
 
   /* signup 페이지 : 이미지 선택*/
   .signup-image {
-    width: 360px;
+    width: 86vw;
     height: 20px;
-    margin: 82px auto 0px auto;
-
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 23px;
-    /* identical to box height */
-
+    margin-top: 29px;
+    font-size: 20px;
+    line-height: 26px;
     color: #d4d4d4;
     text-align: left;
   }
 
   .signup-image-group {
-    width: 360px;
-    height: 88px;
-    margin: 18px auto 0 auto;
+    width: 86vw;
+    height: 106px;
+    margin-top: 18px;
     display: flex;
     justify-content: space-around;
     align-content: space-around;
+    padding-top: 14px;
   }
 
   .signup-image-group-1 {
-    width: 60px;
-    height: 61px;
-    background: url("../src/img/UserImage-Jake.png");
-    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
     background-position: center;
     background-size: cover;
     cursor: pointer;
-    margin-top: 13px;
   }
-  .signup-image-group-2 {
-    width: 60px;
-    height: 61px;
-    background: url("../src/img/UserImage-Meg.png");
-    background-repeat: no-repeat;
+  .signup-image-group-1:hover {
+    width: 70px;
+    height: 70px;
     background-position: center;
     background-size: cover;
     cursor: pointer;
-    margin-top: 13px;
+    border: 2px solid #0000c5;
   }
-  .signup-image-group-3 {
-    width: 60px;
-    height: 61px;
-    background: url("../src/img/UserImage-Mili.png");
-    background-repeat: no-repeat;
+  .signup-image-group-1-selected {
+    width: 70px;
+    height: 70px;
     background-position: center;
     background-size: cover;
     cursor: pointer;
-    margin-top: 13px;
-  }
-  .signup-image-group-4 {
-    width: 60px;
-    height: 61px;
-    background: url("../src/img/UserImage-Steven.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    cursor: pointer;
-    margin-top: 13px;
+    border: 3px solid #0000c5;
   }
 
   .signup-btn {
-    width: 360px;
+    width: 86vw;
     height: 56px;
-    margin: 44px auto 0px auto;
+    margin-top: 29px;
     background: #0059f7;
     border-radius: 8px;
     border-width: 0px;
@@ -828,23 +819,29 @@ body {
     line-height: 24px;
     /* identical to box height, or 120% */
     color: #ffffff;
-    margin: 0px 146px;
+    margin: 0px auto;
     top: 16px;
-    cursor: pointer;
   }
 
+  /* 회원가입 완료 모달 */
   .singupModal-background {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: #000000;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    place-items: center;
   }
 
   .singupModal {
-    width: 272px;
+    width: 300px;
     height: 313px;
-    margin: 320px auto 0px auto;
+    margin: 0px auto 0px auto;
     background: #0059f7;
+    text-align: center;
     border-radius: 10px;
   }
 
@@ -855,7 +852,6 @@ body {
     height: 80px;
     margin: 43px auto 0px auto;
     background: url("../src/img/Signup-ok.png");
-    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
@@ -892,6 +888,7 @@ body {
     color: #000000;
     cursor: pointer;
   }
+
   /* userinfo 페이지 */
   .userinfo {
     position: absolute;
@@ -899,13 +896,13 @@ body {
     width: 100vw;
     height: 1050px;
     top: 60px;
-    margin-bottom: 100px;
+    margin: 90px auto 100px auto;
   }
 
   .userinfowrap {
     width: 414px;
     height: auto;
-    margin: 95px auto 0 auto;
+    margin: 90px auto;
   }
 
   .ui-title {
@@ -916,7 +913,6 @@ body {
     height: 34px;
     font-size: 32px;
     line-height: 37px;
-
     color: #ffffff;
     text-align: left;
   }
@@ -925,13 +921,12 @@ body {
   .ui-image {
     width: 60px;
     height: 60px;
-    margin: 0px auto 0 auto;
-
     background: url("../src/img/UserImage-Meg.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     border-radius: 50%;
+    margin-left: 177px;
   }
 
   .ui-description {
@@ -958,12 +953,9 @@ body {
     width: 360px;
     height: 20px;
     text-align: left;
-
     font-weight: 500;
     font-size: 16px;
     line-height: 21px;
-    /* identical to box height */
-
     color: #d4d4d4;
   }
 
