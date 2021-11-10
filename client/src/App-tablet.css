@@ -2125,7 +2125,7 @@ body {
     color: rgb(202, 202, 202);
   }
 
-/* <<<<<<< feature/45-landing */
+  /* <<<<<<< feature/45-landing */
   /* signup 페이지 : 이미지 선택*/
   .signup-image {
     width: 360px;
@@ -2135,13 +2135,13 @@ body {
     line-height: 26px;
     color: #d4d4d4;
     text-align: left;
+  }
 
   .post-devider2 {
     width: 96vw;
     height: 0px;
     border: 1px solid #3a456f;
     margin-top: 12px;
-
   }
 
   .post-writecomment {
@@ -3016,10 +3016,11 @@ body {
     border-radius: 8px;
   }
 
-/* <<<<<<< feature/45-landing */
+  /* <<<<<<< feature/45-landing */
   .gallery-titleinput:focus {
     outline: none;
     border: none;
+  }
 
   .bookmarker:hover #addTogall {
     background-color: rgba(33, 32, 37, 0.7);
@@ -3035,7 +3036,6 @@ body {
   #addTogall {
     opacity: 0;
     text-align: center;
-
   }
 
   /* 좋아한 장면 */
