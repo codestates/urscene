@@ -8,6 +8,7 @@ const { encrypt, uuid, sendToken, sendUUID } = require("../../lib/jwt")
 
 module.exports = async (req, res) => {
 	const code = req.body.authorizationCode
+	console.log("code?????????????????????????????????", code)
 	const url = `https://oauth2.googleapis.com/token?code=${code}&client_id=${process.env.GOOGLE_CLIENT_ID}&client_secret=${process.env.GOOGLE_CLIENT_SECRET}&redirect_uri=${process.env.GOOGLE_REDIRECT_URI}&grant_type=${process.env.GOOGLE_GRANT_TYPE}`
 
 	const access_token = await axios
