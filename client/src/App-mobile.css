@@ -895,7 +895,9 @@ body {
     width: 100vw;
     height: 1050px;
     top: 60px;
-    margin: 90px auto 100px auto;
+    padding-top: 10px;
+    margin: 70px auto 100px auto;
+    padding-bottom: 10px;
   }
 
   .userinfowrap {
@@ -1007,7 +1009,7 @@ body {
   /* userinfo 페이지 : 닉네임 */
   .ui-nickname {
     width: 360px;
-    height: 142px;
+    height: 106px;
     margin: 24px auto 0 auto;
   }
 
@@ -1106,23 +1108,33 @@ body {
     width: 360px;
     height: 56px;
     margin: 41px auto 0 auto;
-
     background: #0059f7;
     border-radius: 8px;
     border-width: 0px;
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
-    /* identical to box height, or 120% */
-
     color: #ffffff;
     cursor: pointer;
+    margin-left: 27px;
   }
 
   .ui-logout {
     width: 59px;
     height: 24px;
     margin: 52px auto 0 auto;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .ui-signout {
+    width: 59px;
+    height: 24px;
+    margin: 16px auto 0 auto;
 
     font-weight: 500;
     font-size: 14px;
@@ -1135,28 +1147,17 @@ body {
     cursor: pointer;
   }
 
-  .ui-signout {
-    width: 59px;
-    height: 24px;
-    margin: 16px auto 0 auto;
-
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    /* identical to box height, or 150% */
-
-    text-decoration-line: underline;
-
-    color: #ffffff;
-    cursor: pointer;
-  }
-
   /* 회원 탈퇴 모달*/
   .singoutModal-background {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: #000000;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    place-items: center;
   }
 
   .singoutModal {
@@ -1164,7 +1165,6 @@ body {
     height: 193px;
     background: #0059f7;
     border-radius: 10px;
-    margin: 366px auto 0 auto;
   }
 
   .soM-label {
@@ -1604,5 +1604,451 @@ body {
     float: right;
     cursor: pointer;
     margin-right: 27px;
+  }
+
+  /* Gallery 페이지*/
+  .gallery {
+    width: 414px;
+    height: auto;
+    background: #070e27;
+    padding: 0 27px;
+  }
+
+  .gallerywrap {
+    width: 86vw;
+    height: auto;
+    padding-top: 22px;
+    padding-bottom: 43px;
+  }
+
+  .gallery-nickname {
+    width: 86vw;
+    height: 26px;
+    font-size: 14px;
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .gallery-group1 {
+    width: 360px;
+    height: auto;
+  }
+
+  .gallery-title {
+    width: 300px;
+    font-size: 30px;
+    line-height: 37px;
+    color: #ffffff;
+    text-align: left;
+    float: left;
+    margin-bottom: 10px;
+  }
+
+  .gallery-btn {
+    width: 70px;
+    height: 34px;
+    float: right;
+    background: #0059f7;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+    padding-top: 6.5px;
+    cursor: pointer;
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  .gallery-titleinput {
+    width: 278px;
+    height: auto;
+    background: #070e27;
+    color: #ffffff;
+    border: 1px solid #7c9cbf;
+    border-radius: 6px;
+    float: left;
+    font-size: 16px;
+    line-height: 42px;
+    padding-left: 14px;
+    padding-top: 4px;
+    margin-bottom: 16px;
+    text-overflow: ellipsis;
+  }
+
+  .gallery-titleinput:focus {
+    outline: none;
+    border: none;
+  }
+
+  .gallery-edit {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-left: 10px;
+    background: url("../src/img/pencil.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-delete {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-left: 10px;
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-group2 {
+    width: 360px;
+    height: auto;
+  }
+
+  .gallery-descinput {
+    width: 86vw;
+    height: 80px;
+    margin-bottom: 30px;
+    padding-left: 16px;
+    padding-top: 16px;
+    font-size: 16px;
+    line-height: 29px;
+    background: #070e27;
+    color: #ffffff;
+    border: 1px solid #7c9cbf;
+    border-radius: 6px;
+    resize: none;
+    text-overflow: ellipsis;
+  }
+
+  .gallery-descinput:focus {
+    outline: none;
+    border: none;
+  }
+
+  .gallery-desc {
+    width: 320px;
+    height: auto;
+    float: left;
+    font-size: 20px;
+    line-height: 30px;
+    color: #d0d0d0;
+    text-align: left;
+  }
+
+  .gallery-likeGroup {
+    height: 35px;
+    width: 35px;
+    float: left;
+  }
+
+  .gallery-unlike {
+    width: 28px;
+    height: 28px;
+    margin-left: 10.5px;
+    float: left;
+    background: url("../src/img/Heart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  .gallery-like {
+    width: 20px;
+    height: 20px;
+    margin-left: 14.5px;
+    margin-top: 4px;
+    float: left;
+    background: url("../src/img/FullHeart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  .gallery-like-comment {
+    color: white;
+    font-size: 13px;
+    word-break: keep-all;
+  }
+
+  .gallery-group3 {
+    width: 86vw;
+    height: auto;
+    margin-top: 19px;
+    display: inline-block;
+  }
+
+  .gallery-content {
+    display: inline-block;
+    width: 170px;
+    height: 100px;
+    margin: 6px 6px 6px 0;
+    cursor: pointer;
+  }
+
+  .gallery-content-img {
+    width: 170px;
+    height: 100px;
+    object-fit: cover;
+    color: white;
+    position: absolute;
+  }
+
+  .gallery-content-delete {
+    width: 20px;
+    height: 20px;
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 140px;
+    margin-top: 10px;
+  }
+
+  .gallery-nocontent-wrap {
+    width: 840px;
+    height: 200px;
+    border: 1px solid #344583;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    margin-top: 100px;
+    padding: 40px;
+  }
+
+  .gallery-nocontent-img {
+    width: 80px;
+    height: 80px;
+    background: url("../src/img/noresult.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 0 auto;
+  }
+
+  .gallery-nocontent-title {
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #c0c0c0;
+    margin: 10px auto 0 auto;
+  }
+
+  /* 갤러리 삭제 모달*/
+  .deleteModal-background {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    place-items: center;
+  }
+
+  .deleteModal {
+    width: 271px;
+    height: 277px;
+    background: #0059f7;
+    border-radius: 10px;
+  }
+
+  .delete-img {
+    position: relative;
+    top: 51px;
+    left: 106px;
+    width: 60px;
+    height: 60px;
+    background: url("../src/img/trash.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+  }
+
+  .delete-text {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 26px;
+    color: #ffffff;
+    margin: 68px auto 0 auto;
+    text-align: center;
+    width: 200px;
+  }
+
+  .delete-btn {
+    width: 271px;
+    height: 75px;
+    /* margin-top: 33px; */
+    padding: 28px;
+    margin-bottom: 39px;
+  }
+
+  .delete-btn-ok {
+    float: left;
+    width: 100px;
+    height: 34px;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .delete-btn-cancel {
+    float: right;
+    width: 100px;
+    height: 34px;
+    /* margin-left: 38px; */
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    cursor: pointer;
+  }
+
+  /* 갤러리에 장면 추가 모달*/
+  .addModal-background {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: grid;
+    place-items: center;
+  }
+
+  .addModal {
+    width: 500px;
+    height: auto;
+    background: #0059f7;
+    border-radius: 10px;
+    margin: 0px auto 0 auto;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+  }
+
+  .add-text {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 40px;
+    color: #ffffff;
+    margin: 40px auto 0 auto;
+  }
+
+  .add-btn {
+    width: 300px;
+    height: 34px;
+    margin-top: 30px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .add-btn-ok {
+    float: left;
+    width: 59px;
+    height: 24px;
+    margin-left: 64px;
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .add-btn-cancel {
+    float: left;
+    width: 100px;
+    height: 34px;
+    margin-left: 34px;
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    cursor: pointer;
+  }
+
+  .addModal-input {
+    width: 300px;
+    height: 40px;
+    outline-style: none;
+    border: none;
+    line-height: 21px;
+    display: inline-block;
+    margin-top: 20px;
+    padding-left: 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .addModal-input::placeholder {
+    color: #000;
+    font-size: 18px;
+    /* text-align: center; */
+  }
+
+  .addModal-input-drop {
+    width: 300px;
+    height: 40px;
+    outline-style: none;
+    border: none;
+    line-height: 21px;
+    display: inline-block;
+    margin-top: 20px;
+    padding-left: 16px;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+  }
+
+  .addModal-Drop {
+    width: 300px;
+    /* float: none; */
+    background-color: white;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0.5rem 15px;
+    border: 1px solid rgb(223, 225, 229);
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
+    z-index: 3;
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  .addModal-Drop > li {
+    color: #344583;
+    cursor: pointer;
+    margin-top: 3px;
+    padding: 5px;
+  }
+
+  .addModal-hr {
+    border: 1px solid rgb(223, 225, 229);
+    margin-top: 5px;
+  }
+
+  .addModal-err {
+    margin: 10px 0px;
   }
 }
