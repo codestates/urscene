@@ -148,6 +148,7 @@ body {
     height: 275px;
     background: #0a142f;
     padding: 63px 183px 34px;
+    margin-top: auto;
   }
 
   .footer-wrap {
@@ -253,6 +254,8 @@ body {
     bottom: 30px;
     padding: 12px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
   }
 
   .topbutton > div {
@@ -260,6 +263,7 @@ body {
     height: 30px;
     background: url("./img/ArrowTop.png");
     background-size: contain;
+    margin-top: auto;
   }
 
   /* ===== Makepost page 갤러리 만들기===== */

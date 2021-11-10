@@ -60,251 +60,319 @@ body {
     text-align: left;
   }
 
-  /* mainFooter */
-  .mainFooter {
-    position: relative;
-    width: 414px;
-    height: 184px;
-    /* left: 0px;
-    top: 0px; */
-    /* Dark */
+  /* ===== mainFooter =====*/
+  .mF-container {
     background: #0a142f;
+    margin: auto;
+    bottom: 0;
+  }
+  .mainFooter {
+    height: 224px;
+    background: #0a142f;
+    border: 1px solid #0a142f;
   }
 
-  .mF-UI {
-    position: absolute;
-    width: 207px;
-    height: 54px;
+  .footer-wrap {
+    height: 78px;
+    width: auto;
+    text-align: left;
+    margin-top: 65px;
     margin-left: 67px;
-    margin-top: 36px;
   }
 
-  .mF-UI-content {
-    position: absolute;
-    height: 20px;
-    /* margin-left: 16.18%; */
-    /* margin-right: 63.04%; */
-    /* top: calc(50% - 20px / 2 - 46px); */
-    font-weight: 500;
+  .mF-footer-logo-mo {
+    float: left;
+    width: 95px;
+    height: 19px;
+    margin-left: 36px;
+    margin-right: 36px;
+    background-color: #0059f7;
+    background: url("./img/NavLogo.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .mF-UI-about {
+    float: left;
+    width: 110px;
+    height: 54px;
+  }
+
+  .mF-UI-title {
+    font-weight: bold;
     font-size: 14px;
     line-height: 16px;
-    /* White */
     color: #ffffff;
+    margin-bottom: 16px;
   }
-
-  .mF-UI-group {
-    position: absolute;
-    /* left: 16.18%; */
-    /* right: 33.82%; */
-    /* top: 34.78%; */
-    margin-top: 41px;
-    margin-bottom: 51.09%;
-  }
-
-  .mF-UI-group-content {
-    position: absolute;
-    height: 18px;
-    left: 0%;
-    right: 46.82%;
-    margin-top: calc(50% - 18px / 2);
-
-    font-weight: 900;
+  .mF-UI-text {
     font-size: 12px;
     line-height: 14px;
-    /* White */
     color: #ffffff;
-    mix-blend-mode: normal;
+    font-weight: 900;
     opacity: 0.7;
-
-    width: 110.09px;
+    float: left;
+    margin-right: 24px;
   }
 
   .mF-contact {
     position: absolute;
-    left: 46.86%;
-    right: 0%;
-    top: 19.57%;
-    bottom: 26.09%;
+    left: 194px;
+    width: 170px;
+    height: 90px;
   }
 
-  .mF-contact-title {
-    position: absolute;
-    height: 30px;
-    left: 0%;
-    right: 4.55%;
-    top: calc(50% - 30px / 2 - 35px);
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
-    /* White */
-    color: #ffffff;
-  }
-
-  .mF-contact-Front {
-    position: absolute;
-    left: 0%;
-    right: 12.27%;
-    top: 30%;
-    bottom: 52%;
-  }
-
-  .mF-contact-Front-title {
-    position: absolute;
-    height: 14px;
-    left: 0%;
-    right: 84.97%;
-    top: calc(50% - 14px / 2 - 2px);
-
-    font-weight: 900;
+  .mF-contact-name {
+    float: left;
     font-size: 12px;
     line-height: 14px;
-    /* identical to box height */
-    /* White */
     color: #ffffff;
-    mix-blend-mode: normal;
-    opacity: 0.7;
+    margin-right: 16px;
+    text-decoration: none;
   }
 
-  .mF-contact-Front-name1 {
-    position: absolute;
-    height: 14px;
-    left: 30.05%;
-    right: 52.33%;
-    top: calc(50% - 14px / 2 - 2px);
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-    /* White */
-    color: #ffffff;
+  .contact-front {
+    width: auto;
+    height: 16px;
   }
 
-  .mF-contact-Front-name2 {
-    position: absolute;
-    height: 14px;
-    left: 55.96%;
-    right: 26.42%;
-    top: calc(50% - 14px / 2 - 2px);
-
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-    /* White */
-    color: #ffffff;
+  .contact-back {
+    margin-top: 12px;
+    width: auto;
+    height: 16px;
   }
-
-  .mF-contact-Backtitle {
-    position: absolute;
-    height: 14px;
-    left: 0%;
-    right: 87.73%;
-    top: calc(50% - 14px / 2 + 17px);
-    font-weight: 900;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-    /* White */
-    color: #ffffff;
-    mix-blend-mode: normal;
-    opacity: 0.7;
-  }
-
-  .mF-contact-Backname1 {
-    position: absolute;
-    height: 14px;
-    left: 26.36%;
-    right: 58.18%;
-    top: calc(50% - 14px / 2 + 17px);
-
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-    /* White */
-    color: #ffffff;
-  }
-
-  .mF-contact-Backname2 {
-    position: absolute;
-    height: 14px;
-    left: 49.09%;
-    right: 35.45%;
-    top: calc(50% - 14px / 2 + 17px);
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-    /* White */
-    color: #ffffff;
-  }
-
   .mf-divider {
-    position: absolute;
-    height: 1px;
-    left: 13.77%;
-    right: 13.77%;
-    top: calc(50% - 1px / 2 + 34.5px);
-    /* White */
-    background: #ffffff;
-    mix-blend-mode: normal;
+    margin-top: 20px;
     opacity: 0.15;
-    /* White */
     border: 1px solid #ffffff;
+    width: 300px;
+    margin: 12px auto;
   }
 
-  /* .mF-footer1 {
-    position: absolute;
-    width: 95px;
-    height: 19px;
-    margin-left: 58px;
-    margin-top: 143px;
-  } */
+  .mF-footer2 {
+    font-size: 10px;
+    text-align: left;
+    color: #ffffff;
+    opacity: 0.75;
+    margin-top: 17px;
+  }
 
-  .mF-footer-logo {
-    position: absolute;
-    left: 14.01%;
-    right: 80.92%;
-    top: 77.72%;
-    bottom: 11.96%;
-    /* Blue/Blue 600 */
-    background-color: #0059f7;
-    /* background: url(""); */
+  /* ===== 랜딩페이지 =====*/
+  .landing-main-container {
+    height: 810px;
+    background-color: #000;
+    padding-top: 20px;
+  }
+
+  .landing-main-logo {
+    float: left;
+    width: 138px;
+    height: 27px;
+    background: url("./img/NavLogo.png");
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 18px 20px 0 20px;
+  }
+
+  .landing-main-img {
+    background: url("./img/Frame129.png");
+    width: 414px;
+    height: 401px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding-top: 20px;
+    margin-top: 10px;
+  }
+
+  .landing-main-text {
+    position: absolute;
+    width: 280px;
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 244px auto;
+    line-height: 36px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .landing-main-subt-1 {
+    width: 220px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: lighter;
+    line-height: 32px;
+  }
+
+  .landing-main-subt-1 > hr {
+    width: 133px;
+    margin: 7px 0 0;
+    border: 2px solid #0059f7;
+  }
+
+  .landing-main-subt-2 {
+    color: #fff;
+    margin-top: 75px;
+    font-size: 24px;
+    line-height: 35px;
+    margin-bottom: 54px;
+  }
+
+  .landing-arrow {
+    width: 30px;
+    height: 30px;
+    background: url("./img/arrow_down.png");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .landing-2-container {
+    height: 641px;
+    background-color: #070e27;
+    text-align: center;
+    padding-left: 52px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .link {
+    text-decoration: none;
+  }
+
+  .go-to-main-wrap {
+    text-align: center;
+    background-color: #070e27;
+    padding-top: 40px;
+  }
+
+  .go-to-main {
+    color: #fff;
+    font-weight: lighter;
+    font-size: 18px;
+    line-height: 26px;
+    text-decoration: underline;
+    text-underline-position: under;
+    cursor: pointer;
+  }
+
+  .landing-2-text-box {
+    width: 320px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .landing-2-icon-1 {
+    width: 60px;
+    height: 60px;
+    background: url("./img/icon1.png");
+    background-position: center;
+    background-size: contain;
+  }
+  .landing-2-icon-2 {
+    width: 60px;
+    height: 60px;
+    background: url("./img/icon2.png");
+    background-position: center;
+    background-size: contain;
+  }
+  .landing-2-icon-3 {
+    width: 60px;
+    height: 60px;
+    background: url("./img/icon3.png");
     background-position: center;
     background-size: contain;
   }
 
-  .mF-footer-title {
-    position: absolute;
-    height: 16px;
-    left: 20.53%;
-    right: 63.04%;
-    top: calc(50% - 16px / 2 + 61px);
+  .landing-2-text-title {
+    width: 311px;
+    height: 69px;
+    text-align: left;
+    font-size: 24px;
+    line-height: 35px;
     font-weight: bold;
-    font-size: 14px;
-    line-height: 16px;
-    /* White */
-    color: #ffffff;
+    color: white;
+    margin: 13px auto;
   }
 
-  .mF-footer2 {
-    position: absolute;
-    height: 11px;
-    left: 46.62%;
-    right: 13.77%;
-    top: calc(50% - 11px / 2 + 61.5px);
-    font-weight: 900;
-    font-size: 5px;
-    line-height: 11px;
-    /* identical to box height */
-    text-align: left;
-    /* White */
+  .landing-2-img {
+    width: 310px;
+    height: 263px;
+    border: 1px solid red;
+    /* display: inline-block; */
+    vertical-align: middle;
+    margin-top: 40px;
+  }
+
+  .landing-2-text-sub {
+    color: #787e95;
+    text-align-last: left;
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 23px;
+  }
+
+  .landing-start-wrap {
+    height: 340px;
+    background-color: #070e27;
+    padding-top: 40px;
+  }
+
+  .start-box {
+    width: 310px;
+    height: 200px;
+    background-color: #0059f7;
+    border-radius: 18.6585px;
+  }
+
+  .start-sub {
+    padding-top: 33px;
+    font-size: 12px;
+    line-height: 25px;
     color: #ffffff;
-    mix-blend-mode: normal;
-    opacity: 0.75;
-    width: 200px;
-    letter-spacing: -0.3px;
+    opacity: 0.5;
+  }
+
+  .start-title {
+    padding-top: 12px;
+    font-size: 22px;
+    line-height: 31px;
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  .start-btn {
+    margin-top: 20px;
+    width: 131.51px;
+    height: 49.76px;
+    padding: 15px 18px;
+    background: #689eff;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .start-btn-text {
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    line-height: 19px;
+    height: 24px;
+    text-align: center;
+  }
+
+  .start-btn-arrow {
+    display: inline-block;
+    margin-left: 10px;
+    width: 16px;
+    height: 16px;
+    background: url("./img/arrow-left-fill.png");
+    background-position: center;
+    background-size: contain;
   }
 
   /* Login Page */
