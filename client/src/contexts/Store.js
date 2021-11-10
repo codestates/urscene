@@ -47,18 +47,22 @@ const Store = (props) => {
       });
   };
 
-
   const handleGetKakoAccessToken = async (authorizationCode) => {
     console.log("AccessToken 얻는 함수 실행");
-    axios.post(
-      `${process.env.REACT_APP_EC2_URL}/sign/kakao`,
-      {
-        authorizationCode: authorizationCode,
-      },
-      {
-        headers: { accept: `application/json` },
-      },
-    );
+    axios
+      .post(
+        `${process.env.REACT_APP_EC2_URL}/sign/kakao`,
+        {
+          authorizationCode: authorizationCode,
+        },
+        {
+          headers: { accept: `application/json` },
+        },
+      )
+      .then((res) => {
+        console.log("login success ??", res.statusText);
+        handleResponseSuccess();
+      });
   };
 
   const handlerKakaoLogin = () => {
