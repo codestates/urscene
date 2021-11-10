@@ -162,7 +162,6 @@ body {
     width: auto;
     text-align: left;
     margin-top: 65px;
-    margin-left: 100px;
   }
 
   .mF-footer-logo {
@@ -174,12 +173,13 @@ body {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    margin-left: 17vw;
   }
 
   .mF-UI-about {
     float: left;
-    margin-left: 70px;
-    width: 120px;
+    width: 110px;
+    margin-left: 7vw;
     height: 60px;
   }
 
@@ -189,6 +189,7 @@ body {
     line-height: 16px;
     color: #ffffff;
     margin-bottom: 16px;
+    width: 110px;
   }
   .mF-UI-text {
     font-size: 12px;
@@ -197,13 +198,13 @@ body {
     font-weight: 900;
     opacity: 0.7;
     float: left;
-    margin-right: 24px;
+    margin-right: 20px;
   }
 
   .mF-contact {
-    position: absolute;
-    left: 380px;
-    width: 170px;
+    float: left;
+    margin-left: 6vw;
+    width: 150px;
     height: 90px;
   }
 
@@ -226,6 +227,12 @@ body {
     width: auto;
     height: 18px;
   }
+
+  .mf-divider-wrap {
+    width: 90vw;
+    margin: 0 auto 0 auto;
+  }
+
   .mf-divider {
     margin-top: 20px;
     opacity: 0.15;
@@ -552,6 +559,7 @@ body {
     line-height: 65px;
     left: 50%;
     transform: translate(-50%);
+    width: 400px;
   }
 
   .landing-main-subt-1 {
@@ -560,6 +568,7 @@ body {
     font-size: 24px;
     font-weight: lighter;
     line-height: 35px;
+    margin-top: 5px;
   }
 
   .landing-main-subt-1 > hr {
@@ -675,11 +684,10 @@ body {
   }
 
   .start-box {
-    width: 653px;
+    width: 98vw;
     height: 255px;
     background-color: #0059f7;
     border-radius: 18.6585px;
-    /* margin-top: ; */
   }
 
   .start-sub {
@@ -3073,25 +3081,6 @@ body {
     margin-right: 25px;
   }
 
-  /* 검색결과 없는 경우 컴포넌트 */
-  .no-results-wrap {
-    width: 840px;
-    height: 160px;
-    border: 1px solid #344583;
-    box-sizing: border-box;
-    border-radius: 8px;
-    margin-bottom: 40px;
-  }
-
-  .no-results-icon {
-    background: url("./img/noresult.png");
-    width: 60px;
-    height: 60px;
-    background-position: center;
-    background-size: contain;
-    margin: 20px;
-  }
-
   .no-results-text {
     font-size: 18px;
     line-height: 22px;
@@ -3157,7 +3146,7 @@ body {
 
   /* 검색결과 없는 경우 컴포넌트 */
   .no-results-wrap {
-    width: 840px;
+    width: 96vw;
     height: 160px;
     border: 1px solid #344583;
     box-sizing: border-box;

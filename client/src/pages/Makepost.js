@@ -34,7 +34,6 @@ function Makepost() {
     if (inputValue.includes("\\")) return;
     try {
       const result = await searchAPI.title(inputValue);
-      console.log(result);
       setOptions(result.korMovie || result.engMovie);
     } catch (err) {
       console.log(err);
