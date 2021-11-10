@@ -1,28 +1,56 @@
+"use strict"
 require("dotenv").config()
 
-const clientID = process.env.GOOGLE_CLIENT_ID
-const clientSecret = process.env.GOOGLE_CLIENT_SECRET
+const jwt = require("jsonwebtoken")
 const axios = require("axios")
+const db = require("../../db")
+const { encrypt, uuid, sendToken, sendUUID } = require("../../lib/jwt")
 
-module.exports = (req, res) => {
-	const url = "https://www.googleapis.com/oauth2/v4/token"
-	console.log(req.body)
+module.exports = async (req, res) => {
+	const code = req.body.authorizationCode
+	const url = `https://oauth2.googleapis.com/token?code=${code}&client_id=${process.env.GOOGLE_CLIENT_ID}&client_secret=${process.env.GOOGLE_CLIENT_SECRET}&redirect_uri=${process.env.GOOGLE_REDIRECT_URI}&grant_type=${process.env.GOOGLE_GRANT_TYPE}`
 
-	const data = {
-		client_id: clientID,
-		client_secret: clientSecret,
-		code: req.body.authorizationCode,
+	const access_token = await axios
+		.post(url, {
+			headers: { "content-type": "application/x-www-form-urlencoded" },
+		})
+		.then((el) => {
+			return el.data.access_token
+		})
+		.catch((err) => {
+			console.log("err=", err)
+		})
+
+	const googleAPI = `https://www.googleapis.com/oauth2/v2/userinfo?access_token=${access_token}`
+	const userInfo = await axios
+		.get(googleAPI, {
+			headers: {
+				authorization: `Bearer ${access_token}`,
+			},
+		})
+		.then((el) => {
+			return el.data
+		})
+		.catch((err) => {
+			console.log("err=", err)
+		})
+
+	const email = userInfo.email
+	const [result, created] = await db.addGoogleUser(email)
+	if (!created) {
+		return res.status(400).json({ message: "user-already-exists" })
 	}
 
-	axios
-		.post(url, data, {
-			headers: { accept: "application/json" },
-		})
-		.then((res) => {
-			accessToken = res.data.access_token
-			res.status(200).json({ accessToken })
-		})
-		.catch((e) => {
-			res.status(404)
-		})
+	const user = result.dataValues
+	const { id } = user
+	const sortedUUID = uuid()
+	const encryptedUUID = await encrypt(sortedUUID, process.env.ENCRYPTION_KEY)
+	const token = jwt.sign({ id: id, uuid: encryptedUUID }, process.env.JWT_SECRET, {
+		expiresIn: "1d",
+		issuer: "urscene",
+	})
+
+	sendToken(res, token)
+	sendUUID(res, sortedUUID)
+	return res.status(201).json({ user, message: "user-created-successfully" })
 }
