@@ -29,7 +29,6 @@ const searchAPI = {
     const result = await axios.get(
       `${process.env.REACT_APP_EC2_URL}/description/${searchWord}`,
     );
-    console.log(result);
     if (result.data === false) {
       console.log("제목 검색에 실패하였습니다.");
     }
