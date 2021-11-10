@@ -927,7 +927,7 @@ body {
     margin-right: auto;
     background: #0059f7;
     border-radius: 8px;
-    padding: 0px;
+    padding: 18px;
     border: 0px;
     font-weight: 500;
     font-size: 20px;
@@ -2271,7 +2271,6 @@ body {
     width: 840px;
     height: 506px;
     margin-top: 11px;
-    /* border-radius: 2px; */
     background: #c4c4c4;
     object-fit: cover;
   }
