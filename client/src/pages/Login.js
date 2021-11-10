@@ -71,8 +71,7 @@ function Login() {
         console.log("login err message=>", err);
       });
   };
-  const GOOGLE_LOGIN_URL =
-    "https://accounts.google.com/o/oauth2/v2/auth?client_id=123608818142-seg1ni8901s8u5ci2hhhk3rd2tj0o8v1.apps.googleusercontent.com&response_type=code&redirect_uri=http://localhost:3000&scope=https://www.googleapis.com/auth/userinfo.email";
+  const GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=959612957922-pvqhroqpti2v6h36vveiargmchk1v9cr.apps.googleusercontent.com&redirect_uri=http://localhost:3000/login&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email`;
 
   const googleLoginHandler = () => {
     window.location.assign(GOOGLE_LOGIN_URL);
