@@ -72,9 +72,12 @@ function Login() {
       });
   };
 
-  const GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.REACT_APP_GOOGLEID}&redirect_uri=https://urscene.de/login/&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email`;
+  const GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.REACT_APP_GOOGLEID}&redirect_uri=https://urscene.de&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email`;
+
 
   const googleLoginHandler = () => {
+    console.log("googleLoginHandler 함수 시작");
+    console.log("gGOOGLE_LOGIN_URL ==", GOOGLE_LOGIN_URL);
     window.location.assign(GOOGLE_LOGIN_URL);
   };
 

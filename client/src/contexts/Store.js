@@ -66,6 +66,8 @@ const Store = (props) => {
 
   // 구글 소셜 로그인
   const handleGetGoogleUser = async (authorizationCode) => {
+    console.log("구글 함수 실행");
+    console.log("authorizationCode=", authorizationCode);
     // code를 가지고 서버에 요청을 보내어 악세스 토큰을 얻는다.
     axios
       .post(
@@ -80,20 +82,28 @@ const Store = (props) => {
       )
       .then((res) => {
         // 받은 결과값을 확인하고 로그인상태 및 유저 정보를 셋팅해준다.
+        console.log("구글 함수 실행 성공");
         handleResponseSuccess();
       })
       .catch((err) => {
+        console.log("구글 함수 실행 실패");
         console.log(err);
       });
   };
 
   const handlersocialLogin = () => {
+    console.log("handlersocialLogin 함수 시작");
     const url = new URL(window.location.href);
+    console.log("url=", url);
     const authorizationCode = url.searchParams.get("code");
+    console.log("authorizationCode=", authorizationCode);
     const scope = url.searchParams.get("scope");
+    console.log("scope=", scope);
     if (authorizationCode && scope) {
+      console.log("둘다 존재, 구글 함수로 넘어감");
       handleGetGoogleUser(authorizationCode);
     } else if (authorizationCode && !scope) {
+      console.log("하나만 존재, 카카오 함수로 넘어감");
       handleGetKakaoUser(authorizationCode);
     }
   };
