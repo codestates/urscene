@@ -1,8 +1,9 @@
+require("dotenv").config()
+
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const db = require("../../db")
 const { encrypt, uuid, sendToken, sendUUID } = require("../../lib/jwt")
-require("dotenv").config()
 
 module.exports = async (req, res) => {
 	const { email, password } = req.body

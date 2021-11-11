@@ -1,6 +1,4 @@
-require("dotenv").config()
-
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
 	try {
 		res.clearCookie("token")
 		res.clearCookie("uuid").status(205).json({ message: "signed-out-successfully" })
