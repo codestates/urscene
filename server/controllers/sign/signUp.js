@@ -4,8 +4,9 @@ const { validator } = require("../../lib/regex")
 
 module.exports = async (req, res) => {
 	try {
-		const { email, nickname, image } = req.body
+		let { image } = req.body
 		let { password } = req.body
+		const { email, nickname } = req.body
 
 		const isInvalid = validator(email, password, nickname)
 		if (isInvalid) {
@@ -20,6 +21,10 @@ module.exports = async (req, res) => {
 		const userByName = await db.getUserByName(nickname)
 		if (userByName) {
 			return res.status(409).send({ nickname, message: "name-aready-exists" })
+		}
+
+		if (image.length === 0) {
+			image = "1"
 		}
 		const salt = await bcrypt.genSalt(10)
 		password = await bcrypt.hash(password, salt)
