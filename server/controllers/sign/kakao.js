@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
 	if (!authcode) {
 		res.status(403).json({ message: "Invalid Authorization Code" })
 	} else {
-		const url = `https://kauth.kakao.com/oauth/token?code=${authcode}&client_id=${process.env.KAKAOID}&client_secret=${process.env.KAKAO_SECRET}&redirect_uri=http://localhost:3000&grant_type=authorization_code`
+		const url = `https://kauth.kakao.com/oauth/token?code=${authcode}&client_id=${process.env.KAKAOID}&client_secret=${process.env.KAKAO_SECRET}&redirect_uri=${process.env.KAKAO_REDIRECT_URI}&grant_type=authorization_code`
 
 		const data = await axios.post(
 			url,

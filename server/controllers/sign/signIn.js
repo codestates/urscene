@@ -1,18 +1,19 @@
+require("dotenv").config()
+
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const db = require("../../db")
 const { encrypt, uuid, sendToken, sendUUID } = require("../../lib/jwt")
-require("dotenv").config()
 
 module.exports = async (req, res) => {
 	const { email, password } = req.body
 	const userInfo = await db.getUserByEmail(email)
-	// const validPassword = await bcrypt.compare(password, userInfo.dataValues.password)
+	const validPassword = await bcrypt.compare(password, userInfo.dataValues.password)
 
 	try {
-		// if (!validPassword) {
-		// 	return res.status(400).send("not-authorized")
-		// }
+		if (!validPassword) {
+			return res.status(400).send("not-authorized")
+		}
 
 		const { id } = userInfo.dataValues
 		const sortedUUID = uuid()

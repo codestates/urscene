@@ -1,5 +1,4 @@
 const db = require("../../db")
-require("dotenv").config()
 
 module.exports = async (req, res) => {
 	try {

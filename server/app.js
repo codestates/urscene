@@ -17,6 +17,14 @@ app.use(
 	})
 )
 
+app.use(
+	cors({
+		origin: ["https://urscene.de"],
+		credentials: true,
+		methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+	})
+)
+
 app.get("/", (req, res) => {
 	res.send("Hello World!")
 })
