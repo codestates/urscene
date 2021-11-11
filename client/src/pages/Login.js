@@ -41,7 +41,7 @@ function Login() {
     } else {
       setErrMsg("");
       axios
-        .post("http://localhost:80/signin", {
+        .post(`${process.env.REACT_APP_EC2_URL}/signin`, {
           email: email,
           password: password,
         })
@@ -60,7 +60,7 @@ function Login() {
   // 사이트 체험하기
   const handleExperienceSite = () => {
     axios
-      .post("http://localhost:80/signin", {
+      .post(`${process.env.REACT_APP_EC2_URL}/signin`, {
         email: "test@test.com",
         password: "Abcd1234!",
       })

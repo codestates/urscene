@@ -45,7 +45,7 @@ function Signup() {
     } else {
       setEmailErrMsg("");
       axios
-        .post("http://localhost:80/signup/takenemail", {
+        .post(`${process.env.REACT_APP_EC2_URL}/signup/takenemail`, {
           email: userinfo.email,
         })
         .then((res) => {
@@ -83,7 +83,7 @@ function Signup() {
   // 닉네임 유효성 검사
   const nicknameValidation = (e) => {
     axios
-      .post("http://localhost:80/signup/takenname", {
+      .post(`${process.env.REACT_APP_EC2_URL}/signup/takenname`, {
         nickname: userinfo.nickname,
       })
       .then((res) => {
@@ -113,7 +113,7 @@ function Signup() {
       setErrMsg("");
       console.log("signup click");
       axios
-        .post("http://localhost:80/signup", {
+        .post(`${process.env.REACT_APP_EC2_URL}/signup`, {
           nickname: nickname,
           email: email,
           password: password,

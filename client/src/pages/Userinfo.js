@@ -41,7 +41,7 @@ function Userinfo() {
     // TODO: 서버에 닉네임이 있는지 요청하고 응답을 받는다.
     axios
       .post(
-        "http://localhost:80/signup/takenname",
+        `${process.env.REACT_APP_EC2_URL}/signup/takenname`,
         {
           nickname: userinfo.nickname,
         },
@@ -89,7 +89,7 @@ function Userinfo() {
       setErrMsg("");
       console.log("save click");
       axios
-        .patch("http://localhost:80/user", {
+        .patch(`${process.env.REACT_APP_EC2_URL}/user`, {
           newName: nickname,
           newPassword: password,
           newImage: selectImg,
@@ -97,7 +97,9 @@ function Userinfo() {
         .then((res) => {
           console.log("save success", res.data);
           axios
-            .get("http://localhost:80/user", { withCredentials: true })
+            .get(`${process.env.REACT_APP_EC2_URL}/user`, {
+              withCredentials: true,
+            })
             .then((res) => {
               setUserInfo(res.data);
               window.location.replace("/mygallery");
@@ -112,7 +114,7 @@ function Userinfo() {
   // 로그아웃 요청
   const handleLogout = () => {
     axios
-      .post("http://localhost:80/signout")
+      .post(`${process.env.REACT_APP_EC2_URL}/signout`)
       .then((res) => {
         console.log("signout success", res);
         window.location.replace("/main");
@@ -128,7 +130,9 @@ function Userinfo() {
   // 회원탈퇴 요청
   const handleSignOut = () => {
     axios
-      .delete("http://localhost:80/user", { accept: "application/json" })
+      .delete(`${process.env.REACT_APP_EC2_URL}/user`, {
+        accept: "application/json",
+      })
       .then((res) => {
         console.log("delete success");
         window.location.replace("/");
