@@ -137,8 +137,8 @@ body {
   }
   .mainFooter {
     height: 224px;
+    border-top: 224px;
     background: #0a142f;
-    border: 1px solid #0a142f;
   }
 
   .footer-wrap {
@@ -316,6 +316,7 @@ body {
     text-align: center;
     background-color: #070e27;
     padding-top: 40px;
+    padding-bottom: 20px;
   }
 
   .go-to-main {
@@ -3160,6 +3161,7 @@ body {
     width: 100vw;
     height: auto;
     margin: auto;
+    padding-bottom: 20px;
   }
 
   .allGallery-gallery {
@@ -3190,6 +3192,7 @@ body {
     width: 100vw;
     height: auto;
     margin: auto;
+    padding-bottom: 20px;
   }
 
   .allScene-genre {
