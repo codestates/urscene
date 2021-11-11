@@ -1,6 +1,5 @@
 const db = require("../../db")
 const { emailRegex } = require("../../lib/regex")
-require("dotenv").config()
 
 module.exports = async (req, res) => {
 	try {

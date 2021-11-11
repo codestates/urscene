@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { MyContext } from "../contexts/Store";
 import MainNav from "../components/MainNav";
 import SignoutModal from "../components/SignoutModal";
@@ -13,7 +13,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 function Userinfo() {
-  const { userInfo, setUserInfo, setIsLogin } = useContext(MyContext); // 유저 정보를 확인
+  const { userInfo, setUserInfo } = useContext(MyContext); // 유저 정보를 확인
   console.log(userInfo, "=> userinfo page");
 
   const userImg = [Jake, Meg, Mili, Steven];
@@ -31,7 +31,6 @@ function Userinfo() {
     password: "",
     passwordCheck: "",
   });
-  console.log("change userinfo ???", userinfo);
 
   const handleInputValue = (key) => (e) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
@@ -42,7 +41,7 @@ function Userinfo() {
     // TODO: 서버에 닉네임이 있는지 요청하고 응답을 받는다.
     axios
       .post(
-        "http://localhost:80/signup/takenname",
+        `${process.env.REACT_APP_EC2_URL}/signup/takenname`,
         {
           nickname: userinfo.nickname,
         },
@@ -57,15 +56,15 @@ function Userinfo() {
         setNickErrMsg("이미 사용중인 닉네임입니다.");
         console.error(err);
       });
-    // console.log("nickname valid??", e.target.value);
   };
 
   // 비밀번호 유효성 검사
   const passwordValidation = (e) => {
     const regExp =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
+      // /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     if (!regExp.test(e.target.value)) {
-      setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
+      setpwErrMsg("8자 이상, 영문, 숫자 및 특수문자를 사용하세요");
     } else {
       setpwErrMsg("");
     }
@@ -90,15 +89,21 @@ function Userinfo() {
       setErrMsg("");
       console.log("save click");
       axios
-        .patch("http://localhost:80/user", {
-          newName: nickname === "" ? userInfo.nickname : nickname,
+        .patch(`${process.env.REACT_APP_EC2_URL}/user`, {
+          newName: nickname,
           newPassword: password,
           newImage: selectImg,
         })
         .then((res) => {
-          console.log("save success");
-          console.log(res);
-          window.location.replace("/mygallery");
+          console.log("save success", res.data);
+          axios
+            .get(`${process.env.REACT_APP_EC2_URL}/user`, {
+              withCredentials: true,
+            })
+            .then((res) => {
+              setUserInfo(res.data);
+              window.location.replace("/mygallery");
+            });
         })
         .catch((err) => {
           console.log("userinfo err message =>", err);
@@ -109,7 +114,7 @@ function Userinfo() {
   // 로그아웃 요청
   const handleLogout = () => {
     axios
-      .post("http://localhost:80/signout")
+      .post(`${process.env.REACT_APP_EC2_URL}/signout`)
       .then((res) => {
         console.log("signout success", res);
         window.location.replace("/main");
@@ -125,7 +130,9 @@ function Userinfo() {
   // 회원탈퇴 요청
   const handleSignOut = () => {
     axios
-      .delete("http://localhost:80/user", { accept: "application/json" })
+      .delete(`${process.env.REACT_APP_EC2_URL}/user`, {
+        accept: "application/json",
+      })
       .then((res) => {
         console.log("delete success");
         window.location.replace("/");
@@ -138,7 +145,6 @@ function Userinfo() {
       });
   };
 
-  console.log("curImg ??? =>", curImg);
   const handleModal = () => {
     setModal(!modal);
   };
@@ -159,7 +165,7 @@ function Userinfo() {
         <div className="userinfo">
           <div className="userinfowrap">
             <div className="ui-title">개인정보 수정</div>
-            <img src={curImg} alt="" className="ui-image"></img>
+            <img src={curImg} alt="curImg" className="ui-image"></img>
             <div onClick={handleImgEdit} className="ui-description">
               프로필 사진 바꾸기
             </div>

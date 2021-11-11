@@ -7,13 +7,14 @@ import MovieInfo from "../components/MovieInfo";
 import SceneDeleteModal from "../components/SceneDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
+import SceneInGalleryAddModal from "../components/SceneInGalleryAddModal";
 import axios from "axios";
 import { useParams, useHistory } from "react-router";
 axios.defaults.withCredentials = true;
 
 function Post() {
   const { postId } = useParams();
-  const { userInfo } = useContext(MyContext); // 로그인 유저 정보
+  const { isLogin, userInfo } = useContext(MyContext); // 로그인 유저 정보
   const [movieModal, setMoiveModal] = useState(false); // 영화정보 열기닫기
   const [editModal, setEditModal] = useState(false); // 수정버튼 클릭시 장면 설명 수정
   const [likeModal, setlikeModal] = useState(false); // 좋아요 버튼 false가 안누른상태
@@ -25,34 +26,53 @@ function Post() {
   const [content, setcontent] = useState(null); // 작성 내용
   const [image, setimage] = useState(null); // 게시한 이미지
   const [description, setdescription] = useState(null); // 영화정보
-  const [singlePost, setSinglePost] = useState(null);
-  const [isUser, setIsUser] = useState(userInfo);
-  const [likeId, setLikeId] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [, setSinglePost] = useState(null);
+  const [isUser] = useState(userInfo);
+  const [likeId, setLikeId] = useState(""); // 좋아요 id
   const history = useHistory();
-  //console.log(singlePost, "<=singlepost");
-  //console.log("comments => ", comments);
-  //console.log("commentContent => ", commentContent);
-  // console.log("user => ", user);
-  // console.log("post userInfo =>", userInfo);
-  //console.log("likeId => ", likeId);
+  const [addModal, setAddModal] = useState(false);
+  const [haveGallery] = useState([]); // 갤러리 리스트
+
+  const handleSetAddModal = () => {
+    setAddModal(!addModal);
+  };
 
   useEffect(() => {
     getSinglePost();
     getComments();
+    getLikeinfo();
   }, []);
 
   useEffect(() => {
     getComments();
   }, [commentContent]);
 
+  // 좋아요 정보 불러오기
+  const getLikeinfo = () => {
+    if (isLogin === false) return;
+    axios
+      .get(`${process.env.REACT_APP_EC2_URL}/singlepost/like/${postId}`)
+      .then((res) => {
+        //console.log("like info => ", res);
+        if (res.data.Like === null) {
+          setlikeModal(false);
+        } else {
+          setlikeModal(true);
+          setLikeId(res.data.Like);
+        }
+      })
+      .catch((err) => {
+        console.log("getLikeinfo err=>", err);
+      });
+  };
+
   // 좋아요 요청 및 취소
   const onClickLikePost = () => {
     if (likeModal === false) {
       axios
-        .post(`http://localhost:80/singlepost/like/${postId}`)
+        .post(`${process.env.REACT_APP_EC2_URL}/singlepost/like/${postId}`)
         .then((res) => {
-          console.log("like res =>", res.data);
+          //console.log("like res =>", res.data);
           setlikeModal(true);
           setLikeId(res.data.check.id);
         })
@@ -61,9 +81,8 @@ function Post() {
         });
     } else if (likeModal === true) {
       axios
-        .delete(`http://localhost:80/singlepost/like/${likeId}`)
+        .delete(`${process.env.REACT_APP_EC2_URL}/singlepost/like/${likeId}`)
         .then((res) => {
-          console.log("unlike res =>", res.data);
           setlikeModal(false);
         })
         .catch((err) => {
@@ -75,9 +94,8 @@ function Post() {
   // 싱글 포스트 삭제하기
   const deletePost = () => {
     axios
-      .delete(`http://localhost:80/singlepost/${postId}`)
+      .delete(`${process.env.REACT_APP_EC2_URL}/singlepost/${postId}`)
       .then((res) => {
-        console.log(res.data);
         history.push("/main");
       })
       .catch((err) => {
@@ -88,12 +106,11 @@ function Post() {
   //싱글 포스트 수정하기
   const patchPostContent = () => {
     axios
-      .patch(`http://localhost:80/singlepost/${postId}`, {
+      .patch(`${process.env.REACT_APP_EC2_URL}/singlepost/${postId}`, {
         content: content,
       })
       .then((res) => {
         setEditModal(false);
-        console.log(res.status);
       })
       .catch((err) => {
         console.log("patch content err => ", err);
@@ -111,7 +128,7 @@ function Post() {
   // 싱글포스트 가져오기
   const getSinglePost = () => {
     axios
-      .get(`http://localhost:80/singlepost/${postId}`)
+      .get(`${process.env.REACT_APP_EC2_URL}/singlepost/${postId}`)
       .then((res) => {
         setSinglePost(res);
         setuser(res.data.data.User.nickname);
@@ -127,11 +144,9 @@ function Post() {
   // 댓글 가져오기
   const getComments = () => {
     axios
-      .get(`http://localhost:80/comment/${postId}`)
+      .get(`${process.env.REACT_APP_EC2_URL}/comment/${postId}`)
       .then((res) => {
-        //console.log("comment res ???", res.data.data);
         setComments(res.data.data); // 응답 데이터 확인 필요
-        //comments.concat(res.data.data);
       })
       .catch((err) => console.error(err));
   };
@@ -144,7 +159,7 @@ function Post() {
   const postComment = () => {
     axios
       .post(
-        "http://localhost:80/comment",
+        `${process.env.REACT_APP_EC2_URL}/comment`,
         {
           singlepostid: postId,
           comment: writeComment,
@@ -153,7 +168,6 @@ function Post() {
       )
       .then((res) => {
         writeCommentDeleted();
-        console.log("comment post res =>", res.data.data.comment);
         setCommentContent(commentContent + 1);
       })
       .catch((err) => {
@@ -168,7 +182,7 @@ function Post() {
   // 댓글 삭제하기
   const deleteComment = (e) => {
     axios
-      .delete(`http://localhost:80/comment/${e.target.id}`)
+      .delete(`${process.env.REACT_APP_EC2_URL}/comment/${e.target.id}`)
       .then((res) => {
         console.log(res);
         setCommentContent(commentContent - 1);
@@ -194,6 +208,13 @@ function Post() {
               ) : (
                 <div>
                   <div
+                    className="post-addTogall"
+                    onClick={() => setAddModal(true)}
+                  >
+                    <div className="post-add-icon"></div>
+                    갤러리에 추가
+                  </div>
+                  <div
                     className="post-edit-delete"
                     onClick={() => setDeleteModal(true)}
                   ></div>
@@ -205,12 +226,13 @@ function Post() {
               )}
             </div>
           ) : null}
-
-          <img
-            className="post-image"
-            src={`https://urscene-s3-image.s3.us-east-2.amazonaws.com/${image}`}
-            alt=""
-          />
+          <div className="post-img-wrap">
+            <img
+              className="post-image"
+              src={`https://urscene-s3-image.s3.us-east-2.amazonaws.com/${image}`}
+              alt=""
+            />
+          </div>
           <div className="post-label">
             <div className="post-label-title">{user}</div>
             {userInfo !== null ? (
@@ -222,9 +244,14 @@ function Post() {
           </div>
           {editModal ? (
             // 장면 설명 수정
-            <textarea onChange={handleChangeContent} className="post-editdesc">
-              {content}
-            </textarea>
+            <>
+              <textarea
+                onChange={handleChangeContent}
+                className="post-editdesc"
+              >
+                {content}
+              </textarea>
+            </>
           ) : (
             <div className="post-desc">{content}</div>
           )}
@@ -279,6 +306,13 @@ function Post() {
         <SceneDeleteModal
           deletePost={deletePost}
           handleDeleteModal={handleDeleteModal}
+        />
+      ) : null}
+      {addModal ? (
+        <SceneInGalleryAddModal
+          handleSetAddModal={handleSetAddModal}
+          postId={postId}
+          haveGallery={haveGallery}
         />
       ) : null}
     </div>

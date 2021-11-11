@@ -1,33 +1,34 @@
 const axios = require("axios")
 const db = require("../../db")
-require("dotenv").config()
-
-// + 클라이언트로 리스폰스 보내줄 때 배열 길이 5개로 맞춰서 보내줘야 한다
-// + db에서 검색한 값 랜덤으로 보내주는 알고리즘도 짜야 한다
 
 module.exports = async (req, res) => {
 	const { title } = req.params
 	const url = encodeURI(
-		`http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=${process.env.OPEN_API_KEY}&itemPerPage=20&movieNm=${title}`
+		`http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=N&listCount=70&ServiceKey=${process.env.KMDB_API_KEY}&title=${title}`
 	)
 
 	try {
 		let korMovie = await db.getDescriptionByKorTitle(title)
 		let engMovie = await db.getDescriptionByEngTitle(title)
 
-		if (!korMovie.length && !engMovie.length) {
+		if (korMovie.length === 0 && engMovie.length === 0) {
 			const urlData = await axios.get(url)
-			const movieList = urlData.data.movieListResult.movieList
-			const movieInfoData = movieList.map((el) => {
-				const { movieNm: title, movieNmEn: title_eng, genreAlt: genre, prdtYear: released } = el
-				if (!el.directors[0]) {
-					return { released, title, title_eng, genre, director: "director-not-found" }
-				}
-				const { peopleNm: director } = el.directors[0]
-				return { released, title, title_eng, director, genre }
+			const movieData = urlData.data.Data[0].Result
+			const movieList = movieData.map((el) => {
+				let { title: title } = el
+				title = title.replace(/\!HS/g, "")
+				title = title.replace(/\!HE/g, "")
+				title = title.replace(/^\s+|\s+$/g, "")
+				title = title.replace(/ +/g, " ")
+				const { titleEng: title_eng, genre: genre, prodYear: released } = el
+				const { directorNm: director } = el.directors.director[0]
+				return { title, title_eng, director, genre, released }
+			})
+			const filtedMovieList = movieList.filter((el) => {
+				return el.genre !== "에로" && el.director.length !== 0 && el.genre.length !== 0
 			})
 
-			const movieDataInDB = await db.addDescription(movieInfoData)
+			const movieDataInDB = await db.addDescription(filtedMovieList)
 
 			if (movieDataInDB === "ok") {
 				korMovie = await db.getDescriptionByKorTitle(title)
@@ -40,14 +41,12 @@ module.exports = async (req, res) => {
 			}
 			return res.status(404).json({ message: "data-not-found" })
 		}
-		// DB
 		if (korMovie.length) {
 			return res.status(200).json({ korMovie })
 		}
 		if (engMovie.length) {
 			return res.status(200).json({ engMovie })
 		}
-
 		return res.status(404).json({ message: "data-not-found" })
 	} catch (err) {
 		return res.status(500).json({ message: "server-error" })

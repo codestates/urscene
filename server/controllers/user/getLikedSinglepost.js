@@ -1,6 +1,5 @@
 const db = require("../../db")
 const { isAuthorized } = require("../../lib/jwt")
-require("dotenv").config()
 
 module.exports = async (req, res) => {
 	try {

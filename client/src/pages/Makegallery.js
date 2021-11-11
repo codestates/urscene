@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import MainNav from "../components/MainNav";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
-import axios from "axios";
 import { useHistory } from "react-router";
+import galleryAPI from "../api/galleryAPI";
 require("dotenv").config();
 
 function Makegallery() {
   const history = useHistory();
-  const [galleryTitle, setGalleryTitle] = useState(""); // 갤러리 이름
-  const [galleryDesc, setGalleryDesc] = useState(""); // 갤러리 설명
+  const [galleryTitle, setGalleryTitle] = useState("");
+  const [galleryDesc, setGalleryDesc] = useState("");
 
   const handleGalleryTitle = (e) => {
     setGalleryTitle(e.target.value);
@@ -19,24 +19,13 @@ function Makegallery() {
     setGalleryDesc(e.target.value);
   };
 
-  const handlePostGallery = () => {
-    axios
-      .post(
-        `${process.env.REACT_APP_EC2_URL}/gallery`,
-        {
-          title: galleryTitle,
-          content: galleryDesc,
-        },
-        {
-          withCredentials: true,
-        },
-      )
-      .then((res) => {
-        history.push("/mygallery");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const handlePostGallery = async () => {
+    try {
+      await galleryAPI.make(galleryTitle, galleryDesc);
+      history.push("/mygallery");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -56,7 +45,6 @@ function Makegallery() {
                   onChange={(e) => handleGalleryTitle(e)}
                 />
               </div>
-
               <div className="MG-desc">
                 <div className="MG-title">갤러리 설명</div>
                 <textarea
@@ -67,7 +55,6 @@ function Makegallery() {
                   onChange={(e) => handleGalleryDesc(e)}
                 />
               </div>
-
               <div className="MG-btn">
                 <button onClick={handlePostGallery}>완료</button>
               </div>

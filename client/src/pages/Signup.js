@@ -7,7 +7,6 @@ import Jake from "../img/UserImage-Jake.png";
 import Meg from "../img/UserImage-Meg.png";
 import Mili from "../img/UserImage-Mili.png";
 import Steven from "../img/UserImage-Steven.png";
-import LoadingIndicator from "../components/LoadingIndicator";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
@@ -27,12 +26,10 @@ function Signup() {
     password: "",
     passwordCheck: "",
   });
-  console.log("userinfo =>", userinfo);
 
   const userImg = [Jake, Meg, Mili, Steven];
   const [curImg, setCurImg] = useState(userImg[0]);
   const [selectImg, setSelectImg] = useState("");
-  console.log("curImg =>", curImg);
 
   const handleInputValue = (key) => (e) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
@@ -46,7 +43,7 @@ function Signup() {
     } else {
       setEmailErrMsg("");
       axios
-        .post("http://localhost:80/signup/takenemail", {
+        .post(`${process.env.REACT_APP_EC2_URL}/signup/takenemail`, {
           email: userinfo.email,
         })
         .then((res) => {
@@ -63,7 +60,8 @@ function Signup() {
   // 최소 8자~최대 16자, 대문자 1개 이상, 소문자 1개, 숫자 1개, 특수 문자 1개
   const passwordValidation = (e) => {
     const regExp =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
+      // /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     if (!regExp.test(e.target.value)) {
       setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
     } else {
@@ -83,7 +81,7 @@ function Signup() {
   // 닉네임 유효성 검사
   const nicknameValidation = (e) => {
     axios
-      .post("http://localhost:80/signup/takenname", {
+      .post(`${process.env.REACT_APP_EC2_URL}/signup/takenname`, {
         nickname: userinfo.nickname,
       })
       .then((res) => {
@@ -100,7 +98,6 @@ function Signup() {
   const clickUserImage = (e) => {
     setCurImg(e.target.src);
     setSelectImg(e.target.alt);
-    console.log("click img =>", e.target.alt);
   };
 
   // 회원가입
@@ -111,16 +108,14 @@ function Signup() {
       setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
     } else {
       setErrMsg("");
-      console.log("signup click");
       axios
-        .post("http://localhost:80/signup", {
+        .post(`${process.env.REACT_APP_EC2_URL}/signup`, {
           nickname: nickname,
           email: email,
           password: password,
           image: selectImg,
         })
         .then((res) => {
-          console.log("signup success");
           setModal(!modal);
         })
         .catch((err) => {

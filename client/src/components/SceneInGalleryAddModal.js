@@ -1,15 +1,13 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 require("dotenv").config();
 
-function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
+function SceneInGalleryAddModal({ handleSetAddModal, postId }) {
   const [drop, setDrop] = useState(false);
   const [galleryTitle, setGalleryTitle] = useState("");
   const [galleryId, setGalleryId] = useState("");
   const [errModal, setErrModal] = useState(false);
-  const history = useHistory();
-  // console.log("galleryTitle===", galleryTitle);
+  const [haveGallery, setHaveGallery] = useState([]);
 
   const handle = (gallery) => {
     setGalleryTitle(gallery.title);
@@ -17,12 +15,20 @@ function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
     setDrop(false);
   };
 
+  const getAllMyGallery = () => {
+    axios
+      .get(`${process.env.REACT_APP_EC2_URL}/user/gallerypost`)
+      .then((res) => {
+        setHaveGallery([...res.data.my].reverse());
+      });
+  };
+
   const handleAddSceneinGallery = () => {
     axios
       .post(
         `${process.env.REACT_APP_EC2_URL}/gallery/${galleryId}`,
         {
-          singlepost_id: scene.id,
+          singlepost_id: postId,
         },
         { withCredentials: true },
       )
@@ -40,14 +46,19 @@ function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
       });
   };
 
+  useEffect(() => {
+    getAllMyGallery();
+  }, []);
+
   return (
     <div className="addModal-background">
       <div className="addModal">
-        <div className="add-text">갤러리를 선택하고 담기를 눌러주세요</div>
+        <div className="add-text">어떤 갤러리에 추가할까요?</div>
         <input
+          readOnly
           type="text"
-          placeholder="담으실 갤러리를 선택해주세요"
-          className="addModal-input"
+          placeholder="🖇 갤러리 선택"
+          className={drop ? "addModal-input-drop" : "addModal-input"}
           onFocus={() => setDrop(true)}
           value={galleryTitle}
         />
@@ -57,6 +68,7 @@ function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
               return (
                 <li key={gallery.id} onClick={() => handle(gallery)}>
                   <div>{gallery.title}</div>
+                  <div className="addModal-hr"></div>
                 </li>
               );
             })}
@@ -71,17 +83,17 @@ function SceneInGalleryAddModal({ handleSetAddModal, scene, haveGallery }) {
           </div>
         ) : null}
         <div className="add-btn">
-          <div className="add-btn-ok" onClick={handleAddSceneinGallery}>
-            담기
-          </div>
-          <button
-            className="add-btn-cancel"
+          <div
+            className="add-btn-ok"
             onClick={() => {
               handleSetAddModal();
               setErrModal(false);
             }}
           >
             취소
+          </div>
+          <button className="add-btn-cancel" onClick={handleAddSceneinGallery}>
+            담기
           </button>
         </div>
         {errModal ? (

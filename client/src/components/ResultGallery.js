@@ -25,20 +25,24 @@ function ResultGallery({ gallery }) {
 
   return (
     <div>
-      <div className="BG-container">
+      <div className="RG-container">
         <div
-          className="BG-title"
+          className="RG-title"
           onClick={() => {
             history.push(`/gallery/${gallery.id}`);
           }}
         >
           {nickname}의 {gallery.title}
         </div>
-        <div className="BG-img-wrap">
+        <div className="RG-img-wrap">
           {rendering.map((ele) => {
             return (
-              <div className="BG-img">
-                <img key={ele.id} src={ele.image} alt="" />
+              <div className="RG-img">
+                <img
+                  key={ele.id}
+                  src={`${process.env.REACT_APP_S3_URL_ImageUpload}/${ele.image}`}
+                  alt=""
+                />
               </div>
             );
           })}

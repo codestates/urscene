@@ -54,6 +54,7 @@ body {
     background: url("./img/Lens.png");
     background-position: center;
     background-size: contain;
+    background-repeat: no-repeat;
     width: 30px;
     height: 30px;
     display: table-cell;
@@ -61,7 +62,6 @@ body {
   }
 
   .mainNav-search {
-    border: 1px solid red;
     width: 410px;
     height: 30px;
     outline: none;
@@ -148,6 +148,7 @@ body {
     height: 275px;
     background: #0a142f;
     padding: 63px 183px 34px;
+    margin-top: auto;
   }
 
   .footer-wrap {
@@ -253,6 +254,8 @@ body {
     bottom: 30px;
     padding: 12px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
   }
 
   .topbutton > div {
@@ -260,6 +263,30 @@ body {
     height: 30px;
     background: url("./img/ArrowTop.png");
     background-size: contain;
+    margin-top: auto;
+  }
+
+  .backbutton {
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50px;
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+    padding: 12px;
+    cursor: pointer;
+    display: none;
+  }
+
+  .backbutton > div {
+    width: 30px;
+    height: 30px;
+    background: url("./img/ArrowBack.png");
+    background-size: contain;
+    display: none;
   }
 
   /* ===== Makepost page 갤러리 만들기===== */
@@ -332,6 +359,7 @@ body {
     background-position: center;
     background-size: contain;
     float: right;
+    cursor: pointer;
   }
 
   .MP-movie-icondelete {
@@ -341,6 +369,7 @@ body {
     background-position: center;
     background-size: contain;
     float: right;
+    cursor: pointer;
   }
 
   .MP-movie-DropDownContainer {
@@ -374,8 +403,9 @@ body {
 
   #dropdown {
     text-align: center;
-    margin: 5px;
+    margin: 8px;
     color: rgb(182, 182, 182);
+    font-size: 14px;
   }
 
   .MP-photo-label {
@@ -511,7 +541,7 @@ body {
 
   .my-g-user-wrap {
     margin-top: 34px;
-    width: 110px;
+    width: auto;
     height: 40px;
     display: flex;
     justify-content: right;
@@ -728,18 +758,33 @@ body {
     /* flex-flow: column wrap; */
     position: relative;
     flex-wrap: wrap;
-    justify-content: start;
+    /* justify-content: start; */
   }
 
   .bookmarker {
-    background: url("./img/bookmark.png");
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
     background-position: center;
     background-size: contain;
-    left: 144px;
     position: absolute;
     cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .bookmarker:hover #addTogall {
+    background-color: rgba(33, 32, 37, 0.7);
+    transition: 0.2s;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    text-align: center;
+    line-height: 120px;
+    border-radius: 8px;
+  }
+
+  #addTogall {
+    opacity: 0;
+    text-align: center;
   }
 
   /* 좋아한 장면 */
@@ -750,20 +795,19 @@ body {
     flex-wrap: wrap;
     justify-content: flex-start;
     padding-top: 20px;
-    /* border: 1px solid red; */
+    margin-bottom: 20px;
   }
 
   /* 좋아한 갤러리 */
   .like-gallery-container {
-    width: 860px;
+    width: 830px;
     height: auto;
     box-sizing: border-box;
     border-radius: 4.86133px;
     /* padding: 11px; */
-    margin-top: 20px;
-    margin-right: 20px;
+    /* margin: 20px; */
     display: flex;
-    justify-content: start;
+    /* justify-content: start; */
     flex-wrap: wrap;
   }
 
@@ -799,9 +843,6 @@ body {
     display: inline-block;
     width: 100px;
     height: 42px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 36px;
     /* line-height: 42px; */
     padding: 3px;
@@ -821,7 +862,6 @@ body {
   .lin-email-title {
     width: 400px;
     height: 20px;
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 26px;
@@ -910,7 +950,7 @@ body {
     margin-right: auto;
     background: #0059f7;
     border-radius: 8px;
-    padding: 0px;
+    padding: 18px;
     border: 0px;
     font-weight: 500;
     font-size: 20px;
@@ -942,9 +982,7 @@ body {
   .lin-experience {
     width: 400px;
     height: 60px;
-    margin-top: 00px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     padding: 22px;
     font-weight: 500;
     font-size: 16px;
@@ -1153,7 +1191,6 @@ body {
     margin: 40px auto 0px auto;
     font-size: 20px;
     line-height: 26px;
-    /* identical to box height */
     color: #d4d4d4;
     text-align: left;
   }
@@ -1206,7 +1243,6 @@ body {
     position: relative;
     width: 74px;
     height: 24px;
-    font-family: Roboto;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -1238,6 +1274,7 @@ body {
     background: url("./img/Frame129.png");
     width: 625px;
     height: 524px;
+    margin: 0 auto;
   }
 
   .landing-main-text {
@@ -1433,12 +1470,33 @@ body {
     font-size: 32px;
     text-align: left;
     margin-bottom: 28px;
+    width: 200px;
+    display: inline-block;
+  }
+
+  .main-text-all {
+    color: white;
+    float: right;
+    margin-right: 30px;
+    margin-top: 16px;
+    text-decoration: underline;
+    text-underline-position: under;
   }
 
   .main-gallery {
     padding-top: 34px;
     width: 1060px;
     height: 360px;
+  }
+
+  .main-gallery-all {
+    /* position: absolute; */
+    float: right;
+    color: white;
+    margin-right: 30px;
+    margin-top: 16px;
+    text-decoration: underline;
+    text-underline-position: under;
   }
 
   .main-gallery-wrap {
@@ -1449,9 +1507,11 @@ body {
     justify-content: space-between;
   }
 
+  .main-gallery-group {
+    display: flex;
+  }
+
   .main-gallery-Arrowleft {
-    width: 20px;
-    height: 299px;
     background: url("./img/ArrowLeft.png");
     width: 25px;
     height: 80px;
@@ -1462,8 +1522,6 @@ body {
   }
 
   .main-gallery-Arrowright {
-    width: 25px;
-    height: 80px;
     background: url("./img/ArrowRight.png");
     width: 25px;
     height: 80px;
@@ -1552,6 +1610,7 @@ body {
 
   .main-genre-img-wrap {
     margin-top: 45px;
+    padding-bottom: 20px;
     width: 1080px;
     height: auto;
     display: flex;
@@ -1559,19 +1618,20 @@ body {
     justify-content: flex-start;
     cursor: pointer;
   }
+
   .main-genre-img-addText {
     width: 43px;
     height: 19px;
     margin: 0 auto 0 auto;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 16px;
     text-align: center;
-
     color: #f4f4f4;
     cursor: pointer;
+  }
+
+  .addtext-wrap {
+    padding-bottom: 20px;
   }
 
   .main-genre-img-addImage {
@@ -1625,15 +1685,16 @@ body {
   }
 
   .BG-img {
-    width: 157px;
+    width: 150px;
     height: 100px;
-    border: 1px solid #eaeaea;
+    /* border: 0.1px solid gray; */
+    margin: 1px;
   }
 
   .BG-img > img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 
   .BG-img-no {
@@ -1648,9 +1709,9 @@ body {
   .genre-img {
     width: 250px;
     height: 157px;
-    border: 1px solid #eaeaea;
+    /* border: 1px solid #344583; */
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 3px;
     margin-right: 18px;
     margin-bottom: 20px;
   }
@@ -1659,13 +1720,26 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 3px;
+  }
+
+  .genre-img > img:hover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.8);
   }
 
   /* ===== Search page ===== */
   .search-container {
     background-color: #070e27;
   }
+
+  .search-devider {
+    display: none;
+  }
+
   .search-wrap {
     margin-top: 43px;
     width: 840px;
@@ -1696,14 +1770,14 @@ body {
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    /* justify-content: start; */
   }
 
   .result-scene-img {
     width: 185px;
     height: 122px;
     border-radius: 10px;
-    border: 1px solid #eaeaea;
+    /* border: 1px solid #344583; */
     box-sizing: border-box;
     margin-bottom: 20px;
     margin-right: 20px;
@@ -1713,7 +1787,7 @@ body {
   .result-scene-img > img {
     width: 100%;
     height: 100%;
-    object-fit: scale-down;
+    object-fit: cover;
     border-radius: 10px;
   }
 
@@ -1770,6 +1844,7 @@ body {
     height: 313px;
     margin: 0px auto 0px auto;
     background: #0059f7;
+    text-align: center;
     border-radius: 10px;
   }
 
@@ -1788,7 +1863,6 @@ body {
     width: 135px;
     height: 48px;
     margin: 56px auto 0px auto;
-    font-family: Roboto;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
@@ -1809,7 +1883,6 @@ body {
     border-radius: 8px;
     border-width: 0px;
 
-    font-family: Roboto;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -1836,8 +1909,6 @@ body {
   .ui-title {
     width: 208px;
     height: 42px;
-    font-family: Roboto;
-    font-weight: normal;
     font-size: 36px;
     line-height: 42px;
     color: #ffffff;
@@ -1859,7 +1930,6 @@ body {
     height: 26px;
     margin: 18px auto 0 auto;
 
-    font-family: Roboto;
     font-weight: bold;
     font-size: 22px;
     line-height: 26px;
@@ -2089,7 +2159,6 @@ body {
     width: 300px;
     height: 24px;
 
-    font-family: Roboto;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
@@ -2112,7 +2181,6 @@ body {
     margin-left: 64px;
     margin-top: 5px;
 
-    font-family: Roboto;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -2133,7 +2201,6 @@ body {
     background: #ffffff;
     border-radius: 8px;
     border-width: 0px;
-    font-family: Roboto;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -2149,6 +2216,7 @@ body {
     height: auto;
     background-color: #070e27;
     padding-top: 34px;
+    color: #fff;
   }
 
   .postwrap {
@@ -2191,6 +2259,25 @@ body {
     cursor: pointer;
   }
 
+  .post-addTogall {
+    float: left;
+    cursor: pointer;
+    margin-top: 20px;
+    color: #5a7fa8;
+    font-size: 18px;
+  }
+
+  .post-add-icon {
+    background: url("./img/bookmark.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+  }
+
   .post-edit-edit {
     width: 40px;
     height: 40px;
@@ -2215,11 +2302,10 @@ body {
 
   .post-image {
     width: 840px;
-    height: 506px;
+    height: auto;
     margin-top: 11px;
-    border-radius: 5px;
     background: #c4c4c4;
-    border-radius: 10px;
+    object-fit: cover;
   }
 
   .post-label {
@@ -2246,6 +2332,7 @@ body {
     width: 40px;
     height: 40px;
     margin-left: auto;
+    margin-right: 10px;
     background: url("../src/img/Heart.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2266,30 +2353,35 @@ body {
 
   .post-desc {
     width: 840px;
-    height: 68px;
+    height: auto;
     margin-top: 21px;
-    font-size: 28px;
+    font-size: 20px;
     line-height: 33px;
     color: #ffffff;
     text-align: left;
-    word-break: keep-all;
-    white-space: pre-line;
   }
 
   .post-editdesc {
+    background-color: #070e27;
+    color: white;
     width: 840px;
-    height: 68px;
+    height: 200px;
     margin-top: 21px;
-    font-family: Roboto;
-    font-weight: normal;
     font-size: 28px;
     line-height: 33px;
-    color: black;
     text-align: left;
-    word-break: keep-all;
-    white-space: pre-line;
-    border-radius: 8px;
-    overflow: hidden;
+    overflow: auto;
+    padding: 14px;
+    border: 1px solid #7c9cbf;
+    border-radius: 6px;
+    resize: none;
+  }
+
+  .post-editdesc:focus {
+    border: none;
+    outline: none;
+    width: 840px;
+    height: 200px;
   }
 
   .post-devider {
@@ -2349,19 +2441,26 @@ body {
     display: inline-block;
   }
 
-  .post-infogroup-list {
+  .post-infogroup-wrap {
     width: auto;
-    height: 22px;
+    height: 100px;
     margin-top: 13px;
-    margin-left: 22px;
-    font-family: Roboto;
-    font-weight: normal;
+    margin-left: 14px;
     font-size: 22px;
     line-height: 32px;
-    /* or 145% */
-    color: #ffffff;
     text-align: left;
-    list-style-type: disc;
+  }
+
+  .post-infogroup-title {
+    margin-right: 10px;
+    font-weight: bold;
+    float: left;
+    color: rgb(214, 214, 214);
+  }
+
+  .post-infogroup-list {
+    margin-left: 10px;
+    color: rgb(202, 202, 202);
   }
 
   .post-devider2 {
@@ -2448,50 +2547,44 @@ body {
 
   .post-mycomment-group2 {
     width: 740px;
-    height: 110px;
+    height: auto;
     float: left;
     margin-left: 10px;
   }
 
   .post-mycomment-group2-nickname {
-    width: 102px;
+    width: auto;
     height: 29px;
     margin-top: 8px;
     font-weight: bold;
     font-size: 22px;
     line-height: 29px;
     /* identical to box height */
-
     color: #ffffff;
     text-align: left;
   }
 
   .post-mycomment-group2-comment {
-    width: 582px;
-    height: 27px;
+    width: 700px;
+    height: auto;
     margin-top: 13px;
 
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 26px;
     line-height: 30px;
 
     color: #ffffff;
     text-align: left;
+    word-break: break-all;
   }
 
   .post-mycomment-group2-delete {
-    width: 50px;
-    height: 50px;
-
+    width: 40px;
+    height: 40px;
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: none;
-    position: relative;
-    bottom: 85px;
-    left: 700px;
+    float: right;
     cursor: pointer;
   }
 
@@ -2504,7 +2597,7 @@ body {
 
   .gallerywrap {
     width: 840px;
-    height: auto;
+    min-height: 700px;
     margin: 0px auto 0px auto;
     padding-top: 43px;
     padding-bottom: 43px;
@@ -2514,12 +2607,8 @@ body {
     width: 360px;
     height: 26px;
 
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 20px;
     line-height: 23px;
-
     color: #ffffff;
     text-align: left;
     margin-bottom: 10px;
@@ -2534,13 +2623,8 @@ body {
   .gallery-title {
     width: 730px;
     height: 34px;
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 32px;
     line-height: 37px;
-
     color: #ffffff;
     text-align: left;
     float: left;
@@ -2550,41 +2634,37 @@ body {
     width: 100px;
     height: 48px;
     float: left;
-
     background: #0059f7;
     border-radius: 8px;
-    font-family: Roboto;
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
-    /* identical to box height, or 120% */
-
     color: #ffffff;
     padding-top: 13px;
     cursor: pointer;
     margin-left: 115px;
     margin-top: 6px;
+    text-align: center;
   }
 
   .gallery-titleinput {
     width: 620px;
     height: 69px;
-
-    background: #ffffff;
-    border: 1px solid #dbe2ea;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    background: #070e27;
+    color: #ffffff;
+    border: 1px solid #7c9cbf;
     border-radius: 6px;
     float: left;
     font-size: 32px;
     line-height: 42px;
-    /* identical to box height */
-
-    color: #7c9cbf;
-    padding-left: 16px;
-    padding-top: 14.5px;
+    padding-left: 14px;
+    padding-top: 4px;
     margin-bottom: 16px;
+  }
+
+  .gallery-titleinput:focus {
+    outline: none;
+    border: none;
   }
 
   .gallery-edit {
@@ -2592,7 +2672,6 @@ body {
     height: 40px;
     margin-left: 28px;
     float: left;
-
     background: url("../src/img/pencil.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2604,7 +2683,6 @@ body {
     width: 40px;
     height: 40px;
     float: left;
-
     background: url("../src/img/delete.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -2626,12 +2704,16 @@ body {
     padding-top: 16px;
     font-size: 22px;
     line-height: 29px;
-    color: #7c9cbf;
-    background: #ffffff;
-    border: 1px solid #dbe2ea;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    background: #070e27;
+    color: #ffffff;
+    border: 1px solid #7c9cbf;
     border-radius: 6px;
+    resize: none;
+  }
+
+  .gallery-descinput:focus {
+    outline: none;
+    border: none;
   }
 
   .gallery-desc {
@@ -2695,7 +2777,6 @@ body {
     width: 267px;
     height: 162px;
     margin: 6px;
-    border-radius: 10px;
     display: flex;
     position: relative;
     cursor: pointer;
@@ -2704,9 +2785,8 @@ body {
   .gallery-content-img {
     width: 267px;
     height: 162px;
-    border-radius: 10px;
-    border: 1px solid #eaeaea;
-    object-fit: contain;
+    border-radius: 2px;
+    object-fit: cover;
     color: white;
     position: absolute;
   }
@@ -2724,32 +2804,33 @@ body {
     left: 227px;
   }
 
-  .gallery-nocontent {
-    width: 200px;
-    height: 150px;
-    margin: 200px auto 0 auto;
+  .gallery-nocontent-wrap {
+    width: 840px;
+    height: 200px;
+    border: 1px solid #344583;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    margin-top: 100px;
+    padding: 40px;
   }
 
   .gallery-nocontent-img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background: url("../src/img/noresult.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: none;
-    cursor: pointer;
-    margin-left: 50px;
+    background-size: contain;
+    margin: 0 auto;
   }
 
   .gallery-nocontent-title {
     font-size: 18px;
     line-height: 22px;
-    /* identical to box height, or 122% */
     text-align: center;
     color: #c0c0c0;
     margin: 10px auto 0 auto;
-    word-break: keep-all;
-    width: 160px;
   }
 
   /* 갤러리 삭제 모달*/
@@ -2837,7 +2918,7 @@ body {
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     display: grid;
     place-items: center;
   }
@@ -2850,6 +2931,7 @@ body {
     margin: 0px auto 0 auto;
     text-align: center;
     position: relative;
+    padding: 20px;
   }
 
   .add-text {
@@ -2858,14 +2940,12 @@ body {
     line-height: 40px;
     color: #ffffff;
     margin: 40px auto 0 auto;
-    word-break: keep-all;
-    width: 200px;
   }
 
   .add-btn {
     width: 300px;
     height: 34px;
-    margin-top: 40px;
+    margin-top: 30px;
     display: inline-block;
     position: relative;
   }
@@ -2903,12 +2983,33 @@ body {
     height: 40px;
     outline-style: none;
     border: none;
-    /* font-size: 16px; */
     line-height: 21px;
     display: inline-block;
     margin-top: 20px;
     padding-left: 16px;
-    border-radius: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .addModal-input::placeholder {
+    color: #000;
+    font-size: 18px;
+    /* text-align: center; */
+  }
+
+  .addModal-input-drop {
+    width: 300px;
+    height: 40px;
+    outline-style: none;
+    border: none;
+    line-height: 21px;
+    display: inline-block;
+    margin-top: 20px;
+    padding-left: 16px;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
   }
 
   .addModal-Drop {
@@ -2916,33 +3017,171 @@ body {
     /* float: none; */
     background-color: white;
     list-style-type: none;
-    /* margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 0px; */
-    margin-top: -5px;
-    margin-left: 99px;
+    margin: 0 auto;
     padding: 0.5rem 15px;
     border: 1px solid rgb(223, 225, 229);
     border-radius: 0 0 1rem 1rem;
     box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
     z-index: 3;
-    position: absolute;
     font-size: 16px;
     line-height: 21px;
   }
 
   .addModal-Drop > li {
-    border: 1px solid rgb(223, 225, 229);
-    color: #7c9cbf;
+    color: #344583;
     cursor: pointer;
     margin-top: 3px;
     padding: 5px;
   }
 
+  .addModal-hr {
+    border: 1px solid rgb(223, 225, 229);
+    margin-top: 5px;
+  }
+
   .addModal-err {
     margin: 10px 0px;
+  }
+
+  /* 모든 장면 보기 페이지 */
+  .allScene-back {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+  }
+
+  .allScene-wrap {
+    width: 1060px;
+    height: auto;
+    margin: auto;
+    /* border: 1px solid red; */
+  }
+
+  .allScene-genre {
+    width: 1060px;
+    padding-top: 34px;
+  }
+
+  .allScene-text {
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 28px;
+    width: 200px;
+    display: inline-block;
+  }
+
+  .allScene-category-wrap {
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    /* border: 1px solid red; */
+  }
+
+  .allScene-img-wrap {
+    margin-top: 45px;
+    padding-bottom: 20px;
+    width: 1080px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    cursor: pointer;
+    /* border: 1px solid red; */
+  }
+
+  /* 모든 갤러리 보기 페이지 */
+  .allGallery-back {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+  }
+
+  .allGallery-wrap {
+    width: 1060px;
+    height: auto;
+    margin: auto;
+  }
+
+  .allGallery-gallery {
+    padding-top: 34px;
+    width: 1060px;
+    height: auto;
+  }
+
+  .allGallery-text {
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 28px;
+    width: 250px;
+    display: inline-block;
+  }
+
+  .allGallery-gallery-wrap {
+    width: 1060px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* ResultGallery 컴포넌트 */
+  .RG-container {
+    width: 330px;
+    height: 262.51px;
+    border: 0.972265px solid #344583;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    padding: 11px;
+    margin: 0 20px 30px 0px;
+  }
+
+  .RG-container:hover {
+    box-shadow: 0 2px 3px rgba(44, 46, 148, 0.808);
+  }
+
+  .RG-title {
+    font-size: 18px;
+    line-height: 21px;
+    color: #787e95;
+    text-align: left;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .RG-img-wrap {
+    width: 315.49px;
+    height: 200.05px;
+    display: flex;
+    flex-flow: wrap;
+  }
+
+  .RG-img {
+    width: 150px;
+    height: 100px;
+    /* border: 0.1px solid gray; */
+    margin: 1px;
+  }
+
+  .RG-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .RG-img-no {
+    width: 100%;
+    height: 100%;
+    background: url("../src/img/noresult.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 }
 
