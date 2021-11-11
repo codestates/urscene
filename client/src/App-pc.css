@@ -2302,7 +2302,7 @@ body {
 
   .post-image {
     width: 840px;
-    height: 506px;
+    height: auto;
     margin-top: 11px;
     background: #c4c4c4;
     object-fit: cover;

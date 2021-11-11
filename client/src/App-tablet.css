@@ -2021,7 +2021,7 @@ body {
 
   .post-image {
     width: 96vw;
-    height: 433px;
+    height: auto;
     margin-top: 12px;
     background: #ffffff;
     object-fit: fill;
@@ -3083,7 +3083,7 @@ body {
     opacity: 1;
     text-align: center;
     line-height: 120px;
-    border-radius: 8px;
+    border-radius: 2px;
   }
 
   #addTogall {

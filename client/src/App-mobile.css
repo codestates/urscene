@@ -1375,7 +1375,7 @@ body {
   }
 
   .post-desc {
-    width: 840px;
+    width: 86vw;
     height: auto;
     margin-top: 21px;
     font-size: 18px;
@@ -2946,7 +2946,7 @@ body {
     opacity: 1;
     text-align: center;
     line-height: 120px;
-    border-radius: 8px;
+    border-radius: 2px;
   }
 
   #addTogall {
