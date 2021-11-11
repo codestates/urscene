@@ -11,6 +11,7 @@ module.exports = {
 			secure: true,
 			path: "/",
 			maxAge: 24 * 6 * 60 * 10000,
+			domain: "urscene.link",
 		})
 	},
 	sendUUID: (res, uuid) => {
@@ -20,6 +21,7 @@ module.exports = {
 			secure: true,
 			path: "/",
 			maxAge: 24 * 6 * 60 * 10000,
+			domain: "urscene.link",
 		})
 	},
 	isAuthorized: (req) => {
