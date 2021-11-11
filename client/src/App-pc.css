@@ -2344,6 +2344,7 @@ body {
     width: 40px;
     height: 40px;
     margin-left: auto;
+    margin-right: 10px;
     background: url("../src/img/FullHeart.png");
     background-repeat: no-repeat;
     background-position: center;
