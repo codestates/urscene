@@ -155,7 +155,7 @@ body {
     height: 19px;
     margin-left: 36px;
     margin-right: 36px;
-    margin-top: 12px;
+    margin-top: 14px;
     background-color: #0059f7;
     background: url("./img/NavLogo.png");
     background-position: center;
@@ -1365,7 +1365,7 @@ body {
   .post-label-like2 {
     width: 30px;
     height: 30px;
-    margin-right: 6px;
+    margin-right: 4px;
     margin-top: 6px;
     margin-left: auto;
     background: url("../src/img/Off.png");
