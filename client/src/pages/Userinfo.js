@@ -61,9 +61,10 @@ function Userinfo() {
   // 비밀번호 유효성 검사
   const passwordValidation = (e) => {
     const regExp =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
+      // /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     if (!regExp.test(e.target.value)) {
-      setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
+      setpwErrMsg("8자 이상, 영문, 숫자 및 특수문자를 사용하세요");
     } else {
       setpwErrMsg("");
     }
