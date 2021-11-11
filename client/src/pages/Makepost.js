@@ -18,6 +18,7 @@ function Makepost() {
   // 검색어 입력 시 드랍다운 : 시작
   const [hasText, setHasText] = useState(false); // 문자가 입력이 됬는지 안됬는지 체크
   const [inputValue, setInputVaule] = useState(""); // 입력한 문자가 담기는 곳
+  const [inputValueId, setInputVauleId] = useState(""); // 선택한 영화 ID값 담는곳
   const [options, setOptions] = useState([]); // 드랍다운으로 보여지는 전체 목록
 
   const handleInputChange = (e) => {
@@ -47,8 +48,9 @@ function Makepost() {
   };
 
   const handleDropDownClick = (data) => {
-    setInputVaule(data);
-    const resultOptions = options.filter((option) => option === data);
+    setInputVauleId(data.id);
+    setInputVaule(data.title);
+    const resultOptions = options.filter((option) => option === data.title);
     setOptions(resultOptions);
     setHasText(false);
   };
@@ -135,6 +137,7 @@ function Makepost() {
     try {
       await sceneAPI.make(
         inputValue,
+        inputValueId,
         uploadImageName,
         postDescription,
         seletedGenre,
