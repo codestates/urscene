@@ -66,6 +66,7 @@ function Search() {
   return (
     <div className="search-container">
       <MainNav />
+      <div className="search-devider"></div>
       <center>
         <div className="search-wrap">
           <div className="search-results">{searchWord} 에 대한 검색결과</div>
@@ -77,7 +78,6 @@ function Search() {
                   return <ResultScene key={scene.id} scene={scene} />;
                 })}
               </div>
-              {/* <div onClick={handleLandingAddScenePage}> */}
               {addSceneIcon ? null : (
                 <div onClick={handleLandingScenePage}>
                   <div className="main-genre-img-addText">더 보기</div>
@@ -97,7 +97,6 @@ function Search() {
                   return <ResultGallery key={gallery.id} gallery={gallery} />;
                 })}
               </div>
-              {/* <div onClick={handleLandingAddGalleryPage}> */}
               {addGalleryIcon ? null : (
                 <div onClick={handleLandingGalleryPage}>
                   <div className="main-genre-img-addText">더 보기</div>

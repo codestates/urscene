@@ -266,6 +266,29 @@ body {
     margin-top: auto;
   }
 
+  .backbutton {
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50px;
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+    padding: 12px;
+    cursor: pointer;
+    display: none;
+  }
+
+  .backbutton > div {
+    width: 30px;
+    height: 30px;
+    background: url("./img/ArrowBack.png");
+    background-size: contain;
+    display: none;
+  }
+
   /* ===== Makepost page 갤러리 만들기===== */
   .MP-container {
     background-color: #070e27;
@@ -1251,6 +1274,7 @@ body {
     background: url("./img/Frame129.png");
     width: 625px;
     height: 524px;
+    margin: 0 auto;
   }
 
   .landing-main-text {
@@ -1483,6 +1507,10 @@ body {
     justify-content: space-between;
   }
 
+  .main-gallery-group {
+    display: flex;
+  }
+
   .main-gallery-Arrowleft {
     background: url("./img/ArrowLeft.png");
     width: 25px;
@@ -1707,6 +1735,11 @@ body {
   .search-container {
     background-color: #070e27;
   }
+
+  .search-devider {
+    display: none;
+  }
+
   .search-wrap {
     margin-top: 43px;
     width: 840px;
@@ -2564,7 +2597,7 @@ body {
 
   .gallerywrap {
     width: 840px;
-    height: auto;
+    min-height: 700px;
     margin: 0px auto 0px auto;
     padding-top: 43px;
     padding-bottom: 43px;
@@ -3116,6 +3149,10 @@ body {
     margin-top: 6px;
     margin-bottom: 10px;
     cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
   }
 
   .RG-img-wrap {
