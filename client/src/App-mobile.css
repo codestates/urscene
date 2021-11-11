@@ -145,7 +145,7 @@ body {
     height: 78px;
     width: auto;
     text-align: left;
-    margin-top: 65px;
+    padding-top: 50px;
     margin-left: 67px;
   }
 
@@ -155,6 +155,7 @@ body {
     height: 19px;
     margin-left: 36px;
     margin-right: 36px;
+    margin-top: 14px;
     background-color: #0059f7;
     background: url("./img/NavLogo.png");
     background-position: center;
@@ -212,11 +213,10 @@ body {
     height: 16px;
   }
   .mf-divider {
-    margin-top: 20px;
     opacity: 0.15;
     border: 1px solid #ffffff;
     width: 300px;
-    margin: 12px auto;
+    margin: 70px auto 0;
   }
 
   .mF-footer2 {
@@ -1365,7 +1365,7 @@ body {
   .post-label-like2 {
     width: 30px;
     height: 30px;
-    margin-right: 6px;
+    margin-right: 4px;
     margin-top: 6px;
     margin-left: auto;
     background: url("../src/img/Off.png");
