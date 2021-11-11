@@ -99,13 +99,13 @@ const Store = (props) => {
     console.log("authorizationCode=", authorizationCode);
     const scope = url.searchParams.get("scope");
     console.log("scope=", scope);
-    // if (authorizationCode && scope) {
-    //   console.log("둘다 존재, 구글 함수로 넘어감");
-    //   handleGetGoogleUser(authorizationCode);
-    // } else if (authorizationCode && !scope) {
-    //   console.log("하나만 존재, 카카오 함수로 넘어감");
-    //   handleGetKakaoUser(authorizationCode);
-    // }
+    if (authorizationCode && scope) {
+      console.log("둘다 존재, 구글 함수로 넘어감");
+      handleGetGoogleUser(authorizationCode);
+    } else if (authorizationCode && !scope) {
+      console.log("하나만 존재, 카카오 함수로 넘어감");
+      handleGetKakaoUser(authorizationCode);
+    }
   };
 
   useEffect(() => {
