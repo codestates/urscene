@@ -5,8 +5,9 @@ import GalleryDeleteModal from "../components/GalleryDeleteModal";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
 import { useHistory, useParams } from "react-router";
-import axios from "axios";
 import { MyContext } from "../contexts/Store";
+import galleryAPI from "../api/galleryAPI";
+import likeAPI from "../api/likeAPI";
 require("dotenv").config();
 
 function Gallery() {
@@ -44,88 +45,65 @@ function Gallery() {
     setContentGallery(e.target.value);
   };
 
-  const handleLandingDetailGallery = () => {
-    axios
-      .get(`${process.env.REACT_APP_EC2_URL}/gallery/${galleryId}`)
-      .then((res) => {
-        // console.log(res.data);
-        setNicknameGallery(res.data.nickname);
-        setTitleGallery(res.data.title);
-        setContentGallery(res.data.content);
-        setSceneGallery(res.data.singlepost);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  // 갤러리 정보 불러오기
+  const handleLandingDetailGallery = async () => {
+    try {
+      const result = await galleryAPI.getGalleryId(galleryId);
+      setNicknameGallery(result.nickname);
+      setTitleGallery(result.title);
+      setContentGallery(result.content);
+      setSceneGallery(result.singlepost);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  // 갤러리 정보 수정 함수
-  const handlePatchGallery = () => {
-    axios
-      .patch(`${process.env.REACT_APP_EC2_URL}/gallery/${galleryId}`, {
-        title: titleGallery,
-        content: contentGallery,
-      })
-      .then((res) => {
-        setEditModal(false);
-        history.push(`gallery/${galleryId}`);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  // 갤러리 정보 수정 => 두번 연속 수정할시 오류, 수정 필요
+  const handlePatchGallery = async () => {
+    try {
+      await galleryAPI.patchInfo(galleryId, titleGallery, contentGallery);
+      setEditModal(false);
+      history.push(`gallery/${galleryId}`);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // 좋아요 정보 불러오는 함수
-  const handleLandingLike = () => {
+  const handleLandingLike = async () => {
     if (userInfo === null) return;
-    axios
-      .get(`${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryId}`)
-      .then((res) => {
-        if (res.data.Like === null) {
-          setlikeModal(false);
-        } else if (res.data.Like) {
-          setlikeModal(true);
-          setGalleryLikeId(res.data.Like);
-        }
-      })
-      .catch((err) => {
-        console.log("좋아요 정보가 없습니다.");
-        console.log(err);
-      });
+    try {
+      const result = await likeAPI.getGallery(galleryId);
+      if (result === null) {
+        setlikeModal(false);
+      } else if (result) {
+        setlikeModal(true);
+        setGalleryLikeId(result);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  // 좋아요 생성 취소 함수
-  const handleLike = () => {
-    // 비로그인 사용자에게는 로그인이 필요합니다 안내메시지 표시
-    if (userInfo === null) {
-      return;
-    }
+  const handleLike = async () => {
+    if (userInfo === null) return;
     if (likeModal === false) {
-      // 빈 하트 이므로 like 요청을 보내고
-      // 성공을 하면 true로 바꿔준다.
-      axios
-        .post(`${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryId}`)
-        .then((res) => {
-          setlikeModal(true);
-          setGalleryLikeId(res.data.Likedata.id);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      // 좋아요가 아닌 상태
+      try {
+        const result = await likeAPI.postGallery(galleryId);
+        setlikeModal(true);
+        setGalleryLikeId(result);
+      } catch (err) {
+        console.log(err);
+      }
     } else if (likeModal === true) {
-      // 풀 하트 이므로 delete like 요청을 보내고
-      // 성공을 하면 false로 바꿔준다.
-      console.log("galleryLikeId===", galleryLikeId);
-      axios
-        .delete(
-          `${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryLikeId}`,
-        )
-        .then((res) => {
-          setlikeModal(false);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      // 좋아요한 상태
+      try {
+        await likeAPI.deleteGallery(galleryLikeId);
+        setlikeModal(false);
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 

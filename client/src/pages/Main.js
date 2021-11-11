@@ -123,13 +123,15 @@ function Main() {
                 className="main-gallery-Arrowleft"
                 onClick={handleArrowLeft}
               ></div>
-              {isLoading ? (
-                <LoadingIndicator />
-              ) : (
-                currentRankingGallery.map((gallery, idx) => {
-                  return <BestGallery key={idx} gallery={gallery} />;
-                })
-              )}
+              <div className="main-gallery-group">
+                {isLoading ? (
+                  <LoadingIndicator />
+                ) : (
+                  currentRankingGallery.map((gallery, idx) => {
+                    return <BestGallery key={idx} gallery={gallery} />;
+                  })
+                )}
+              </div>
               <div
                 className="main-gallery-Arrowright"
                 onClick={handleArrowRight}
@@ -156,21 +158,28 @@ function Main() {
               <div className="main-text-all">모든 장면 보기</div>
             </Link>
             <div className="main-genre-category-wrap">
-              {genres.map((el) => {
-                return (
-                  <div
-                    onClick={changeCurGenre}
-                    className={
-                      curGenre.current === el
-                        ? "main-genre-name-selected"
-                        : "main-genre-name"
-                    }
-                    key={el}
-                  >
-                    {el}
-                  </div>
-                );
-              })}
+              <div
+                className="main-genre-name-wrap"
+                // onScroll={() => {
+                //   console.log("123");
+                // }}
+              >
+                {genres.map((el) => {
+                  return (
+                    <div
+                      onClick={changeCurGenre}
+                      className={
+                        curGenre.current === el
+                          ? "main-genre-name-selected"
+                          : "main-genre-name"
+                      }
+                      key={el}
+                    >
+                      {el}
+                    </div>
+                  );
+                })}
+              </div>
               <div className="main-genre-img-wrap">
                 {curScenes.map((curScene, idx) => {
                   return (
