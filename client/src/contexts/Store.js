@@ -35,7 +35,7 @@ const Store = (props) => {
   // 유저 정보 호출, 로그인 상태 변경
   const isAuthenticated = () => {
     axios
-      .get("http://localhost:80/user", { withCredentials: true })
+      .get(`${process.env.REACT_APP_EC2_URL}/user`, { withCredentials: true })
       .then((res) => {
         setUserInfo(res.data);
         setIsLogin(true);
@@ -69,7 +69,7 @@ const Store = (props) => {
     // code를 가지고 서버에 요청을 보내어 악세스 토큰을 얻는다.
     axios
       .post(
-        "http://localhost:80/sign/google",
+        `${process.env.REACT_APP_EC2_URL}/sign/google`,
         {
           //code 전달
           authorizationCode: authorizationCode,

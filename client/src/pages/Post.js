@@ -51,7 +51,7 @@ function Post() {
   const getLikeinfo = () => {
     if (isLogin === false) return;
     axios
-      .get(`http://localhost:80/singlepost/like/${postId}`)
+      .get(`${process.env.REACT_APP_EC2_URL}/singlepost/like/${postId}`)
       .then((res) => {
         //console.log("like info => ", res);
         if (res.data.Like === null) {
@@ -70,7 +70,7 @@ function Post() {
   const onClickLikePost = () => {
     if (likeModal === false) {
       axios
-        .post(`http://localhost:80/singlepost/like/${postId}`)
+        .post(`${process.env.REACT_APP_EC2_URL}/singlepost/like/${postId}`)
         .then((res) => {
           //console.log("like res =>", res.data);
           setlikeModal(true);
@@ -81,7 +81,7 @@ function Post() {
         });
     } else if (likeModal === true) {
       axios
-        .delete(`http://localhost:80/singlepost/like/${likeId}`)
+        .delete(`${process.env.REACT_APP_EC2_URL}/singlepost/like/${likeId}`)
         .then((res) => {
           console.log("unlike res =>", res.data);
           setlikeModal(false);
@@ -95,7 +95,7 @@ function Post() {
   // 싱글 포스트 삭제하기
   const deletePost = () => {
     axios
-      .delete(`http://localhost:80/singlepost/${postId}`)
+      .delete(`${process.env.REACT_APP_EC2_URL}/singlepost/${postId}`)
       .then((res) => {
         console.log(res.data);
         history.push("/main");
@@ -108,7 +108,7 @@ function Post() {
   //싱글 포스트 수정하기
   const patchPostContent = () => {
     axios
-      .patch(`http://localhost:80/singlepost/${postId}`, {
+      .patch(`${process.env.REACT_APP_EC2_URL}/singlepost/${postId}`, {
         content: content,
       })
       .then((res) => {
@@ -131,7 +131,7 @@ function Post() {
   // 싱글포스트 가져오기
   const getSinglePost = () => {
     axios
-      .get(`http://localhost:80/singlepost/${postId}`)
+      .get(`${process.env.REACT_APP_EC2_URL}/singlepost/${postId}`)
       .then((res) => {
         setSinglePost(res);
         setuser(res.data.data.User.nickname);
@@ -147,7 +147,7 @@ function Post() {
   // 댓글 가져오기
   const getComments = () => {
     axios
-      .get(`http://localhost:80/comment/${postId}`)
+      .get(`${process.env.REACT_APP_EC2_URL}/comment/${postId}`)
       .then((res) => {
         //console.log("comment res ???", res.data.data);
         setComments(res.data.data); // 응답 데이터 확인 필요
@@ -164,7 +164,7 @@ function Post() {
   const postComment = () => {
     axios
       .post(
-        "http://localhost:80/comment",
+        `${process.env.REACT_APP_EC2_URL}/comment`,
         {
           singlepostid: postId,
           comment: writeComment,
@@ -188,7 +188,7 @@ function Post() {
   // 댓글 삭제하기
   const deleteComment = (e) => {
     axios
-      .delete(`http://localhost:80/comment/${e.target.id}`)
+      .delete(`${process.env.REACT_APP_EC2_URL}/comment/${e.target.id}`)
       .then((res) => {
         console.log(res);
         setCommentContent(commentContent - 1);

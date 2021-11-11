@@ -45,7 +45,7 @@ function Signup() {
     } else {
       setEmailErrMsg("");
       axios
-        .post("http://localhost:80/signup/takenemail", {
+        .post(`${process.env.REACT_APP_EC2_URL}/signup/takenemail`, {
           email: userinfo.email,
         })
         .then((res) => {
@@ -62,7 +62,8 @@ function Signup() {
   // 최소 8자~최대 16자, 대문자 1개 이상, 소문자 1개, 숫자 1개, 특수 문자 1개
   const passwordValidation = (e) => {
     const regExp =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
+      // /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     if (!regExp.test(e.target.value)) {
       setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
     } else {
@@ -82,7 +83,7 @@ function Signup() {
   // 닉네임 유효성 검사
   const nicknameValidation = (e) => {
     axios
-      .post("http://localhost:80/signup/takenname", {
+      .post(`${process.env.REACT_APP_EC2_URL}/signup/takenname`, {
         nickname: userinfo.nickname,
       })
       .then((res) => {
@@ -112,7 +113,7 @@ function Signup() {
       setErrMsg("");
       console.log("signup click");
       axios
-        .post("http://localhost:80/signup", {
+        .post(`${process.env.REACT_APP_EC2_URL}/signup`, {
           nickname: nickname,
           email: email,
           password: password,
