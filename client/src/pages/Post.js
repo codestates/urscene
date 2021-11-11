@@ -83,7 +83,6 @@ function Post() {
       axios
         .delete(`${process.env.REACT_APP_EC2_URL}/singlepost/like/${likeId}`)
         .then((res) => {
-          console.log("unlike res =>", res.data);
           setlikeModal(false);
         })
         .catch((err) => {
@@ -97,7 +96,6 @@ function Post() {
     axios
       .delete(`${process.env.REACT_APP_EC2_URL}/singlepost/${postId}`)
       .then((res) => {
-        console.log(res.data);
         history.push("/main");
       })
       .catch((err) => {
@@ -113,7 +111,6 @@ function Post() {
       })
       .then((res) => {
         setEditModal(false);
-        console.log(res.status);
       })
       .catch((err) => {
         console.log("patch content err => ", err);
@@ -149,9 +146,7 @@ function Post() {
     axios
       .get(`${process.env.REACT_APP_EC2_URL}/comment/${postId}`)
       .then((res) => {
-        //console.log("comment res ???", res.data.data);
         setComments(res.data.data); // 응답 데이터 확인 필요
-        //comments.concat(res.data.data);
       })
       .catch((err) => console.error(err));
   };
@@ -173,7 +168,6 @@ function Post() {
       )
       .then((res) => {
         writeCommentDeleted();
-        console.log("comment post res =>", res.data.data.comment);
         setCommentContent(commentContent + 1);
       })
       .catch((err) => {

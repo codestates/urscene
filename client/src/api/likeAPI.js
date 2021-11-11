@@ -16,7 +16,6 @@ const likeAPI = {
 
   // 갤러리 좋아요 추가 요청하기
   postGallery: async (galleryid) => {
-    console.log(galleryid);
     const result = await axios.post(
       `${process.env.REACT_APP_EC2_URL}/gallery/like/${galleryid}`,
     );
