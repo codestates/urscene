@@ -1572,7 +1572,7 @@ body {
   }
 
   .post-mycomment-group2 {
-    width: 300px;
+    width: 280px;
     height: auto;
     float: left;
     margin-left: 10px;
@@ -1603,7 +1603,6 @@ body {
     background-size: none;
     float: right;
     cursor: pointer;
-    margin-right: 27px;
   }
 
   /* Gallery 페이지*/
@@ -1933,11 +1932,10 @@ body {
   }
 
   .addModal {
-    width: 500px;
+    width: 270px;
     height: auto;
     background: #0059f7;
     border-radius: 10px;
-    margin: 0px auto 0 auto;
     text-align: center;
     position: relative;
     padding: 20px;
@@ -1945,28 +1943,29 @@ body {
 
   .add-text {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 40px;
     color: #ffffff;
     margin: 40px auto 0 auto;
   }
 
   .add-btn {
-    width: 300px;
+    width: 270px;
     height: 34px;
-    margin-top: 30px;
-    display: inline-block;
-    position: relative;
+    margin-top: 28px;
+    /* display: inline-block; */
+    /* position: relative; */
+    padding: 0 10px;
   }
 
   .add-btn-ok {
     float: left;
-    width: 59px;
+    width: 80px;
     height: 24px;
-    margin-left: 64px;
+    /* margin-left: 64px; */
     margin-top: 5px;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 24px;
     text-decoration-line: underline;
     color: #ffffff;
@@ -1975,20 +1974,20 @@ body {
 
   .add-btn-cancel {
     float: left;
-    width: 100px;
+    width: 80px;
     height: 34px;
     margin-left: 34px;
     background: #ffffff;
     border-radius: 8px;
     border-width: 0px;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 24px;
     color: #000000;
     cursor: pointer;
   }
 
   .addModal-input {
-    width: 300px;
+    width: 220px;
     height: 40px;
     outline-style: none;
     border: none;
@@ -2004,12 +2003,12 @@ body {
 
   .addModal-input::placeholder {
     color: #000;
-    font-size: 18px;
+    font-size: 16px;
     /* text-align: center; */
   }
 
   .addModal-input-drop {
-    width: 300px;
+    width: 220px;
     height: 40px;
     outline-style: none;
     border: none;
@@ -2022,7 +2021,7 @@ body {
   }
 
   .addModal-Drop {
-    width: 300px;
+    width: 220px;
     /* float: none; */
     background-color: white;
     list-style-type: none;
@@ -2032,7 +2031,7 @@ body {
     border-radius: 0 0 1rem 1rem;
     box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
     z-index: 3;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 21px;
   }
 
