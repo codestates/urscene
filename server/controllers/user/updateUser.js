@@ -15,9 +15,9 @@ module.exports = async (req, res) => {
 		if (!validPassword) {
 			return res.status(400).json({ newPassword, message: "invalid-new-password" })
 		}
-		// if (newPassword === password) {
-		// 	return res.status(409).json({ newPassword, message: "recently-used-name" })
-		// }
+		if (newPassword === password) {
+			return res.status(409).json({ newPassword, message: "recently-used-name" })
+		}
 		if (newName === nickname) {
 			return res.status(409).json({ newName, message: "recently-used-name" })
 		}
