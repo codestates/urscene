@@ -71,8 +71,12 @@ function Login() {
         console.log("login err message=>", err);
       });
   };
-
-  const GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=959612957922-pvqhroqpti2v6h36vveiargmchk1v9cr.apps.googleusercontent.com&redirect_uri=https://urscene.de/login&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email`;
+  console.log(
+    "process.env.REACT_APP_GOOGLEID==",
+    process.env.REACT_APP_GOOGLEID,
+  );
+  console.log("process.env.REACT_APP_KAKAOID==", process.env.REACT_APP_KAKAOID);
+  const GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.REACT_APP_GOOGLEID}&redirect_uri=https://urscene.de/login&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email`;
 
   const googleLoginHandler = () => {
     console.log("googleLoginHandler 함수 시작");
@@ -80,7 +84,7 @@ function Login() {
     window.location.assign(GOOGLE_LOGIN_URL);
   };
 
-  const url = `https://kauth.kakao.com/oauth/authorize?client_id=a87651345b7491d42793ae30327c6fb0&redirect_uri=https://urscene.de&response_type=code`;
+  const url = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAOID}&redirect_uri=https://urscene.de&response_type=code`;
   const socialLoginHandler = () => {
     window.location.assign(url);
   };
