@@ -9,8 +9,6 @@ function Comment({ comments, userInfo, deleteComment }) {
   const imgId = { 0: Jake, 1: Meg, 2: Mili, 3: Steven };
   const [userImg] = useState(imgId[comments.User.image]);
 
-  //console.log("comment userinfo =>", isUser);
-  //console.log("comments userinfo =>", comments.User);
   return (
     <>
       <div className="post-mycomment">
