@@ -26,12 +26,10 @@ function Signup() {
     password: "",
     passwordCheck: "",
   });
-  console.log("userinfo =>", userinfo);
 
   const userImg = [Jake, Meg, Mili, Steven];
   const [curImg, setCurImg] = useState(userImg[0]);
   const [selectImg, setSelectImg] = useState("");
-  console.log("curImg =>", curImg);
 
   const handleInputValue = (key) => (e) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
@@ -100,7 +98,6 @@ function Signup() {
   const clickUserImage = (e) => {
     setCurImg(e.target.src);
     setSelectImg(e.target.alt);
-    console.log("click img =>", e.target.alt);
   };
 
   // 회원가입
@@ -111,7 +108,6 @@ function Signup() {
       setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
     } else {
       setErrMsg("");
-      console.log("signup click");
       axios
         .post(`${process.env.REACT_APP_EC2_URL}/signup`, {
           nickname: nickname,
@@ -120,7 +116,6 @@ function Signup() {
           image: selectImg,
         })
         .then((res) => {
-          console.log("signup success");
           setModal(!modal);
         })
         .catch((err) => {

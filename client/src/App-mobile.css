@@ -1616,7 +1616,7 @@ body {
 
   .gallerywrap {
     width: 86vw;
-    height: auto;
+    min-height: 600px;
     padding-top: 22px;
     padding-bottom: 43px;
   }
@@ -2546,6 +2546,7 @@ body {
     display: inline-block;
     margin-top: 7px;
     outline: none;
+    font-size: 16px;
   }
 
   .MP-movie > input {
@@ -2614,9 +2615,9 @@ body {
 
   #dropdown {
     text-align: center;
-    margin: 8px;
+    margin: 7px;
     color: rgb(182, 182, 182);
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .MP-photo-wrap {
@@ -3054,6 +3055,7 @@ body {
     bottom: 90px;
     padding: 12px;
     cursor: pointer;
+    z-index: 9999;
   }
 
   .topbutton > div {
@@ -3075,6 +3077,7 @@ body {
     bottom: 90px;
     padding: 12px;
     cursor: pointer;
+    z-index: 99;
   }
 
   .backbutton > div {
@@ -3096,6 +3099,7 @@ body {
     bottom: 20px;
     padding: 15px;
     cursor: pointer;
+    z-index: 99;
   }
 
   .homebutton > div {
@@ -3117,6 +3121,7 @@ body {
     bottom: 20px;
     padding: 15px;
     cursor: pointer;
+    z-index: 99;
   }
 
   .addbutton > div {
@@ -3138,6 +3143,7 @@ body {
     bottom: 20px;
     padding: 15px;
     cursor: pointer;
+    z-index: 99;
   }
 
   .userbutton > div {

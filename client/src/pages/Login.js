@@ -14,7 +14,6 @@ function Login() {
     email: "",
     password: "",
   });
-  console.log(userinfo);
   const [emailErrMsg, setEmailErrMsg] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [loginErrMsg, setLoginErrMsg] = useState(""); // 가입이 되지 않은 경우 에러
@@ -72,13 +71,14 @@ function Login() {
         console.log("login err message=>", err);
       });
   };
-  const GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.REACT_APP_GOOGLEID}&redirect_uri=http://localhost:3000/login&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email`;
+
+  const GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.REACT_APP_GOOGLEID}&redirect_uri=https://urscene.de&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email`;
 
   const googleLoginHandler = () => {
     window.location.assign(GOOGLE_LOGIN_URL);
   };
 
-  const url = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAOID}&redirect_uri=http://localhost:3000&response_type=code`;
+  const url = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAOID}&redirect_uri=https://urscene.de&response_type=code`;
   const socialLoginHandler = () => {
     window.location.assign(url);
   };

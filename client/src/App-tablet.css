@@ -434,7 +434,7 @@ body {
     text-align: center;
     margin: 8px;
     color: rgb(182, 182, 182);
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .MP-movie > select {
@@ -516,7 +516,7 @@ body {
     padding: 16px;
     margin-top: 8px;
     color: #7c9cbf;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 21px;
     outline: none;
     resize: none;
@@ -524,7 +524,7 @@ body {
 
   .MP-box-wrap > textarea::placeholder {
     color: #7c9cbf;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .MP-btn-wrap {
@@ -882,10 +882,9 @@ body {
   }
 
   .main-genre-name-wrap {
-    height: 50px;
+    height: 100px;
     display: flex;
     flex-wrap: wrap;
-    overflow: scroll;
   }
 
   .main-genre-name-wrap::-webkit-scrollbar {
