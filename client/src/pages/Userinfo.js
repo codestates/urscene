@@ -26,9 +26,9 @@ function Userinfo() {
   const [nickErrMsg, setNickErrMsg] = useState(""); // 닉네임 에러 메세지
   const [nickCheckMsg, setNickCheckMsg] = useState(""); // 닉네임 사용가능 메세지
   const [userinfo, setuserinfo] = useState({
-    nickname: "",
-    password: "",
-    passwordCheck: "",
+    nickname: null,
+    password: null,
+    passwordCheck: null,
   });
 
   const handleInputValue = (key) => (e) => {
@@ -61,7 +61,9 @@ function Userinfo() {
     const regExp =
       // /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-    if (!regExp.test(e.target.value)) {
+    if (!e.target.value) {
+      setpwErrMsg("");
+    } else if (!regExp.test(e.target.value)) {
       setpwErrMsg("8자 이상, 영문, 숫자 및 특수문자를 사용하세요");
     } else {
       setpwErrMsg("");
@@ -79,32 +81,35 @@ function Userinfo() {
 
   // 회원정보 수정 요청
   const handleChangeUserInfo = () => {
-    const { nickname, password, passwordCheck } = userinfo;
-    if (!password || !passwordCheck || !nickname) {
-      setErrMsg("필수 정보입니다.");
-      setpwErrMsg("8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
-    } else {
-      setErrMsg("");
-      axios
-        .patch(`${process.env.REACT_APP_EC2_URL}/user`, {
-          newName: nickname,
-          newPassword: password,
-          newImage: selectImg,
-        })
-        .then((res) => {
-          axios
-            .get(`${process.env.REACT_APP_EC2_URL}/user`, {
-              withCredentials: true,
-            })
-            .then((res) => {
-              setUserInfo(res.data);
-              window.location.replace("/mygallery");
-            });
-        })
-        .catch((err) => {
-          console.log("userinfo err message =>", err);
-        });
+    setErrMsg("");
+    const { nickname, password, newImage } = userinfo;
+    const patchBody = {};
+    if (!!nickname) {
+      patchBody.newName = nickname;
     }
+    if (!!password) {
+      patchBody.newPassword = password;
+    }
+    if (!!newImage) {
+      patchBody.newImage = newImage;
+    }
+
+    axios
+      .patch(`${process.env.REACT_APP_EC2_URL}/user`, { patchBody })
+      .then((res) => {
+        console.log("save success", res.data);
+        axios
+          .get(`${process.env.REACT_APP_EC2_URL}/user`, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            setUserInfo(res.data);
+            window.location.replace("/mygallery");
+          });
+      })
+      .catch((err) => {
+        console.log("userinfo err message =>", err);
+      });
   };
 
   // 로그아웃 요청
@@ -196,9 +201,7 @@ function Userinfo() {
                   onChange={handleInputValue("nickname")}
                   className="ui-nickname-input"
                 ></input>
-                {userinfo.nickname === "" ? (
-                  <div className="ui-nickname-warning">{errMsg}</div>
-                ) : nickErrMsg ? (
+                {userinfo.nickname === "" ? null : nickErrMsg ? ( // <div className="ui-nickname-warning">{errMsg}</div>n
                   <div className="ui-nickname-warning">{nickErrMsg}</div>
                 ) : (
                   <div className="ui-nickname-ok">{nickCheckMsg}</div>

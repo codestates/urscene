@@ -485,6 +485,7 @@ body {
     color: #7c9cbf;
     font-size: 16px;
     line-height: 21px;
+    white-space: pre-wrap;
   }
 
   .MP-btn-wrap {
@@ -894,11 +895,6 @@ body {
     line-height: 18px;
     color: #ff7171;
     text-align: left;
-  }
-
-  .loginErrMsg {
-    color: #ff7171;
-    margin-top: 10px;
   }
 
   /* Login 페이지 비밀번호 그룹 */
@@ -2715,6 +2711,7 @@ body {
     border: 1px solid #7c9cbf;
     border-radius: 6px;
     resize: none;
+    white-space: pre-wrap;
   }
 
   .gallery-descinput:focus {
@@ -2724,13 +2721,14 @@ body {
 
   .gallery-desc {
     width: 765px;
-    height: 76px;
+    height: auto;
     float: left;
     font-weight: normal;
     font-size: 26px;
     line-height: 30px;
     color: #d0d0d0;
     text-align: left;
+    margin-bottom: 10px;
   }
 
   .gallery-likeGroup {

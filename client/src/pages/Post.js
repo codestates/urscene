@@ -246,6 +246,7 @@ function Post() {
             // 장면 설명 수정
             <>
               <textarea
+                wrap="hard"
                 onChange={handleChangeContent}
                 className="post-editdesc"
               >
@@ -253,7 +254,9 @@ function Post() {
               </textarea>
             </>
           ) : (
-            <div className="post-desc">{content}</div>
+            <div className="post-desc">
+              <pre>{content}</pre>
+            </div>
           )}
           <div className="post-devider" />
           <div
