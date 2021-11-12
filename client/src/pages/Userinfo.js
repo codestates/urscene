@@ -63,7 +63,9 @@ function Userinfo() {
     const regExp =
       // /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-    if (!regExp.test(e.target.value)) {
+    if (!e.target.value) {
+      setpwErrMsg("");
+    } else if (!regExp.test(e.target.value)) {
       setpwErrMsg("8자 이상, 영문, 숫자 및 특수문자를 사용하세요");
     } else {
       setpwErrMsg("");
@@ -81,7 +83,7 @@ function Userinfo() {
 
   // 회원정보 수정 요청
   const handleChangeUserInfo = () => {
-    const { nickname, password, passwordCheck } = userinfo;
+    const { nickname, password } = userinfo;
     setErrMsg("");
     console.log("save click");
     axios
@@ -197,9 +199,7 @@ function Userinfo() {
                   onChange={handleInputValue("nickname")}
                   className="ui-nickname-input"
                 ></input>
-                {userinfo.nickname === "" ? (
-                  <div className="ui-nickname-warning">{errMsg}</div>
-                ) : nickErrMsg ? (
+                {userinfo.nickname === "" ? null : nickErrMsg ? ( // <div className="ui-nickname-warning">{errMsg}</div>n
                   <div className="ui-nickname-warning">{nickErrMsg}</div>
                 ) : (
                   <div className="ui-nickname-ok">{nickCheckMsg}</div>
