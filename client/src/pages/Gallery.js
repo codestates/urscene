@@ -158,6 +158,7 @@ function Gallery() {
             <div className="gallery-group2">
               {editModal ? (
                 <textarea
+                  wrap="hard"
                   className="gallery-descinput"
                   value={contentGallery}
                   onChange={(e) => {
@@ -166,7 +167,9 @@ function Gallery() {
                 ></textarea>
               ) : (
                 <div className="gallery-desc-group">
-                  <div className="gallery-desc">{contentGallery}</div>
+                  <div className="gallery-desc">
+                    <pre>{contentGallery}</pre>
+                  </div>
                   <div className="gallery-likeGroup">
                     {userInfo === null ? null : (
                       <div
