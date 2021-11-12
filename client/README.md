@@ -33,7 +33,7 @@
 - JWT, Oauth 2.0
 - Sequelize
 - mysql
-- 
+
 ### Deploy
 - AWS S3
 - AWS EC2
