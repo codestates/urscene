@@ -82,7 +82,7 @@ function Userinfo() {
   // 회원정보 수정 요청
   const handleChangeUserInfo = () => {
     setErrMsg("");
-    const { nickname, password, selectImg } = userinfo;
+    const { nickname, password } = userinfo;
     const patchBody = {};
     if (!!nickname) {
       patchBody.newName = nickname;
