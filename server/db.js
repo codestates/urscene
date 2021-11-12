@@ -9,11 +9,10 @@ module.exports = {
 	addUser: async (data) => await User.create(data),
 	addGoogleUser: async (email) =>
 		await User.findOrCreate({ where: { email }, defaults: { nickname: email.slice(0, email.indexOf("@")), image: 1 } }),
-	updateUser: async (data) =>
-		await User.update(
-			{ password: data.hashPassword, nickname: data.newName, image: data.newImage },
-			{ raw: true, where: { id: data.id } }
-		),
+	updateName: async (id, newName) => await User.update({ nickname: newName }, { raw: true, where: { id } }),
+	updatePassword: async (id, hashPassword) =>
+		await User.update({ password: hashPassword }, { raw: true, where: { id } }),
+	updateImage: async (id, newImage) => await User.update({ image: newImage }, { raw: true, where: { id } }),
 	deleteUser: async (id) => await User.destroy({ where: { id } }),
 	addGallery: async (data) => await Gallerypost.create(data),
 	addSinglepostToGallery: async (data) => await Singlepost_gallerypost.create(data),
