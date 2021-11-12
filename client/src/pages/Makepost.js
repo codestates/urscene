@@ -243,6 +243,7 @@ function Makepost() {
             <div className="MP-box-wrap">
               <div className="MP-sub-title">장면 설명</div>
               <textarea
+                wrap="hard"
                 name=""
                 id="textarea"
                 placeholder="사진에 대해 설명해주세요"
