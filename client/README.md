@@ -17,5 +17,29 @@
 |[kangseokho](https://github.com/kangseokho)|[usreon](https://github.com/kangseokho)| [dddttt000](https://github.com/dddttt000)|[LeeSangHeon](https://github.com/LeeSangHeon86) |
 
 ## 3. 프로젝트 결과물
-[너의장면은](https://urscene.de)에서 확인할 수 있습니다.
+[너의장면은](https://urscene.de)
 
+## 4. 주요 기술 스택
+
+### FrontEnd
+- React
+- React Hooks
+- React-router-dom
+- AXIOS
+
+### BackEnd
+- Node.js
+- express
+- JWT, Oauth 2.0
+- Sequelize
+- mysql
+- 
+### Deploy
+- AWS S3
+- AWS EC2
+- AWS RDS
+- AWS Route53
+- AWS cloutFront
+- AWS Codepipeline
+
+상세한 기술 스택은 [개인별 기술 스택](https://github.com/codestates/urscene/wiki/Team-Introduction) 해당 링크에서 참조하세요
