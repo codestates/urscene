@@ -205,9 +205,7 @@ function Userinfo() {
                   onChange={handleInputValue("nickname")}
                   className="ui-nickname-input"
                 ></input>
-                {userinfo.nickname === "" ? (
-                  <div className="ui-nickname-warning">{errMsg}</div>
-                ) : nickErrMsg ? (
+                {userinfo.nickname === "" ? null : nickErrMsg ? ( // <div className="ui-nickname-warning">{errMsg}</div>n
                   <div className="ui-nickname-warning">{nickErrMsg}</div>
                 ) : (
                   <div className="ui-nickname-ok">{nickCheckMsg}</div>
