@@ -896,6 +896,11 @@ body {
     text-align: left;
   }
 
+  .loginErrMsg {
+    color: #ff7171;
+    margin-top: 10px;
+  }
+
   /* Login 페이지 비밀번호 그룹 */
   .lin-password {
     width: 400px;
