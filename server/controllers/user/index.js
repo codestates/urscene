@@ -4,4 +4,6 @@ module.exports = {
 	withdrawUser: require("./withdrawUser"),
 	getLikedSinglepost: require("./getLikedSinglepost"),
 	getLikedGallery: require("./getLikedGallery"),
+	mysinglepost: require("./mysinglepost"),
+	myGallery: require("./myGallery"),
 }
