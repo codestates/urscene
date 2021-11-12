@@ -17,7 +17,6 @@ module.exports = async (req, res) => {
 		.catch((err) => {
 			console.log(err)
 		})
-	console.log("tokenData-----------------------------------", tokenData)
 	const access_token = tokenData.data.access_token
 	const googleAPI = `https://www.googleapis.com/oauth2/v2/userinfo?access_token=${access_token}`
 	const googleUser = await axios
@@ -29,12 +28,9 @@ module.exports = async (req, res) => {
 		.catch((err) => {
 			console.log(err)
 		})
-
-	console.log("googleUser===============================", googleUser)
 	const userInfo = googleUser.data
 	const email = userInfo.email
 	const [result, created] = await db.addGoogleUser(email)
-	console.log("result====================", result)
 	const user = result.dataValues
 	const { id } = user
 	const sortedUUID = uuid()
