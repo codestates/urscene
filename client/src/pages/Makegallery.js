@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useState } from "react";
 import MainNav from "../components/MainNav";
 import MainFooter from "../components/MainFooter";

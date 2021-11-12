@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
@@ -37,9 +38,8 @@ function ResultGallery({ gallery }) {
         <div className="RG-img-wrap">
           {rendering.map((ele) => {
             return (
-              <div className="RG-img">
+              <div className="RG-img" key={ele.id}>
                 <img
-                  key={ele.id}
                   src={`${process.env.REACT_APP_S3_URL_ImageUpload}/${ele.image}`}
                   alt=""
                 />

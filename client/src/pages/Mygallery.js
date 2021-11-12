@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useState, useContext, useEffect } from "react";
 import { MyContext } from "../contexts/Store";
 import { Link } from "react-router-dom";
@@ -101,8 +102,8 @@ function Mygallery() {
       const result = await sceneAPI.userLike();
       setHaveLikeScenes(result);
       setRenderLikeScenes(result.slice(0, likeScenePerPage));
-    } catch (err) {
-      console.log(err);
+    } catch {
+      return;
     }
   };
 

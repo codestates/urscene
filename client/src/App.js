@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import "./App-mobile.css";
 import "./App-tablet.css";
 import "./App-pc.css";

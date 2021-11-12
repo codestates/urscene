@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useEffect, useRef, useState } from "react";
 import MainNav from "../components/MainNav";
 import NoResult from "../components/NoResult";
