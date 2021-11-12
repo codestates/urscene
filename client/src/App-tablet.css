@@ -1190,6 +1190,11 @@ body {
     text-align: left;
   }
 
+  .loginErrMsg {
+    color: #ff7171;
+    margin-top: 10px;
+  }
+
   /* Login page - 로그인 버튼 */
   #lin-btnLogin {
     width: 360px;
@@ -1199,12 +1204,10 @@ body {
     margin-right: auto;
     background: #0059f7;
     border-radius: 8px;
-    padding: 0px;
+    padding: 18px;
     border: 0px;
-    font-weight: 500;
     font-size: 18px;
     line-height: 24px;
-    /* identical to box height, or 133% */
     color: #ffffff;
 
     cursor: pointer;
@@ -2780,7 +2783,7 @@ body {
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: flex-start;
     margin: 0px auto;
   }
   /* 모든 갤러리 보기 페이지 끝 */
@@ -2822,7 +2825,7 @@ body {
     height: auto;
     display: flex;
     flex-flow: wrap;
-    justify-content: start;
+    justify-content: flex-start;
   }
 
   .RG-img {

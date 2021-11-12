@@ -942,6 +942,11 @@ body {
     text-align: left;
   }
 
+  .loginErrMsg {
+    color: #ff7171;
+    margin-top: 10px;
+  }
+
   /* Login page - 로그인 버튼 */
   #lin-btnLogin {
     width: 400px;

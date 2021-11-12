@@ -17,15 +17,13 @@ function Login() {
   const [emailErrMsg, setEmailErrMsg] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [loginErrMsg, setLoginErrMsg] = useState(""); // 가입이 되지 않은 경우 에러
-  const [testEmail, setTestEmail] = useState("");
-  const [testPassword, setTestPassword] = useState("");
 
   const handleInputValue = (key) => (e) => {
     setuserinfo({ ...userinfo, [key]: e.target.value });
   };
 
   const emailValidation = (e) => {
-    const regExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const regExp = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
     if (!regExp.test(e.target.value)) {
       setEmailErrMsg("이메일 형식이 맞지 않습니다.");
     } else {
@@ -78,7 +76,6 @@ function Login() {
   console.log("process.env.REACT_APP_KAKAOID==", process.env.REACT_APP_KAKAOID);
   const GOOGLE_LOGIN_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.REACT_APP_GOOGLEID}&redirect_uri=https://urscene.de/login&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email`;
 
-
   const googleLoginHandler = () => {
     console.log("googleLoginHandler 함수 시작");
     console.log("gGOOGLE_LOGIN_URL ==", GOOGLE_LOGIN_URL);
@@ -121,6 +118,7 @@ function Login() {
                 <div className="lin-password-warning">{errMsg}</div>
               ) : null}
             </div>
+            <div className="loginErrMsg">{loginErrMsg}</div>
             <div type="submit" id="lin-btnLogin" onClick={handleLogin}>
               로그인
             </div>

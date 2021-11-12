@@ -18,7 +18,7 @@ function Userinfo() {
 
   const userImg = [Jake, Meg, Mili, Steven];
   const [curImg, setCurImg] = useState(userImg[userInfo.image]);
-  const [selectImg, setSelectImg] = useState(userInfo.image);
+  const [, setSelectImg] = useState(userInfo.image);
   const [modal, setModal] = useState(false);
   const [editImg, setEditImg] = useState(false);
   const [errMsg, setErrMsg] = useState(""); // 공통 에러 메세지
