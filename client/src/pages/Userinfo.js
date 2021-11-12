@@ -27,9 +27,9 @@ function Userinfo() {
   const [nickErrMsg, setNickErrMsg] = useState(""); // 닉네임 에러 메세지
   const [nickCheckMsg, setNickCheckMsg] = useState(""); // 닉네임 사용가능 메세지
   const [userinfo, setuserinfo] = useState({
-    nickname: "",
-    password: "",
-    passwordCheck: "",
+    nickname: null,
+    password: null,
+    passwordCheck: null,
   });
 
   const handleInputValue = (key) => (e) => {
@@ -83,15 +83,21 @@ function Userinfo() {
 
   // 회원정보 수정 요청
   const handleChangeUserInfo = () => {
-    const { nickname, password } = userinfo;
     setErrMsg("");
-    console.log("save click");
+    const { nickname, password, newImage } = userinfo;
+    const patchBody = {};
+    if (!!nickname) {
+      patchBody.newName = nickname;
+    }
+    if (!!password) {
+      patchBody.newPassword = password;
+    }
+    if (!!newImage) {
+      patchBody.newImage = newImage;
+    }
+
     axios
-      .patch(`${process.env.REACT_APP_EC2_URL}/user`, {
-        newName: nickname,
-        newPassword: password,
-        newImage: selectImg,
-      })
+      .patch(`${process.env.REACT_APP_EC2_URL}/user`, { patchBody })
       .then((res) => {
         console.log("save success", res.data);
         axios
