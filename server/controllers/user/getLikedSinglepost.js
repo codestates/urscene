@@ -6,10 +6,6 @@ module.exports = async (req, res) => {
 		const userToken = isAuthorized(req)
 		const { id } = userToken
 		const likedSinglepost = await db.getLikedSinglepostById(id)
-		if (likedSinglepost.length === 0) {
-			return res.status(404).json({ message: "data-not-found" })
-		}
-
 		const singlepost_id = likedSinglepost.map((el) => el.singlepost_id)
 		const likedSinglepostData = []
 		for (const id of singlepost_id) {
