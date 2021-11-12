@@ -546,6 +546,12 @@ body {
     text-align: left;
   }
 
+  .loginErrMsg {
+    color: #ff7171;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
   /* Login page - 로그인 버튼 */
   #lin-btnLogin {
     width: 86vw;
@@ -2473,7 +2479,7 @@ body {
     height: auto;
     display: flex;
     flex-flow: wrap;
-    justify-content: start;
+    justify-content: flex-start;
   }
 
   .RG-img {

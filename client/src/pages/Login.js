@@ -24,7 +24,7 @@ function Login() {
   };
 
   const emailValidation = (e) => {
-    const regExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const regExp = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
     if (!regExp.test(e.target.value)) {
       setEmailErrMsg("이메일 형식이 맞지 않습니다.");
     } else {
@@ -111,6 +111,7 @@ function Login() {
                 <div className="lin-password-warning">{errMsg}</div>
               ) : null}
             </div>
+            <div className="loginErrMsg">{loginErrMsg}</div>
             <div type="submit" id="lin-btnLogin" onClick={handleLogin}>
               로그인
             </div>

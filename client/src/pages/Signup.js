@@ -38,7 +38,7 @@ function Signup() {
 
   // 이메일 유효성 검사
   const emailValidation = (e) => {
-    const regExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const regExp = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
     if (!regExp.test(e.target.value)) {
       setEmailErrMsg("이메일 형식이 맞지 않습니다.");
     } else {
