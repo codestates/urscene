@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
 import MainNav from "../components/MainNav";

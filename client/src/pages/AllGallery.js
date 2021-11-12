@@ -1,8 +1,8 @@
+/*eslint-disable*/
 import React, { useEffect, useRef, useState } from "react";
 import MainNav from "../components/MainNav";
 import MainFooter from "../components/MainFooter";
 import TopButton from "../components/TopButton";
-import BestGallery from "../components/BestGallery";
 import ResultGallery from "../components/ResultGallery";
 import useIntersectionObserver from "../customHook/useIntersectionObserver";
 import searchAPI from "../api/searchAPI";

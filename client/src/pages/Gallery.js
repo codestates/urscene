@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useEffect, useContext, useState } from "react";
 import MainNav from "../components/MainNav";
 import GalleryContent from "../components/GalleryContent";

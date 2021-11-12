@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import galleryAPI from "../api/galleryAPI";
@@ -18,7 +19,7 @@ function BestGallery({ gallery }) {
 
   useEffect(() => {
     handleGetScenes();
-  }, [gallery]);
+  }, [gallery, scenes]);
 
   return (
     <div>
