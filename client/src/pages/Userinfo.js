@@ -17,7 +17,7 @@ function Userinfo() {
   const { userInfo, setUserInfo } = useContext(MyContext); // 유저 정보를 확인
   const userImg = [Jake, Meg, Mili, Steven];
   const [curImg, setCurImg] = useState(userImg[userInfo.image]);
-  const [, setSelectImg] = useState(userInfo.image);
+  const [selectImg, setSelectImg] = useState(userInfo.image);
   const [modal, setModal] = useState(false);
   const [editImg, setEditImg] = useState(false);
   const [errMsg, setErrMsg] = useState(""); // 공통 에러 메세지
@@ -82,7 +82,7 @@ function Userinfo() {
   // 회원정보 수정 요청
   const handleChangeUserInfo = () => {
     setErrMsg("");
-    const { nickname, password, newImage } = userinfo;
+    const { nickname, password, selectImg } = userinfo;
     const patchBody = {};
     if (!!nickname) {
       patchBody.newName = nickname;
@@ -90,8 +90,8 @@ function Userinfo() {
     if (!!password) {
       patchBody.newPassword = password;
     }
-    if (!!newImage) {
-      patchBody.newImage = newImage;
+    if (!!selectImg) {
+      patchBody.newImage = selectImg;
     }
 
     axios
