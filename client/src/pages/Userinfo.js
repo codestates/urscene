@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useState, useContext } from "react";
 import { MyContext } from "../contexts/Store";
 import MainNav from "../components/MainNav";
@@ -14,8 +15,6 @@ axios.defaults.withCredentials = true;
 
 function Userinfo() {
   const { userInfo, setUserInfo } = useContext(MyContext); // 유저 정보를 확인
-  console.log(userInfo, "=> userinfo page");
-
   const userImg = [Jake, Meg, Mili, Steven];
   const [curImg, setCurImg] = useState(userImg[userInfo.image]);
   const [, setSelectImg] = useState(userInfo.image);
@@ -49,7 +48,6 @@ function Userinfo() {
       )
       .then((res) => {
         setNickErrMsg("");
-        console.log("nicname res ???", res);
         setNickCheckMsg("사용 가능한 닉네임입니다.");
       })
       .catch((err) => {
@@ -119,7 +117,6 @@ function Userinfo() {
     axios
       .post(`${process.env.REACT_APP_EC2_URL}/signout`)
       .then((res) => {
-        console.log("signout success", res);
         window.location.replace("/main");
         window.sessionStorage.removeItem("userInfo");
         window.sessionStorage.removeItem("isLogin");
@@ -137,7 +134,6 @@ function Userinfo() {
         accept: "application/json",
       })
       .then((res) => {
-        console.log("delete success");
         window.location.replace("/");
         window.sessionStorage.removeItem("userInfo");
         window.sessionStorage.removeItem("isLogin");

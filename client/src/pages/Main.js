@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
@@ -98,13 +99,16 @@ function Main() {
   };
 
   const changeCurGenre = (e) => {
+    if (curGenre.current === e.target.innerText) return;
     curScenePage.current = 1;
     curGenre.current = e.target.innerText;
     setCurScenes([]);
+    handleCurrentScene();
     setAddSceneIcon(false);
   };
 
   useEffect(() => {
+    // setCurScenes([]);
     handleCurrentScene();
   }, [curGenre.current]);
 
@@ -158,16 +162,11 @@ function Main() {
               <div className="main-text-all">모든 장면 보기</div>
             </Link>
             <div className="main-genre-category-wrap">
-              <div
-                className="main-genre-name-wrap"
-                // onScroll={() => {
-                //   console.log("123");
-                // }}
-              >
+              <div className="main-genre-name-wrap">
                 {genres.map((el) => {
                   return (
                     <div
-                      onClick={changeCurGenre}
+                      onClick={(e) => changeCurGenre(e)}
                       className={
                         curGenre.current === el
                           ? "main-genre-name-selected"

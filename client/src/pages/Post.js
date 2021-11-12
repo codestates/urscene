@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React, { useState, useEffect, useContext } from "react";
 import { MyContext } from "../contexts/Store";
 import MainNav from "../components/MainNav";
@@ -184,7 +185,6 @@ function Post() {
     axios
       .delete(`${process.env.REACT_APP_EC2_URL}/comment/${e.target.id}`)
       .then((res) => {
-        console.log(res);
         setCommentContent(commentContent - 1);
       })
       .catch((err) => {
