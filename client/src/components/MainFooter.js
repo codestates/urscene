@@ -18,7 +18,7 @@ function MainFooter() {
             <div className="contact-front">
               <div className="mF-UI-text">Front</div>
               <a
-                href="https://github.com/LeeSangHeon86/urscene"
+                href="https://github.com/LeeSangHeon86"
                 target="_blank"
                 className="mF-contact-name"
                 rel="noreferrer"
@@ -26,7 +26,7 @@ function MainFooter() {
                 이상헌
               </a>
               <a
-                href="https://github.com/dddtttt000/urscene"
+                href="https://github.com/dddtttt000"
                 target="_blank"
                 className="mF-contact-name"
                 rel="noreferrer"
@@ -38,7 +38,7 @@ function MainFooter() {
               <div className="mF-UI-text"> Back </div>
 
               <a
-                href="https://github.com/kangseokho/urscene"
+                href="https://github.com/kangseokho"
                 target="_blank"
                 className="mF-contact-name"
                 rel="noreferrer"
@@ -46,7 +46,7 @@ function MainFooter() {
                 강석호
               </a>
               <a
-                href="https://github.com/usreon/urscene"
+                href="https://github.com/usreon"
                 target="_blank"
                 className="mF-contact-name"
                 rel="noreferrer"
