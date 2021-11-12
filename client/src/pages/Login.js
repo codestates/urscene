@@ -120,6 +120,7 @@ function Login() {
                 <div className="lin-password-warning">{errMsg}</div>
               ) : null}
             </div>
+            <div className="loginErrMsg">{loginErrMsg}</div>
             <div type="submit" id="lin-btnLogin" onClick={handleLogin}>
               로그인
             </div>
