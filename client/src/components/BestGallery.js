@@ -19,7 +19,7 @@ function BestGallery({ gallery }) {
 
   useEffect(() => {
     handleGetScenes();
-  }, [gallery, scenes]);
+  }, [gallery]);
 
   return (
     <div>
