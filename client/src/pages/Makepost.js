@@ -206,7 +206,7 @@ function Makepost() {
             </div>
             <div className="MP-photo-wrap">
               <div className="MP-sub-title">사진 선택</div>
-              <label className="MP-photo-label" htmlfor="ex-file">
+              <label className="MP-photo-label" for="ex-file">
                 선택하기
               </label>
               <input
