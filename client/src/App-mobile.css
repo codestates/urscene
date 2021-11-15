@@ -369,13 +369,37 @@ body {
     margin: 13px auto;
   }
 
-  .landing-2-img {
+  .landing-2-img-1 {
     width: 310px;
     height: 263px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* display: inline-block; */
     vertical-align: middle;
     margin-top: 40px;
+    background: url("../src/img/makepost.gif");
+    background-size: cover;
+  }
+
+  .landing-2-img-2 {
+    width: 310px;
+    height: 263px;
+    /* border: 1px solid red; */
+    /* display: inline-block; */
+    vertical-align: middle;
+    margin-top: 40px;
+    background: url("../src/img/makegallery.gif");
+    background-size: cover;
+  }
+
+  .landing-2-img-3 {
+    width: 310px;
+    height: 263px;
+    /* border: 1px solid red; */
+    /* display: inline-block; */
+    vertical-align: middle;
+    margin-top: 40px;
+    background: url("../src/img/makelike.gif");
+    background-size: cover;
   }
 
   .landing-2-text-sub {

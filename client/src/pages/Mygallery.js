@@ -221,10 +221,10 @@ function Mygallery() {
             )}
           </div>
           <div className="my-g-scene-wrap">
-            <div className="my-g-sub-title">갤러리 리스트</div>
+            <div className="my-g-sub-title">나의 갤러리들</div>
             <div className="my-g-add-list-wrap">
               <Link to="/makegallery">
-                <div className="my-g-add-text">리스트추가</div>
+                <div className="my-g-add-text">갤러리추가</div>
               </Link>
               <div className="my-g-add-icon"></div>
             </div>

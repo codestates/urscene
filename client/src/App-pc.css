@@ -1382,15 +1382,40 @@ body {
     color: white;
   }
 
-  .landing-2-img {
+  .landing-2-img-1 {
     width: 400px;
     height: 300px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: inline-block;
     vertical-align: middle;
     margin-top: 131px;
     margin-left: 20px;
-    /* background: url(""); */
+    background: url("../src/img/makepost.gif");
+    background-size: cover;
+  }
+
+  .landing-2-img-2 {
+    width: 400px;
+    height: 300px;
+    /* border: 1px solid red; */
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 131px;
+    margin-left: 20px;
+    background: url("../src/img/makegallery.gif");
+    background-size: cover;
+  }
+
+  .landing-2-img-3 {
+    width: 400px;
+    height: 300px;
+    /* border: 1px solid red; */
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 131px;
+    margin-left: 20px;
+    background: url("../src/img/makelike.gif");
+    background-size: cover;
   }
 
   .landing-2-text-sub {
