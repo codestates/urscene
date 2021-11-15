@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken")
 
 module.exports = async (req, res) => {
 	const authcode = req.body.authorizationCode
-	console.log("code---------------------------------------", authcode)
 	if (!authcode) {
 		res.status(403).json({ message: "Invalid Authorization Code" })
 	} else {
