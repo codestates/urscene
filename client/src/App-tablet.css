@@ -1,0 +1,3400 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* 사파리에서 폰트가 못생겨보임 - 해결못함 */
+  /* font-family: "Noto Sans KR", sans-serif, "Apple SD Gothic Neo",
+    apple sd gothic neo; */
+  height: 100%;
+  margin: 0;
+}
+
+@media only screen and (min-width: 415px) and (max-width: 768px) {
+  /* 태블릿 */
+  .mainNav {
+    height: 104px;
+    background-color: #070e27;
+    width: 100vw;
+    margin-top: 0px;
+    padding: 25px;
+    display: flex;
+  }
+
+  .mainNav-group-logo {
+    float: left;
+    width: 140px;
+    height: 32px;
+    background: url("./img/NavLogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-top: 9px;
+  }
+
+  .form-wrap {
+    /* display: inline-block; */
+    width: 34vw;
+    margin-left: 15px;
+    flex: 1 1 auto;
+    display: flex;
+  }
+
+  #nav-form {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .mainNav-search-wrap {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    background: #f0f0f0;
+    padding: 10px;
+    display: table;
+    table-layout: fixed;
+    position: relative;
+    text-align: left;
+    display: flex;
+  }
+
+  .Lens {
+    background: url("./img/Lens.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .mainNav-search {
+    flex: 1 1 auto;
+    width: 70%;
+    height: 30px;
+    outline: none;
+    font-size: 18px;
+    line-height: 21px;
+    background-color: #f0f0f0;
+    border: none;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .mainNav-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #ededed;
+    border-radius: 50%;
+    padding: 16px;
+    margin-left: 12px;
+    float: right;
+    left: 10px;
+  }
+
+  .mainNav-btn {
+    width: 45px;
+    height: 30px;
+    font-size: 16px;
+    /* font-size: 14px; */
+    line-height: 21px;
+    color: #0059f7;
+    display: inline-block;
+    text-align: center;
+    padding-top: 5px;
+    cursor: pointer;
+  }
+
+  .mainNav-create {
+    background: url("./img/Add.png");
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-size: contain;
+    /* display: inline-block; */
+  }
+
+  .mainNav-my {
+    background: url("./img/User.png");
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-size: contain;
+    /* display: inline-block; */
+  }
+
+  /* loading 로딩 */
+  .loading-wrap {
+    z-index: 999;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(13, 14, 44, 1);
+    display: grid;
+    place-items: center;
+  }
+
+  .loading {
+    width: 100vw;
+    height: 100%;
+  }
+
+  /* ===== mainFooter =====*/
+  .mF-container {
+    background: #0a142f;
+    margin: auto;
+    bottom: 0;
+  }
+
+  .mainFooter {
+    height: 224px;
+    background: #0a142f;
+    border: 1px solid #0a142f;
+  }
+
+  .footer-wrap {
+    height: 91px;
+    width: auto;
+    text-align: left;
+    margin-top: 65px;
+  }
+
+  .mF-footer-logo {
+    float: left;
+    width: 55px;
+    height: 68px;
+    background-color: #0059f7;
+    background: url("./img/footer_logo.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 17vw;
+  }
+
+  .mF-UI-about {
+    float: left;
+    width: 110px;
+    margin-left: 7vw;
+    height: 60px;
+  }
+
+  .mF-UI-title {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    color: #ffffff;
+    margin-bottom: 16px;
+    width: 110px;
+  }
+  .mF-UI-text {
+    font-size: 12px;
+    line-height: 14px;
+    color: #ffffff;
+    font-weight: 900;
+    opacity: 0.7;
+    float: left;
+    margin-right: 20px;
+  }
+
+  .mF-contact {
+    float: left;
+    margin-left: 6vw;
+    width: 150px;
+    height: 90px;
+  }
+
+  .mF-contact-name {
+    float: left;
+    font-size: 12px;
+    line-height: 14px;
+    color: #ffffff;
+    margin-right: 16px;
+    text-decoration: none;
+  }
+
+  .contact-front {
+    width: auto;
+    height: 18px;
+  }
+
+  .contact-back {
+    margin-top: 12px;
+    width: auto;
+    height: 18px;
+  }
+
+  .mf-divider-wrap {
+    width: 90vw;
+    margin: 0 auto 0 auto;
+  }
+
+  .mf-divider {
+    margin-top: 20px;
+    opacity: 0.15;
+    border: 1px solid #ffffff;
+  }
+
+  .mF-footer-title {
+    font-size: 14px;
+    line-height: 16px;
+    color: #ffffff;
+  }
+
+  .mF-footer2 {
+    font-weight: 900;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    color: #ffffff;
+    opacity: 0.75;
+    margin-top: 17px;
+  }
+
+  /* ===== top button 탑 버튼===== */
+  .topbutton {
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    padding: 12px;
+    cursor: pointer;
+  }
+
+  .topbutton > div {
+    width: 30px;
+    height: 30px;
+    background: url("./img/ArrowTop.png");
+    background-size: contain;
+  }
+
+  .backbutton {
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50px;
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+    padding: 12px;
+    cursor: pointer;
+    display: none;
+  }
+
+  .backbutton > div {
+    width: 30px;
+    height: 30px;
+    background: url("./img/ArrowBack.png");
+    background-size: contain;
+    display: none;
+  }
+
+  .genre-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+
+  .genre-img > img:hover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  /* ===== Makepost page 갤러리 만들기===== */
+  .MP-container {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+    padding-bottom: 100px;
+  }
+
+  .MP-wrap {
+    width: 100vw;
+    height: auto;
+    margin: auto;
+    text-align: left;
+    border: 1px solid #070e27;
+  }
+
+  .MP-title {
+    margin-top: 34px;
+    font-size: 32px;
+    line-height: 37px;
+    margin-bottom: 81px;
+    margin-left: 27px;
+  }
+
+  .MP-input-wrap {
+    width: 360px;
+    height: 126px;
+    margin: auto;
+  }
+
+  .MP-sub-title {
+    color: #d4d4d4;
+    font-size: 18px;
+    line-height: 23px;
+  }
+
+  .MP-movie {
+    width: 360px;
+    height: 52px;
+    border: 1px solid #dbe2ea;
+    border-radius: 6px;
+    padding: 10px;
+    color: #7c9cbf;
+    background-color: #fff;
+    display: inline-block;
+    margin-top: 8px;
+    outline: none;
+  }
+
+  .MP-movie > input {
+    width: 270px;
+    height: 28px;
+    outline-style: none;
+    border: none;
+    /* font-size: 16px; */
+    line-height: 21px;
+    display: inline-block;
+  }
+
+  .MP-movie > input::placeholder {
+    color: #7c9cbf;
+  }
+
+  .MP-movie-icondelete {
+    background: url("./img/deleteForSearchText.png");
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: contain;
+    float: right;
+    cursor: pointer;
+  }
+
+  .MP-movie-icon {
+    background: url("./img/Lens.png");
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: contain;
+    float: right;
+    cursor: pointer;
+  }
+
+  /* 드랍다운 */
+  .MP-movie-DropDownContainer {
+    background-color: white;
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: -11px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    margin-top: 8px;
+    padding: 0.5rem 15px;
+    border: 1px solid rgb(223, 225, 229);
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
+    z-index: 3;
+    position: relative;
+    font-size: 16px;
+    line-height: 21px;
+    width: 360px;
+  }
+
+  .MP-movie-DropDownContainer > li {
+    cursor: pointer;
+  }
+
+  .MP-movie-dropdown-hr {
+    border: 1px solid rgb(236, 236, 236);
+    margin-bottom: 3px;
+  }
+
+  #dropdown {
+    text-align: center;
+    margin: 8px;
+    color: rgb(182, 182, 182);
+    font-size: 15px;
+  }
+
+  .MP-movie > select {
+    outline-style: none;
+    border: none;
+    font-size: 16px;
+    line-height: 21px;
+    outline: none;
+    margin-left: 10px;
+  }
+
+  .MP-photo-wrap {
+    width: 360px;
+    height: auto;
+    margin: auto;
+  }
+
+  .MP-photo-label {
+    margin-top: 8px;
+    margin-bottom: 29px;
+    width: 119px;
+    height: 43px;
+    text-align: center;
+    display: inline-block;
+    padding: 0.5em 0.75em;
+    color: #000;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #e4e4e4;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: 5px;
+    padding: 11px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .MP-photo-upload {
+    width: 200px;
+    display: inline-block;
+    margin-left: 15px;
+    color: white;
+    font-size: inherit;
+  }
+
+  .MP-photo-btn {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .MP-photo-show {
+    width: 360px;
+    height: 300px;
+    background: #202846;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    object-fit: contain;
+  }
+
+  .MP-box-wrap {
+    width: 360px;
+    height: 200px;
+    margin: 50px auto;
+  }
+
+  #textarea {
+    width: 360px;
+    height: 150px;
+    border-radius: 6px;
+    padding: 16px;
+    margin-top: 8px;
+    color: #7c9cbf;
+    font-size: 14px;
+    line-height: 21px;
+    outline: none;
+    resize: none;
+  }
+
+  .MP-box-wrap > textarea::placeholder {
+    color: #7c9cbf;
+    font-size: 14px;
+  }
+
+  .MP-btn-wrap {
+    background: #0059f7;
+    border-radius: 8px;
+    width: 189px;
+    height: 56px;
+    margin: auto;
+    text-align: center;
+    margin-top: 38px;
+  }
+
+  .MP-btn-wrap > button {
+    border-radius: 8px;
+    cursor: pointer;
+    width: 189px;
+    height: 56px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    background-color: #0059f7;
+  }
+
+  /* ===== 랜딩페이지 =====*/
+  .landing-main-container {
+    height: 995px;
+    background-color: #000;
+  }
+
+  .landing-main-logo {
+    float: left;
+    width: 158px;
+    height: 32px;
+    background: url("./img/NavLogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .landing-main-img {
+    background: url("./img/Frame129.png");
+    width: 768px;
+    height: 524px;
+  }
+
+  .landing-main-text {
+    position: absolute;
+    color: #fff;
+    font-size: 42px;
+    font-weight: bold;
+    margin: 315px auto;
+    line-height: 65px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 400px;
+  }
+
+  .landing-main-subt-1 {
+    width: 240px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: lighter;
+    line-height: 35px;
+    margin-top: 5px;
+  }
+
+  .landing-main-subt-1 > hr {
+    width: 145px;
+    margin: 7px 0 0;
+    border: 2px solid #0059f7;
+  }
+
+  .landing-main-subt-2 {
+    color: #fff;
+    margin-top: 104px;
+    font-size: 36px;
+    line-height: 52px;
+    margin-bottom: 68px;
+  }
+
+  .landing-arrow {
+    width: 30px;
+    height: 30px;
+    background: url("./img/arrow_down.png");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .landing-2-container {
+    height: 396px;
+    background-color: #070e27;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-left: 52px;
+  }
+
+  .link {
+    text-decoration: none;
+  }
+
+  .go-to-main-wrap {
+    text-align: center;
+    background-color: #070e27;
+    padding-top: 40px;
+  }
+
+  .go-to-main {
+    color: #fff;
+    font-weight: lighter;
+    font-size: 24px;
+    text-decoration: underline;
+    text-underline-position: under;
+    cursor: pointer;
+  }
+
+  .landing-2-text-box {
+    width: 320px;
+    height: 300px;
+    margin-top: 81px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .landing-2-icon-1 {
+    width: 60px;
+    height: 60px;
+    background: url("./img/icon1.png");
+    background-position: center;
+    background-size: contain;
+  }
+  .landing-2-icon-2 {
+    width: 60px;
+    height: 60px;
+    background: url("./img/icon2.png");
+    background-position: center;
+    background-size: contain;
+  }
+  .landing-2-icon-3 {
+    width: 60px;
+    height: 60px;
+    background: url("./img/icon3.png");
+    background-position: center;
+    background-size: contain;
+  }
+
+  .landing-2-text-title {
+    margin-top: 13px;
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 35px;
+    color: white;
+  }
+
+  .landing-2-img-1 {
+    width: 310px;
+    height: 263px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 81px;
+    background: url("../src/img/makepost.gif");
+    background-size: cover;
+  }
+
+  .landing-2-img-2 {
+    width: 310px;
+    height: 263px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 81px;
+    background: url("../src/img/makegallery.gif");
+    background-size: cover;
+  }
+
+  .landing-2-img-3 {
+    width: 310px;
+    height: 263px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 81px;
+    background: url("../src/img/makelike.gif");
+    background-size: cover;
+  }
+
+  .landing-2-text-sub {
+    color: #787e95;
+    text-align-last: left;
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 23px;
+  }
+
+  .landing-start-wrap {
+    height: 340px;
+    background-color: #070e27;
+    padding-top: 40px;
+  }
+
+  .start-box {
+    width: 98vw;
+    height: 255px;
+    background-color: #0059f7;
+    border-radius: 18.6585px;
+  }
+
+  .start-sub {
+    padding-top: 55px;
+    font-size: 15px;
+    line-height: 25px;
+    line-height: 32px;
+    color: #ffffff;
+    opacity: 0.5;
+  }
+
+  .start-title {
+    padding-top: 12px;
+    font-size: 28px;
+    line-height: 31px;
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  .start-btn {
+    margin-top: 24px;
+    width: 131.51px;
+    height: 49.76px;
+    padding: 15px 18px;
+    background: #689eff;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .start-btn-text {
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    line-height: 19px;
+    height: 24px;
+    text-align: center;
+  }
+
+  .start-btn-arrow {
+    display: inline-block;
+    margin-left: 10px;
+    width: 16px;
+    height: 16px;
+    background: url("./img/arrow-left-fill.png");
+    background-position: center;
+    background-size: contain;
+  }
+
+  /* ===== Main 메인페이지 ===== */
+  .main-back {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+  }
+
+  .main-wrap {
+    width: 100vw;
+    height: auto;
+    margin: auto;
+  }
+
+  .main-gallery {
+    width: 96vw;
+    height: auto;
+    margin: 34px auto 0px auto;
+  }
+
+  .main-text {
+    font-size: 30px;
+    text-align: left;
+    margin-bottom: 20px;
+    width: 200px;
+    display: inline-block;
+  }
+
+  .main-gallery-all {
+    float: right;
+    color: white;
+    margin-right: 30px;
+    margin-top: 16px;
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+
+  .main-gallery-wrap {
+    width: 96vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .main-gallery-group {
+    display: flex;
+  }
+
+  .main-gallery-Arrowleft {
+    background: url("./img/ArrowLeft.png");
+    width: 18px;
+    height: 60px;
+    background-position: center;
+    background-size: cover;
+    margin: auto 0px;
+    cursor: pointer;
+  }
+
+  .main-gallery-Arrowright {
+    background: url("./img/ArrowRight.png");
+    width: 18px;
+    height: 60px;
+    background-position: center;
+    background-size: cover;
+    margin: auto 0px;
+    cursor: pointer;
+  }
+
+  .main-gallery-page {
+    width: 96vw;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .main-gallery-numSelect {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: url("./img/SeletedPage.png");
+    background-position: center;
+    background-size: none;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    margin: auto 0px;
+  }
+
+  .main-gallery-numNoSelect {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: url("./img/NoSeletedPage.png");
+    background-position: center;
+    background-size: none;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    margin: auto 0px;
+  }
+
+  .main-genre {
+    width: 96vw;
+    margin: 60px auto 0px auto;
+  }
+
+  .main-text-all {
+    color: white;
+    float: right;
+    margin-right: 30px;
+    margin-top: 16px;
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+
+  .main-genre-category-wrap {
+    height: auto;
+    width: auto;
+    text-align: left;
+  }
+
+  .main-genre-name-wrap {
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .main-genre-name-wrap::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-genre-name {
+    display: inline-block;
+    min-width: 70px;
+    flex: 0 0 auto;
+    height: 40px;
+    line-height: 44px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 0px 15px;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #070e27;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .main-genre-name:hover {
+    background-color: #0059f7;
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  /* 선택된 것만 색 변경 */
+  .main-genre-name-selected {
+    display: inline-block;
+    min-width: 70px;
+    flex: 0 0 auto;
+    height: 40px;
+    line-height: 44px;
+    margin-right: 10px;
+    padding: 0px 15px;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #070e27;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #0059f7;
+    color: #fff;
+    text-align: center;
+  }
+
+  .main-genre-img-wrap {
+    margin-top: 15px;
+    padding-bottom: 0px;
+    width: 96vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    cursor: pointer;
+  }
+
+  .main-genre-img-addText {
+    width: 43px;
+    height: 19px;
+    margin: 0 auto 0 auto;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #f4f4f4;
+    cursor: pointer;
+  }
+
+  .addtext-wrap {
+    padding-bottom: 20px;
+  }
+
+  .main-genre-img-addImage {
+    width: 30px;
+    height: 30px;
+    margin: -6px auto 0 auto;
+    background: url("./img/Chevron\ Bottom.png");
+    background-position: center;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  .main-genre-img-noadd {
+    width: 200px;
+    height: 50px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+  }
+
+  /* 인기 갤러리 BestGallery, 장르별 장면 시작*/
+  .BG-container {
+    width: 28vw;
+    height: auto;
+    border: 0.972265px solid #344583;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    padding: 11px;
+    margin: 0px 0px 30px 0px;
+  }
+
+  .BG-container:hover {
+    box-shadow: 0 2px 3px rgba(44, 46, 148, 0.808);
+  }
+
+  .BG-title {
+    font-size: 18px;
+    line-height: 21px;
+    color: #787e95;
+    text-align: left;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    letter-spacing: -1px;
+    height: 20px;
+    width: 22vw;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .BG-img-wrap {
+    width: 24vw;
+    height: 415px;
+    display: flex;
+    /* flex-flow: wrap; */
+    flex-direction: column;
+  }
+
+  .BG-img {
+    width: 24vw;
+    height: 100px;
+    /* border: 0.1px solid gray; */
+    margin: 1px;
+  }
+
+  .BG-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .BG-img-no {
+    width: 100%;
+    height: 100%;
+    background: url("../src/img/noresult.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .genre-img {
+    width: 21.5vw;
+    height: 103px;
+    /* border: 1px solid #344583; */
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .genre-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+
+  .genre-img > img:hover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.8);
+  }
+  /* 인기 갤러리 BestGallery, 장르별 장면 끝*/
+
+  /* Login Page */
+  .login {
+    padding-top: 22px;
+    width: 100vw;
+    height: 900px;
+    left: 0px;
+    background: #070e27;
+  }
+
+  .loginwrap {
+    margin: 0px auto;
+    width: 400px;
+    height: auto;
+    text-align: center;
+  }
+
+  .lin-title {
+    display: inline-block;
+    width: 252px;
+    height: 34px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    /* line-height: 42px; */
+    text-align: center;
+    color: #ffffff;
+  }
+
+  /* Login 페이지 이메일 그룹 */
+  .lin-email {
+    margin-top: 79px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 360px;
+    height: 106px;
+  }
+
+  .lin-email-title {
+    width: 360px;
+    height: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    /* identical to box height */
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .lin-email-input {
+    width: 360px;
+    height: 52px;
+    margin-top: 8px;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    font-size: 16px;
+    line-height: 21px;
+    padding-left: 16px;
+    color: #000000;
+  }
+
+  .lin-email-warning {
+    width: 360px;
+    height: 18px;
+    margin-top: 8px;
+
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #ff7171;
+    text-align: left;
+  }
+
+  /* Login 페이지 비밀번호 그룹 */
+  .lin-password {
+    width: 360px;
+    height: 106px;
+    margin-top: 36px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lin-password-title {
+    width: 360px;
+    height: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    /* identical to box height */
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .lin-password-input {
+    width: 360px;
+    height: 52px;
+    margin-top: 8px;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+    padding-left: 16px;
+    color: #000000;
+  }
+
+  .lin-password-warning {
+    width: 360px;
+    height: 18px;
+    margin-top: 8px;
+
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #ff7171;
+    text-align: left;
+  }
+
+  .loginErrMsg {
+    color: #ff7171;
+    margin-top: 10px;
+  }
+
+  /* Login page - 로그인 버튼 */
+  #lin-btnLogin {
+    width: 360px;
+    height: 56px;
+    margin-top: 64px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #0059f7;
+    border-radius: 8px;
+    padding: 18px;
+    border: 0px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #ffffff;
+
+    cursor: pointer;
+  }
+
+  .lin-signup {
+    width: 360px;
+    height: 30px;
+    margin: 41px auto 0;
+    padding: 0px auto 36px auto;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration-line: underline;
+    color: #ffffff;
+  }
+
+  .lin-signup-text {
+    width: 58px;
+    height: 24px;
+    cursor: pointer;
+    margin: 0px auto;
+  }
+
+  .lin-experience {
+    width: 400px;
+    height: 60px;
+    margin: 0 auto;
+    padding: 22px;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration-line: underline;
+    color: #ffffff;
+  }
+
+  .lin-experience-text {
+    width: 58px;
+    height: 24px;
+    cursor: pointer;
+    margin: 0px auto;
+  }
+
+  .lin-divider {
+    width: 360px;
+    height: 0px;
+    border: 1px solid #3a456f;
+    margin: 5px auto 0px auto;
+  }
+
+  /* Login page - 소셜 로그인 버튼 */
+  .lin-kakao {
+    width: 360px;
+    height: 52px;
+    background-color: #ffe64d;
+    border-radius: 6px;
+    margin: 32px auto 0px auto;
+    padding: 0px;
+    border-width: 0px;
+    background: url("../src/img/kakao_login_large_wide.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+
+  .lin-google {
+    width: 360px;
+    height: 54px;
+    background: #eeeeee;
+    border-radius: 6px;
+    margin: 16px auto 0px auto;
+    padding: 0px;
+    border-width: 0px;
+    cursor: pointer;
+  }
+
+  .lin-google-logo {
+    float: left;
+    width: 45px;
+    height: 46px;
+    color: black;
+    margin: 4px 0px 4px 4px;
+    background: url("../src/img/btn-google.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .lin-google-text {
+    float: left;
+    width: 108px;
+    height: 23px;
+    margin: 14px 126px 17px 77px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    /* identical to box height */
+    text-align: center;
+    color: #000000;
+  }
+
+  /* signup 페이지 */
+  .signup {
+    width: 100vw;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    left: 0px;
+    top: 104px;
+    background: #070e27;
+    text-align: center;
+  }
+
+  .signupwrap {
+    width: 500px;
+    height: auto;
+    margin: 22px auto;
+  }
+
+  .signup-title {
+    width: 252px;
+    height: 34px;
+    margin: 0px auto;
+    font-size: 32px;
+    line-height: 37px;
+    color: #ffffff;
+  }
+
+  /* signup 페이지 : 이메일 입력 그룹*/
+  .signup-email {
+    width: 360px;
+    height: 106px;
+    margin: 79px auto 0px auto;
+  }
+
+  .signup-email-title {
+    width: 360px;
+    height: 20px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    /* identical to box height */
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .signup-email-input {
+    width: 360px;
+    height: 52px;
+
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+
+    font-size: 16px;
+    line-height: 21px;
+    padding-left: 16px;
+  }
+
+  .signup-email-warning {
+    width: 250px;
+    height: 18px;
+
+    font-size: 14px;
+    line-height: 18px;
+    color: #ff7171;
+    text-align: left;
+  }
+
+  .signup-email-ok {
+    width: 250px;
+    height: 18px;
+
+    font-size: 14px;
+    line-height: 18px;
+    color: #0059f7;
+    text-align: left;
+  }
+
+  .signup-email-check {
+    width: 100px;
+    height: 34px;
+
+    background: #ffffff;
+    border: 1px solid #0880ae;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
+      0px 2px 4px rgba(44, 39, 56, 0.08);
+    border-radius: 3px;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #5a7fa8;
+
+    position: relative;
+    left: 130px;
+    bottom: 44px;
+
+    cursor: pointer;
+  }
+
+  /* signup 페이지 : 비밀번호 입력 그룹*/
+  .signup-password {
+    width: 360px;
+    height: 106px;
+    margin: 65px auto 0px auto;
+  }
+
+  .signup-password-warning {
+    width: 360px;
+    height: 18px;
+
+    font-size: 14px;
+    line-height: 18px;
+    color: #ff7171;
+    text-align: left;
+  }
+
+  /* signup 페이지 : 비밀번호 재입력 그룹*/
+  .signup-repassword {
+    width: 360px;
+    height: 106px;
+    margin: 34px auto 0px auto;
+  }
+
+  /* signup 페이지 : 닉네임 입력 그룹*/
+  .signup-nickname {
+    width: 360px;
+    height: 106px;
+    margin: 52px auto 0px auto;
+  }
+
+  /* signup 페이지 : 이미지 선택*/
+  .signup-image {
+    width: 360px;
+    height: 20px;
+    margin: 40px auto 0px auto;
+    font-size: 20px;
+    line-height: 26px;
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .signup-image-group {
+    width: 360px;
+    height: 98px;
+    margin: 26px auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    padding-top: 14px;
+  }
+
+  .signup-image-group-1 {
+    width: 70px;
+    height: 70px;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  .signup-image-group-1:hover {
+    width: 70px;
+    height: 70px;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    border: 2px solid #0000c5;
+  }
+  .signup-image-group-1-selected {
+    width: 70px;
+    height: 70px;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    border: 3px solid #0000c5;
+  }
+
+  .signup-btn {
+    width: 360px;
+    height: 56px;
+    margin: 44px auto 0px auto;
+    background: #0059f7;
+    border-radius: 8px;
+    border-width: 0px;
+    cursor: pointer;
+  }
+
+  .signup-btn-text {
+    position: relative;
+    width: 67px;
+    height: 24px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+    color: #ffffff;
+    margin: 0px 146px;
+    top: 16px;
+  }
+
+  /* 회원가입 완료 모달 */
+  .singupModal-background {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    place-items: center;
+  }
+
+  .singupModal {
+    width: 300px;
+    height: 313px;
+    margin: 0px auto 0px auto;
+    background: #0059f7;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .suM-image {
+    position: relative;
+    top: 43px;
+    width: 80px;
+    height: 80px;
+    margin: 43px auto 0px auto;
+    background: url("../src/img/Signup-ok.png");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .suM-text {
+    width: 135px;
+    height: 48px;
+    margin: 56px auto 0px auto;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    /* or 120% */
+
+    text-align: center;
+
+    color: #ffffff;
+    word-break: keep-all;
+  }
+
+  .suM-btn {
+    width: 100px;
+    height: 34px;
+    margin: 21px auto 0px auto;
+
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    color: #000000;
+    cursor: pointer;
+  }
+  /* userinfo 페이지 */
+  .userinfo {
+    position: absolute;
+    background: #070e27;
+    width: 100vw;
+    height: auto;
+    padding-bottom: 50px;
+  }
+
+  .userinfowrap {
+    width: 361px;
+    height: auto;
+    margin: 120px auto 50px auto;
+    text-align: center;
+  }
+
+  .ui-title {
+    position: absolute;
+    left: 27px;
+    top: 22px;
+    width: 252px;
+    height: 32px;
+    font-size: 32px;
+    line-height: 37px;
+
+    color: #ffffff;
+    text-align: left;
+  }
+
+  /* userinfo 페이지 : 프로필 사진 바꾸기 */
+  .ui-image {
+    width: 60px;
+    height: 60px;
+    margin: 0px auto 0 auto;
+
+    background: url("../src/img/UserImage-Meg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+  }
+
+  .ui-description {
+    width: 158px;
+    height: 23px;
+    margin: 23px auto 0 auto;
+
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    /* identical to box height */
+
+    color: #0059f7;
+    cursor: pointer;
+  }
+
+  .ui-imagegroup {
+    width: 360px;
+    height: 125px;
+    margin: 43px auto 0 auto;
+  }
+
+  .ui-imagegroup-title {
+    width: 360px;
+    height: 20px;
+    text-align: left;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+
+    color: #d4d4d4;
+  }
+
+  .ui-imagegroup-wrap {
+    width: 360px;
+    height: 88px;
+    margin: 16px auto 0 auto;
+
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    padding-top: 14px;
+  }
+  .ui-imagegroup-wrap-1 {
+    width: 60px;
+    height: 60px;
+    background: url("../src/img/UserImage-Jake.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  .ui-imagegroup-wrap-2 {
+    width: 60px;
+    height: 60px;
+    background: url("../src/img/UserImage-Meg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  .ui-imagegroup-wrap-3 {
+    width: 60px;
+    height: 60px;
+    background: url("../src/img/UserImage-Mili.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  .ui-imagegroup-wrap-4 {
+    width: 60px;
+    height: 60px;
+    background: url("../src/img/UserImage-Steven.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  /* userinfo 페이지 : 닉네임 */
+  .ui-nickname {
+    width: 360px;
+    height: 142px;
+    margin: 24px auto 0 auto;
+  }
+
+  .ui-nickname-title {
+    width: 360px;
+    height: 20px;
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    /* identical to box height */
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .ui-nickname-input {
+    width: 360px;
+    height: 52px;
+    margin: 8px auto 8px auto;
+
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+    color: #000000;
+    padding-left: 16px;
+  }
+
+  .ui-nickname-warning {
+    width: 360px;
+    height: 18px;
+
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #ff7171;
+    text-align: left;
+  }
+
+  .ui-nickname-ok {
+    width: 360px;
+    height: 18px;
+
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #0059f7;
+    text-align: left;
+  }
+
+  .ui-nickname-check {
+    width: 100px;
+    height: 34px;
+
+    background: #ffffff;
+    border: 1px solid #0880ae;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
+      0px 2px 4px rgba(44, 39, 56, 0.08);
+    border-radius: 3px;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #5a7fa8;
+
+    position: relative;
+    bottom: 44px;
+    left: 260px;
+
+    padding-top: 8px;
+  }
+
+  /* userinfo 페이지 : 패스워드 */
+  .ui-password {
+    width: 360px;
+    height: 106px;
+    margin: 34px auto 0 auto;
+  }
+
+  /* userinfo 페이지 : 패스워드 확인 */
+  .ui-repassword {
+    width: 360px;
+    height: 124px;
+    margin: 34px auto 0 auto;
+  }
+
+  .ui-btn {
+    width: 360px;
+    height: 56px;
+    margin: 41px auto 0 auto;
+
+    background: #0059f7;
+    border-radius: 8px;
+    border-width: 0px;
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .ui-logout {
+    width: 59px;
+    height: 24px;
+    margin: 52px auto 0 auto;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    text-decoration-line: underline;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .ui-signout {
+    width: 59px;
+    height: 24px;
+    margin: 24px auto 0 auto;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    text-decoration-line: underline;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  /* 회원 탈퇴 모달*/
+  .singoutModal-background {
+    /* position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000000; */
+
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000000;
+    display: grid;
+    place-items: center;
+  }
+
+  .singoutModal {
+    width: 300px;
+    height: 235px;
+    background: #0059f7;
+    border-radius: 10px;
+    margin: 0px auto 0 auto;
+  }
+
+  .soM-label {
+    position: relative;
+    top: 88px;
+    width: 300px;
+    height: 24px;
+    margin-top: 24px;
+  }
+
+  .soM-label {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .soM-btn {
+    position: relative;
+    top: 88px;
+    width: 300px;
+    height: 34px;
+    margin-top: 24px;
+  }
+
+  .soM-btn-singout {
+    float: left;
+    width: 59px;
+    height: 24px;
+    margin-left: 64px;
+    margin-top: 5px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    text-decoration-line: underline;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .soM-btn-cancel {
+    float: left;
+    width: 100px;
+    height: 34px;
+    margin-left: 34px;
+
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    color: #000000;
+    cursor: pointer;
+  }
+
+  /* Post 페이지 */
+  .post {
+    width: 100vw;
+    height: auto;
+    background-color: #070e27;
+    padding-bottom: 50px;
+  }
+
+  .postwrap {
+    width: 96vw;
+    height: auto;
+    margin: 0px auto 0 auto;
+    padding-top: 34px;
+  }
+
+  .post-title {
+    width: 252px;
+    height: 51px;
+    font-size: 32px;
+    line-height: 37px;
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .post-editgroup {
+    width: 96vw;
+    height: 40px;
+    margin-top: -11px;
+  }
+
+  .post-edit-btn {
+    width: 50px;
+    height: 32px;
+    float: right;
+    margin-top: 5px;
+    background: #ffffff;
+    border: 1px solid #0880ae;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.0001),
+      0px 2px 4px rgba(44, 39, 56, 0.08);
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    color: #5a7fa8;
+  }
+
+  .post-addTogall {
+    float: left;
+    cursor: pointer;
+    margin-top: 20px;
+    color: #5a7fa8;
+    font-size: 18px;
+  }
+
+  .post-add-icon {
+    background: url("./img/bookmark.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+  }
+
+  .post-edit-edit {
+    width: 40px;
+    height: 40px;
+    float: right;
+    background: url("../src/img/pencil.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+  }
+
+  .post-edit-delete {
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin-right: 10px;
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+  }
+
+  .post-image {
+    width: 96vw;
+    height: auto;
+    margin-top: 12px;
+    background: #ffffff;
+    object-fit: fill;
+  }
+
+  .post-label {
+    width: 96vw;
+    height: 40px;
+    margin-top: 18px;
+  }
+
+  .post-label-title {
+    width: auto;
+    height: 33px;
+    margin-top: 7px;
+    float: left;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: flex-end;
+    color: #ffffff;
+  }
+
+  .post-label-like1 {
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin-right: 20px;
+    background: url("../src/img/Heart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+  }
+
+  .post-label-like2 {
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin-right: 20px;
+    background: url("../src/img/FullHeart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+  }
+
+  .post-desc {
+    width: 96vw;
+    height: auto;
+    margin-top: 21px;
+    font-size: 20px;
+    line-height: 28px;
+    color: #ffffff;
+    text-align: left;
+  }
+
+  pre {
+    white-space: pre-wrap; /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+  }
+
+  .post-editdesc {
+    background-color: #070e27;
+    color: white;
+    width: 96vw;
+    height: 200px;
+    margin-top: 21px;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: left;
+    overflow: auto;
+    padding: 14px;
+    border: 1px solid #7c9cbf;
+    border-radius: 6px;
+    resize: none;
+  }
+
+  .post-editdesc:focus {
+    border: none;
+    outline: none;
+    width: 96vw;
+    height: 200px;
+  }
+
+  .post-devider {
+    width: 96vw;
+    height: 0px;
+    border: 1px solid #3a456f;
+    margin-top: 49px;
+  }
+
+  .post-infogroup {
+    width: 500px;
+    height: max-content;
+    margin-top: 12px;
+    cursor: pointer;
+  }
+
+  .post-infogroup-label {
+    width: 80px;
+    height: 25px;
+    margin-left: 12px;
+    margin-top: 4px;
+    font-size: 20px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    float: left;
+  }
+
+  .post-infogroup-plusminus {
+    width: 30px;
+    height: 30px;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .post-infogroup-plus {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Add_fff.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    display: inline-block;
+  }
+
+  .post-infogroup-minus {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Minus.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    display: inline-block;
+  }
+
+  .post-infogroup-wrap {
+    width: auto;
+    height: 100px;
+    margin-top: 13px;
+    margin-left: 14px;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: left;
+  }
+
+  .post-infogroup-title {
+    margin-right: 10px;
+    font-weight: bold;
+    float: left;
+    color: rgb(214, 214, 214);
+  }
+
+  .post-infogroup-list {
+    margin-left: 10px;
+    color: rgb(202, 202, 202);
+  }
+
+  /* <<<<<<< feature/45-landing */
+  /* signup 페이지 : 이미지 선택*/
+  .signup-image {
+    width: 360px;
+    height: 20px;
+    margin: 40px auto 0px auto;
+    font-size: 20px;
+    line-height: 26px;
+    color: #d4d4d4;
+    text-align: left;
+  }
+
+  .post-devider2 {
+    width: 96vw;
+    height: 0px;
+    border: 1px solid #3a456f;
+    margin-top: 12px;
+  }
+
+  .post-writecomment {
+    width: 96vw;
+    height: 70px;
+    margin-top: 26px;
+    display: flex;
+  }
+
+  .post-wc-image {
+    width: 8vw;
+    height: 8vw;
+    margin-left: 2vw;
+    float: left;
+    border-radius: 50%;
+  }
+
+  .post-wc-input {
+    width: 83vw;
+    height: 52px;
+    flex: 1 1 auto;
+    margin: 1px 0 1px 2vw;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    color: #7c9cbf;
+    padding-left: 16px;
+    outline: none;
+    display: inline-block;
+  }
+
+  .post-wc-submit {
+    width: 37px;
+    height: 26px;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+    color: #0059f7;
+    position: relative;
+    bottom: 38px;
+    left: 88vw;
+    cursor: pointer;
+    /* float: right; */
+    padding-bottom: 10px;
+  }
+
+  .post-comments {
+    width: 96vw;
+    height: auto;
+    margin-top: 26px;
+  }
+
+  .post-comment-no {
+    color: #7c9cbf;
+    text-align: center;
+  }
+
+  .post-mycomment {
+    width: 96vw;
+    height: auto;
+    margin-top: 16px;
+    display: flex;
+  }
+
+  .post-mycomment-group1 {
+    width: 40px;
+    height: 55px;
+    float: left;
+    margin-left: 3vw;
+  }
+
+  .post-mycomment-group1-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .post-mycomment-group2 {
+    width: auto;
+    height: auto;
+    float: left;
+    margin-left: 12px;
+  }
+
+  .post-mycomment-group2-nickname {
+    width: auto;
+    height: 23px;
+    margin-top: 0px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    color: #ffffff;
+    text-align: left;
+  }
+
+  .post-mycomment-group2-comment {
+    width: 82vw;
+    height: auto;
+    margin-top: 5px;
+    font-size: 20px;
+    line-height: 23px;
+    color: #ffffff;
+    text-align: left;
+    word-break: break-all;
+  }
+
+  .post-mycomment-group2-delete {
+    width: 35px;
+    height: 35px;
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    /* position: relative;
+    bottom: 22vw;
+    left: 75vw; */
+    float: right;
+    cursor: pointer;
+  }
+
+  /* Gallery 페이지*/
+  .gallery {
+    width: 100vw;
+    min-height: 700px;
+    background: #070e27;
+  }
+
+  .gallerywrap {
+    width: 96vw;
+    height: auto;
+    margin: 0px auto 0px auto;
+    padding-top: 43px;
+    padding-bottom: 43px;
+  }
+
+  .gallery-nickname {
+    width: 360px;
+    height: 17px;
+    font-size: 16px;
+    line-height: 19px;
+    color: #ffffff;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .gallery-group1 {
+    width: 96vw;
+    height: 40px;
+  }
+
+  .gallery-title {
+    width: auto;
+    height: 32px;
+    font-size: 32px;
+    line-height: 37px;
+    color: #ffffff;
+    text-align: left;
+    float: left;
+  }
+
+  .gallery-btn {
+    width: 100px;
+    height: 34px;
+    float: right;
+    margin-right: 24px;
+    background: #0059f7;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .gallery-titleinput {
+    width: 360px;
+    height: 52px;
+    border-radius: 6px;
+    float: left;
+    font-size: 16px;
+    line-height: 21px;
+    background: #070e27;
+    color: #ffffff;
+    border: 1px solid #7c9cbf;
+    padding-left: 14px;
+    padding-top: 4px;
+    margin-bottom: 16px;
+  }
+
+  .gallery-titleinput:focus {
+    outline: none;
+    border: none;
+  }
+
+  .gallery-edit-group {
+    width: 80px;
+    float: right;
+    display: flex;
+  }
+
+  .gallery-edit {
+    width: 40px;
+    height: 40px;
+    /* margin-left: 76px; */
+    /* float: right; */
+    background: url("../src/img/pencil.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-delete {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 22px;
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-group2 {
+    width: 96vw;
+    min-height: 500;
+    margin-top: 12px;
+  }
+
+  .gallery-descinput {
+    width: 96vw;
+    height: 80px;
+    margin-bottom: 30px;
+    padding-top: 16px;
+    padding-left: 16px;
+    font-size: 16px;
+    line-height: 21px;
+    background: #070e27;
+    color: #ffffff;
+    border: 1px solid #7c9cbf;
+    border-radius: 6px;
+    resize: none;
+    font: inherit;
+  }
+
+  .gallery-descinput:focus {
+    outline: none;
+    border: none;
+  }
+
+  .gallery-desc-group {
+    display: flex;
+  }
+  .gallery-desc {
+    width: 410px;
+    min-height: 50px;
+    /* float: left; */
+    font-size: 20px;
+    line-height: 23px;
+    color: #d0d0d0;
+    text-align: left;
+    margin-top: 10px;
+    flex: 1 1 auto;
+  }
+
+  .gallery-likeGroup {
+    float: right;
+    height: 50px;
+    width: 65px;
+    margin-top: 10px;
+  }
+
+  .gallery-unlike {
+    width: 40px;
+    height: 40px;
+    margin-right: 12.5px;
+    float: left;
+    background: url("../src/img/Heart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-like {
+    width: 40px;
+    height: 40px;
+    margin-right: 12.5px;
+    float: left;
+    background: url("../src/img/FullHeart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-like-comment {
+    color: white;
+    font-size: 13px;
+    word-break: keep-all;
+  }
+
+  .gallery-group3 {
+    width: 96vw;
+    height: auto;
+    margin-top: 19px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .gallery-content {
+    width: 30vw;
+    height: 140px;
+    margin: 3px;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .gallery-content-img {
+    width: 100%;
+    height: 140px;
+    background: #ffffff;
+    border-radius: 2px;
+    position: absolute;
+  }
+
+  .gallery-content-delete {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 77%;
+    background: url("../src/img/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: none;
+    cursor: pointer;
+  }
+
+  .gallery-nocontent-wrap {
+    width: 96vw;
+    height: 200px;
+    border: 1px solid #344583;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    margin-top: 100px;
+    padding: 40px;
+  }
+
+  .gallery-nocontent-img {
+    width: 80px;
+    height: 80px;
+    background: url("../src/img/noresult.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 0 auto;
+  }
+
+  .gallery-nocontent-title {
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #c0c0c0;
+    margin: 10px auto 0 auto;
+  }
+
+  /* 갤러리 삭제 모달*/
+  .deleteModal-background {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    place-items: center;
+  }
+
+  .deleteModal {
+    width: 300px;
+    height: 277px;
+    background: #0059f7;
+    border-radius: 10px;
+    margin: 10px auto 0 auto;
+  }
+
+  .delete-img {
+    position: relative;
+    top: 41px;
+    left: 120px;
+    width: 70px;
+    height: 70px;
+    background: url("../src/img/trash.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px;
+  }
+
+  .delete-text {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    color: #ffffff;
+    margin-top: 68px;
+    text-align: center;
+  }
+
+  .delete-btn {
+    width: 300px;
+    height: 34px;
+    margin-top: 20px;
+  }
+
+  .delete-btn-ok {
+    float: left;
+    width: 59px;
+    height: 24px;
+    margin-left: 64px;
+    margin-top: 5px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    text-decoration-line: underline;
+
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .delete-btn-cancel {
+    float: left;
+    width: 100px;
+    height: 34px;
+    margin-left: 34px;
+
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    color: #000000;
+    cursor: pointer;
+  }
+
+  /* ===== Makegallery page ===== */
+  .MG-container {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+  }
+
+  .MG-title {
+    width: 360px;
+    font-size: 18px;
+    line-height: 23px;
+    color: #d5d5d5;
+  }
+
+  .MG-wrap {
+    width: 360px;
+    height: 586px;
+    margin: auto;
+  }
+
+  .MG-name {
+    width: 360px;
+    height: 106px;
+    margin-bottom: 28px;
+  }
+
+  .MG-name > input {
+    width: 360px;
+    height: 52px;
+    outline-style: none;
+    border: none;
+    font-size: 16px;
+    line-height: 21px;
+    display: inline-block;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+    padding: 16px;
+    margin-top: 8px;
+  }
+
+  .MG-name > input::placeholder {
+    color: #7c9cbf;
+    font-size: 14px;
+  }
+
+  .MG-desc {
+    width: 360px;
+    height: 200px;
+    margin-bottom: 28px;
+  }
+
+  .MG-desc > textarea {
+    width: 360px;
+    height: 146px;
+    border-radius: 6px;
+    padding: 16px;
+    font-size: 16px;
+    line-height: 21px;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+
+  .MG-desc > textarea::placeholder {
+    color: #7c9cbf;
+    font-size: 14px;
+  }
+
+  .MG-btn {
+    width: 160px;
+    height: 56px;
+    background: #0059f7;
+    border-radius: 8px;
+    margin: 60px auto;
+  }
+
+  .MG-btn > button {
+    border-radius: 8px;
+    cursor: pointer;
+    width: 160px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    background-color: #0059f7;
+  }
+
+  /* 모든 갤러리 보기 페이지 시작 */
+  .allGallery-back {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+  }
+
+  .allGallery-wrap {
+    width: 100vw;
+    height: auto;
+    margin: auto;
+  }
+
+  .allGallery-gallery {
+    padding-top: 34px;
+    width: 100vw;
+    height: auto;
+  }
+
+  .allGallery-text {
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 28px;
+    width: 250px;
+    display: inline-block;
+    margin-left: 27px;
+  }
+
+  .allGallery-gallery-wrap {
+    width: 96vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0px auto;
+  }
+  /* 모든 갤러리 보기 페이지 끝 */
+
+  /* ResultGallery 컴포넌트 */
+  .RG-container {
+    /* width: 330px; */
+    width: 44vw;
+    height: 240px;
+    border: 0.972265px solid #344583;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    padding: 11px;
+    margin: 0px 10px 30px 0px;
+  }
+
+  .RG-container:hover {
+    box-shadow: 0 2px 3px rgba(44, 46, 148, 0.808);
+  }
+
+  .RG-title {
+    font-size: 18px;
+    line-height: 21px;
+    color: #787e95;
+    text-align: left;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    letter-spacing: -1px;
+    height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .RG-img-wrap {
+    width: 41vw;
+    height: auto;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+  }
+
+  .RG-img {
+    width: 20vw;
+    height: 90px;
+    /* border: 0.1px solid gray; */
+    margin: 1px;
+  }
+
+  .RG-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .RG-img-no {
+    width: 100%;
+    height: 100%;
+    background: url("../src/img/noresult.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  /* 모든 장면 보기 페이지 */
+  .allScene-back {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+  }
+
+  .allScene-wrap {
+    width: 100vw;
+    height: auto;
+    margin: auto;
+  }
+
+  .allScene-genre {
+    width: 100vw;
+    margin-top: 34px;
+  }
+
+  .allScene-text {
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 28px;
+    width: 200px;
+    display: inline-block;
+    margin-left: 27px;
+  }
+
+  .allScene-category-wrap {
+    height: 100%;
+    width: 96vw;
+    text-align: left;
+    margin: 0px auto;
+  }
+
+  .allScene-img-wrap {
+    /* margin-top: 45px; */
+    padding-bottom: 20px;
+    width: 96vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    cursor: pointer;
+  }
+
+  /* ===== Mygallery page 마이갤러리==시작= */
+
+  .my-g-container {
+    background-color: #070e27;
+    width: 100vw;
+    height: auto;
+    color: #fff;
+  }
+
+  .my-g-wrap {
+    width: 96vw;
+    height: auto;
+    margin: auto;
+    text-align: left;
+    padding-bottom: 20px;
+  }
+
+  .my-g-title-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .my-g-title {
+    margin-top: 34px;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+    margin-left: 1vw;
+  }
+
+  .my-g-user-wrap {
+    margin-top: 34px;
+    width: auto;
+    height: 40px;
+    display: flex;
+    justify-content: right;
+  }
+
+  .my-g-account-icon {
+    width: 18px;
+    height: 18px;
+    background: url("./img/account.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 9px;
+    margin-right: 10px;
+  }
+
+  .my-g-account-name {
+    font-size: 16px;
+    line-height: 19px;
+    align-items: center;
+    text-decoration-line: underline;
+    color: #ffffff;
+    float: right;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+
+  .my-g-hr {
+    border: 1px solid #3a456f;
+    width: 96vw;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .my-g-scene-wrap {
+    width: 96vw;
+    margin-bottom: 40px;
+    /* height: 428px; */
+  }
+
+  .my-g-sub-title {
+    font-size: 26px;
+    line-height: 30px;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-left: 1vw;
+  }
+
+  .my-g-add-wrap {
+    width: 110px;
+    height: 30px;
+    float: right;
+    text-align: right;
+  }
+
+  .my-g-add-list-wrap {
+    width: 125px;
+    height: 30px;
+    float: right;
+    text-align: right;
+  }
+
+  .my-g-add-text {
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration-line: underline;
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .my-g-add-icon {
+    width: 25px;
+    height: 25px;
+    background: url("./img/Add_fff.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    float: right;
+    margin-right: 12px;
+  }
+
+  .my-g-like-hr {
+    border: 1px solid #c3c5cc;
+    width: 96vw;
+    margin: 15px 0 15px 0;
+  }
+
+  .my-g-like-add-icon {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Add_fff.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    margin-right: 12px;
+    display: inline-block;
+  }
+
+  .my-g-like-minus-icon {
+    width: 30px;
+    height: 30px;
+    background: url("./img/Minus.png");
+    background-position: center;
+    background-size: contain;
+    color: #fff;
+    margin-right: 12px;
+    display: inline-block;
+  }
+
+  .my-g-like-title {
+    font-size: 26px;
+    line-height: 30px;
+    float: left;
+    cursor: pointer;
+  }
+
+  .my-g-like-no {
+    color: #7c9cbf;
+    margin: 5px;
+  }
+
+  /* 나의 장면들 */
+  .made-scene-wrap {
+    width: 96vw;
+    height: auto;
+    display: flex;
+    /* flex-flow: column wrap; */
+    position: relative;
+    flex-wrap: wrap;
+    /* justify-content: start; */
+  }
+
+  .bookmarker {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  /* <<<<<<< feature/45-landing */
+  .gallery-titleinput:focus {
+    outline: none;
+    border: none;
+  }
+
+  .bookmarker:hover #addTogall {
+    background-color: rgba(33, 32, 37, 0.7);
+    transition: 0.2s;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    text-align: center;
+    line-height: 120px;
+    border-radius: 2px;
+  }
+
+  #addTogall {
+    opacity: 0;
+    text-align: center;
+  }
+
+  /* 좋아한 장면 */
+  .like-scene-wrap {
+    width: 96vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* 좋아한 갤러리 */
+  .like-gallery-container {
+    width: 96vw;
+    height: auto;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    /* padding: 11px; */
+    /* margin: 20px; */
+    display: flex;
+    /* justify-content: start; */
+    flex-wrap: wrap;
+  }
+
+  .like-gallery-item {
+    width: auto;
+    height: auto;
+    border: 0.972265px solid #344583;
+    box-sizing: border-box;
+    border-radius: 4.86133px;
+    padding: 11px;
+    margin-top: 20px;
+    margin-right: 25px;
+  }
+
+  .no-results-text {
+    font-size: 18px;
+    line-height: 22px;
+    color: #c0c0c0;
+  }
+  /* ===== Mygallery page 마이갤러리==끝= */
+
+  /* ===== search page 시작 ===== */
+  .search-container {
+    background-color: #070e27;
+  }
+
+  .search-devider {
+    display: none;
+  }
+
+  .search-wrap {
+    margin-top: 34px;
+    width: 96vw;
+    height: auto;
+    color: #fff;
+    margin-bottom: 100px;
+  }
+
+  .search-results {
+    /* font-weight: bold; */
+    font-size: 30px;
+    line-height: 37px;
+    text-align: left;
+    margin-bottom: 38px;
+  }
+
+  .results-text {
+    font-size: 26px;
+    line-height: 30px;
+    text-align: left;
+    margin-bottom: 23px;
+    margin-top: 50px;
+  }
+
+  /* ResultScene 검색결과 장면 */
+  .result-scene-wrap {
+    width: 96vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: start; */
+  }
+
+  .result-scene-img {
+    width: 22vw;
+    height: 122px;
+    border-radius: 5px;
+    /* border: 1px solid #344583; */
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    margin-right: 9px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .result-scene-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  /* 검색결과 없는 경우 컴포넌트 */
+  .no-results-wrap {
+    width: 96vw;
+    height: 160px;
+    border: 1px solid #344583;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+
+  .no-results-icon {
+    background: url("./img/noresult.png");
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-size: contain;
+    margin: 20px;
+  }
+
+  .no-results-text {
+    font-size: 18px;
+    line-height: 22px;
+    color: #c0c0c0;
+  }
+
+  /* ResultGallery 검색결과 장면 */
+  .result-gallery-wrap {
+    width: 96vw;
+    height: auto;
+    display: flex;
+    flex-flow: wrap;
+
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  /* ===== search page 끝 ===== */
+
+  /* ===== 장면 갤러리에 담기 모달 ==시작== */
+  .addModal-background {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: grid;
+    place-items: center;
+  }
+
+  .addModal {
+    width: 500px;
+    height: auto;
+    background: #0059f7;
+    border-radius: 10px;
+    margin: 0px auto 0 auto;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+  }
+
+  .add-text {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 40px;
+    color: #ffffff;
+    margin: 40px auto 0 auto;
+  }
+
+  .add-btn {
+    width: 300px;
+    height: 34px;
+    margin-top: 30px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .add-btn-ok {
+    float: left;
+    width: 59px;
+    height: 24px;
+    margin-left: 64px;
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .add-btn-cancel {
+    float: left;
+    width: 100px;
+    height: 34px;
+    margin-left: 34px;
+    background: #ffffff;
+    border-radius: 8px;
+    border-width: 0px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+  }
+
+  .addModal-input {
+    width: 300px;
+    height: 40px;
+    outline-style: none;
+    border: none;
+    line-height: 21px;
+    display: inline-block;
+    margin-top: 20px;
+    padding-left: 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .addModal-input::placeholder {
+    color: #000;
+    font-size: 18px;
+    /* text-align: center; */
+  }
+
+  .addModal-input-drop {
+    width: 300px;
+    height: 40px;
+    outline-style: none;
+    border: none;
+    line-height: 21px;
+    display: inline-block;
+    margin-top: 20px;
+    padding-left: 16px;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+  }
+
+  .addModal-Drop {
+    width: 300px;
+    /* float: none; */
+    background-color: white;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0.5rem 15px;
+    border: 1px solid rgb(223, 225, 229);
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 4px 6px rgb(32 33 36 / 28%);
+    z-index: 3;
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  .addModal-Drop > li {
+    color: #344583;
+    cursor: pointer;
+    margin-top: 3px;
+    padding: 5px;
+  }
+
+  .addModal-hr {
+    border: 1px solid rgb(223, 225, 229);
+    margin-top: 5px;
+  }
+
+  .addModal-err {
+    margin: 10px 0px;
+  }
+  /* ===== 장면 갤러리에 담기 모달 ==끝== */
+}
