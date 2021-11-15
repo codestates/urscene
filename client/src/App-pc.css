@@ -1788,6 +1788,7 @@ body {
     margin-bottom: 20px;
     margin-right: 20px;
     position: relative;
+    cursor: pointer;
   }
 
   .result-scene-img > img {
