@@ -49,7 +49,7 @@ function Landing() {
             생각을 공유해 보세요.
           </div>
         </div>
-        <div className="landing-2-img">시연영상 들어갈 예정</div>
+        <div className="landing-2-img-1"></div>
       </div>
       <div className="landing-2-container">
         <div className="landing-2-text-box">
@@ -65,7 +65,7 @@ function Landing() {
             개성넘치는 갤러리를 만들어 보세요.
           </div>
         </div>
-        <div className="landing-2-img">시연영상 들어갈 예정</div>
+        <div className="landing-2-img-2"></div>
       </div>
       <div className="landing-2-container">
         <div className="landing-2-text-box">
@@ -81,7 +81,7 @@ function Landing() {
             인기 갤러리에 도전해 보세요.
           </div>
         </div>
-        <div className="landing-2-img">시연영상 들어갈 예정</div>
+        <div className="landing-2-img-3"></div>
       </div>
       <center>
         <div className="landing-start-wrap">
