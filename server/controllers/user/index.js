@@ -6,4 +6,4 @@ module.exports = {
 	getLikedGallery: require("./getLikedGallery"),
 	mysinglepost: require("./mysinglepost"),
 	myGallery: require("./myGallery"),
-}
+};

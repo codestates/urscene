@@ -6,4 +6,4 @@ module.exports = {
 	singlepost: require("./postLike"),
 	singlelike: require("./deleteLike"),
 	getLike: require("./getLike"),
-}
+};
