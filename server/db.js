@@ -1,6 +1,6 @@
-const Sequelize = require("sequelize")
-const Op = Sequelize.Op
-const { User, Description, Gallerypost, Singlepost, Singlepost_gallerypost, Like } = require("./models")
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
+const { User, Description, Gallerypost, Singlepost, Singlepost_gallerypost, Like } = require("./models");
 
 module.exports = {
 	getUserById: async (id) => await User.findOne({ where: { id } }),
@@ -70,12 +70,12 @@ module.exports = {
 		}),
 	addDescription: (data) => {
 		return new Promise((res, rej) => {
-			let count = 0
+			let count = 0;
 			data.forEach(async (el) => {
-				await Description.create(el)
-				count++
-				if (count === data.length) res("ok")
-			})
-		})
+				await Description.create(el);
+				count++;
+				if (count === data.length) res("ok");
+			});
+		});
 	},
-}
+};
