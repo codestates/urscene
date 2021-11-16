@@ -1,6 +1,5 @@
 # 너의 장면은
 <img width="240" alt="LOG2" src="https://user-images.githubusercontent.com/79240270/138110759-a56dc90f-9d75-4134-b6d5-ced86428d328.png">
-<img width="240" alt="LOGO" src="https://user-images.githubusercontent.com/79240270/138110424-75cd4b70-594e-4c76-b2ef-ba8995c5919c.png">
 
 ## 1. 프로젝트 개요
 ### 서로 다른 장면으로 공감하는 하나의 영화
