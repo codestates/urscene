@@ -41,6 +41,6 @@ https://urscene.de
 | [이상헌(팀장)](https://github.com/LeeSangHeon86) |Front-end|
 | [강석호](https://github.com/kangseokho) |Back-end|
 | [손연주](https://github.com/usreon) |Back-end|
-| [임송하](https://github.com/dddttt000) |Front-end|
+| [임송하](https://github.com/dddtttt000) |Front-end|
 
 
