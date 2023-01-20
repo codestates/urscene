@@ -15,8 +15,7 @@
 <br>
 
 ## 배포 링크
-https://urscene.link
-
+https://www.urscene.link/
 
 
 
